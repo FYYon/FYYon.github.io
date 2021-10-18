@@ -26,10 +26,14 @@
 .hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
-.hljs-params,
+/* .hljs-params, */
 .hljs-meta,
 .hljs-link {
   color: #aa5d00;
+}
+
+.hljs-params {
+  color: #dab878;
 }
 
 /* Yellow */
@@ -51,8 +55,12 @@
   color: #007faa;
 }
 
+.hljs-keyword {
+  color: #b872cf;
+}
+
 /* Purple */
-.hljs-keyword,
+/* .hljs-keyword, */
 .hljs-selector-tag {
   color: #7928a1;
 }

@@ -4,25 +4,54 @@
   
     
     <entry>
-      <title>java中的ConcurrentHashMap</title>
-      <link href="/2021/09/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo/Dubbo%E5%8E%9F%E7%90%86/"/>
-      <url>/2021/09/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo/Dubbo%E5%8E%9F%E7%90%86/</url>
+      <title>RPC基本知识点</title>
+      <link href="/2021/09/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RPC/RPC%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+      <url>/2021/09/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RPC/RPC%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
-        <content type="html"><![CDATA[<h3 id="dubbo"><a href="#dubbo" class="headerlink" title="dubbo"></a>dubbo</h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="分布式时主机间的通信方式"><a href="#分布式时主机间的通信方式" class="headerlink" title="分布式时主机间的通信方式"></a>分布式时主机间的通信方式</h3><h4 id="ensp-ensp-TCP、UDP"><a href="#ensp-ensp-TCP、UDP" class="headerlink" title="&ensp;&ensp;TCP、UDP"></a>&ensp;&ensp;TCP、UDP</h4><p>&ensp;&ensp;最基本的通信方式。二进制传输，其他所有通信方式，<strong>都是建立</strong>在TCP或UDP之上。</p><h4 id="ensp-ensp-RPC，Remote-Procedure-Call"><a href="#ensp-ensp-RPC，Remote-Procedure-Call" class="headerlink" title="&ensp;&ensp;RPC，Remote Procedure Call"></a>&ensp;&ensp;RPC，Remote Procedure Call</h4><p>&ensp;&ensp;PRC为远程方法调用。RPC本身是一个<strong>概念</strong>。重点是方法的调用，没有对象概念。  </p><h4 id="ensp-ensp-Web-Service"><a href="#ensp-ensp-Web-Service" class="headerlink" title="&ensp;&ensp;Web Service"></a>&ensp;&ensp;Web Service</h4><p>&ensp;&ensp;基于Http + Xml的通信方式。</p><h4 id="ensp-ensp-REST，Representational-State-Transfer"><a href="#ensp-ensp-REST，Representational-State-Transfer" class="headerlink" title="&ensp;&ensp;REST，Representational State Transfer"></a>&ensp;&ensp;REST，Representational State Transfer</h4><p>&ensp;&ensp;基于Http + JSON的通信方式。</p><h4 id="ensp-ensp-JMS，Java-Message-Service"><a href="#ensp-ensp-JMS，Java-Message-Service" class="headerlink" title="&ensp;&ensp;JMS，Java Message Service"></a>&ensp;&ensp;JMS，Java Message Service</h4><p>&ensp;&ensp;Java消息服务。将对象在物理意义上传输，相当于将对象，从客户端传输到服务器。</p><h4 id="ensp-ensp-RMI，Remote-Method-Invocation"><a href="#ensp-ensp-RMI，Remote-Method-Invocation" class="headerlink" title="&ensp;&ensp;RMI，Remote Method Invocation"></a>&ensp;&ensp;RMI，Remote Method Invocation</h4><p>&ensp;&ensp;不能跨语言的Java远程方法调用。RMI也是一种RPC的实现方式。</p><h3 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h3><p>rpc是一种概念、技术思想，有多种实现方式。RPC也可以通过HTTP实现 / http是RPC的一种实现方式。<br>RPC是一种概念、技术思想，怎么实现这个概念。有哪些方式可以实现这个概念。  </p><h4 id="ensp-ensp-Dubbo中的RPC"><a href="#ensp-ensp-Dubbo中的RPC" class="headerlink" title="&ensp;&ensp;Dubbo中的RPC"></a>&ensp;&ensp;Dubbo中的RPC</h4><h4 id="ensp-ensp-gRPC中的RPC"><a href="#ensp-ensp-gRPC中的RPC" class="headerlink" title="&ensp;&ensp;gRPC中的RPC"></a>&ensp;&ensp;gRPC中的RPC</h4><h3 id="RPC的核心"><a href="#RPC的核心" class="headerlink" title="RPC的核心"></a>RPC的核心</h3><h4 id="ensp-ensp-ensp-ensp-服务暴露和服务发现"><a href="#ensp-ensp-ensp-ensp-服务暴露和服务发现" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;服务暴露和服务发现"></a>&ensp;&ensp;&ensp;&ensp;服务暴露和服务发现</h4><h4 id="ensp-ensp-ensp-ensp-序列化和反序列化"><a href="#ensp-ensp-ensp-ensp-序列化和反序列化" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;序列化和反序列化"></a>&ensp;&ensp;&ensp;&ensp;序列化和反序列化</h4><h4 id="ensp-ensp-ensp-ensp-网络传输"><a href="#ensp-ensp-ensp-ensp-网络传输" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;网络传输"></a>&ensp;&ensp;&ensp;&ensp;网络传输</h4><h3 id="实现了RPC的主流框架"><a href="#实现了RPC的主流框架" class="headerlink" title="实现了RPC的主流框架"></a>实现了RPC的主流框架</h3>]]></content>
       
       
       <categories>
           
-          <category> dubbo </category>
+          <category> RPC </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> 通信方式 </tag>
+            
             <tag> RPC </tag>
             
-            <tag> Netty </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Dubbo框架和RPC工作原理</title>
+      <link href="/2021/09/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RPC/Dubbo/Dubbo%E6%A1%86%E6%9E%B6/"/>
+      <url>/2021/09/20/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RPC/Dubbo/Dubbo%E6%A1%86%E6%9E%B6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Dubbo框架"><a href="#Dubbo框架" class="headerlink" title="Dubbo框架"></a>Dubbo框架</h3><p>&ensp;&ensp;dubbo是一个微服务开发框架，提供<strong>RPC远程调用</strong>和<strong>微服务治理</strong>两个核心能力。  </p><h4 id="ensp-ensp-Dubbo基本架构"><a href="#ensp-ensp-Dubbo基本架构" class="headerlink" title="&ensp;&ensp;Dubbo基本架构"></a>&ensp;&ensp;Dubbo基本架构</h4><p><img src="/assets/posts_jpg/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo/Dubbo%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84.png" alt="dubbo基本架构"><br>&ensp;&ensp;Provider就是服务的提供方。Container服务运行容器，如果是Spring中整合Dubbo，也就是Spring容器。Consumer调用远程服务的消费方。Registry提供服务注册、发现的注册中心。Monitor监控中心。</p><h4 id="ensp-ensp-Dubbo-3-0新特性"><a href="#ensp-ensp-Dubbo-3-0新特性" class="headerlink" title="&ensp;&ensp;Dubbo 3.0新特性"></a>&ensp;&ensp;Dubbo 3.0新特性</h4><h4 id="ensp-ensp-ensp-ensp-Triple通信协议"><a href="#ensp-ensp-ensp-ensp-Triple通信协议" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Triple通信协议"></a>&ensp;&ensp;&ensp;&ensp;Triple通信协议</h4><h4 id="ensp-ensp-ensp-ensp-云原生"><a href="#ensp-ensp-ensp-ensp-云原生" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;云原生"></a>&ensp;&ensp;&ensp;&ensp;云原生</h4><h3 id="Dubbo的RPC通信"><a href="#Dubbo的RPC通信" class="headerlink" title="Dubbo的RPC通信"></a>Dubbo的RPC通信</h3><p>&ensp;&ensp;RPC本身是一种<strong>远程通信的技术思想</strong>。可以通过多种方式实现，RMI和Netty都可以实现RPC。Dubbo默认的通信协议：Dubbo协议，就是基于netty的。</p><h4 id="ensp-ensp-Dubbo中RPC工作原理"><a href="#ensp-ensp-Dubbo中RPC工作原理" class="headerlink" title="&ensp;&ensp;Dubbo中RPC工作原理"></a>&ensp;&ensp;Dubbo中RPC工作原理</h4><p><img src="/assets/posts_jpg/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/Dubbo/Dubbo%E4%B8%AD%E7%9A%84RPC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" alt="Dubbo的RPC工作原理"><br>&ensp;&ensp;Dubbo中RPC的流程大致为，客户端调用接口，stub存根将调用的接口名，参数列表，class对象类名等信息，通过socket传送给服务器端，服务器端通过收到的接口名，参数列表，类名等信息，反射执行服务器端上的方法，将结果通过socket传送回客户端。<br>&ensp;&ensp;在Dubbo中，通过动态代理，在代理对象调用接口时，将数据发送给服务器端并接收结果。</p><h4 id="ensp-ensp-Dubbo支持的序列化协议"><a href="#ensp-ensp-Dubbo支持的序列化协议" class="headerlink" title="&ensp;&ensp;Dubbo支持的序列化协议"></a>&ensp;&ensp;Dubbo支持的序列化协议</h4><h4 id="ensp-ensp-ensp-ensp-java-io-Serializable"><a href="#ensp-ensp-ensp-ensp-java-io-Serializable" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;java.io.Serializable"></a>&ensp;&ensp;&ensp;&ensp;java.io.Serializable</h4><h4 id="ensp-ensp-ensp-ensp-Hession"><a href="#ensp-ensp-ensp-ensp-Hession" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Hession"></a>&ensp;&ensp;&ensp;&ensp;Hession</h4><h4 id="ensp-ensp-ensp-ensp-Kyro、FST"><a href="#ensp-ensp-ensp-ensp-Kyro、FST" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Kyro、FST"></a>&ensp;&ensp;&ensp;&ensp;Kyro、FST</h4><h4 id="ensp-ensp-ensp-ensp-Thrift"><a href="#ensp-ensp-ensp-ensp-Thrift" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Thrift"></a>&ensp;&ensp;&ensp;&ensp;Thrift</h4><h4 id="ensp-ensp-ensp-ensp-Protobuf"><a href="#ensp-ensp-ensp-ensp-Protobuf" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Protobuf"></a>&ensp;&ensp;&ensp;&ensp;Protobuf</h4><h4 id="ensp-ensp-Dubbo支持的RPC通信协议"><a href="#ensp-ensp-Dubbo支持的RPC通信协议" class="headerlink" title="&ensp;&ensp;Dubbo支持的RPC通信协议"></a>&ensp;&ensp;Dubbo支持的RPC通信协议</h4><p>&ensp;&ensp;协议是RPC的核心，它规范了数据在网络中的传输<strong>内容</strong>和<strong>格式</strong>。Dubbo支持的通信协议，主要分为两种，基于TCP的、基于Http的。</p><h4 id="ensp-ensp-ensp-ensp-Triple"><a href="#ensp-ensp-ensp-ensp-Triple" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Triple"></a>&ensp;&ensp;&ensp;&ensp;Triple</h4><p>&ensp;&ensp;&ensp;&ensp;</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Dubbo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Dubbo </tag>
+            
+            <tag> 序列化协议 </tag>
+            
+            <tag> RPC协议 </tag>
             
         </tags>
       
@@ -64,7 +93,7 @@
       <link href="/2021/08/25/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Mybatis/Mybatis-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
       <url>/2021/08/25/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Mybatis/Mybatis-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
-        <content type="html"><![CDATA[<h3 id="jdbc的步骤"><a href="#jdbc的步骤" class="headerlink" title="jdbc的步骤"></a>jdbc的步骤</h3><h3 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h3><h3 id="和-的区别"><a href="#和-的区别" class="headerlink" title="#{}和${}的区别"></a>#{}和${}的区别</h3><h3 id="Mapper的工作原理"><a href="#Mapper的工作原理" class="headerlink" title="Mapper的工作原理"></a>Mapper的工作原理</h3><h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><h3 id="动态sql原理"><a href="#动态sql原理" class="headerlink" title="动态sql原理"></a>动态sql原理</h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="sql预编译"><a href="#sql预编译" class="headerlink" title="sql预编译"></a>sql预编译</h3><p>&ensp;&ensp;数据库执行sql语句时，需要词法分析，语法分析，优化器优化等行为。而某些场景sql语句使用时，除了<strong>值</strong>不同，表、字段等都是重复的。因此可以使该sql<strong>一次编译，反复执行</strong>，在其他不变的情况下，只修改值的变化。<br>&ensp;&ensp;通过sql预编译，将值用<strong>占位符</strong>替代，将sql语句<strong>模板化</strong>，从而达到sql语句的一次编译，变更值的多次运行，而后注入的参数也不需要进行编译。多次使用时不再需要编译，省去了分析，优化阶段。<br>&ensp;&ensp;使用预编译，可以提高执行效率。也能够防止<strong>sql注入</strong>，后注入的参数，不会被当作sql语句，而是当作参数值。因此可以防止破坏数据库的语作注入。s</p><h3 id="和-的区别"><a href="#和-的区别" class="headerlink" title="#{}和${}的区别"></a>#{}和${}的区别</h3><p>&ensp;&ensp;${} 不会对参数进行特殊处理。#{} 会把参数当成字符串处理。当包含表名、字段名这种参数时，两种方法的区别比较明显：<br>&ensp;&ensp;&ensp;&ensp;select * from #{table} 相当于 select * from ‘table’<br>&ensp;&ensp;&ensp;&ensp;select * from ${table} 相当于 select * from table<br>&ensp;&ensp;${}是字符串替换。#{}是预编译处理。#{}可以防止sql注入，安全性更高。</p><h3 id="动态sql原理"><a href="#动态sql原理" class="headerlink" title="动态sql原理"></a>动态sql原理</h3>]]></content>
       
       
       <categories>
@@ -76,11 +105,11 @@
       
         <tags>
             
-            <tag> 事务 </tag>
-            
             <tag> Mybatis </tag>
             
-            <tag> jdbc </tag>
+            <tag> 预编译 </tag>
+            
+            <tag> 动态sql </tag>
             
         </tags>
       
@@ -122,7 +151,7 @@
       <link href="/2021/07/14/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/Tcp%E5%8D%8F%E8%AE%AE/"/>
       <url>/2021/07/14/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/Tcp%E5%8D%8F%E8%AE%AE/</url>
       
-        <content type="html"><![CDATA[<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="TC"><a href="#TC" class="headerlink" title="TC"></a>TC</h3>]]></content>
       
       
       <categories>
@@ -137,6 +166,31 @@
             <tag> TCP </tag>
             
             <tag> 三次握手 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>WebService 协议</title>
+      <link href="/2021/07/14/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/WebService%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/07/14/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/WebService%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Tcp/Ip </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WebService </tag>
             
         </tags>
       
@@ -176,7 +230,7 @@
       <link href="/2021/07/07/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring/Springboot-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
       <url>/2021/07/07/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring/Springboot-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
-        <content type="html"><![CDATA[<h3 id="Spring-Boot、Spring-MVC-和-Spring-有什么区别"><a href="#Spring-Boot、Spring-MVC-和-Spring-有什么区别" class="headerlink" title="Spring Boot、Spring MVC 和 Spring 有什么区别"></a>Spring Boot、Spring MVC 和 Spring 有什么区别</h3><h3 id="Springboot-有哪些优点"><a href="#Springboot-有哪些优点" class="headerlink" title="Springboot 有哪些优点"></a>Springboot 有哪些优点</h3><h3 id="约定优于配置"><a href="#约定优于配置" class="headerlink" title="约定优于配置"></a>约定优于配置</h3><h3 id="Spring-Boot-的核心注解是哪个-主要由哪几个注解组成的"><a href="#Spring-Boot-的核心注解是哪个-主要由哪几个注解组成的" class="headerlink" title="Spring Boot 的核心注解是哪个,主要由哪几个注解组成的"></a>Spring Boot 的核心注解是哪个,主要由哪几个注解组成的</h3><h3 id="Spring-Boot-自动配置"><a href="#Spring-Boot-自动配置" class="headerlink" title="Spring Boot 自动配置"></a>Spring Boot 自动配置</h3><h3 id="Spring-Boot-Starter-的工作原理"><a href="#Spring-Boot-Starter-的工作原理" class="headerlink" title="Spring Boot Starter 的工作原理"></a>Spring Boot Starter 的工作原理</h3><h3 id="springboot-启动原理"><a href="#springboot-启动原理" class="headerlink" title="springboot 启动原理"></a>springboot 启动原理</h3><h3 id="springboot-原理"><a href="#springboot-原理" class="headerlink" title="springboot 原理"></a>springboot 原理</h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="Spring-Boot、Spring-MVC-和-Spring-有什么区"><a href="#Spring-Boot、Spring-MVC-和-Spring-有什么区" class="headerlink" title="Spring Boot、Spring MVC 和 Spring 有什么区"></a>Spring Boot、Spring MVC 和 Spring 有什么区</h3><h3 id="Springboot-有哪些优点"><a href="#Springboot-有哪些优点" class="headerlink" title="Springboot 有哪些优点"></a>Springboot 有哪些优点</h3><h3 id="约定优于配置"><a href="#约定优于配置" class="headerlink" title="约定优于配置"></a>约定优于配置</h3><h3 id="Spring-Boot-的核心注解是哪个-主要由哪几个注解组成的"><a href="#Spring-Boot-的核心注解是哪个-主要由哪几个注解组成的" class="headerlink" title="Spring Boot 的核心注解是哪个,主要由哪几个注解组成的"></a>Spring Boot 的核心注解是哪个,主要由哪几个注解组成的</h3><h3 id="Spring-Boot-自动配置"><a href="#Spring-Boot-自动配置" class="headerlink" title="Spring Boot 自动配置"></a>Spring Boot 自动配置</h3><h3 id="Spring-Boot-Starter-的工作原理"><a href="#Spring-Boot-Starter-的工作原理" class="headerlink" title="Spring Boot Starter 的工作原理"></a>Spring Boot Starter 的工作原理</h3><h3 id="springboot-启动原理"><a href="#springboot-启动原理" class="headerlink" title="springboot 启动原理"></a>springboot 启动原理</h3><h3 id="springboot-原理"><a href="#springboot-原理" class="headerlink" title="springboot 原理"></a>springboot 原理</h3>]]></content>
       
       
       <categories>
@@ -282,6 +336,35 @@
             <tag> bean的生命周期 </tag>
             
             <tag> 三级缓存 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从源码中了解Spring的bean的生命周期</title>
+      <link href="/2021/06/24/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring/Spring-bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+      <url>/2021/06/24/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring/Spring-bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> java开发框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+            <tag> Ioc </tag>
+            
+            <tag> bean的生命周期 </tag>
             
         </tags>
       
@@ -543,38 +626,11 @@
     
     
     <entry>
-      <title>java中的ConcurrentHashMap</title>
-      <link href="/2021/05/25/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88-ConcurrentHashMap/"/>
-      <url>/2021/05/25/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88-ConcurrentHashMap/</url>
+      <title>java中的HashMap和ConcurrentHashMap</title>
+      <link href="/2021/05/25/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88-HashMap%E5%92%8CConcurrentHashMap/"/>
+      <url>/2021/05/25/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88-HashMap%E5%92%8CConcurrentHashMap/</url>
       
-        <content type="html"><![CDATA[<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CAS </tag>
-            
-            <tag> 集合 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>java中的集合</title>
-      <link href="/2021/05/22/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88/"/>
-      <url>/2021/05/22/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88/</url>
-      
-        <content type="html"><![CDATA[<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3><h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><h4 id="ensp-ensp-treeifyBin"><a href="#ensp-ensp-treeifyBin" class="headerlink" title="&ensp;&ensp;treeifyBin"></a>&ensp;&ensp;treeifyBin</h4><p>&ensp;&ensp;当数组中的某一条Node单向链上的节点数大于等于<strong>TREEIFY_THRESHOLD</strong>时，会执行treeifyBin()方法。</p><pre><code class="java">final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) &#123;    int n, index; Node&lt;K,V&gt; e;    // 扩容    if (tab == null || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)        resize();    else if ((e = tab[index = (n - 1) &amp; hash]) != null) &#123;        TreeNode&lt;K,V&gt; hd = null, tl = null;        // 将Node单向链替换成TreeNode双向链        do &#123;            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, null);            if (tl == null)                hd = p;            else &#123;                p.prev = tl;                tl.next = p;            &#125;            tl = p;        &#125; while ((e = e.next) != null);        // 将Node单向链头节点替换成TreeNode双向链头节点        if ((tab[index] = hd) != null)            hd.treeify(tab);    &#125;&#125;</code></pre><p>&ensp;&ensp;如果数组长度，大于等于<strong>MIN_TREEIFY_CAPACITY</strong>，就将该单向链，优化成红黑树。首先先将Node单向链，转换为TreeNode双向链，再转为红黑树。  </p><h4 id="ensp-ensp-treeify"><a href="#ensp-ensp-treeify" class="headerlink" title="&ensp;&ensp;treeify"></a>&ensp;&ensp;treeify</h4><p>&ensp;&ensp;TreeNode类中的treeify方法，将TreeNode双向链转为树结构。TreeNode类中，有next，prev字段，来保存双向链结构。有parent，left，right字段，保存红黑树结构。双向链结构节点顺序的改变<strong>不影响</strong>树结构节点之间关系。在resize()扩容时，TreeNode节点是通过<strong>双向链结构</strong>，更新节点的位置。  </p><pre><code class="java">final void treeify(Node&lt;K,V&gt;[] tab) &#123;    TreeNode&lt;K,V&gt; root = null;    // 从当前节点，也就是调用该方法的节点开始到链末，转为树结构    for (TreeNode&lt;K,V&gt; x = this, next; x != null; x = next) &#123;        next = (TreeNode&lt;K,V&gt;)x.next;        x.left = x.right = null;        // 如果还没有根节点，当前节点设为根节点        if (root == null) &#123;            x.parent = null;            x.red = false;            root = x;        &#125;        else &#123;            K k = x.key;            int h = x.hash;            Class&lt;?&gt; kc = null;            // 将当前链节点插入到树中            for (TreeNode&lt;K,V&gt; p = root;;) &#123;                // dir表示节点左右 ；ph表示当前树节点的hash                int dir, ph;                K pk = p.key;                if ((ph = p.hash) &gt; h)                    // 插入的链节点 往该树节点左侧插入                    dir = -1;                else if (ph &lt; h)                    // 右侧                    dir = 1;                /**                如果key的hash相等的情况下：                  1.当前链节点的key实现了comparable接口，且compare后依然相等即dir为0。                  2.没有实现comparable接口                通过tieBreakOrder方法比较。                  */                    else if ((kc == null &amp;&amp;                          (kc = comparableClassFor(k)) == null) ||                         (dir = compareComparables(kc, k, pk)) == 0)                    dir = tieBreakOrder(k, pk);                TreeNode&lt;K,V&gt; xp = p;                if ((p = (dir &lt;= 0) ? p.left : p.right) == null) &#123;                    x.parent = xp;                    if (dir &lt;= 0)                        xp.left = x;                    else                        xp.right = x;                    // 树的重新平衡                        root = balanceInsertion(root, x);                    break;                &#125;            &#125;        &#125;    &#125;    /**    当链节点全部添加到树中后：    对于TreeNode节点来说，即存在prev，next所指的双向链结构，也存在parent，left，right所指的红黑树结构。    经过多次重新平衡，数组中的头节点，不一定是root节点。将root节点设为数组中头节点，并在双向链结构中，将头节点和root节点位置对调。    */    moveRootToFront(tab, root);&#125;</code></pre><p>&ensp;&ensp;在当前连接点插入到树后，红黑树需要重新平衡。多次平衡后，树的root节点，不一定是链的头节点。因此需要把数组中的对应位置上的对象，改为root节点作为遍历入口。因为树结构遍历入口是root节点，因此数组中的对应位置上保存的是root节点，但是在扩容时，TreeNode通过双向链结构遍历节点，因此需要将root节点和原链结构头节点位置对换，保证root节点也是<strong>双向链头节点</strong>。</p><h3 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h3><p>&ensp;&ensp;ConcurrentHashMap中的put方法，通过for死循环自旋 和 CAS添加数据 和 synchronized同步锁，保证数据不丢失。CurrentHashMap的扩容和HashMap一样的增加数组长度和节点位置更新。扩容的时机也和HashMap差不多，链表转红黑树时，或者添加元素后判断需要扩容。addCount方法实现添加元素后，元素数量增加。扩容时的节点转移通过transfer方法实现。</p><h4 id="ensp-ensp-addCount方法实现原理"><a href="#ensp-ensp-addCount方法实现原理" class="headerlink" title="&ensp;&ensp;addCount方法实现原理"></a>&ensp;&ensp;addCount方法实现原理</h4><p>&ensp;&ensp;ConcurrentHashMap对容量的增加，实现原理和LongAdder类似。如果CAS修改容量大小失败，不进行自旋，将要增加的值x，保存在数组中。容量的大小，就是数组中所有值以及baseCount的和。</p><h4 id="ensp-ensp-扩容及节点位置转移，transfer方法"><a href="#ensp-ensp-扩容及节点位置转移，transfer方法" class="headerlink" title="&ensp;&ensp;扩容及节点位置转移，transfer方法"></a>&ensp;&ensp;扩容及节点位置转移，transfer方法</h4><p>&ensp;&ensp;ConcurrentHashMap在扩容时，对于单向链的迁移，使用的是创建一个新节点，新节点的保存的数据和旧节点的一致，并使用<strong>头插法</strong>插入到链中。<br>&ensp;&ensp;和HashMap不同的是，HashMap在put和resize时都是尾插法。ConcurrentHashMap在put时是尾插法，transfer时是头插法，且是创建新Node对象。</p><pre><code class="java">private final void transfer(Node&lt;K,V&gt;[] tab, Node&lt;K,V&gt;[] nextTab) &#123;    int n = tab.length, stride;    if ((stride = (NCPU &gt; 1) ? (n &gt;&gt;&gt; 3) / NCPU : n) &lt; MIN_TRANSFER_STRIDE)        stride = MIN_TRANSFER_STRIDE;    /**    nextTab为null，则当前线程是发起扩容的线程，创建长度为2倍的数组。      nextTab不为null，则当前线程是辅助扩容的线程。    */    if (nextTab == null) &#123;                    try &#123;            @SuppressWarnings(&quot;unchecked&quot;)            Node&lt;K,V&gt;[] nt = (Node&lt;K,V&gt;[])new Node&lt;?,?&gt;[n &lt;&lt; 1];            nextTab = nt;        &#125; catch (Throwable ex) &#123;                 sizeCtl = Integer.MAX_VALUE;            return;        &#125;        nextTable = nextTab;        /**        需要迁移的长度，也就是旧数组的长度。        从数组后往前迁移        */        transferIndex = n;    &#125;    int nextn = nextTab.length;    // fwd节点用来标识迁移完成，也就是旧数组哪些位置上的节点迁移完成    ForwardingNode&lt;K,V&gt; fwd = new ForwardingNode&lt;K,V&gt;(nextTab);    boolean advance = true;    boolean finishing = false;    for (int i = 0, bound = 0;;) &#123;        Node&lt;K,V&gt; f; int fh;        while (advance) &#123;            int nextIndex, nextBound;            // 从后往前遍历旧坐标中要迁移的节点            if (--i &gt;= bound || finishing)                advance = false;            // transferIndex值小于等于0 迁移完成                else if ((nextIndex = transferIndex) &lt;= 0) &#123;                i = -1;                advance = false;            &#125;            /**              当前线程迁移哪个范围上的节点，从位置bound 到 i 上的节点            通过CAS将nextBound赋值给transferIndex            如果线程处理完迁移任务，但整个集合还没全部完成，            也就是i&lt;bound但transferIndex大于0，重新获得新的范围            */            else if (U.compareAndSwapInt                     (this, TRANSFERINDEX, nextIndex,                      nextBound = (nextIndex &gt; stride ?                                   nextIndex - stride : 0))) &#123;                bound = nextBound;                i = nextIndex - 1;                advance = false;            &#125;        &#125;        // 旧数组中节点迁移全部完成        if (i &lt; 0 || i &gt;= n || i + n &gt;= nextn) &#123;            int sc;            if (finishing) &#123;                nextTable = null;                // 使用新数组                table = nextTab;                sizeCtl = (n &lt;&lt; 1) - (n &gt;&gt;&gt; 1);                return;            &#125;            if (U.compareAndSwapInt(this, SIZECTL, sc = sizeCtl, sc - 1)) &#123;                if ((sc - 2) != resizeStamp(n) &lt;&lt; RESIZE_STAMP_SHIFT)                    return;                finishing = advance = true;                i = n;            &#125;        &#125;        // 如果旧数组该位置为null，则没有要转移的节点，赋值fwd节点表示该位置转移完成        else if ((f = tabAt(tab, i)) == null)            advance = casTabAt(tab, i, null, fwd);        // 如果旧数组该位置节点已经是fwd节点了，则跳过        else if ((fh = f.hash) == MOVED)            advance = true;        // 节点位置转移            else &#123;            // 旧数组 i 位置上的 头节点上锁 防止其他线程插入新节点            synchronized (f) &#123;                if (tabAt(tab, i) == f) &#123;                    Node&lt;K,V&gt; ln, hn;                    if (fh &gt;= 0) &#123;                        int runBit = fh &amp; n;                        Node&lt;K,V&gt; lastRun = f;                        /**                        对于一个节点，迁移时有两种位置，旧位置 i，和新位置 i+n                        runBit的0或1 表示 lastRun在旧位置还是新位置                        lastRun 表示 从该节点起到最后一个节点，都是相同的runBit                        可以直接把lastRun迁移，遍历节点就不需要再遍历lastRun和之后的节点                        */                        for (Node&lt;K,V&gt; p = f.next; p != null; p = p.next) &#123;                            int b = p.hash &amp; n;                            if (b != runBit) &#123;                                runBit = b;                                lastRun = p;                            &#125;                        &#125;                        // 表示lastRun及其之后的节点 都在旧位置，直接把lastRun设为旧位置链的头节点                        if (runBit == 0) &#123;                            ln = lastRun;                            hn = null;                        &#125;                        else &#123;                            hn = lastRun;                            ln = null;                        &#125;                        /**                        ConcurrentHshMap迁移节点使用 头插法                          遍历节点只需遍历 头节点 到 lastRun之前的节点                        lastRun和之后的节点已经迁移完                        */                        for (Node&lt;K,V&gt; p = f; p != lastRun; p = p.next) &#123;                            int ph = p.hash; K pk = p.key; V pv = p.val;                            // 直接new和原节点数值一样的新节点 头插法插入                            if ((ph &amp; n) == 0)                                ln = new Node&lt;K,V&gt;(ph, pk, pv, ln);                            else                                hn = new Node&lt;K,V&gt;(ph, pk, pv, hn);                        &#125;                        // 在新数组的 i 位置上 赋值 ln节点                        setTabAt(nextTab, i, ln);                        setTabAt(nextTab, i + n, hn);                        // 旧数组的 i 位置上的节点替换为fwd，表示该位置迁移完成                        setTabAt(tab, i, fwd);                        advance = true;                    &#125;                    else if (f instanceof TreeBin) &#123;                        TreeBin&lt;K,V&gt; t = (TreeBin&lt;K,V&gt;)f;                        TreeNode&lt;K,V&gt; lo = null, loTail = null;                        TreeNode&lt;K,V&gt; hi = null, hiTail = null;                        int lc = 0, hc = 0;                        for (Node&lt;K,V&gt; e = t.first; e != null; e = e.next) &#123;                            int h = e.hash;                            TreeNode&lt;K,V&gt; p = new TreeNode&lt;K,V&gt;                                (h, e.key, e.val, null, null);                            if ((h &amp; n) == 0) &#123;                                if ((p.prev = loTail) == null)                                    lo = p;                                else                                    loTail.next = p;                                loTail = p;                                ++lc;                            &#125;                            else &#123;                                if ((p.prev = hiTail) == null)                                    hi = p;                                else                                    hiTail.next = p;                                hiTail = p;                                ++hc;                            &#125;                        &#125;                        ln = (lc &lt;= UNTREEIFY_THRESHOLD) ? untreeify(lo) :                            (hc != 0) ? new TreeBin&lt;K,V&gt;(lo) : t;                        hn = (hc &lt;= UNTREEIFY_THRESHOLD) ? untreeify(hi) :                            (lc != 0) ? new TreeBin&lt;K,V&gt;(hi) : t;                        setTabAt(nextTab, i, ln);                        setTabAt(nextTab, i + n, hn);                        setTabAt(tab, i, fwd);                        advance = true;                    &#125;                &#125;            &#125;        &#125;    &#125;&#125;</code></pre><h4 id="ensp-ensp-辅助扩容，helpTransfer方法和transfer方法"><a href="#ensp-ensp-辅助扩容，helpTransfer方法和transfer方法" class="headerlink" title="&ensp;&ensp;辅助扩容，helpTransfer方法和transfer方法"></a>&ensp;&ensp;辅助扩容，helpTransfer方法和transfer方法</h4><p>&ensp;&ensp;当某一个线程在执行transfer方法扩容时，另一个线程在put时，如果此时数组上的该位置节点为fwd节点，就表示此时正在扩容，则通过helpTransfer方法协助扩容。<br>&ensp;&ensp;如果不是fwd节点，在插入新节点时会尝试给该位置头节点上锁，而扩容时也会上锁，因此其他线程的put操作，只有在该位置还没有开始迁移时才能完成。如果该位置已经开始迁移，其他线程对该位置的put操作，会等待锁释放。但是迁移完成后该位置的节点变为fwd节点，因此其他线程还是会执行helpTransfer方法。  </p><pre><code class="java">final Node&lt;K,V&gt;[] helpTransfer(Node&lt;K,V&gt;[] tab, Node&lt;K,V&gt; f) &#123;    Node&lt;K,V&gt;[] nextTab; int sc;    // 通过fwd节点获得扩容时的新数组nextTable    if (tab != null &amp;&amp; (f instanceof ForwardingNode) &amp;&amp;        (nextTab = ((ForwardingNode&lt;K,V&gt;)f).nextTable) != null) &#123;        int rs = resizeStamp(tab.length);        /**        sizeCtl 高16位的值 表示 容量        sizeCtl 低16位的值 表示 进行扩容的线程数；如果低16位值为M，就有M-1个线程在扩容        */        while (nextTab == nextTable &amp;&amp; table == tab &amp;&amp;               (sc = sizeCtl) &lt; 0) &#123;            if ((sc &gt;&gt;&gt; RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||                sc == rs + MAX_RESIZERS || transferIndex &lt;= 0)                break;            if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1)) &#123;                // 依旧是通过transfer迁移节点                transfer(tab, nextTab);                break;            &#125;        &#125;        return nextTab;    &#125;    return table;&#125;</code></pre><p>&ensp;&ensp;helptransfer方法调用transfer方法来迁移节点。transfer方法只有发起扩容的线程会在nextTab传null，表示要新建数组。其他线程可直接通过fwd节点获得新数组，不要再创新数组。</p>]]></content>
       
       
       <categories>
@@ -587,6 +643,12 @@
         <tags>
             
             <tag> 集合 </tag>
+            
+            <tag> 红黑树 </tag>
+            
+            <tag> HashMap </tag>
+            
+            <tag> ConcurrentHashMap </tag>
             
         </tags>
       
@@ -618,6 +680,31 @@
             <tag> AQS </tag>
             
             <tag> synchronized </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>平衡二叉排序树AVL</title>
+      <link href="/2021/04/25/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/"/>
+      <url>/2021/04/25/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<h3 id="AVL"><a href="#AVL" class="headerlink" title="AVL"></a>AVL</h3><p><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E5%B9%B3%E8%A1%A1%E7%A0%B4%E5%9D%8F.jpg" alt="树的平衡破坏"><br>&ensp;&ensp;如上图所示，当插入新节点C时，平衡被破坏。新节点C是破坏平衡节点，A节点左右子树高度差大于1，A节点是平衡被破坏节点。为了保持树的平衡，就需要旋转，旋转分为两种。  </p><h4 id="ensp-ensp-左旋"><a href="#ensp-ensp-左旋" class="headerlink" title="&ensp;&ensp;左旋"></a>&ensp;&ensp;左旋</h4><p>&ensp;&ensp;左旋就是将<strong>被破坏</strong>节点转为左孩子。</p><h4 id="ensp-ensp-右旋"><a href="#ensp-ensp-右旋" class="headerlink" title="&ensp;&ensp;右旋"></a>&ensp;&ensp;右旋</h4><p>&ensp;&ensp;右旋就是将<strong>被破坏</strong>节点转为右孩子。</p><h4 id="ensp-ensp-平衡被破坏时的4种调整："><a href="#ensp-ensp-平衡被破坏时的4种调整：" class="headerlink" title="&ensp;&ensp;平衡被破坏时的4种调整："></a>&ensp;&ensp;平衡被破坏时的4种调整：</h4><p>&ensp;&ensp;根据<strong>被破坏</strong>节点A和<strong>破话</strong>节点C、被破坏节点<strong>子节点</strong>B之间的位置，可以分为四种调整方法。</p><h4 id="ensp-ensp-ensp-ensp-LL，右旋"><a href="#ensp-ensp-ensp-ensp-LL，右旋" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;LL，右旋"></a>&ensp;&ensp;&ensp;&ensp;LL，右旋</h4><p><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/LL%E5%8F%B3%E6%97%8B%E8%B0%83%E6%95%B4.jpg" alt="LL右旋调整"><br>&ensp;&ensp;节点C插入到A的<strong>左子节点</strong>B的<strong>左子树</strong>中，或者说在A的左孩子B的左边，也就是LL。进行右旋，将A节点转为右孩子。</p><h4 id="ensp-ensp-ensp-ensp-RR，左旋"><a href="#ensp-ensp-ensp-ensp-RR，左旋" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;RR，左旋"></a>&ensp;&ensp;&ensp;&ensp;RR，左旋</h4><p><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/RR%E5%B7%A6%E6%97%8B%E8%B0%83%E6%95%B4.jpg" alt="RR左旋调整"><br>&ensp;&ensp;节点C插入到A的<strong>右子节点</strong>B的<strong>右子树</strong>中，或者说在A的右孩子B的右边，也就是RR。进行左旋，将A节点转为左孩子。</p><h4 id="ensp-ensp-ensp-ensp-LR，先左再右"><a href="#ensp-ensp-ensp-ensp-LR，先左再右" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;LR，先左再右"></a>&ensp;&ensp;&ensp;&ensp;LR，先左再右</h4><p><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/LR%E5%85%88%E5%B7%A6%E5%86%8D%E5%8F%B3.jpg" alt="LR先左再右"><br>&ensp;&ensp;节点C插入到A的<strong>左子节点</strong>B的<strong>右子树</strong>中，或者说在A的左孩子B的右边，也就是LR。先将B节点进行左旋，再对A节点进行右旋。</p><h4 id="ensp-ensp-ensp-ensp-RL，先右再左"><a href="#ensp-ensp-ensp-ensp-RL，先右再左" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;RL，先右再左"></a>&ensp;&ensp;&ensp;&ensp;RL，先右再左</h4><p><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/RL%E5%85%88%E5%8F%B3%E5%86%8D%E5%B7%A6.jpg" alt="RL先右再左"><br>&ensp;&ensp;节点C插入到A的<strong>右子节点</strong>B的<strong>左子树</strong>中，或者说在A的右孩子B的左边，也就是RL。先将B节点进行右旋，再对A节点进行左旋。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 平衡二叉排序树 </tag>
             
         </tags>
       
