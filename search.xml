@@ -743,11 +743,11 @@
             
             <tag> java锁机制 </tag>
             
+            <tag> synchronized </tag>
+            
             <tag> Lock </tag>
             
             <tag> AQS </tag>
-            
-            <tag> synchronized </tag>
             
         </tags>
       
