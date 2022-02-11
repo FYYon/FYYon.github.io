@@ -5,8 +5,8 @@
     
     <entry>
       <title></title>
-      <link href="/2021/11/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/tcpdump%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/"/>
-      <url>/2021/11/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/tcpdump%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/</url>
+      <link href="/2022/02/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+      <url>/2022/02/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -18,8 +18,21 @@
     
     <entry>
       <title></title>
-      <link href="/2021/11/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Wireshark%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/"/>
-      <url>/2021/11/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Wireshark%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/</url>
+      <link href="/2022/02/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Wireshark%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/"/>
+      <url>/2022/02/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Wireshark%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2022/02/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/tcpdump%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/"/>
+      <url>/2022/02/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/tcpdump%E6%8A%93%E5%8C%85%E5%8F%8A%E5%88%86%E6%9E%90/</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -37,6 +50,85 @@
         <content type="html"><![CDATA[<p>1</p>]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>QUIC 协议</title>
+      <link href="/2021/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Quic%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Quic%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="QUIC协议在数据传输中的动作"><a href="#QUIC协议在数据传输中的动作" class="headerlink" title="QUIC协议在数据传输中的动作"></a>QUIC协议在数据传输中的动作</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tcp/Ip </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> QUIC </tag>
+            
+            <tag> UDP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>UDP 协议</title>
+      <link href="/2021/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Udp%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Udp%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h3><h3 id="UDP协议在数据传输中的动作"><a href="#UDP协议在数据传输中的动作" class="headerlink" title="UDP协议在数据传输中的动作"></a>UDP协议在数据传输中的动作</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tcp/Ip </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UDP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>KCP 协议</title>
+      <link href="/2021/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Kcp%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/10/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Kcp%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="KCP协议"><a href="#KCP协议" class="headerlink" title="KCP协议"></a>KCP协议</h3><h3 id="KCP协议在数据传输中的动作"><a href="#KCP协议在数据传输中的动作" class="headerlink" title="KCP协议在数据传输中的动作"></a>KCP协议在数据传输中的动作</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tcp/Ip </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UDP </tag>
+            
+            <tag> KCP </tag>
+            
+        </tags>
       
     </entry>
     
@@ -208,10 +300,10 @@
     
     <entry>
       <title>HTTP 协议</title>
-      <link href="/2021/07/15/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/"/>
-      <url>/2021/07/15/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/</url>
+      <link href="/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/</url>
       
-        <content type="html"><![CDATA[<h3 id="Http-1-0"><a href="#Http-1-0" class="headerlink" title="Http 1.0"></a>Http 1.0</h3><h4 id="ensp-ensp-短连接"><a href="#ensp-ensp-短连接" class="headerlink" title="&ensp;&ensp;短连接"></a>&ensp;&ensp;短连接</h4><p>&ensp;&ensp;连接不可复用，每次请求都要三次握手，成本高，效率低。</p><h4 id="ensp-ensp-短连接的解决办法"><a href="#ensp-ensp-短连接的解决办法" class="headerlink" title="&ensp;&ensp;短连接的解决办法"></a>&ensp;&ensp;短连接的解决办法</h4><p>&ensp;&ensp;在报文头部字段的Connection字段上，修改为Connection: keep-alive。  </p><h4 id="ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞"><a href="#ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞" class="headerlink" title="&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞"></a>&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞</h4><p>&ensp;&ensp;队头阻塞就相当于，队首没处理完，后面的请求在排队。在http1.0中，必须接收到前一个请求的响应，才能发送下一个请求。如果上一次请求的响应还没收到，后续的请求就被阻塞了。因此Http 1.0中的队头阻塞发生在 <strong>客户端</strong> ，请求阻塞。</p><h3 id="Http-1-1"><a href="#Http-1-1" class="headerlink" title="Http 1.1"></a>Http 1.1</h3><h4 id="ensp-ensp-默认长连接"><a href="#ensp-ensp-默认长连接" class="headerlink" title="&ensp;&ensp;默认长连接"></a>&ensp;&ensp;默认长连接</h4><p>&ensp;&ensp;Http 1.1默认持久连接，TCP连接不关闭。</p><h4 id="ensp-ensp-管道化"><a href="#ensp-ensp-管道化" class="headerlink" title="&ensp;&ensp;管道化"></a>&ensp;&ensp;管道化</h4><p>&ensp;&ensp;管道化技术解决了Http 1.0中的客户端队头阻塞。管道化技术允许不用等待上一个响应，<strong>直接发送请求</strong>，但是只有 <strong>GET</strong> 和 <strong>HEAD</strong> 请求才能管道化。<br>&ensp;&ensp;服务器FIFO原则下，<strong>响应的发送要根据 接收的请求的顺序 来排队</strong>，也就是 <strong>先接收</strong> 到的请求， <strong>先发送</strong> 响应。<br>&ensp;&ensp;目前浏览器默认关闭管道化。</p><h4 id="ensp-ensp-管道化下的-Http1-1-队头阻塞"><a href="#ensp-ensp-管道化下的-Http1-1-队头阻塞" class="headerlink" title="&ensp;&ensp;管道化下的 Http1.1 队头阻塞"></a>&ensp;&ensp;管道化下的 Http1.1 队头阻塞</h4><p>&ensp;&ensp;因为服务器的FIFO原则，如果先到的请求处理时间长没完成，其他的后续请求已近处理完成并生成了响应，那么已生成的响应就阻塞，必须等到先到请求的响应发送。Http 1.1中的队头阻塞发生在 <strong>服务器端</strong> ，响应阻塞。<br>&ensp;&ensp;一个 <strong>域名支持多个长连接</strong> ，也就相当于多个任务队列，通过多个任务队列可以减小队头阻塞后续的影响。因为发生队头阻塞，也只有其中一个长连接受影响。</p><h3 id="Http-2"><a href="#Http-2" class="headerlink" title="Http 2"></a>Http 2</h3><h4 id="ensp-ensp-二进制传输"><a href="#ensp-ensp-二进制传输" class="headerlink" title="&ensp;&ensp;二进制传输"></a>&ensp;&ensp;二进制传输</h4><p> &ensp;&ensp;Http 2中，以二进制格式传输，而不是文本格式。将请求和响应 <strong>分割为帧</strong> ，并以二进制表示。Http 2中，同域名下的所有请求响应都是在 <strong>一个连接</strong> 下完成，一个连接可以有 <strong>任意数量的双向数据流</strong> 。帧可以乱序发送，通过帧首部的流标识重新组装。</p><h4 id="ensp-ensp-多路复用"><a href="#ensp-ensp-多路复用" class="headerlink" title="&ensp;&ensp;多路复用"></a>&ensp;&ensp;多路复用</h4><p>&ensp;&ensp;完全多路复用，允许一个连接中客户端和服务器端发送多个请求或响应，不用 <strong>顺序对应</strong> 。因此解决了Http 1.1中的队头阻塞。<br>&ensp;&ensp;但是传输时使用TCP，依旧可能发生 <strong>TCP的队头阻塞</strong>。</p><h4 id="ensp-ensp-报头压缩"><a href="#ensp-ensp-报头压缩" class="headerlink" title="&ensp;&ensp;报头压缩"></a>&ensp;&ensp;报头压缩</h4><p>&ensp;&ensp;客户端和服务器端共同维护一个报文头信息表，所有字段都保存在其中。通过发送索引号表示包含的字段，不需要在报文头信息中附上字段，因此可以减少报文头的大小。<br>&ensp;&ensp;会通过gzip或者compress压缩头信息。</p><h4 id="ensp-ensp-服务器推送"><a href="#ensp-ensp-服务器推送" class="headerlink" title="&ensp;&ensp;服务器推送"></a>&ensp;&ensp;服务器推送</h4><p>&ensp;&ensp;允许服务器端主动向客户端发送资源。</p><h3 id="Http-3"><a href="#Http-3" class="headerlink" title="Http 3"></a>Http 3</h3><h4 id="ensp-ensp-TCP的队头阻塞"><a href="#ensp-ensp-TCP的队头阻塞" class="headerlink" title="&ensp;&ensp;TCP的队头阻塞"></a>&ensp;&ensp;TCP的队头阻塞</h4><p>&ensp;&ensp;为了保证TCP的可靠性，如果一个序列号低的包丢失，会等待该包重传。因此整个TCP连接会阻塞，直到丢失的包重传并接收为止。只要是使用TCP传输数据，就可能发生TCP队头阻塞。因此Http 1、Http 2中都可能发生，而且Http 2中同域名下只有一个连接，因此发生TCP队头阻塞时，整个连接都受影响。  </p><h4 id="ensp-ensp-基于UDP协议的QUIC协议"><a href="#ensp-ensp-基于UDP协议的QUIC协议" class="headerlink" title="&ensp;&ensp;基于UDP协议的QUIC协议"></a>&ensp;&ensp;基于UDP协议的QUIC协议</h4><p>&ensp;&ensp;QUIC协议为Quick UDP Internet Connection，是一个使用UDP多路并发传输的 <strong>传输层协议</strong>。</p><h3 id="Https"><a href="#Https" class="headerlink" title="Https"></a>Https</h3><p>&ensp;&ensp;在Http和Tcp之间，添加安全协议TLS，就是Https。TLS的前身就是SSL。Https对数据进行加密，且能服务器端身份验证。  </p><h4 id="ensp-ensp-Https加密方式"><a href="#ensp-ensp-Https加密方式" class="headerlink" title="&ensp;&ensp;Https加密方式"></a>&ensp;&ensp;Https加密方式</h4><h4 id="ensp-ensp-ensp-ensp-共享密钥加密"><a href="#ensp-ensp-ensp-ensp-共享密钥加密" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;共享密钥加密"></a>&ensp;&ensp;&ensp;&ensp;共享密钥加密</h4><p>&ensp;&ensp;&ensp;&ensp;共享密钥加密也叫做 <strong>对称密钥加密</strong> ，就是客户端和服务器端都是用同一把密钥对数据进行加密解密。优点是处理快。缺点是 <strong>使用共享的密钥就必须先将该密钥传给对方</strong> ，该过程是不安全的，如果第三方在传输过程中获得了密钥，那数据加密也没了意义。</p><h4 id="ensp-ensp-ensp-ensp-公开密钥加密"><a href="#ensp-ensp-ensp-ensp-公开密钥加密" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;公开密钥加密"></a>&ensp;&ensp;&ensp;&ensp;公开密钥加密</h4><p>&ensp;&ensp;&ensp;&ensp;公开密钥加密也叫做 <strong>非对称密钥加密</strong> ，就是加密和解密的密钥不是同一把，称为 <strong>公钥</strong> 和 <strong>私钥</strong> 。<br>&ensp;&ensp;&ensp;&ensp;公钥是任何人都可以获得的，私钥是不能给别人的。将公钥传给对方，数据使用公钥加密，然后将加密后的数据使用私钥解密，通过 <strong>数字证书</strong> 来验证公钥的真实性。优点是即使获得了公钥也不能解密数据。缺点是和共享密钥加密相比，处理更复杂也更慢。</p><h4 id="ensp-ensp-ensp-ensp-Https使用混合加密方式"><a href="#ensp-ensp-ensp-ensp-Https使用混合加密方式" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Https使用混合加密方式"></a>&ensp;&ensp;&ensp;&ensp;Https使用混合加密方式</h4><p>&ensp;&ensp;&ensp;&ensp;首先通过公开密钥加密，对将要使用的共享密钥加密，来保证共享密钥传输时的安全性。后续的通信使用共享密钥加密来保证数据的安全性。</p><h4 id="ensp-ensp-TLS-的握手过程"><a href="#ensp-ensp-TLS-的握手过程" class="headerlink" title="&ensp;&ensp;TLS 的握手过程"></a>&ensp;&ensp;TLS 的握手过程</h4><p>&ensp;&ensp;TLS的四次握手建立在TCP三次握手之上。因此Https需要先是TCP的三次握手，然后是TLS的四次握手，共七次握手。<br><img src="/assets/posts_jpg/TcpIp/TLS%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B.jpg" alt="TLS 握手过程">  </p><h4 id="ensp-ensp-ensp-ensp-第一次握手-客户端发起请求"><a href="#ensp-ensp-ensp-ensp-第一次握手-客户端发起请求" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第一次握手 客户端发起请求"></a>&ensp;&ensp;&ensp;&ensp;第一次握手 客户端发起请求</h4><p>&ensp;&ensp;&ensp;&ensp;由客户端发起，发送Client Hello消息。消息中包含：客户端生成的 <strong>随机字符串X</strong>，客户端 <strong>支持的加密算法列表</strong>，客户端 <strong>支持的压缩算法列表</strong> ，客户端的 <strong>TLS协议版本</strong> 。  </p><h4 id="ensp-ensp-ensp-ensp-第二次握手-服务器端回应"><a href="#ensp-ensp-ensp-ensp-第二次握手-服务器端回应" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第二次握手 服务器端回应"></a>&ensp;&ensp;&ensp;&ensp;第二次握手 服务器端回应</h4><p>&ensp;&ensp;&ensp;&ensp;服务器接收到客户端的Hello消息后，回应Server Hello消息。消息中包含：服务器端生成的 <strong>随机字符串Y</strong> ，且 <strong>选择</strong> 后续使用的加密算法、压缩算法、协议版本等。发送Certificate消息，也就是服务器证书。最后Server Hello Done表示回应结束。  </p><h4 id="ensp-ensp-ensp-ensp-第三次握手-客户端回应"><a href="#ensp-ensp-ensp-ensp-第三次握手-客户端回应" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第三次握手 客户端回应"></a>&ensp;&ensp;&ensp;&ensp;第三次握手 客户端回应</h4><p>&ensp;&ensp;&ensp;&ensp;客户端收到证书后验证服务器身份，并从证书中获得公钥。生成 <strong>随机字符串Z</strong> 并使用 <strong>公钥加密</strong> ，发送给服务器端。此时客户端已有随机字符串X，Y，Z，通过 <strong>随机字符串和协商的加密算法</strong> 生成 <strong>共享密钥</strong> ，也就是对称密钥加密中使用的密钥。Change Cipher Spec表示告诉服务器端，客户端已经切换到共享密钥加密状态。最后发送Finished消息，表示结束TLS握手。  </p><h4 id="ensp-ensp-ensp-ensp-第四次握手-服务器端结束回应"><a href="#ensp-ensp-ensp-ensp-第四次握手-服务器端结束回应" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第四次握手 服务器端结束回应"></a>&ensp;&ensp;&ensp;&ensp;第四次握手 服务器端结束回应</h4><p>&ensp;&ensp;&ensp;&ensp;服务器端收到通过公钥加密的随机字符串Z后，使用私钥解密。此时服务器端有随机字符串X，Y，Z。通过协商好的加密算法和随机字符串生成 <strong>共享密钥</strong>。Change Cipher Spec表示服务器端已经切换到使用共享密钥加密状态。最后发送Finished消息，结束TLS握手。  </p><h4 id="ensp-ensp-证书链"><a href="#ensp-ensp-证书链" class="headerlink" title="&ensp;&ensp;证书链"></a>&ensp;&ensp;证书链</h4><p>&ensp;&ensp;在TLS中，客户端接收到服务器端的证书，要验证证书的合法性。一般浏览器内置了 <strong>信任的根证书</strong>，但是服务器发送过来的证书一般 <strong>不是根证书签发</strong> 的。因此通过证书链的信任关系来判断证书的合法性。<br>&ensp;&ensp;当客户端收到服务器端发的证书后，如果发现该证书的签发者不是信任的根证书，就会向 <strong>CA</strong> 证书机构请求该 <strong>中间证书</strong> 。在收到中间证书后，判断该中间证书的签发者是否为信任的根证书，以此类推。  </p>]]></content>
+        <content type="html"><![CDATA[<h3 id="Http协议"><a href="#Http协议" class="headerlink" title="Http协议"></a>Http协议</h3><p>&ensp;&ensp;Http协议是应用层协议，无状态 且 不干扰传输层协议。因此在数据传输时，Http既可以基于Tcp协议，也能基于Udp协议。浏览器默认访问服务器的80端口，相当于访问的是，<a href="http://www.abc.com/">www.abc.com:80</a><br>。</p><h3 id="Http-1-0"><a href="#Http-1-0" class="headerlink" title="Http 1.0"></a>Http 1.0</h3><h4 id="ensp-ensp-短连接"><a href="#ensp-ensp-短连接" class="headerlink" title="&ensp;&ensp;短连接"></a>&ensp;&ensp;短连接</h4><p>&ensp;&ensp;连接不可复用，每次请求都要三次握手，成本高，效率低。</p><h4 id="ensp-ensp-短连接的解决办法"><a href="#ensp-ensp-短连接的解决办法" class="headerlink" title="&ensp;&ensp;短连接的解决办法"></a>&ensp;&ensp;短连接的解决办法</h4><p>&ensp;&ensp;在报文头部字段的Connection字段上，修改为Connection: keep-alive。  </p><h4 id="ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞"><a href="#ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞" class="headerlink" title="&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞"></a>&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞</h4><p>&ensp;&ensp;队头阻塞就相当于，队首没处理完，后面的请求在排队。在http1.0中，必须接收到前一个请求的响应，才能发送下一个请求。如果上一次请求的响应还没收到，后续的请求就被阻塞了。因此Http 1.0中的队头阻塞发生在 <strong>客户端</strong> ，请求阻塞。</p><h3 id="Http-1-1"><a href="#Http-1-1" class="headerlink" title="Http 1.1"></a>Http 1.1</h3><h4 id="ensp-ensp-默认长连接"><a href="#ensp-ensp-默认长连接" class="headerlink" title="&ensp;&ensp;默认长连接"></a>&ensp;&ensp;默认长连接</h4><p>&ensp;&ensp;Http 1.1默认持久连接，TCP连接不关闭。</p><h4 id="ensp-ensp-管道化"><a href="#ensp-ensp-管道化" class="headerlink" title="&ensp;&ensp;管道化"></a>&ensp;&ensp;管道化</h4><p>&ensp;&ensp;管道化技术解决了Http 1.0中的客户端队头阻塞。管道化技术允许不用等待上一个响应，<strong>直接发送请求</strong>，但是只有 <strong>GET</strong> 和 <strong>HEAD</strong> 请求才能管道化。<br>&ensp;&ensp;服务器FIFO原则下，<strong>响应的发送要根据 接收的请求的顺序 来排队</strong>，也就是 <strong>先接收</strong> 到的请求， <strong>先发送</strong> 响应。<br>&ensp;&ensp;目前浏览器默认关闭管道化。</p><h4 id="ensp-ensp-管道化下的-Http1-1-队头阻塞"><a href="#ensp-ensp-管道化下的-Http1-1-队头阻塞" class="headerlink" title="&ensp;&ensp;管道化下的 Http1.1 队头阻塞"></a>&ensp;&ensp;管道化下的 Http1.1 队头阻塞</h4><p>&ensp;&ensp;因为服务器的FIFO原则，如果先到的请求处理时间长没完成，其他的后续请求已近处理完成并生成了响应，那么已生成的响应就阻塞，必须等到先到请求的响应发送。Http 1.1中的队头阻塞发生在 <strong>服务器端</strong> ，响应阻塞。<br>&ensp;&ensp;一个 <strong>域名支持多个长连接</strong> ，也就相当于多个任务队列，通过多个任务队列可以减小队头阻塞后续的影响。因为发生队头阻塞，也只有其中一个长连接受影响。</p><h3 id="Http-2"><a href="#Http-2" class="headerlink" title="Http 2"></a>Http 2</h3><h4 id="ensp-ensp-二进制传输"><a href="#ensp-ensp-二进制传输" class="headerlink" title="&ensp;&ensp;二进制传输"></a>&ensp;&ensp;二进制传输</h4><p> &ensp;&ensp;Http 2中，以二进制格式传输，而不是文本格式。将请求和响应 <strong>分割为帧</strong> ，并以二进制表示。Http 2中，同域名下的所有请求响应都是在 <strong>一个连接</strong> 下完成，一个连接可以有 <strong>任意数量的双向数据流</strong> 。帧可以乱序发送，通过帧首部的流标识重新组装。</p><h4 id="ensp-ensp-多路复用"><a href="#ensp-ensp-多路复用" class="headerlink" title="&ensp;&ensp;多路复用"></a>&ensp;&ensp;多路复用</h4><p>&ensp;&ensp;完全多路复用，允许一个连接中客户端和服务器端发送多个请求或响应，不用 <strong>顺序对应</strong> 。因此解决了Http 1.1中的队头阻塞。<br>&ensp;&ensp;但是传输时使用TCP，依旧可能发生 <strong>TCP的队头阻塞</strong>。</p><h4 id="ensp-ensp-报头压缩"><a href="#ensp-ensp-报头压缩" class="headerlink" title="&ensp;&ensp;报头压缩"></a>&ensp;&ensp;报头压缩</h4><p>&ensp;&ensp;客户端和服务器端共同维护一个报文头信息表，所有字段都保存在其中。通过发送索引号表示包含的字段，不需要在报文头信息中附上字段，因此可以减少报文头的大小。<br>&ensp;&ensp;会通过gzip或者compress压缩头信息。</p><h4 id="ensp-ensp-服务器推送"><a href="#ensp-ensp-服务器推送" class="headerlink" title="&ensp;&ensp;服务器推送"></a>&ensp;&ensp;服务器推送</h4><p>&ensp;&ensp;允许服务器端主动向客户端发送资源。</p><h3 id="Http-3"><a href="#Http-3" class="headerlink" title="Http 3"></a>Http 3</h3><h4 id="ensp-ensp-TCP的队头阻塞"><a href="#ensp-ensp-TCP的队头阻塞" class="headerlink" title="&ensp;&ensp;TCP的队头阻塞"></a>&ensp;&ensp;TCP的队头阻塞</h4><p>&ensp;&ensp;为了保证TCP的可靠性，如果一个序列号低的包丢失，会等待该包重传。因此整个TCP连接会阻塞，直到丢失的包重传并接收为止。只要是使用TCP传输数据，就可能发生TCP队头阻塞。因此Http 1、Http 2中都可能发生，而且Http 2中同域名下只有一个连接，因此发生TCP队头阻塞时，整个连接都受影响。  </p><h4 id="ensp-ensp-基于UDP协议的QUIC协议"><a href="#ensp-ensp-基于UDP协议的QUIC协议" class="headerlink" title="&ensp;&ensp;基于UDP协议的QUIC协议"></a>&ensp;&ensp;基于UDP协议的QUIC协议</h4><p>&ensp;&ensp;QUIC协议为Quick UDP Internet Connection，是一个使用UDP多路并发传输的 <strong>传输层协议</strong>。</p><h3 id="HTTP协议在数据传输中的动作"><a href="#HTTP协议在数据传输中的动作" class="headerlink" title="HTTP协议在数据传输中的动作"></a>HTTP协议在数据传输中的动作</h3>]]></content>
       
       
       <categories>
@@ -225,6 +317,29 @@
             
             <tag> HTTP </tag>
             
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HTTPS 协议</title>
+      <link href="/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Https%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Https%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Https"><a href="#Https" class="headerlink" title="Https"></a>Https</h3><p>&ensp;&ensp;在Http和Tcp之间，添加安全协议TLS，就是Https。TLS的前身就是SSL。Https对数据进行加密，且能服务器端身份验证。  </p><h4 id="ensp-ensp-Https加密方式"><a href="#ensp-ensp-Https加密方式" class="headerlink" title="&ensp;&ensp;Https加密方式"></a>&ensp;&ensp;Https加密方式</h4><h4 id="ensp-ensp-ensp-ensp-共享密钥加密"><a href="#ensp-ensp-ensp-ensp-共享密钥加密" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;共享密钥加密"></a>&ensp;&ensp;&ensp;&ensp;共享密钥加密</h4><p>&ensp;&ensp;&ensp;&ensp;共享密钥加密也叫做 <strong>对称密钥加密</strong> ，就是客户端和服务器端都是用同一把密钥对数据进行加密解密。优点是处理快。缺点是 <strong>使用共享的密钥就必须先将该密钥传给对方</strong> ，该过程是不安全的，如果第三方在传输过程中获得了密钥，那数据加密也没了意义。</p><h4 id="ensp-ensp-ensp-ensp-公开密钥加密"><a href="#ensp-ensp-ensp-ensp-公开密钥加密" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;公开密钥加密"></a>&ensp;&ensp;&ensp;&ensp;公开密钥加密</h4><p>&ensp;&ensp;&ensp;&ensp;公开密钥加密也叫做 <strong>非对称密钥加密</strong> ，就是加密和解密的密钥不是同一把，称为 <strong>公钥</strong> 和 <strong>私钥</strong> 。<br>&ensp;&ensp;&ensp;&ensp;公钥是任何人都可以获得的，私钥是不能给别人的。将公钥传给对方，数据使用公钥加密，然后将加密后的数据使用私钥解密，通过 <strong>数字证书</strong> 来验证公钥的真实性。优点是即使获得了公钥也不能解密数据。缺点是和共享密钥加密相比，处理更复杂也更慢。</p><h4 id="ensp-ensp-ensp-ensp-Https使用混合加密方式"><a href="#ensp-ensp-ensp-ensp-Https使用混合加密方式" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;Https使用混合加密方式"></a>&ensp;&ensp;&ensp;&ensp;Https使用混合加密方式</h4><p>&ensp;&ensp;&ensp;&ensp;首先通过公开密钥加密，对将要使用的共享密钥加密，来保证共享密钥传输时的安全性。后续的通信使用共享密钥加密来保证数据的安全性。</p><h4 id="ensp-ensp-TLS-的握手过程"><a href="#ensp-ensp-TLS-的握手过程" class="headerlink" title="&ensp;&ensp;TLS 的握手过程"></a>&ensp;&ensp;TLS 的握手过程</h4><p>&ensp;&ensp;TLS的四次握手建立在TCP三次握手之上。因此Https需要先是TCP的三次握手，然后是TLS的四次握手，共七次握手。<br><img src="/assets/posts_jpg/TcpIp/TLS%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B.jpg" alt="TLS 握手过程">  </p><h4 id="ensp-ensp-ensp-ensp-第一次握手-客户端发起请求"><a href="#ensp-ensp-ensp-ensp-第一次握手-客户端发起请求" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第一次握手 客户端发起请求"></a>&ensp;&ensp;&ensp;&ensp;第一次握手 客户端发起请求</h4><p>&ensp;&ensp;&ensp;&ensp;由客户端发起，发送Client Hello消息。消息中包含：客户端生成的 <strong>随机字符串X</strong>，客户端 <strong>支持的加密算法列表</strong>，客户端 <strong>支持的压缩算法列表</strong> ，客户端的 <strong>TLS协议版本</strong> 。  </p><h4 id="ensp-ensp-ensp-ensp-第二次握手-服务器端回应"><a href="#ensp-ensp-ensp-ensp-第二次握手-服务器端回应" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第二次握手 服务器端回应"></a>&ensp;&ensp;&ensp;&ensp;第二次握手 服务器端回应</h4><p>&ensp;&ensp;&ensp;&ensp;服务器接收到客户端的Hello消息后，回应Server Hello消息。消息中包含：服务器端生成的 <strong>随机字符串Y</strong> ，且 <strong>选择</strong> 后续使用的加密算法、压缩算法、协议版本等。发送Certificate消息，也就是服务器证书。最后Server Hello Done表示回应结束。  </p><h4 id="ensp-ensp-ensp-ensp-第三次握手-客户端回应"><a href="#ensp-ensp-ensp-ensp-第三次握手-客户端回应" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第三次握手 客户端回应"></a>&ensp;&ensp;&ensp;&ensp;第三次握手 客户端回应</h4><p>&ensp;&ensp;&ensp;&ensp;客户端收到证书后验证服务器身份，并从证书中获得公钥。生成 <strong>随机字符串Z</strong> 并使用 <strong>公钥加密</strong> ，发送给服务器端。此时客户端已有随机字符串X，Y，Z，通过 <strong>随机字符串和协商的加密算法</strong> 生成 <strong>共享密钥</strong> ，也就是对称密钥加密中使用的密钥。Change Cipher Spec表示告诉服务器端，客户端已经切换到共享密钥加密状态。最后发送Finished消息，表示结束TLS握手。  </p><h4 id="ensp-ensp-ensp-ensp-第四次握手-服务器端结束回应"><a href="#ensp-ensp-ensp-ensp-第四次握手-服务器端结束回应" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;第四次握手 服务器端结束回应"></a>&ensp;&ensp;&ensp;&ensp;第四次握手 服务器端结束回应</h4><p>&ensp;&ensp;&ensp;&ensp;服务器端收到通过公钥加密的随机字符串Z后，使用私钥解密。此时服务器端有随机字符串X，Y，Z。通过协商好的加密算法和随机字符串生成 <strong>共享密钥</strong>。Change Cipher Spec表示服务器端已经切换到使用共享密钥加密状态。最后发送Finished消息，结束TLS握手。  </p><h4 id="ensp-ensp-证书链"><a href="#ensp-ensp-证书链" class="headerlink" title="&ensp;&ensp;证书链"></a>&ensp;&ensp;证书链</h4><p>&ensp;&ensp;在TLS中，客户端接收到服务器端的证书，要验证证书的合法性。一般浏览器内置了 <strong>信任的根证书</strong>，但是服务器发送过来的证书一般 <strong>不是根证书签发</strong> 的。因此通过证书链的信任关系来判断证书的合法性。<br>&ensp;&ensp;当客户端收到服务器端发的证书后，如果发现该证书的签发者不是信任的根证书，就会向 <strong>CA</strong> 证书机构请求该 <strong>中间证书</strong> 。在收到中间证书后，判断该中间证书的签发者是否为信任的根证书，以此类推。  </p><h3 id="TLS协议在数据传输中的动作"><a href="#TLS协议在数据传输中的动作" class="headerlink" title="TLS协议在数据传输中的动作"></a>TLS协议在数据传输中的动作</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tcp/Ip </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
             <tag> HTTPS </tag>
             
             <tag> TLS </tag>
@@ -237,10 +352,10 @@
     
     <entry>
       <title>TCP 协议</title>
-      <link href="/2021/07/14/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/Tcp%E5%8D%8F%E8%AE%AE/"/>
-      <url>/2021/07/14/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/Tcp%E5%8D%8F%E8%AE%AE/</url>
+      <link href="/2021/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Tcp%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Tcp%E5%8D%8F%E8%AE%AE/</url>
       
-        <content type="html"><![CDATA[<h3 id="TCP的可靠传输"><a href="#TCP的可靠传输" class="headerlink" title="TCP的可靠传输"></a>TCP的可靠传输</h3><p>&ensp;&ensp;TCP通过 <strong>序列号</strong> 和 <strong>确认应答</strong> 来实现可靠传输，也即重发控制，重复判断等。</p><h4 id="ensp-ensp-确认应答"><a href="#ensp-ensp-确认应答" class="headerlink" title="&ensp;&ensp;确认应答"></a>&ensp;&ensp;确认应答</h4><p>&ensp;&ensp;当发送端的数据到达接收端后，接收端会返回一个通知表示自己接收到，也就是 <strong>ACK</strong> 确认应答。<br>&ensp;&ensp;当发送端在特定时间内没有收到ACK时，会认为数据包丢失而重传。如果数据包到达，但是ACK丢失，发送端也会认为是数据包丢失而重传，此时就需要序列号来区分重复数据。</p><h4 id="ensp-ensp-序列号和确认号"><a href="#ensp-ensp-序列号和确认号" class="headerlink" title="&ensp;&ensp;序列号和确认号"></a>&ensp;&ensp;序列号和确认号</h4><p>&ensp;&ensp;按顺序将发送的每一个 <strong>字节</strong> 都标上编号，也就是 <strong>序列号</strong> 。接收端会将 <strong>下一步要接收</strong> 的起始序号写在ACK中，表示该序号之前的都接收完毕，下一次应该从该序号开始发送，也就是 <strong>确认号</strong> 。<br>&ensp;&ensp;在发送接收正常的情况下，ACK中确认号一般是， 接收端 <strong>已收到的序列号中最大值+1</strong> 。  </p><h4 id="ensp-ensp-超时重发"><a href="#ensp-ensp-超时重发" class="headerlink" title="&ensp;&ensp;超时重发"></a>&ensp;&ensp;超时重发</h4><p>&ensp;&ensp;在特定时间内发送端没有收到ACK，就会将数据重发。随着网络环境的变化，该特定时间也不同。在 <strong>每次发包</strong> 时都会计算 <strong>往返时间RTT</strong> 和 RTT的抖动值。超时重发的特定时间就是比 RTT + 偏差 的和要大一些的值。  </p><h3 id="传输效率"><a href="#传输效率" class="headerlink" title="传输效率"></a>传输效率</h3><h4 id="ensp-ensp-最大消息长度"><a href="#ensp-ensp-最大消息长度" class="headerlink" title="&ensp;&ensp;最大消息长度"></a>&ensp;&ensp;最大消息长度</h4><p>&ensp;&ensp;在建立TCP连接时，可以确定发送一次数据的最大字节数，也就是 <strong>最大消息长度 MSS</strong> 。TCP传输数据时，将数据以MSS的大小进行分割发送，因此TCP是以 <strong>段</strong> 为单位发送数据。<br>&ensp;&ensp;在三次握手时，通过TCP报文首部写入MSS值，发送端和接收端确定MSS的值并使用该值进行传输，该MSS的值不包括TCP报文头，和IP报文头。<br><img src="/assets/posts_jpg/TcpIp/TCP%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE.jpg" alt="TCP发送数据">  </p><h4 id="ensp-ensp-通过窗口提高效率"><a href="#ensp-ensp-通过窗口提高效率" class="headerlink" title="&ensp;&ensp;通过窗口提高效率"></a>&ensp;&ensp;通过窗口提高效率</h4><p>&ensp;&ensp;TCP每发一个段，等待接收ACK。这种传输方式的效率会随着RTT的提高而降低。效率不高。因此通过窗口来提高效率。<br><img src="/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3.jpg" alt="TCP窗口提高效率"><br>&ensp;&ensp;如上图所示，设窗口大小为3000字节，MSS为1000字节。发送端不需要等待接收端的ACK，可以继续发送。窗口大小就相当于，发送端无需等待ACK就可以继续发送数据的字节的 <strong>最大值</strong> 。图中窗口大小为3个段大小，因此发送端可以直接发送3次数据。</p><h4 id="ensp-ensp-滑动窗口"><a href="#ensp-ensp-滑动窗口" class="headerlink" title="&ensp;&ensp;滑动窗口"></a>&ensp;&ensp;滑动窗口</h4><p>&ensp;&ensp;在收到某段的ACK后，表示该段及其之前的数据已被接收，不会需要重发。将窗口移动到该ACK中的序列号位置。这个就是 <strong>滑动窗口机制</strong> 。<br><img src="/assets/posts_jpg/TcpIp/TCP%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.jpg" alt="TCP窗口提高效率"><br>&ensp;&ensp;如图所示，当发送端接收到ACK时，窗口会移动到ACK中序列号的位置。发送端收到了序列号1001的ACK，因此窗口移动到1001的位置，表示1001之前已经发送并被接收。从1001开始发送或者等待已发送段的ACK到达。</p><h4 id="ensp-ensp-窗口的重发控制"><a href="#ensp-ensp-窗口的重发控制" class="headerlink" title="&ensp;&ensp;窗口的重发控制"></a>&ensp;&ensp;窗口的重发控制</h4><p>&ensp;&ensp;在窗口机制下，有两种丢包情况：  </p><h4 id="ensp-ensp-ensp-ensp-ACK丢失"><a href="#ensp-ensp-ensp-ensp-ACK丢失" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;ACK丢失"></a>&ensp;&ensp;&ensp;&ensp;ACK丢失</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3ACK%E4%B8%A2%E5%A4%B1.jpg" alt="TCP窗口ACK丢失"><br>&ensp;&ensp;当ACK丢失，且出现如图所示的情况时，发送端可以通过 <strong>下一个</strong> ACK确认1001 ~ 2000这一段已被接收。当接收到ACK:3001时，表示这之前的数据已接收，也就包括1001 ~ 2000这部分。<br>&ensp;&ensp;即使ACK丢失，也 <strong>可能</strong> 不需要重发数据，也就是通过下一个ACK来确认。如果无法通过下一个ACK确认时，那么就还是超时重传。  </p><h4 id="ensp-ensp-ensp-ensp-数据丢失"><a href="#ensp-ensp-ensp-ensp-数据丢失" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;数据丢失"></a>&ensp;&ensp;&ensp;&ensp;数据丢失</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%8C%85%E4%B8%A2%E5%A4%B1.jpg" alt="TCP窗口数据包丢失"><br>&ensp;&ensp;如图所示，当数据包丢失时，下一个段到达，接收端没有收到自己期望的序列号。因此ACK还是接收端期望的序列号。在发送端收到ACK后，又收到三次 <strong>重复</strong> 的ACK。就会将该ACK的序列号进行重传。<br>&ensp;&ensp;接收端会按序列号顺序保存已收到的段。重发数据包的ACK中确认号，就是已接收到的序列号最大值+1。  </p><h3 id="三次握手建立连接"><a href="#三次握手建立连接" class="headerlink" title="三次握手建立连接"></a>三次握手建立连接</h3><p><img src="/assets/posts_jpg/TcpIp/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg" alt="TCP三次握手">  </p><h4 id="ensp-ensp-ISN，初始化序列号"><a href="#ensp-ensp-ISN，初始化序列号" class="headerlink" title="&ensp;&ensp;ISN，初始化序列号"></a>&ensp;&ensp;ISN，初始化序列号</h4><p>&ensp;&ensp;主机A和主机B之间的TCP连接，相当于A，B的ip和端口构成的 <strong>四元组</strong> 。如果每次建立连接的初始序列号相同，当A和B之间的连接意外中断，再次连接且是相同四元组时，那么接收端就会出现序列号重复且乱序的情况。恶意攻击可以通过ip，端口，序列号，伪造身份来破坏TCP的正常连接，如果初始序列号每次相同，那么就更容易被攻击。<br>&ensp;&ensp;因此通过 <strong>初始化序列号</strong> ，使得建立连接的序列号更随机，增加安全性。初始化序列号也就是，增加通信安全的方法之一。  </p><h4 id="ensp-ensp-半连接，全连接队列"><a href="#ensp-ensp-半连接，全连接队列" class="headerlink" title="&ensp;&ensp;半连接，全连接队列"></a>&ensp;&ensp;半连接，全连接队列</h4><p>&ensp;&ensp;<strong>半连接队列</strong> ：也就是SYN队列。当接收端收到SYN后，会将该连接相关信息保存在半连接队列。<br>&ensp;&ensp;<strong>全接连队列</strong> ：也就是accept队列。当接收端收到ACK后，会将该连接从半连接队列中移除，并创建新的全连接保存在全连接队列。通过Socket的accept()，将连接从全连接队列中取出。<br>&ensp;&ensp;<strong>半连接队列溢出</strong> ：当半连接队列已满时，发送端的SYN报文就会被丢弃。如果攻击者一直发送SYN包且不发送ACK包，那么接收端就会有大量处于SYN_RCVD的TCP连接，从而导致半连接队列溢出。接收端可以开启 <strong>tcp_syncookies</strong> 防御SYN攻击。<br>&ensp;&ensp;<strong>全连接队列溢出</strong> ：当全连接队列已满时。接收端 <strong>默认</strong> 会丢弃发送端的ACK包。此时，发送端处于 ESTABLISHED 状态，接收端依然处于 SYN_RCVD 状态，发送端此时发送数据也不会得到接收端回应。而接收端会重发 SYN+ACK 包，重发次数超过 <strong>tcp_synack_retries</strong> 后，会发送 <strong>RST</strong> 给发送端重置连接。<br>&ensp;&ensp;除了上面说的默认行为：丢弃ACK包，然后接收端重发 SYN+ACK 包之外，另一种是，当接收端收到ACK包后，直接发送 <strong>RST</strong> 重置连接。总的来说，如果全连接队列满了，tcp连接溢出，会导致 <strong>服务器请求数量上不去</strong> 。被丢弃的TCP连接数量会被统计，可以通过查看该数来判断是否发生全连接队列溢出。</p><h4 id="ensp-ensp-SYN攻击防御手段"><a href="#ensp-ensp-SYN攻击防御手段" class="headerlink" title="&ensp;&ensp;SYN攻击防御手段"></a>&ensp;&ensp;SYN攻击防御手段</h4><h4 id="ensp-ensp-ensp-ensp-开启-tcp-syncookies-功能"><a href="#ensp-ensp-ensp-ensp-开启-tcp-syncookies-功能" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;开启 tcp_syncookies 功能"></a>&ensp;&ensp;&ensp;&ensp;开启 tcp_syncookies 功能</h4><p>&ensp;&ensp;SYN攻击点在于服务器的 <strong>资源有限</strong> 。当收到SYN包后，接收端需要分配资源保存该次连接的信息，如四元组，MSS，时间戳等。<br>&ensp;&ensp;tcp_syncookies的关键在于 <strong>完成三次握手前，不分配资源</strong> 。在接收端不分配资源的情况下，完成握手建立连接。也就是说，接收端要在没有四元组，序列号等信息的情况下，验证发送端的 <strong>ACK包的有效性</strong> 。<br>&ensp;&ensp;在 <strong>开启</strong> tcp_syncookies的情况下，初始化序列号的规则会以：5位 时间戳，3位 MSS选项值，24位 四元组和时间戳加密后的hash值 来创建。因此接收端收到ACK后，将第三次握手的包ack-1，就获得了第二次握手的序列号。此时在将四元组和时间戳加密后的hash值，与该序列号后24位进行比较，来验证有效性。<br>&ensp;&ensp;由此看来，该功能 <strong>缺点</strong> 很明显，1.增加了接收端加密解密运算。2.MSS只有3位选项值，也就是说只有8种MSS值可选。</p><h4 id="ensp-ensp-ensp-ensp-增加半连接队列大小"><a href="#ensp-ensp-ensp-ensp-增加半连接队列大小" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;增加半连接队列大小"></a>&ensp;&ensp;&ensp;&ensp;增加半连接队列大小</h4><p>&ensp;&ensp;通过增加半连接队列大小，来接收更多的SYN请求。半连接队列大小最大值为 max_qlen_log ，该值受 max_syn_backlog 的值的影响。  </p><h4 id="ensp-ensp-ensp-ensp-减少接收端-SYN-ACK包-的重传次数"><a href="#ensp-ensp-ensp-ensp-减少接收端-SYN-ACK包-的重传次数" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;减少接收端 SYN+ACK包 的重传次数"></a>&ensp;&ensp;&ensp;&ensp;减少接收端 SYN+ACK包 的重传次数</h4><p>&ensp;&ensp;通过修改tcp_synack_retries的值，来减少重传SYN+ACK包次数，可以更快发送 RST 来中断连接。  </p><h4 id="ensp-ensp-同时建立连接"><a href="#ensp-ensp-同时建立连接" class="headerlink" title="&ensp;&ensp;同时建立连接"></a>&ensp;&ensp;同时建立连接</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E5%90%8C%E6%97%B6%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5.jpg" alt="TCP同时建立连接">  </p><h4 id="ensp-ensp-状态转换"><a href="#ensp-ensp-状态转换" class="headerlink" title="&ensp;&ensp;状态转换"></a>&ensp;&ensp;状态转换</h4><p>&ensp;&ensp;待补充。。。</p><h3 id="四次挥手断开连接"><a href="#四次挥手断开连接" class="headerlink" title="四次挥手断开连接"></a>四次挥手断开连接</h3><p><img src="/assets/posts_jpg/TcpIp/TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.jpg" alt="TCP四次挥手">  </p><h4 id="ensp-ensp-MSL"><a href="#ensp-ensp-MSL" class="headerlink" title="&ensp;&ensp;MSL"></a>&ensp;&ensp;MSL</h4><p>&ensp;&ensp;MSL，也就是段的最长 <strong>寿命</strong> 。换句话说，段在网络中存活的最长时间，超过这个时间的段会被丢弃。<br>&ensp;&ensp;如果发送端的ACK包丢失，接收端没有收到ACK，到达超时重传的时间后，会重传FIN+ACK包。从发送端的角度，有发送的ACK的MSL及可能重发的FIN+ACK的MSL。因此发送端要等待2MSL的原因为：1.保证能接收到重发的FIN+ACK包。2.保证该次连接中产生的段失效。<br>&ensp;&ensp;如果ACK一直失效，而接收端一直重发FIN+ACK包的话，经过 <strong>tcp_fin_timeout</strong> 后，断开连接。该值也就是发送端保持在 FIN_WAIT_2 状态的时间。</p><h4 id="ensp-ensp-同时断开连接"><a href="#ensp-ensp-同时断开连接" class="headerlink" title="&ensp;&ensp;同时断开连接"></a>&ensp;&ensp;同时断开连接</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E5%90%8C%E6%97%B6%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5.jpg" alt="TCP同时断开连接">  </p><h4 id="ensp-ensp-状态转换-1"><a href="#ensp-ensp-状态转换-1" class="headerlink" title="&ensp;&ensp;状态转换"></a>&ensp;&ensp;状态转换</h4><p>&ensp;&ensp;待补充。。。</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="TCP的可靠传输"><a href="#TCP的可靠传输" class="headerlink" title="TCP的可靠传输"></a>TCP的可靠传输</h3><p>&ensp;&ensp;TCP通过 <strong>序列号</strong> 和 <strong>确认应答</strong> 来实现可靠传输，也即重发控制，重复判断等。</p><h4 id="ensp-ensp-确认应答"><a href="#ensp-ensp-确认应答" class="headerlink" title="&ensp;&ensp;确认应答"></a>&ensp;&ensp;确认应答</h4><p>&ensp;&ensp;当发送端的数据到达接收端后，接收端会返回一个通知表示自己接收到，也就是 <strong>ACK</strong> 确认应答。<br>&ensp;&ensp;当发送端在特定时间内没有收到ACK时，会认为数据包丢失而重传。如果数据包到达，但是ACK丢失，发送端也会认为是数据包丢失而重传，此时就需要序列号来区分重复数据。</p><h4 id="ensp-ensp-序列号和确认号"><a href="#ensp-ensp-序列号和确认号" class="headerlink" title="&ensp;&ensp;序列号和确认号"></a>&ensp;&ensp;序列号和确认号</h4><p>&ensp;&ensp;按顺序将发送的每一个 <strong>字节</strong> 都标上编号，也就是 <strong>序列号</strong> 。接收端会将 <strong>下一步要接收</strong> 的起始序号写在ACK中，表示该序号之前的都接收完毕，下一次应该从该序号开始发送，也就是 <strong>确认号</strong> 。<br>&ensp;&ensp;在发送接收正常的情况下，ACK中确认号一般是， 接收端 <strong>已收到的序列号中最大值+1</strong> 。  </p><h4 id="ensp-ensp-超时重发"><a href="#ensp-ensp-超时重发" class="headerlink" title="&ensp;&ensp;超时重发"></a>&ensp;&ensp;超时重发</h4><p>&ensp;&ensp;在特定时间内发送端没有收到ACK，就会将数据重发。随着网络环境的变化，该特定时间也不同。在 <strong>每次发包</strong> 时都会计算 <strong>往返时间RTT</strong> 和 RTT的抖动值。超时重发的特定时间就是比 RTT + 偏差 的和要大一些的值。  </p><h3 id="传输效率"><a href="#传输效率" class="headerlink" title="传输效率"></a>传输效率</h3><h4 id="ensp-ensp-最大消息长度"><a href="#ensp-ensp-最大消息长度" class="headerlink" title="&ensp;&ensp;最大消息长度"></a>&ensp;&ensp;最大消息长度</h4><p>&ensp;&ensp;在建立TCP连接时，可以确定发送一次数据的最大字节数，也就是 <strong>最大消息长度 MSS</strong> 。TCP传输数据时，将数据以MSS的大小进行分割发送，因此TCP是以 <strong>段</strong> 为单位发送数据。<br>&ensp;&ensp;在三次握手时，通过TCP报文首部写入MSS值，发送端和接收端确定MSS的值并使用该值进行传输，该MSS的值不包括TCP报文头，和IP报文头。<br><img src="/assets/posts_jpg/TcpIp/TCP%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE.jpg" alt="TCP发送数据">  </p><h4 id="ensp-ensp-通过窗口提高效率"><a href="#ensp-ensp-通过窗口提高效率" class="headerlink" title="&ensp;&ensp;通过窗口提高效率"></a>&ensp;&ensp;通过窗口提高效率</h4><p>&ensp;&ensp;TCP每发一个段，等待接收ACK。这种传输方式的效率会随着RTT的提高而降低。效率不高。因此通过窗口来提高效率。<br><img src="/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3.jpg" alt="TCP窗口提高效率"><br>&ensp;&ensp;如上图所示，设窗口大小为3000字节，MSS为1000字节。发送端不需要等待接收端的ACK，可以继续发送。窗口大小就相当于，发送端无需等待ACK就可以继续发送数据的字节的 <strong>最大值</strong> 。图中窗口大小为3个段大小，因此发送端可以直接发送3次数据。</p><h4 id="ensp-ensp-滑动窗口"><a href="#ensp-ensp-滑动窗口" class="headerlink" title="&ensp;&ensp;滑动窗口"></a>&ensp;&ensp;滑动窗口</h4><p>&ensp;&ensp;在收到某段的ACK后，表示该段及其之前的数据已被接收，不会需要重发。将窗口移动到该ACK中的序列号位置。这个就是 <strong>滑动窗口机制</strong> 。<br><img src="/assets/posts_jpg/TcpIp/TCP%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.jpg" alt="TCP窗口提高效率"><br>&ensp;&ensp;如图所示，当发送端接收到ACK时，窗口会移动到ACK中序列号的位置。发送端收到了序列号1001的ACK，因此窗口移动到1001的位置，表示1001之前已经发送并被接收。从1001开始发送或者等待已发送段的ACK到达。</p><h4 id="ensp-ensp-窗口的重发控制"><a href="#ensp-ensp-窗口的重发控制" class="headerlink" title="&ensp;&ensp;窗口的重发控制"></a>&ensp;&ensp;窗口的重发控制</h4><p>&ensp;&ensp;在窗口机制下，有两种丢包情况：  </p><h4 id="ensp-ensp-ensp-ensp-ACK丢失"><a href="#ensp-ensp-ensp-ensp-ACK丢失" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;ACK丢失"></a>&ensp;&ensp;&ensp;&ensp;ACK丢失</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3ACK%E4%B8%A2%E5%A4%B1.jpg" alt="TCP窗口ACK丢失"><br>&ensp;&ensp;当ACK丢失，且出现如图所示的情况时，发送端可以通过 <strong>下一个</strong> ACK确认1001 ~ 2000这一段已被接收。当接收到ACK:3001时，表示这之前的数据已接收，也就包括1001 ~ 2000这部分。<br>&ensp;&ensp;即使ACK丢失，也 <strong>可能</strong> 不需要重发数据，也就是通过下一个ACK来确认。如果无法通过下一个ACK确认时，那么就还是超时重传。  </p><h4 id="ensp-ensp-ensp-ensp-数据丢失"><a href="#ensp-ensp-ensp-ensp-数据丢失" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;数据丢失"></a>&ensp;&ensp;&ensp;&ensp;数据丢失</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%8C%85%E4%B8%A2%E5%A4%B1.jpg" alt="TCP窗口数据包丢失"><br>&ensp;&ensp;如图所示，当数据包丢失时，下一个段到达，接收端没有收到自己期望的序列号。因此ACK还是接收端期望的序列号。在发送端收到ACK后，又收到三次 <strong>重复</strong> 的ACK。就会将该ACK的序列号进行重传。<br>&ensp;&ensp;接收端会按序列号顺序保存已收到的段。重发数据包的ACK中确认号，就是已接收到的序列号最大值+1。  </p><h3 id="三次握手建立连接"><a href="#三次握手建立连接" class="headerlink" title="三次握手建立连接"></a>三次握手建立连接</h3><p><img src="/assets/posts_jpg/TcpIp/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg" alt="TCP三次握手">  </p><h4 id="ensp-ensp-ISN，初始化序列号"><a href="#ensp-ensp-ISN，初始化序列号" class="headerlink" title="&ensp;&ensp;ISN，初始化序列号"></a>&ensp;&ensp;ISN，初始化序列号</h4><p>&ensp;&ensp;主机A和主机B之间的TCP连接，相当于A，B的ip和端口构成的 <strong>四元组</strong> 。如果每次建立连接的初始序列号相同，当A和B之间的连接意外中断，再次连接且是相同四元组时，那么接收端就会出现序列号重复且乱序的情况。恶意攻击可以通过ip，端口，序列号，伪造身份来破坏TCP的正常连接，如果初始序列号每次相同，那么就更容易被攻击。<br>&ensp;&ensp;因此通过 <strong>初始化序列号</strong> ，使得建立连接的序列号更随机，增加安全性。初始化序列号也就是，增加通信安全的方法之一。  </p><h4 id="ensp-ensp-半连接，全连接队列"><a href="#ensp-ensp-半连接，全连接队列" class="headerlink" title="&ensp;&ensp;半连接，全连接队列"></a>&ensp;&ensp;半连接，全连接队列</h4><p>&ensp;&ensp;<strong>半连接队列</strong> ：也就是SYN队列。当接收端收到SYN后，会将该连接相关信息保存在半连接队列。<br>&ensp;&ensp;<strong>全接连队列</strong> ：也就是accept队列。当接收端收到ACK后，会将该连接从半连接队列中移除，并创建新的全连接保存在全连接队列。通过Socket的accept()，将连接从全连接队列中取出。<br>&ensp;&ensp;<strong>半连接队列溢出</strong> ：当半连接队列已满时，发送端的SYN报文就会被丢弃。如果攻击者一直发送SYN包且不发送ACK包，那么接收端就会有大量处于SYN_RCVD的TCP连接，从而导致半连接队列溢出。接收端可以开启 <strong>tcp_syncookies</strong> 防御SYN攻击。<br>&ensp;&ensp;<strong>全连接队列溢出</strong> ：当全连接队列已满时。接收端 <strong>默认</strong> 会丢弃发送端的ACK包。此时，发送端处于 ESTABLISHED 状态，接收端依然处于 SYN_RCVD 状态，发送端此时发送数据也不会得到接收端回应。而接收端会重发 SYN+ACK 包，重发次数超过 <strong>tcp_synack_retries</strong> 后，会发送 <strong>RST</strong> 给发送端重置连接。<br>&ensp;&ensp;除了上面说的默认行为：丢弃ACK包，然后接收端重发 SYN+ACK 包之外，另一种是，当接收端收到ACK包后，直接发送 <strong>RST</strong> 重置连接。总的来说，如果全连接队列满了，tcp连接溢出，会导致 <strong>服务器请求数量上不去</strong> 。被丢弃的TCP连接数量会被统计，可以通过查看该数来判断是否发生全连接队列溢出。</p><h4 id="ensp-ensp-SYN攻击防御手段"><a href="#ensp-ensp-SYN攻击防御手段" class="headerlink" title="&ensp;&ensp;SYN攻击防御手段"></a>&ensp;&ensp;SYN攻击防御手段</h4><h4 id="ensp-ensp-ensp-ensp-开启-tcp-syncookies-功能"><a href="#ensp-ensp-ensp-ensp-开启-tcp-syncookies-功能" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;开启 tcp_syncookies 功能"></a>&ensp;&ensp;&ensp;&ensp;开启 tcp_syncookies 功能</h4><p>&ensp;&ensp;SYN攻击点在于服务器的 <strong>资源有限</strong> 。当收到SYN包后，接收端需要分配资源保存该次连接的信息，如四元组，MSS，时间戳等。<br>&ensp;&ensp;tcp_syncookies的关键在于 <strong>完成三次握手前，不分配资源</strong> 。在接收端不分配资源的情况下，完成握手建立连接。也就是说，接收端要在没有四元组，序列号等信息的情况下，验证发送端的 <strong>ACK包的有效性</strong> 。<br>&ensp;&ensp;在 <strong>开启</strong> tcp_syncookies的情况下，初始化序列号的规则会以：5位 时间戳，3位 MSS选项值，24位 四元组和时间戳加密后的hash值 来创建。因此接收端收到ACK后，将第三次握手的包ack-1，就获得了第二次握手的序列号。此时在将四元组和时间戳加密后的hash值，与该序列号后24位进行比较，来验证有效性。<br>&ensp;&ensp;由此看来，该功能 <strong>缺点</strong> 很明显，1.增加了接收端加密解密运算。2.MSS只有3位选项值，也就是说只有8种MSS值可选。</p><h4 id="ensp-ensp-ensp-ensp-增加半连接队列大小"><a href="#ensp-ensp-ensp-ensp-增加半连接队列大小" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;增加半连接队列大小"></a>&ensp;&ensp;&ensp;&ensp;增加半连接队列大小</h4><p>&ensp;&ensp;通过增加半连接队列大小，来接收更多的SYN请求。半连接队列大小最大值为 max_qlen_log ，该值受 max_syn_backlog 的值的影响。  </p><h4 id="ensp-ensp-ensp-ensp-减少接收端-SYN-ACK包-的重传次数"><a href="#ensp-ensp-ensp-ensp-减少接收端-SYN-ACK包-的重传次数" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;减少接收端 SYN+ACK包 的重传次数"></a>&ensp;&ensp;&ensp;&ensp;减少接收端 SYN+ACK包 的重传次数</h4><p>&ensp;&ensp;通过修改tcp_synack_retries的值，来减少重传SYN+ACK包次数，可以更快发送 RST 来中断连接。  </p><h4 id="ensp-ensp-同时建立连接"><a href="#ensp-ensp-同时建立连接" class="headerlink" title="&ensp;&ensp;同时建立连接"></a>&ensp;&ensp;同时建立连接</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E5%90%8C%E6%97%B6%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5.jpg" alt="TCP同时建立连接">  </p><h4 id="ensp-ensp-状态转换"><a href="#ensp-ensp-状态转换" class="headerlink" title="&ensp;&ensp;状态转换"></a>&ensp;&ensp;状态转换</h4><p>&ensp;&ensp;待补充。。。</p><h3 id="四次挥手断开连接"><a href="#四次挥手断开连接" class="headerlink" title="四次挥手断开连接"></a>四次挥手断开连接</h3><p><img src="/assets/posts_jpg/TcpIp/TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.jpg" alt="TCP四次挥手">  </p><h4 id="ensp-ensp-MSL"><a href="#ensp-ensp-MSL" class="headerlink" title="&ensp;&ensp;MSL"></a>&ensp;&ensp;MSL</h4><p>&ensp;&ensp;MSL，也就是段的最长 <strong>寿命</strong> 。换句话说，段在网络中存活的最长时间，超过这个时间的段会被丢弃。<br>&ensp;&ensp;如果发送端的ACK包丢失，接收端没有收到ACK，到达超时重传的时间后，会重传FIN+ACK包。从发送端的角度，有发送的ACK的MSL及可能重发的FIN+ACK的MSL。因此发送端要等待2MSL的原因为：1.保证能接收到重发的FIN+ACK包。2.保证该次连接中产生的段失效。<br>&ensp;&ensp;如果ACK一直失效，而接收端一直重发FIN+ACK包的话，经过 <strong>tcp_fin_timeout</strong> 后，断开连接。该值也就是发送端保持在 FIN_WAIT_2 状态的时间。</p><h4 id="ensp-ensp-同时断开连接"><a href="#ensp-ensp-同时断开连接" class="headerlink" title="&ensp;&ensp;同时断开连接"></a>&ensp;&ensp;同时断开连接</h4><p><img src="/assets/posts_jpg/TcpIp/TCP%E5%90%8C%E6%97%B6%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5.jpg" alt="TCP同时断开连接">  </p><h4 id="ensp-ensp-状态转换-1"><a href="#ensp-ensp-状态转换-1" class="headerlink" title="&ensp;&ensp;状态转换"></a>&ensp;&ensp;状态转换</h4><p>&ensp;&ensp;待补充。。。</p><h3 id="TCP协议在数据传输中的动作"><a href="#TCP协议在数据传输中的动作" class="headerlink" title="TCP协议在数据传输中的动作"></a>TCP协议在数据传输中的动作</h3>]]></content>
       
       
       <categories>
@@ -743,11 +858,38 @@
             
             <tag> java锁机制 </tag>
             
-            <tag> synchronized </tag>
-            
             <tag> Lock </tag>
             
             <tag> AQS </tag>
+            
+            <tag> synchronized </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Partition分治</title>
+      <link href="/2021/04/25/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Partition%E5%88%86%E6%B2%BB/"/>
+      <url>/2021/04/25/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Partition%E5%88%86%E6%B2%BB/</url>
+      
+        <content type="html"><![CDATA[<p>最小k个数(TopK),使用分治思路的时间复杂度;<br>遍历完一遍后,O(N);如果 index != k -1;则继续分区,第二次遍历平均 O(N/2);<br>因此时间复杂度为 O(N) + O(N/2) + O(N/4) +….  = O(2N) = O(N);</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Partition </tag>
+            
+            <tag> 分治 </tag>
             
         </tags>
       
