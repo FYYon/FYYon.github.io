@@ -5,6 +5,32 @@
     
     <entry>
       <title></title>
+      <link href="/2022/05/09/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+      <url>/2022/05/09/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>局部最优 得到 全局最优</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2022/05/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E7%8E%AF%E5%A2%83/Docker/Docker%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+      <url>/2022/05/02/%E5%AE%B9%E5%99%A8%E5%8C%96%E7%8E%AF%E5%A2%83/Docker/Docker%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h3 id="容器-与-虚拟机"><a href="#容器-与-虚拟机" class="headerlink" title="容器 与 虚拟机"></a>容器 与 虚拟机</h3><p>容器之间是共享同一套操作系统资源。<br>虚拟机共享同一套物理硬件资源，独立的操作系统。</p><h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>docker是 能够将程序自动部署到 容器 的引擎。 </p><p>docker run -xxx image_name command，启动容器，并让容器执行指定的命令</p><p>docker exec 相当于 在容器内部中启动一个新进程，执行命令。像是 docker exec -it container_name /bin/bash，就是开启一个进程，执行bash交互命令。docker exec container_name touch /usr/file_name，就是新进程来创建一个文件。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
       <link href="/2022/04/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
       <url>/2022/04/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
       
@@ -34,7 +60,7 @@
       <link href="/2022/04/23/Go/go%E5%9F%BA%E7%A1%80/go%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
       <url>/2022/04/23/Go/go%E5%9F%BA%E7%A1%80/go%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
-        <content type="html"><![CDATA[<ol><li>go每声明一个变量 相当于 内存中的一个新地址</li><li>go方法及函数 都是 值传递，形参 都是 实参 的副本，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变</li><li>go的赋值操作 都是 副本赋值 原数据不会因副本变动而变动，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变</li><li>结合 2.3 总的来说，go中 只有 值传递，不存在引用传递</li><li>切片 和 map ，通道 这些当相当于 指针，是隐式指针， 这些 结构 都需要 make() 函数 初始化。</li><li>结构类型 或者 该结构类型 指针 提供了 方法1，则 该结构变量 或者 该结构指针 都能使用该方法1，go编译器 会自动转换 变量或指针</li><li>结构类型 实现了 接口 的 方法1，则该 结构类型 变量 和 指针， 都能赋值给 该接口变量</li><li>结构类型指针 实现了 接口 的 方法1，则只有 结构类型指针，赋值给 该接口变量</li><li>go 中 需要将 字符 理解成 byte，s := “123”, s[0] 为 ‘1’，如果输出 s[0] ，结果是49，也就是 相当于在go中会直接把 字符型 转为 byte型,不能输出’1’。java中可以输出字符，当把 字符 和 整型相比较时，字符型才会转为整型</li></ol>]]></content>
+        <content type="html"><![CDATA[<ol><li>go每声明一个变量 相当于 内存中的一个新地址</li><li>go方法及函数 都是 值传递，形参 都是 实参 的副本，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变</li><li>go的赋值操作 都是 副本赋值 原数据不会因副本变动而变动，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变</li><li>结合 2.3 总的来说，go中 只有 值传递，不存在引用传递。和java一样，没有引用传递，都是值传递，只是传的是 指针 或者 引用 的值。</li><li>切片 和 map ，通道 这些当相当于 指针，是隐式指针， 这些 结构 都需要 make() 函数 初始化。</li><li>结构类型 或者 该结构类型 指针 提供了 方法1，则 该结构变量 或者 该结构指针 都能使用该方法1，go编译器 会自动转换 变量或指针</li><li>结构类型 实现了 接口 的 方法1，则该 结构类型 变量 和 指针， 都能赋值给 该接口变量</li><li>结构类型指针 实现了 接口 的 方法1，则只有 结构类型指针，赋值给 该接口变量</li><li>go 中 需要将 字符 理解成 byte，s := “123”, s[0] 为 ‘1’，如果输出 s[0] ，结果是49，也就是 相当于在go中会直接把 字符型 转为 byte型,不能输出’1’。java中可以输出字符，当把 字符 和 整型相比较时，字符型才会转为整型</li></ol>]]></content>
       
       
       
@@ -59,11 +85,11 @@
       
         <tags>
             
-            <tag> 协议 </tag>
-            
             <tag> 网关 </tag>
             
             <tag> 路由 </tag>
+            
+            <tag> 协议 </tag>
             
         </tags>
       
@@ -123,15 +149,15 @@
     
     <entry>
       <title>JVM的可达性分析算法的理解</title>
-      <link href="/2021/10/07/Java/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/"/>
-      <url>/2021/10/07/Java/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/</url>
+      <link href="/2021/10/07/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/"/>
+      <url>/2021/10/07/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/</url>
       
         <content type="html"><![CDATA[<h3 id="可达性分析算法基本思路"><a href="#可达性分析算法基本思路" class="headerlink" title="可达性分析算法基本思路"></a>可达性分析算法基本思路</h3><p><img src="/assets/posts_jpg/Java/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF.jpg" alt="循环依赖"><br>&ensp;&ensp;从根对象作为起始节点，通过引用的关系向下遍历，并标记可达对象。过程中走过的路径成为 <strong>引用链</strong> 。如果一个对象和GC Roots之间没有引用链，即为该对象不可达，是垃圾回收对象。<br>&ensp;&ensp;在这可达性分析算法中，主要有以下几点。</p><h3 id="找到所有GC-roots节点，根节点枚举"><a href="#找到所有GC-roots节点，根节点枚举" class="headerlink" title="找到所有GC roots节点，根节点枚举"></a>找到所有GC roots节点，根节点枚举</h3><p>&ensp;&ensp;根节点枚举，也就是找到符合作为Root条件的对象。GC Roots主要是由栈中引用指向的对象集合成的。因此，根节点枚举就相当于从虚拟机栈、方法区等中，<strong>找到引用</strong>并把引用所指对象作为GC Root。找到栈上的引用，是根节点枚举的关键。<br>&ensp;&ensp;JVM内存中某地址上的数据分为两种，一种是 <strong>数值型</strong> ，一种是 <strong>引用型</strong> 。可达性分析时，如果该数据为引用型，也即 <strong>指向堆中对象的指针</strong> ，就表示是需要标记的可达对象。<br>&ensp;&ensp;对于该过程而言，数值型数据并不需要，只需要引用型来标记该可达对象。因此需要有 <strong>辨别</strong> 某位置数据是否为引用型的方法，也即JVM需要记录数据的类型。有三种处理方式：  </p><h4 id="ensp-ensp-保守式GC"><a href="#ensp-ensp-保守式GC" class="headerlink" title="&ensp;&ensp;保守式GC"></a>&ensp;&ensp;保守式GC</h4><p><img src="/assets/posts_jpg/Java/jvm/%E4%BF%9D%E5%AE%88%E5%BC%8FGC.jpg" alt="循环依赖"><br>&ensp;&ensp;&ensp;&ensp;JVM <strong>不记录</strong> 数据类型， <strong>不能区分</strong> 某个位置上的数据是数值，还是指向堆的地址。只能在 <strong>扫描栈</strong> 时，保守的将数据 <strong>优先视为引用型</strong> ，判断该数据是否符合在 <strong>堆地址</strong> 上下边界之间等条件。如果数据不符合条件，那肯定不是引用型。就算符合条件，该数据也不一定就表示指向堆的地址，也可能就只是个值。<br>&ensp;&ensp;&ensp;&ensp;保守式GC，不会误杀可达对象，但可能会因为某个数值刚好和垃圾对象的地址一样，而放过垃圾对象。因为移动对象，就需要更改指针，因此保守式GC <strong>不能移动</strong> 对象。因此只能使用标记清除算法。</p><h4 id="ensp-ensp-半保守式GC"><a href="#ensp-ensp-半保守式GC" class="headerlink" title="&ensp;&ensp;半保守式GC"></a>&ensp;&ensp;半保守式GC</h4><p>&ensp;&ensp;&ensp;&ensp;在对象上记录数据，就相当于知道对象上哪些 <strong>偏移量</strong> 上是指针。但是，该数据 <strong>保存在对象</strong> 上。因此，在根节点枚举时，通过栈、方法区等，上的引用找到GC Root时， <strong>不起作用</strong> ，依旧是 <strong>不能分辨</strong> 栈中某个地址上的值是指针还是数值。<br>&ensp;&ensp;&ensp;&ensp;半保守式GC，不能分辨引用和数值，对根节点枚举不起作，还是要通过扫描栈来找到GC Roots。找到GC Roots后，可以通过对象中保存的信息来快速找到引用，向下遍历引用链。<br>&ensp;&ensp;&ensp;&ensp;该方式，可以分辨对象中有哪些指针，但不能分辨栈中的值是否为指针。因此 <strong>根节点对象</strong> 还是 <strong>不能移动</strong> ，但是从根节点向下遍历时可达的对象，可以移动。  </p><h4 id="ensp-ensp-准确式GC"><a href="#ensp-ensp-准确式GC" class="headerlink" title="&ensp;&ensp;准确式GC"></a>&ensp;&ensp;准确式GC</h4><p>&ensp;&ensp;&ensp;&ensp;JVM能够准确的知道，栈中哪些位置上是指针。在当前主流虚拟机中，都通过保存指针位置到 <strong>映射表</strong> 中来实现。HotSpot中，将该数据结构称为OOP Map。  </p><p>&ensp;&ensp;目前 <strong>所有</strong> 的垃圾收集器，在找到根节点，也即根结点枚举这一步时，都要stop the world。</p><h3 id="可达性分析时快速定位，OOP-Map"><a href="#可达性分析时快速定位，OOP-Map" class="headerlink" title="可达性分析时快速定位，OOP Map"></a>可达性分析时快速定位，OOP Map</h3><p>&ensp;&ensp;OOP为ordinary object pointer，普通对象指针。通过映射表，根节点枚举时，可以知道哪些位置是指针，不用遍历栈，即可获得GC Roots。<br>&ensp;&ensp;对象的类信息中有记录自己的OOP Map。通过该映射表，能知道该类的实例对象中，哪些 <strong>偏移量</strong> 位置上是指针。OOP Map映射表，就相当于告诉JVM哪些位置上是指针。<br> &ensp;&ensp;一个线程对应一个栈，一个栈中栈帧对应一个方法，一个方法记录多个OOP Map。一个方法通过 <strong>安全点</strong> 分为多段，每一段对应一个OOP Map。<br>&ensp;&ensp;对于 <strong>JNI</strong> 方法，没有OOP Map。因此JNI方法中的 <strong>java引用</strong>  (  <strong>入参引用</strong> ， <strong>返回值</strong> 等 ) ，需要用 <strong>句柄</strong> 包装起来。JNI方法中的引用先指向句柄，然后句柄再指向堆中对象。GC时扫描句柄，就可以得到引用所指对象。因为JNI中引用 <strong>不是直接指向</strong> 堆中对象，而是指向的句柄。因此调用JNI方法，会有句柄的 <strong>装包</strong> 和 <strong>拆包</strong> 的开销。  </p><h3 id="安全点，Safe-point"><a href="#安全点，Safe-point" class="headerlink" title="安全点，Safe point"></a>安全点，Safe point</h3><p>&ensp;&ensp;方法在执行过程中，可能会导致引用关系发生改变，OOP Map映射表就要随之更新。但引用每发生一次变化就更新，成本很高。因此JVM在运行到预先选定的位置，才更新OOP Map。这些位置就是 <strong>安全点</strong> 。因为OOP Map在安全点会更新，也就是说安全点的OOP Mao是准确的，因此只有 <strong>在安全点才进行GC</strong> 操作。<br>&ensp;&ensp;这些位置主要特点是： <strong>程序长时间执行</strong> ，如：1.循环末尾、2.调用方法的位置、3.方法临返回前、4.抛出异常的位置。<br>&ensp;&ensp;把这些位置设为安全点就是为了 <strong>避免长时间无法进入安全点，从而无法GC</strong> 。JVM在GC时，要等到 <strong>所有</strong> 应用 <strong>线程</strong> 处于 <strong>安全状态</strong> 。也即要么在安全点，要么在安全区。<br>&ensp;&ensp;当GC需要stop the world时，线程通过 <strong>中断标志位</strong> 发现需要挂起，会在最近的安全点主动挂起，这就是 <strong>主动式中断</strong> 。目前虚拟机使用的都是主动式。<br>&ensp;&ensp;另一种中断方式是 <strong>抢断式中断</strong> 。当需要stop the world时，先挂起线程，如果线程不在安全点，再恢复线程运行到安全点。</p><h3 id="安全区域，Safe-Region"><a href="#安全区域，Safe-Region" class="headerlink" title="安全区域，Safe Region"></a>安全区域，Safe Region</h3><p>&ensp;&ensp;安全点只解决 <strong>运行中</strong> 的线程进入GC的问题。对于不处于运行中的线程，如sleep，block，无法到最近的安全点。<br>&ensp;&ensp; <strong>安全区域</strong> 能保证在某一段代码中， <strong>不会变更java堆中状态，或者说不会导致引用关系变化</strong> 。而被挂起的线程认定处于安全区域内。<br>&ensp;&ensp;对于 <strong>正在执行JNI</strong> 的线程，JNI中的代码不由JVM管理。JNI执行中，认为不会影响引用关系变化。因此，执行中的JNI，也被视为在安全区中。而调用JNI时，调用的位置也会有安全点，在执行JNI <strong>前</strong> 就需要STW线程挂起的话，也能够在这个安全点挂起。<br>&ensp;&ensp;当线程进入安全区域时，标记自己进入安全区域。就算这个时候发生GC，因为不会导致引用关系变化，所以不需要考虑安全区域内的线程。当线程 <strong>离开</strong> 安全区域时，要检查JVM是否 <strong>处于</strong> 需要stop the world阶段，换句话说 <strong>应用线程</strong> 需要 <strong>中断</strong> 阶段，如根节点枚举。如果不需要，则继续执行。否则挂起，直到阶段完成，收到离开信号。<br>&ensp;&ensp;正在在执行JNI的线程，被认为处于安全区域。而stop the world是防止线程的执行变更引用关系。因此线程在执行JNI时， <strong>不受</strong> stop the world的影响。只是在离开安全区域时，要判断能否离开。  </p><h3 id="可达性分析，三色标记法"><a href="#可达性分析，三色标记法" class="headerlink" title="可达性分析，三色标记法"></a>可达性分析，三色标记法</h3><p>&ensp;&ensp;一般使用可达性分析的垃圾收集器，使用 <strong>三色标记法</strong> 进行存活对象的标记。<br><img src="/assets/posts_jpg/Java/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95.jpg" alt="循环依赖"><br>&ensp;&ensp;由图中所示，三色标记法状态分为三种：  </p><h4 id="ensp-ensp-黑色"><a href="#ensp-ensp-黑色" class="headerlink" title="&ensp;&ensp;黑色"></a>&ensp;&ensp;黑色</h4><p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;该节点已访问，且对象中field字段的节点 <strong>全部</strong> 都访问完成，标记为黑色节点。</p><h4 id="ensp-ensp-灰色"><a href="#ensp-ensp-灰色" class="headerlink" title="&ensp;&ensp;灰色"></a>&ensp;&ensp;灰色</h4><p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;该节点已访问，但对象中字段的节点还没访问，或者没全部访问完，标记为灰色节点。</p><h4 id="ensp-ensp-白色"><a href="#ensp-ensp-白色" class="headerlink" title="&ensp;&ensp;白色"></a>&ensp;&ensp;白色</h4><p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;没被访问到的节点。不可达的垃圾对象一定是白色节点，白色节点不一定是垃圾对象。  </p><h4 id="ensp-ensp-三色标记法大概流程"><a href="#ensp-ensp-三色标记法大概流程" class="headerlink" title="&ensp;&ensp;三色标记法大概流程"></a>&ensp;&ensp;三色标记法大概流程</h4><p>&ensp;&ensp;&ensp;&ensp;一开始所有对象都在白色集合中，GC Roots可直接关联对象标记为灰色，并从白色集合中移除，加入到灰色集合中。从灰色集合中依次取出对象，并遍历该灰色对象中的字段的对象，将遍历到的对象移出白色集合并加入到灰色集合中。当该对象的全部字段对象加入到灰色后，加入到黑色集合中。  </p><h4 id="ensp-ensp-应用线程并发时可能出现的问题"><a href="#ensp-ensp-应用线程并发时可能出现的问题" class="headerlink" title="&ensp;&ensp;应用线程并发时可能出现的问题"></a>&ensp;&ensp;应用线程并发时可能出现的问题</h4><p>&ensp;&ensp;&ensp;&ensp;在CMS，G1等垃圾收集器中，有个 <strong>并发标记</strong> 阶段，GC线程和应用线程并发执行。应用线程执行时可能会导致引用关系变化。而引用关系的变化，可能导致：  </p><h4 id="ensp-ensp-ensp-ensp-浮动垃圾的多标"><a href="#ensp-ensp-ensp-ensp-浮动垃圾的多标" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;浮动垃圾的多标"></a>&ensp;&ensp;&ensp;&ensp;浮动垃圾的多标</h4><p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;浮动垃圾是，已经标记为黑色或者灰色的对象，引用链断开，变为要回收的垃圾对象。浮动垃圾 <strong>不会影响</strong> 程序的 <strong>正确性</strong> ，只是本应该回收但没回收到的内存。因此本轮GC，不回收，下一轮再判断。</p><h4 id="ensp-ensp-ensp-ensp-存活对象的漏标"><a href="#ensp-ensp-ensp-ensp-存活对象的漏标" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;存活对象的漏标"></a>&ensp;&ensp;&ensp;&ensp;存活对象的漏标</h4><p>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;因为应用线程的并发执行，导致 <strong>黑色</strong> 对象的引用关系发生变化，产生了 <strong>黑色-白色</strong> 的引用链。而黑色对象被认为是已经完成遍历的对象。因此黑色对象不会被重新遍历，导致新引用链的白色对象，不会被访问到，一直会是白色对象，造成还在使用的存活对象，被视为垃圾对象回收。  </p><h3 id="漏标的解决方法"><a href="#漏标的解决方法" class="headerlink" title="漏标的解决方法"></a>漏标的解决方法</h3><h4 id="ensp-ensp-引用关系变更导致的对象消失"><a href="#ensp-ensp-引用关系变更导致的对象消失" class="headerlink" title="&ensp;&ensp;引用关系变更导致的对象消失"></a>&ensp;&ensp;引用关系变更导致的对象消失</h4><p><img src="/assets/posts_jpg/Java/jvm/%E5%AD%98%E6%B4%BB%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8%E5%8F%91%E7%94%9F%E6%94%B9%E5%8F%98.jpg" alt="循环依赖"><br>&ensp;&ensp;&ensp;&ensp;这种漏标发生在，原本就存在的对象的引用关系发生改变，有两个必要条件：1.原引用链灰色指向白色消失；2.新引用链是黑色指向白色。<br>&ensp;&ensp;&ensp;&ensp;如图中所示，原本存在的B指向C的引用链删除，而出现了A指向C的引用链。因为A已近标记为黑色，因此不会再遍历。  </p><h4 id="ensp-ensp-并发时创建新对象的特殊处理"><a href="#ensp-ensp-并发时创建新对象的特殊处理" class="headerlink" title="&ensp;&ensp;并发时创建新对象的特殊处理"></a>&ensp;&ensp;并发时创建新对象的特殊处理</h4><p><img src="/assets/posts_jpg/Java/jvm/%E6%96%B0%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AF%B9%E8%B1%A1.jpg" alt="循环依赖"><br>&ensp;&ensp;&ensp;&ensp;对于并发阶段创建的新对象，是不会被视为垃圾对象的。垃圾收集器会把并发阶段创建的新对象存储在 <strong>指定区域</strong> ，不会被回收。</p><h4 id="ensp-ensp-写屏障"><a href="#ensp-ensp-写屏障" class="headerlink" title="&ensp;&ensp;写屏障"></a>&ensp;&ensp;写屏障</h4><p>&ensp;&ensp;&ensp;&ensp;写屏障是解决漏标的基础。写操作就是在赋值操作时，添加额外处理，类似与AOP。不同的垃圾收集器，有着不同的处理方式。</p><h4 id="ensp-ensp-CMS-增量更新"><a href="#ensp-ensp-CMS-增量更新" class="headerlink" title="&ensp;&ensp;CMS 增量更新"></a>&ensp;&ensp;CMS 增量更新</h4><p>&ensp;&ensp;&ensp;&ensp;CMS垃圾收集器，目前差不多淘汰。CMS处理方式在写屏障的基础上，通过增量更新解决漏标，针对发生漏标的第二条件。解决思路就是，针对新增的引用进行修改。<br>&ensp;&ensp;&ensp;&ensp;当发生黑色节点指向白色节点时，将黑色指向白色这个新的引用关系记录。在 <strong>重新标记</strong> 阶段，再扫描 <strong>记录的引用链</strong> ，防止漏标。<br>&ensp;&ensp;对于并发阶段的新对象，CMS会预留空间用来存放新的对象。  </p><h4 id="ensp-ensp-G1-原始快照，SATB"><a href="#ensp-ensp-G1-原始快照，SATB" class="headerlink" title="&ensp;&ensp;G1 原始快照，SATB"></a>&ensp;&ensp;G1 原始快照，SATB</h4><p>&ensp;&ensp;&ensp;&ensp;G1在写屏障基础上，通过SATB解决漏标。主要针对发生漏标的第一条件。解决思路就是，记录删除的引用。<br>&ensp;&ensp;&ensp;&ensp;当灰色指向白色的引用链消失时，记录下该旧引用关系，在 <strong>最终标记</strong> 阶段，扫描旧的引用关系来防止漏标。相当于G1收集器会按照 <strong>开始扫描时</strong> 的 <strong>对象引用关系快照</strong> 来扫描。<br>&ensp;&ensp;&ensp;&ensp;G1收集器在并发阶段中，通过Region中的两个 <strong>TAMS</strong> 指针来划分出一个空间，存储新创建的对象。</p><h3 id="记忆集和卡表"><a href="#记忆集和卡表" class="headerlink" title="记忆集和卡表"></a>记忆集和卡表</h3><p>&ensp;&ensp;解决新生代，老年代的跨代引用。待补充。。。</p>]]></content>
       
       
       <categories>
           
-          <category> JVM </category>
+          <category> java </category>
           
       </categories>
       
@@ -207,31 +233,6 @@
     
     
     <entry>
-      <title>RocketMQ基本知识点</title>
-      <link href="/2021/09/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RocketMQ/RocketMQ-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-      <url>/2021/09/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RocketMQ/RocketMQ-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-      
-        <content type="html"><![CDATA[<h3 id="RocketMQ-生产者-数据-丢失"><a href="#RocketMQ-生产者-数据-丢失" class="headerlink" title="RocketMQ 生产者 数据 丢失"></a>RocketMQ 生产者 数据 丢失</h3><p>2<br>Mac Test</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 消息中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> RocketMQ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Kafka基本知识点</title>
       <link href="/2021/09/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/Kafka/Kafka-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
       <url>/2021/09/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/Kafka/Kafka-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
@@ -249,6 +250,31 @@
         <tags>
             
             <tag> Kafka </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RocketMQ基本知识点</title>
+      <link href="/2021/09/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RocketMQ/RocketMQ-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+      <url>/2021/09/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%88%86%E5%B8%83%E5%BC%8F/RocketMQ/RocketMQ-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h3 id="RocketMQ-生产者-数据-丢失"><a href="#RocketMQ-生产者-数据-丢失" class="headerlink" title="RocketMQ 生产者 数据 丢失"></a>RocketMQ 生产者 数据 丢失</h3><p>2<br>Mac Test</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 消息中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> RocketMQ </tag>
             
         </tags>
       
@@ -286,6 +312,31 @@
     
     
     <entry>
+      <title>HTTP 协议</title>
+      <link href="/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Http协议"><a href="#Http协议" class="headerlink" title="Http协议"></a>Http协议</h3><p>&ensp;&ensp;Http协议是应用层协议，无状态 且 不干扰传输层协议。因此在数据传输时，Http既可以基于Tcp协议，也能基于Udp协议。浏览器默认访问服务器的80端口，相当于访问的是，<a href="http://www.abc.com/">www.abc.com:80</a><br>。</p><h3 id="Http-1-0"><a href="#Http-1-0" class="headerlink" title="Http 1.0"></a>Http 1.0</h3><h4 id="ensp-ensp-短连接"><a href="#ensp-ensp-短连接" class="headerlink" title="&ensp;&ensp;短连接"></a>&ensp;&ensp;短连接</h4><p>&ensp;&ensp;连接不可复用，每次请求都要三次握手，成本高，效率低。</p><h4 id="ensp-ensp-短连接的解决办法"><a href="#ensp-ensp-短连接的解决办法" class="headerlink" title="&ensp;&ensp;短连接的解决办法"></a>&ensp;&ensp;短连接的解决办法</h4><p>&ensp;&ensp;在报文头部字段的Connection字段上，修改为Connection: keep-alive。  </p><h4 id="ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞"><a href="#ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞" class="headerlink" title="&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞"></a>&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞</h4><p>&ensp;&ensp;队头阻塞就相当于，队首没处理完，后面的请求在排队。在http1.0中，必须接收到前一个请求的响应，才能发送下一个请求。如果上一次请求的响应还没收到，后续的请求就被阻塞了。因此Http 1.0中的队头阻塞发生在 <strong>客户端</strong> ，请求阻塞。</p><h3 id="Http-1-1"><a href="#Http-1-1" class="headerlink" title="Http 1.1"></a>Http 1.1</h3><h4 id="ensp-ensp-默认长连接"><a href="#ensp-ensp-默认长连接" class="headerlink" title="&ensp;&ensp;默认长连接"></a>&ensp;&ensp;默认长连接</h4><p>&ensp;&ensp;Http 1.1默认持久连接，TCP连接不关闭。</p><h4 id="ensp-ensp-管道化"><a href="#ensp-ensp-管道化" class="headerlink" title="&ensp;&ensp;管道化"></a>&ensp;&ensp;管道化</h4><p>&ensp;&ensp;管道化技术解决了Http 1.0中的客户端队头阻塞。管道化技术允许不用等待上一个响应，<strong>直接发送请求</strong>，但是只有 <strong>GET</strong> 和 <strong>HEAD</strong> 请求才能管道化。<br>&ensp;&ensp;服务器FIFO原则下，<strong>响应的发送要根据 接收的请求的顺序 来排队</strong>，也就是 <strong>先接收</strong> 到的请求， <strong>先发送</strong> 响应。<br>&ensp;&ensp;目前浏览器默认关闭管道化。</p><h4 id="ensp-ensp-管道化下的-Http1-1-队头阻塞"><a href="#ensp-ensp-管道化下的-Http1-1-队头阻塞" class="headerlink" title="&ensp;&ensp;管道化下的 Http1.1 队头阻塞"></a>&ensp;&ensp;管道化下的 Http1.1 队头阻塞</h4><p>&ensp;&ensp;因为服务器的FIFO原则，如果先到的请求处理时间长没完成，其他的后续请求已近处理完成并生成了响应，那么已生成的响应就阻塞，必须等到先到请求的响应发送。Http 1.1中的队头阻塞发生在 <strong>服务器端</strong> ，响应阻塞。<br>&ensp;&ensp;一个 <strong>域名支持多个长连接</strong> ，也就相当于多个任务队列，通过多个任务队列可以减小队头阻塞后续的影响。因为发生队头阻塞，也只有其中一个长连接受影响。</p><h3 id="Http-2"><a href="#Http-2" class="headerlink" title="Http 2"></a>Http 2</h3><h4 id="ensp-ensp-二进制传输"><a href="#ensp-ensp-二进制传输" class="headerlink" title="&ensp;&ensp;二进制传输"></a>&ensp;&ensp;二进制传输</h4><p> &ensp;&ensp;Http 2中，以二进制格式传输，而不是文本格式。将请求和响应 <strong>分割为帧</strong> ，并以二进制表示。Http 2中，同域名下的所有请求响应都是在 <strong>一个连接</strong> 下完成，一个连接可以有 <strong>任意数量的双向数据流</strong> 。帧可以乱序发送，通过帧首部的流标识重新组装。</p><h4 id="ensp-ensp-多路复用"><a href="#ensp-ensp-多路复用" class="headerlink" title="&ensp;&ensp;多路复用"></a>&ensp;&ensp;多路复用</h4><p>&ensp;&ensp;完全多路复用，允许一个连接中客户端和服务器端发送多个请求或响应，不用 <strong>顺序对应</strong> 。因此解决了Http 1.1中的队头阻塞。<br>&ensp;&ensp;但是传输时使用TCP，依旧可能发生 <strong>TCP的队头阻塞</strong>。</p><h4 id="ensp-ensp-报头压缩"><a href="#ensp-ensp-报头压缩" class="headerlink" title="&ensp;&ensp;报头压缩"></a>&ensp;&ensp;报头压缩</h4><p>&ensp;&ensp;客户端和服务器端共同维护一个报文头信息表，所有字段都保存在其中。通过发送索引号表示包含的字段，不需要在报文头信息中附上字段，因此可以减少报文头的大小。<br>&ensp;&ensp;会通过gzip或者compress压缩头信息。</p><h4 id="ensp-ensp-服务器推送"><a href="#ensp-ensp-服务器推送" class="headerlink" title="&ensp;&ensp;服务器推送"></a>&ensp;&ensp;服务器推送</h4><p>&ensp;&ensp;允许服务器端主动向客户端发送资源。</p><h3 id="Http-3"><a href="#Http-3" class="headerlink" title="Http 3"></a>Http 3</h3><h4 id="ensp-ensp-TCP的队头阻塞"><a href="#ensp-ensp-TCP的队头阻塞" class="headerlink" title="&ensp;&ensp;TCP的队头阻塞"></a>&ensp;&ensp;TCP的队头阻塞</h4><p>&ensp;&ensp;为了保证TCP的可靠性，如果一个序列号低的包丢失，会等待该包重传。因此整个TCP连接会阻塞，直到丢失的包重传并接收为止。只要是使用TCP传输数据，就可能发生TCP队头阻塞。因此Http 1、Http 2中都可能发生，而且Http 2中同域名下只有一个连接，因此发生TCP队头阻塞时，整个连接都受影响。  </p><h4 id="ensp-ensp-基于UDP协议的QUIC协议"><a href="#ensp-ensp-基于UDP协议的QUIC协议" class="headerlink" title="&ensp;&ensp;基于UDP协议的QUIC协议"></a>&ensp;&ensp;基于UDP协议的QUIC协议</h4><p>&ensp;&ensp;QUIC协议为Quick UDP Internet Connection，是一个使用UDP多路并发传输的 <strong>传输层协议</strong>。</p><h3 id="HTTP协议在数据传输和接收中干了什么"><a href="#HTTP协议在数据传输和接收中干了什么" class="headerlink" title="HTTP协议在数据传输和接收中干了什么"></a>HTTP协议在数据传输和接收中干了什么</h3><p>http协议，作为应用层协议，数据传输中所指的这个”数据”(不算其他协议头部)，应用层协议的工作主要就是对这个要传输的”数据”的，格式，内容等做规定。像http协议请求格式就是为：<br>请求行，包含 方法，文件路径，发送端的协议版本。请求头，包含 客户端的基本信息以及一些传输给服务器端的请求头字段。请求体，包含 发送给服务器的数据，像是form-data等。<br>总的来说，Http协议的行为，就是对 要传输/接收的 “数据”做出规定，发送端应该按这个格式这么发，然后接收端应该按照这个格式这么解析。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tcp/Ip </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTPS 协议</title>
       <link href="/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Https%E5%8D%8F%E8%AE%AE/"/>
       <url>/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Https%E5%8D%8F%E8%AE%AE/</url>
@@ -305,31 +356,6 @@
             <tag> HTTPS </tag>
             
             <tag> TLS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HTTP 协议</title>
-      <link href="/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/"/>
-      <url>/2021/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/Http%E5%8D%8F%E8%AE%AE/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Http协议"><a href="#Http协议" class="headerlink" title="Http协议"></a>Http协议</h3><p>&ensp;&ensp;Http协议是应用层协议，无状态 且 不干扰传输层协议。因此在数据传输时，Http既可以基于Tcp协议，也能基于Udp协议。浏览器默认访问服务器的80端口，相当于访问的是，<a href="http://www.abc.com/">www.abc.com:80</a><br>。</p><h3 id="Http-1-0"><a href="#Http-1-0" class="headerlink" title="Http 1.0"></a>Http 1.0</h3><h4 id="ensp-ensp-短连接"><a href="#ensp-ensp-短连接" class="headerlink" title="&ensp;&ensp;短连接"></a>&ensp;&ensp;短连接</h4><p>&ensp;&ensp;连接不可复用，每次请求都要三次握手，成本高，效率低。</p><h4 id="ensp-ensp-短连接的解决办法"><a href="#ensp-ensp-短连接的解决办法" class="headerlink" title="&ensp;&ensp;短连接的解决办法"></a>&ensp;&ensp;短连接的解决办法</h4><p>&ensp;&ensp;在报文头部字段的Connection字段上，修改为Connection: keep-alive。  </p><h4 id="ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞"><a href="#ensp-ensp-请求-响应机制-导致的-Http1-0-队头阻塞" class="headerlink" title="&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞"></a>&ensp;&ensp;请求-响应机制 导致的 Http1.0 队头阻塞</h4><p>&ensp;&ensp;队头阻塞就相当于，队首没处理完，后面的请求在排队。在http1.0中，必须接收到前一个请求的响应，才能发送下一个请求。如果上一次请求的响应还没收到，后续的请求就被阻塞了。因此Http 1.0中的队头阻塞发生在 <strong>客户端</strong> ，请求阻塞。</p><h3 id="Http-1-1"><a href="#Http-1-1" class="headerlink" title="Http 1.1"></a>Http 1.1</h3><h4 id="ensp-ensp-默认长连接"><a href="#ensp-ensp-默认长连接" class="headerlink" title="&ensp;&ensp;默认长连接"></a>&ensp;&ensp;默认长连接</h4><p>&ensp;&ensp;Http 1.1默认持久连接，TCP连接不关闭。</p><h4 id="ensp-ensp-管道化"><a href="#ensp-ensp-管道化" class="headerlink" title="&ensp;&ensp;管道化"></a>&ensp;&ensp;管道化</h4><p>&ensp;&ensp;管道化技术解决了Http 1.0中的客户端队头阻塞。管道化技术允许不用等待上一个响应，<strong>直接发送请求</strong>，但是只有 <strong>GET</strong> 和 <strong>HEAD</strong> 请求才能管道化。<br>&ensp;&ensp;服务器FIFO原则下，<strong>响应的发送要根据 接收的请求的顺序 来排队</strong>，也就是 <strong>先接收</strong> 到的请求， <strong>先发送</strong> 响应。<br>&ensp;&ensp;目前浏览器默认关闭管道化。</p><h4 id="ensp-ensp-管道化下的-Http1-1-队头阻塞"><a href="#ensp-ensp-管道化下的-Http1-1-队头阻塞" class="headerlink" title="&ensp;&ensp;管道化下的 Http1.1 队头阻塞"></a>&ensp;&ensp;管道化下的 Http1.1 队头阻塞</h4><p>&ensp;&ensp;因为服务器的FIFO原则，如果先到的请求处理时间长没完成，其他的后续请求已近处理完成并生成了响应，那么已生成的响应就阻塞，必须等到先到请求的响应发送。Http 1.1中的队头阻塞发生在 <strong>服务器端</strong> ，响应阻塞。<br>&ensp;&ensp;一个 <strong>域名支持多个长连接</strong> ，也就相当于多个任务队列，通过多个任务队列可以减小队头阻塞后续的影响。因为发生队头阻塞，也只有其中一个长连接受影响。</p><h3 id="Http-2"><a href="#Http-2" class="headerlink" title="Http 2"></a>Http 2</h3><h4 id="ensp-ensp-二进制传输"><a href="#ensp-ensp-二进制传输" class="headerlink" title="&ensp;&ensp;二进制传输"></a>&ensp;&ensp;二进制传输</h4><p> &ensp;&ensp;Http 2中，以二进制格式传输，而不是文本格式。将请求和响应 <strong>分割为帧</strong> ，并以二进制表示。Http 2中，同域名下的所有请求响应都是在 <strong>一个连接</strong> 下完成，一个连接可以有 <strong>任意数量的双向数据流</strong> 。帧可以乱序发送，通过帧首部的流标识重新组装。</p><h4 id="ensp-ensp-多路复用"><a href="#ensp-ensp-多路复用" class="headerlink" title="&ensp;&ensp;多路复用"></a>&ensp;&ensp;多路复用</h4><p>&ensp;&ensp;完全多路复用，允许一个连接中客户端和服务器端发送多个请求或响应，不用 <strong>顺序对应</strong> 。因此解决了Http 1.1中的队头阻塞。<br>&ensp;&ensp;但是传输时使用TCP，依旧可能发生 <strong>TCP的队头阻塞</strong>。</p><h4 id="ensp-ensp-报头压缩"><a href="#ensp-ensp-报头压缩" class="headerlink" title="&ensp;&ensp;报头压缩"></a>&ensp;&ensp;报头压缩</h4><p>&ensp;&ensp;客户端和服务器端共同维护一个报文头信息表，所有字段都保存在其中。通过发送索引号表示包含的字段，不需要在报文头信息中附上字段，因此可以减少报文头的大小。<br>&ensp;&ensp;会通过gzip或者compress压缩头信息。</p><h4 id="ensp-ensp-服务器推送"><a href="#ensp-ensp-服务器推送" class="headerlink" title="&ensp;&ensp;服务器推送"></a>&ensp;&ensp;服务器推送</h4><p>&ensp;&ensp;允许服务器端主动向客户端发送资源。</p><h3 id="Http-3"><a href="#Http-3" class="headerlink" title="Http 3"></a>Http 3</h3><h4 id="ensp-ensp-TCP的队头阻塞"><a href="#ensp-ensp-TCP的队头阻塞" class="headerlink" title="&ensp;&ensp;TCP的队头阻塞"></a>&ensp;&ensp;TCP的队头阻塞</h4><p>&ensp;&ensp;为了保证TCP的可靠性，如果一个序列号低的包丢失，会等待该包重传。因此整个TCP连接会阻塞，直到丢失的包重传并接收为止。只要是使用TCP传输数据，就可能发生TCP队头阻塞。因此Http 1、Http 2中都可能发生，而且Http 2中同域名下只有一个连接，因此发生TCP队头阻塞时，整个连接都受影响。  </p><h4 id="ensp-ensp-基于UDP协议的QUIC协议"><a href="#ensp-ensp-基于UDP协议的QUIC协议" class="headerlink" title="&ensp;&ensp;基于UDP协议的QUIC协议"></a>&ensp;&ensp;基于UDP协议的QUIC协议</h4><p>&ensp;&ensp;QUIC协议为Quick UDP Internet Connection，是一个使用UDP多路并发传输的 <strong>传输层协议</strong>。</p><h3 id="HTTP协议在数据传输和接收中干了什么"><a href="#HTTP协议在数据传输和接收中干了什么" class="headerlink" title="HTTP协议在数据传输和接收中干了什么"></a>HTTP协议在数据传输和接收中干了什么</h3><p>http协议，作为应用层协议，数据传输中所指的这个”数据”(不算其他协议头部)，应用层协议的工作主要就是对这个要传输的”数据”的，格式，内容等做规定。像http协议请求格式就是为：<br>请求行，包含 方法，文件路径，发送端的协议版本。请求头，包含 客户端的基本信息以及一些传输给服务器端的请求头字段。请求体，包含 发送给服务器的数据，像是form-data等。<br>总的来说，Http协议的行为，就是对 要传输/接收的 “数据”做出规定，发送端应该按这个格式这么发，然后接收端应该按照这个格式这么解析。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Tcp/Ip </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> HTTP </tag>
             
         </tags>
       
@@ -364,24 +390,55 @@
     
     <entry>
       <title>JVM的类加载机制知识点</title>
-      <link href="/2021/07/07/Java/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
-      <url>/2021/07/07/Java/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/JVM-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/</url>
+      <link href="/2021/07/07/Java/java%E5%9F%BA%E7%A1%80/java-%E8%AF%AD%E6%B3%95%E7%B3%96/"/>
+      <url>/2021/07/07/Java/java%E5%9F%BA%E7%A1%80/java-%E8%AF%AD%E6%B3%95%E7%B3%96/</url>
       
-        <content type="html"><![CDATA[<h3 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h3><p>&ensp;&ensp;类的生命周期为：加载，链接，初始化，使用，卸载。其中 <strong>加载 到 初始化</strong> 的过程，就是类加载过程 。  </p><h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><h4 id="ensp-ensp-加载-Loading"><a href="#ensp-ensp-加载-Loading" class="headerlink" title="&ensp;&ensp;加载 Loading"></a>&ensp;&ensp;加载 Loading</h4><p>&ensp;&ensp;通过类的全名，也就是包名+类名。读取该类的.class文件 并将 .class文件的二进制流在方法区中转化为该类的数据结构，且在堆中生成该类的class对象。</p><h4 id="ensp-ensp-链接-Linking"><a href="#ensp-ensp-链接-Linking" class="headerlink" title="&ensp;&ensp;链接 Linking"></a>&ensp;&ensp;链接 Linking</h4><p>&ensp;&ensp;链接分为三部，验证，准备，解析。  </p><h4 id="ensp-ensp-ensp-ensp-验证-Verify"><a href="#ensp-ensp-ensp-ensp-验证-Verify" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;验证 Verify"></a>&ensp;&ensp;&ensp;&ensp;验证 Verify</h4><p>&ensp;&ensp;&ensp;&ensp;验证.class文件的正确性。  </p><h4 id="ensp-ensp-ensp-ensp-准备-Prepare"><a href="#ensp-ensp-ensp-ensp-准备-Prepare" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;准备 Prepare"></a>&ensp;&ensp;&ensp;&ensp;准备 Prepare</h4><p>&ensp;&ensp;&ensp;&ensp;为类static变量分配内存，并给变量初始值(初始值不是初始化阶段的赋值)。如果static修饰的变量也 <strong>被final修饰</strong> ，那么初始值就是赋的值。准备阶段只对static修饰的类变量分配内存。Java8之后，类变量会随着class对象 <strong>存在堆</strong> 中。  </p><h4 id="ensp-ensp-ensp-ensp-解析-Resolve"><a href="#ensp-ensp-ensp-ensp-解析-Resolve" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;解析 Resolve"></a>&ensp;&ensp;&ensp;&ensp;解析 Resolve</h4><p>&ensp;&ensp;&ensp;&ensp;将常量池中的符号引用转为直接引用。在将.java文件编译成.class文件时，因为还没加载到内存中，并不知道所引用的 <strong>实际地址</strong> 。因此先用一个符号来表示，这就是 <strong>符号引用</strong> 。  </p><h4 id="ensp-ensp-初始化-Initialization"><a href="#ensp-ensp-初始化-Initialization" class="headerlink" title="&ensp;&ensp;初始化 Initialization"></a>&ensp;&ensp;初始化 Initialization</h4><p>&ensp;&ensp;&ensp;&ensp;初始化阶段为static变量赋值，及执行static代码块。<strong>类的初始化 不是 生成类的实例对象</strong>。当要用该类但没初始化时，会先初始化。如果有多个线程去初始化同一个类，只有获得初始化锁的线程来初始化该类。使用ClassLoader类的loadClass方法加载一个类，不是对类的使用，因此不会触发初始化。  </p><h3 id="类加载器分类"><a href="#类加载器分类" class="headerlink" title="类加载器分类"></a>类加载器分类</h3><p>&ensp;&ensp;从虚拟机角度看，类加载器分为两种：一种是 <strong>虚拟机自身一部分</strong>  ，由c++实现的启动类加载器Bootstrap ClassLoader。一种是虚拟机外部，由java实现的 <strong>继承抽象类ClassLoader</strong> 的类加载器。<br>&ensp;&ensp;java一直保持着三层类加载器的类加载结构，也就是双亲委派模型。</p><h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><h4 id="ensp-ensp-启动类加载器-Bootstrap-Class-Loader"><a href="#ensp-ensp-启动类加载器-Bootstrap-Class-Loader" class="headerlink" title="&ensp;&ensp;启动类加载器 Bootstrap Class Loader"></a>&ensp;&ensp;启动类加载器 Bootstrap Class Loader</h4><p>&ensp;&ensp;由c++实现的加载器，是虚拟机内部的一部分，不能被java程序调用。负责加载jre/lib目录下能够识别的类库，如rt.jar，tool.jar等，不符合的类库放在目录下也不会加载，通过 <strong>sun.boot.class.path</strong> 可以查看加载的类库。在java中，无法表达出c++实现的加载器，因此用ClassLoader为 <strong>null</strong> ，表示bootstrap类加载器。除了启动类加载器，每个类加载器都要有自己的父类。<strong>类加载器之间的父类关系不是继承上的父类</strong>。抽象类ClassLoader的字段parent，用来保存该类加载器的父类。</p><h4 id="ensp-ensp-扩展类加载器-Extension-Class-Loader"><a href="#ensp-ensp-扩展类加载器-Extension-Class-Loader" class="headerlink" title="&ensp;&ensp;扩展类加载器 Extension Class Loader"></a>&ensp;&ensp;扩展类加载器 Extension Class Loader</h4><p>&ensp;&ensp;在java中由ExtClassLoader类实现，URLClassLoader的子类，字段parent 为 null表示父类加载器为BootStrap加载器。加载jre/lib/ext目录中的类库，通过 <strong>Java.ext.dirs</strong> 查看加载的类库。允许用户将类库放到ext目录下扩展功能。</p><h4 id="ensp-ensp-应用程序类加载器-Application-Class-Loader"><a href="#ensp-ensp-应用程序类加载器-Application-Class-Loader" class="headerlink" title="&ensp;&ensp;应用程序类加载器 Application Class Loader"></a>&ensp;&ensp;应用程序类加载器 Application Class Loader</h4><p>&ensp;&ensp;在java中由AppClassLoader类是实现，同样也是URLClassLoader类子类，字段parent为ExtClassLoader对象，表示父类加载器为Extension加载器。ClassLoader类的getSystemClassLoader方法返回值就是AppClassLoader。加载 <strong>java.class.path</strong> 系统属性 所指定的类库，这其中包括项目本身。  </p><h4 id="ensp-ensp-双亲委派模型工作过程"><a href="#ensp-ensp-双亲委派模型工作过程" class="headerlink" title="&ensp;&ensp;双亲委派模型工作过程"></a>&ensp;&ensp;双亲委派模型工作过程</h4><p>&ensp;&ensp;一个类加载器接收到类加载请求，不会自己加载类，会要父类也即字段parent的类去加载。每一层都是这样，直到到达顶部BootStrap加载器。只有当父类加载器无法加载，就是加载范围中不包括该类，才会要自己的子加载器去加载。<br>&ensp;&ensp;该过程的就是通过抽象类ClassLoader的方法 <strong>loadClass()</strong> 实现的。loadClass()方法内部会进行 if 判断，如果parent字段不为null，则调用父类的loadClass()方法。如果为null，就通过findBootStrapClassOrNull()方法委托BootStrap加载器。如果父类加载器无法加载，则会抛出ClassNotFoundException异常，这个时候会调用自己的 <strong>findClass()</strong> 方法。<br>&ensp;&ensp;findClass()过程内部会将包名+类名，转换为路径+.class后缀。如：a.b.Test类，转为a/b/Test.class。<br>&ensp;&ensp;每个加载器都会对自己加载过的类 <strong>缓存</strong> 。在loadClass()时，先通过 <strong>findedLoadClass()</strong> 方法检查是否已加载。如果已加载则返回该类class对象。没有才执行后面的步骤。而 <strong>热加载</strong> 不通过重启项目，达到功能上的更新，就需要解决类加载的缓存。</p><h3 id="破坏双亲委派模型"><a href="#破坏双亲委派模型" class="headerlink" title="破坏双亲委派模型"></a>破坏双亲委派模型</h3><p>&ensp;&ensp;上面提到了双亲委派是由 loadClass() 方法中的判断流程实现的。因此重写loadClass()方法，修改加载顺序就破坏了双亲委派。  </p>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
           
-          <category> JVM </category>
+          <category> java </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> JVM </tag>
+            <tag> 语法糖 </tag>
             
             <tag> 类加载器 </tag>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM的类加载机制知识点</title>
+      <link href="/2021/07/07/Java/java%E5%9F%BA%E7%A1%80/jvm-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/"/>
+      <url>/2021/07/07/Java/java%E5%9F%BA%E7%A1%80/jvm-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h3><p>&ensp;&ensp;类的生命周期为：加载，链接，初始化，使用，卸载。其中 <strong>加载 到 初始化</strong> 的过程，就是类加载过程 。  </p><h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><h4 id="ensp-ensp-加载-Loading"><a href="#ensp-ensp-加载-Loading" class="headerlink" title="&ensp;&ensp;加载 Loading"></a>&ensp;&ensp;加载 Loading</h4><p>&ensp;&ensp;通过类的全名，也就是包名+类名。读取该类的.class文件 并将 .class文件的二进制流在方法区中转化为该类的数据结构，且在堆中生成该类的class对象。</p><h4 id="ensp-ensp-链接-Linking"><a href="#ensp-ensp-链接-Linking" class="headerlink" title="&ensp;&ensp;链接 Linking"></a>&ensp;&ensp;链接 Linking</h4><p>&ensp;&ensp;链接分为三部，验证，准备，解析。  </p><h4 id="ensp-ensp-ensp-ensp-验证-Verify"><a href="#ensp-ensp-ensp-ensp-验证-Verify" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;验证 Verify"></a>&ensp;&ensp;&ensp;&ensp;验证 Verify</h4><p>&ensp;&ensp;&ensp;&ensp;验证.class文件的正确性。  </p><h4 id="ensp-ensp-ensp-ensp-准备-Prepare"><a href="#ensp-ensp-ensp-ensp-准备-Prepare" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;准备 Prepare"></a>&ensp;&ensp;&ensp;&ensp;准备 Prepare</h4><p>&ensp;&ensp;&ensp;&ensp;为类static变量分配内存，并给变量初始值(初始值不是初始化阶段的赋值)。如果static修饰的变量也 <strong>被final修饰</strong> ，那么初始值就是赋的值。准备阶段只对static修饰的类变量分配内存。Java8之后，类变量会随着class对象 <strong>存在堆</strong> 中。  </p><h4 id="ensp-ensp-ensp-ensp-解析-Resolve"><a href="#ensp-ensp-ensp-ensp-解析-Resolve" class="headerlink" title="&ensp;&ensp;&ensp;&ensp;解析 Resolve"></a>&ensp;&ensp;&ensp;&ensp;解析 Resolve</h4><p>&ensp;&ensp;&ensp;&ensp;将常量池中的符号引用转为直接引用。在将.java文件编译成.class文件时，因为还没加载到内存中，并不知道所引用的 <strong>实际地址</strong> 。因此先用一个符号来表示，这就是 <strong>符号引用</strong> 。  </p><h4 id="ensp-ensp-初始化-Initialization"><a href="#ensp-ensp-初始化-Initialization" class="headerlink" title="&ensp;&ensp;初始化 Initialization"></a>&ensp;&ensp;初始化 Initialization</h4><p>&ensp;&ensp;&ensp;&ensp;初始化阶段为static变量赋值，及执行static代码块。<strong>类的初始化 不是 生成类的实例对象</strong>。当要用该类但没初始化时，会先初始化。如果有多个线程去初始化同一个类，只有获得初始化锁的线程来初始化该类。使用ClassLoader类的loadClass方法加载一个类，不是对类的使用，因此不会触发初始化。  </p><h3 id="类加载器分类"><a href="#类加载器分类" class="headerlink" title="类加载器分类"></a>类加载器分类</h3><p>&ensp;&ensp;从虚拟机角度看，类加载器分为两种：一种是 <strong>虚拟机自身一部分</strong>  ，由c++实现的启动类加载器Bootstrap ClassLoader。一种是虚拟机外部，由java实现的 <strong>继承抽象类ClassLoader</strong> 的类加载器。<br>&ensp;&ensp;java一直保持着三层类加载器的类加载结构，也就是双亲委派模型。</p><h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><h4 id="ensp-ensp-启动类加载器-Bootstrap-Class-Loader"><a href="#ensp-ensp-启动类加载器-Bootstrap-Class-Loader" class="headerlink" title="&ensp;&ensp;启动类加载器 Bootstrap Class Loader"></a>&ensp;&ensp;启动类加载器 Bootstrap Class Loader</h4><p>&ensp;&ensp;由c++实现的加载器，是虚拟机内部的一部分，不能被java程序调用。负责加载jre/lib目录下能够识别的类库，如rt.jar，tool.jar等，不符合的类库放在目录下也不会加载，通过 <strong>sun.boot.class.path</strong> 可以查看加载的类库。在java中，无法表达出c++实现的加载器，因此用ClassLoader为 <strong>null</strong> ，表示bootstrap类加载器。除了启动类加载器，每个类加载器都要有自己的父类。<strong>类加载器之间的父类关系不是继承上的父类</strong>。抽象类ClassLoader的字段parent，用来保存该类加载器的父类。</p><h4 id="ensp-ensp-扩展类加载器-Extension-Class-Loader"><a href="#ensp-ensp-扩展类加载器-Extension-Class-Loader" class="headerlink" title="&ensp;&ensp;扩展类加载器 Extension Class Loader"></a>&ensp;&ensp;扩展类加载器 Extension Class Loader</h4><p>&ensp;&ensp;在java中由ExtClassLoader类实现，URLClassLoader的子类，字段parent 为 null表示父类加载器为BootStrap加载器。加载jre/lib/ext目录中的类库，通过 <strong>Java.ext.dirs</strong> 查看加载的类库。允许用户将类库放到ext目录下扩展功能。</p><h4 id="ensp-ensp-应用程序类加载器-Application-Class-Loader"><a href="#ensp-ensp-应用程序类加载器-Application-Class-Loader" class="headerlink" title="&ensp;&ensp;应用程序类加载器 Application Class Loader"></a>&ensp;&ensp;应用程序类加载器 Application Class Loader</h4><p>&ensp;&ensp;在java中由AppClassLoader类是实现，同样也是URLClassLoader类子类，字段parent为ExtClassLoader对象，表示父类加载器为Extension加载器。ClassLoader类的getSystemClassLoader方法返回值就是AppClassLoader。加载 <strong>java.class.path</strong> 系统属性 所指定的类库，这其中包括项目本身。  </p><h4 id="ensp-ensp-双亲委派模型工作过程"><a href="#ensp-ensp-双亲委派模型工作过程" class="headerlink" title="&ensp;&ensp;双亲委派模型工作过程"></a>&ensp;&ensp;双亲委派模型工作过程</h4><p>&ensp;&ensp;一个类加载器接收到类加载请求，不会自己加载类，会要父类也即字段parent的类去加载。每一层都是这样，直到到达顶部BootStrap加载器。只有当父类加载器无法加载，就是加载范围中不包括该类，才会要自己的子加载器去加载。<br>&ensp;&ensp;该过程的就是通过抽象类ClassLoader的方法 <strong>loadClass()</strong> 实现的。loadClass()方法内部会进行 if 判断，如果parent字段不为null，则调用父类的loadClass()方法。如果为null，就通过findBootStrapClassOrNull()方法委托BootStrap加载器。如果父类加载器无法加载，则会抛出ClassNotFoundException异常，这个时候会调用自己的 <strong>findClass()</strong> 方法。<br>&ensp;&ensp;findClass()过程内部会将包名+类名，转换为路径+.class后缀。如：a.b.Test类，转为a/b/Test.class。<br>&ensp;&ensp;每个加载器都会对自己加载过的类 <strong>缓存</strong> 。在loadClass()时，先通过 <strong>findedLoadClass()</strong> 方法检查是否已加载。如果已加载则返回该类class对象。没有才执行后面的步骤。而 <strong>热加载</strong> 不通过重启项目，达到功能上的更新，就需要解决类加载的缓存。</p><h3 id="破坏双亲委派模型"><a href="#破坏双亲委派模型" class="headerlink" title="破坏双亲委派模型"></a>破坏双亲委派模型</h3><p>&ensp;&ensp;上面提到了双亲委派是由 loadClass() 方法中的判断流程实现的。因此重写loadClass()方法，修改加载顺序就破坏了双亲委派。  </p><h4 id="破坏双亲委派模型的作用"><a href="#破坏双亲委派模型的作用" class="headerlink" title="破坏双亲委派模型的作用"></a>破坏双亲委派模型的作用</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 语法糖 </tag>
+            
+            <tag> 类加载器 </tag>
+            
+            <tag> JVM </tag>
             
         </tags>
       
@@ -644,15 +701,15 @@
     
     <entry>
       <title>JVM的垃圾回收知识点</title>
-      <link href="/2021/06/11/Java/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/GC-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-      <url>/2021/06/11/Java/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/GC-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+      <link href="/2021/06/11/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+      <url>/2021/06/11/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
       
         <content type="html"><![CDATA[<h3 id="判断对象是否回收的方法-："><a href="#判断对象是否回收的方法-：" class="headerlink" title="判断对象是否回收的方法 ："></a>判断对象是否回收的方法 ：</h3><h4 id="ensp-ensp-引用计数法-："><a href="#ensp-ensp-引用计数法-：" class="headerlink" title="&ensp;&ensp;引用计数法 ："></a>&ensp;&ensp;引用计数法 ：</h4><p>&ensp;&ensp;给对象添加一个引用计数器，当对象每次被引用时 +1，失去一次引用 -1，根据计数器判定对象是否还有在使用。缺点是只靠引用计数法，无法解决对象相互引用的问题。如：引用 oA 指向 对象A，引用 oB 指向 对象B， oA 中内部字段指向 对象B，oB 中的内部字段指向 对象A，这时 对象A和对象B之间相互引用，就算通过 oA = null，oB = null取消引用，对象A 和 对象B 的计数器也不为0。因此java虚拟机中不通过引用计数法判断对象是否存活。  </p><h4 id="ensp-ensp-可达性分析法-："><a href="#ensp-ensp-可达性分析法-：" class="headerlink" title="&ensp;&ensp;可达性分析法 ："></a>&ensp;&ensp;可达性分析法 ：</h4><p>&ensp;&ensp;将符合条件的对象GC Roots作为起点集合，从这些对象开始，通过引用关系向下搜索，搜索的路径也就是 <strong>引用链</strong> ，当对象和GC Roots间没有引用链时，也就是该对象不可达，则该对象已不再可用。<br>&ensp;&ensp;能够作为GC Root的对象有：<br>&ensp;&ensp;1. 虚拟机栈中引用所指对象。<br>&ensp;&ensp;2. 方法区中静态引用所指对象。<br>&ensp;&ensp;3. 方法区中常量引用所指对象。<br>&ensp;&ensp;4. 本地方法栈中引用所指对象。<br>&ensp;&ensp;5. 同步锁(synchronized)获得的对象。<br>&ensp;&ensp;6. 运行中的线程对象。  </p><p>&ensp;&ensp;可达性分析法不是直接把不可达对象作为垃圾回收，会通过两次标记来让部分对象自救存活。第一次可达性判定后，所有不可达的对象做上标记这是 <strong>第一次标记</strong> ，然后进行筛选，将所有标记对象分为 执行finalize()方法的 和 不执行finalize()方法的，筛选条件是 对象是否 <strong>重写了finalize()方法</strong> 或 <strong>对象是否已经被虚拟机执行过一次finalize()方法</strong> 。如果 <strong>对象重写了方法 且 还没有被执行过finalize()方法</strong> 则视为 执行方法的对象，否则为 不执行方法对象。如果 对象是不执行方法的，则依旧是等待回收的垃圾对象，如果 对象是执行方法的，则将该对象加入到F-Queue队列中，虚拟机开启一个Finalizer线程来执行队列中对象的finalize()方法，如果队列中的某个对象因为执行finalize()方法后，使得GC Roots可达，则取消标记不用被回收，这就是 <strong>第二次标记</strong> ，相当于 finalize()方法是 垃圾对象的一次自救机会但也只有一次。任何一个对象的finalize()方法都只会被 <strong>系统自动调用一次</strong> 。  </p><h3 id="java中的引用-："><a href="#java中的引用-：" class="headerlink" title="java中的引用 ："></a>java中的引用 ：</h3><p>&ensp;&ensp;jdk1.2后将引用这个概念进行了细分，由强到弱以此为:</p><h4 id="ensp-ensp-强引用"><a href="#ensp-ensp-强引用" class="headerlink" title="&ensp;&ensp;强引用"></a>&ensp;&ensp;强引用</h4><p>&ensp;&ensp;指的就是最常使用的引用，即Object obj = new Object(),obj就是强引用。只要强引用还指向对象，该对象是不会被垃圾回收的。  </p><h4 id="ensp-ensp-软引用"><a href="#ensp-ensp-软引用" class="headerlink" title="&ensp;&ensp;软引用"></a>&ensp;&ensp;软引用</h4><p>&ensp;&ensp;通过SoftReference类实现的引用,当内存不够发生溢出异常前，会将 <strong>只被</strong> 软引用所指对象列入回收范围中进行第二次回收。使用方法 SoftReference soft = new SoftReference(obj)。  </p><h4 id="ensp-ensp-弱引用"><a href="#ensp-ensp-弱引用" class="headerlink" title="&ensp;&ensp;弱引用"></a>&ensp;&ensp;弱引用</h4><p>&ensp;&ensp;通过WeakReference类实现的引用，生存到下一次垃圾回收前。当垃圾收集器开始执行时，无论内存是否够，<strong>只被</strong>弱引用所指对象会被回收。使用方法 WeakReference weak = new WeakReference(obj)。  </p><h4 id="ensp-ensp-虚引用"><a href="#ensp-ensp-虚引用" class="headerlink" title="&ensp;&ensp;虚引用"></a>&ensp;&ensp;虚引用</h4><p>&ensp;&ensp;通过PhantomReference类实现的引用，虚引用唯一作用是当被虚引用关联的对象被回收时，获得系统通知，相当于跟踪GC。 <strong>java8及之前 虚引用 ( 本身就是PhantomReference对象 ) 被回收后，虚引用所指对象才会回收，java9及之后虚引用不会对对象造成影响，在虚引用所指对象回收后，虚引用会有 引用队列 处理</strong> 。使用方法 PhantomReference phantom = new PhantomReference(obj,referenceQueue)，垃圾回收后虚引用会被添加到引用队列中。  </p><h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="ensp-ensp-分代收集理论"><a href="#ensp-ensp-分代收集理论" class="headerlink" title="&ensp;&ensp;分代收集理论"></a>&ensp;&ensp;分代收集理论</h4><p>&ensp;&ensp;首先这个不算算法，而是一种分区域处理的理论，3种垃圾收集算法：标记-清除，标记-复制，标记-整理，就是对这个理论的具体思路设计。多数垃圾收集器都遵循分代收集理论，将java堆分区域处理。 <strong>java虚拟机中，分代收集理论的具体表现，一般都有将java堆分为 新生代和老年代</strong> 。  </p><h4 id="ensp-ensp-标记-清除算法"><a href="#ensp-ensp-标记-清除算法" class="headerlink" title="&ensp;&ensp;标记-清除算法"></a>&ensp;&ensp;标记-清除算法</h4><p>&ensp;&ensp;标记-清除就是两个阶段，第一阶段给对象是将存活对象做标记，清除就是将没有标记的垃圾对象回收。这个方法有两个问题：1.标记和清除的效率都受 堆中需要清除的对象数量 影响 ；2.该算法回收内存空间后， <strong>会造成碎片化空间</strong> ，空间资源的浪费，碎片太多可能导致生成大对象时没有足够的空间，而提前发生垃圾回收。  </p><h4 id="ensp-ensp-标记-复制算法"><a href="#ensp-ensp-标记-复制算法" class="headerlink" title="&ensp;&ensp;标记-复制算法"></a>&ensp;&ensp;标记-复制算法</h4><p>&ensp;&ensp;简称复制算法，最开始提出的是半区分代，将内存分为等大小两块，使用时只使用其中一块，应一块作为保留空间。垃圾回收时，对使用的那一块内存中的垃圾对象做标记，然后将存活对象按顺序分配保留空间的内存中，然后清除掉使用中内存的 <strong>所有对象</strong> ，这时两块内存区域也就互换，清除完对象的那一块成为新的保留空间，前保留空间也成了新使用中内存。复制算法的优点是不会有碎片化空间，缺点是 <strong>只有原本的一半空间可以使用</strong> 。<br>&ensp;&ensp;为了解决一半空间浪费问题，且针对 <strong>新生代</strong> 大部分对象朝生夕灭，将复制算法进行优化，称为 <strong>Appel式回收</strong> 。Appel式将新生代分为了三块，1块eden区，2块survivor区。默认1 eden : 1 survivor = 8 : 1,每次分配内存只使用eden区 + 一个survivor区，另一个survivor用来保存存活的对象。当发生垃圾收集时，将eden区和survior区的存活对象复制到另一个survivor区，然后清空eden + survivor区的所有对象。Appel式回收将使用空间从 50% 增加到 90%。当复制时survivor区内存大小不足够存放时，会依赖其他内存空间进行分配担保(就老年代，即对象直接进入老年代)。 <strong>标记-复制法在对象成活率较高的区域要进行大量复制</strong> ，因此该算法不能用在老年代。  </p><h4 id="ensp-ensp-标记-整理算法"><a href="#ensp-ensp-标记-整理算法" class="headerlink" title="&ensp;&ensp;标记-整理算法"></a>&ensp;&ensp;标记-整理算法</h4><p>&ensp;&ensp;针对老年代的算法。整体流程和标记-清除算法差不多，但标记完的后续步骤不是直接清除对象，是把存活对象向内存中一段移动，未存活的清除掉。<br>&ensp;&ensp;标记-清除和标记-整理之间的差距在于最后的整理，是否对对象进行整理都存在弊端。不对对象进行整理，内存分配时会更麻烦，速度快，但是会产生碎片化空间。对对象进行整理，速度慢，移动对象操作消耗大，如果 <strong>不是ZGC或者Shenandoah垃圾收集器</strong> ，这个 <strong>移动对象的过程会全程暂停用户线程，也就是stop the world</strong> ，但不会产生碎片化空间。  </p><h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3><p>&ensp;&ensp;垃圾回收算法相当于回收方法，垃圾收集器相当于回收执行者。作用于新生代的 serial，parallel，parNew。作用于老年代的 serial Old，parallel Old，CMS，及比较特殊的G1。  </p><h4 id="ensp-ensp-serial-收集器-和-serial-old-收集器"><a href="#ensp-ensp-serial-收集器-和-serial-old-收集器" class="headerlink" title="&ensp;&ensp;serial 收集器 和 serial old 收集器"></a>&ensp;&ensp;serial 收集器 和 serial old 收集器</h4><p>&ensp;&ensp;单线程收集器，只有一条垃圾收集线程。serial收集器作用于新生代，使用 <strong>标记-复制算法</strong> 。serial old收集器作用于老年代，使用 <strong>标记-整理算法</strong> 。缺点是垃圾收集时会stop the world，暂停其他所用工作线程，直到收集结束。serial收集器是客户端默认新生代收集器，serial old收集器的主要作用也是客户端下的老年代收集器。  </p><h4 id="ensp-ensp-parNew-收集器"><a href="#ensp-ensp-parNew-收集器" class="headerlink" title="&ensp;&ensp;parNew 收集器"></a>&ensp;&ensp;parNew 收集器</h4><p>&ensp;&ensp;serial收集器的多线程版本，有多条垃圾回收线程，垃圾收集时同样也会stop the world。作用于新生代，几乎和serial收集器没有太多差别。java9开始，只支持和老年代收集器CMS搭配使用，几乎退出历史舞台。  </p><h4 id="ensp-ensp-parallel-收集器-和-parallel-old-收集器"><a href="#ensp-ensp-parallel-收集器-和-parallel-old-收集器" class="headerlink" title="&ensp;&ensp;parallel 收集器 和 parallel old 收集器"></a>&ensp;&ensp;parallel 收集器 和 parallel old 收集器</h4><p>&ensp;&ensp;多线程处理器，有多条垃圾收集线程，垃圾收集时同样也会stop the world。parallel收集器作用于新生代，使用标记整理算法。几乎和parNew收集器差不多，唯一的特点是对 <strong>吞吐量</strong> 的关注。 <strong>吞吐量 = 运行用户代码时间 / ( 运行用户代码时间 + 运行垃圾收集时间 )</strong> ，相当于parNew收集器的 关注吞吐量版本。有两个参数用来控制吞吐量，直接设置吞吐量的 <strong>GCTimeRatio</strong> 和 设置最大垃圾收集停顿时间的 <strong>MaxGCPauseMillis</strong> ,垃圾收集停顿时间就是垃圾回收线程执行时，用户线程停顿时间。parallel old 就是 parallel的老年代版本，使用标记-整理算法，其他没什么差别。  </p><h4 id="ensp-ensp-CMS-收集器"><a href="#ensp-ensp-CMS-收集器" class="headerlink" title="&ensp;&ensp;CMS 收集器"></a>&ensp;&ensp;CMS 收集器</h4><p>&ensp;&ensp;concurrent-mark-sweap 收集器，作用于老年代，使用标记-清除算法。整个垃圾收集过程分为4个部分。1.初始标记，2.并发标记，3.重新标记，4.并发清除。其中 初始标记 和 重新标记 会stop the world。初始标记阶段就是标记 GC Roots 可直接关联对象，耗时短，暂停用户线程。并发标记阶段，从GC Roots 可直接关联对象出发遍历整个引用链，耗时长，但是和用户线程并发执行。重新标记阶段为了解决并发标记阶段用户线程运行导致的变化，多条线程处理，耗时比并发标记短，暂停用户线程。并发清理阶段，清理标记的对象。由于使用的标记-清除算法，因此 <strong>会产生碎片化空间</strong> 且并发标记和并发清除阶段和用户线程并发执行，所以 <strong>处理器资源占用较大</strong> 。在并发清除阶段，只能清除之前标记的对象，如果在这个阶段，用户线程的行为产生的垃圾对象，只能下一次垃圾回收执行，这种对象也称为 <strong>浮动垃圾</strong> ，CMS收集器无法处理浮动垃圾。  </p><h4 id="ensp-ensp-G1-收集器"><a href="#ensp-ensp-G1-收集器" class="headerlink" title="&ensp;&ensp;G1 收集器"></a>&ensp;&ensp;G1 收集器</h4><p>&ensp;&ensp;Garbage First 收集器。主要面向服务端，作用于新生代和老年代，面向堆内任何部分回收垃圾。G1收集器 将java堆内存分为若干 <strong>大小相等的独立区域Region</strong> ，每一个Region根据分配可以作为新生代Eden，Surviver区，和老年代空间，G1收集器中，还有专门用来存储大对象的Humongous区，对超过Region大小一半的对象视为大对象，如果大对象超过1个Region大小，就多个连续Humongous区存储，Region大小可以通过参数 <strong>G1HeapRegionSize设置</strong> ，范围在1MB~32MB。收集器可以 <strong>对不同的Region使用不同的垃圾回收策略</strong> ，新生代Region，Appel式标记-复制算法，老年代Region，标记-整理算法，大对象按老年代对象处理。G1收集器避免对全Region进行GC，对回收价值高的Region回收， <strong>价值是回收后获得的空间和回收所需的时间</strong> 。G1收集器有个优先级列表，回收时根据最大收集停顿时间，收集停顿时间可以使用参数 <strong>MaxGCPauseMillis</strong> 设置，优先回收高价值Region。<br>&ensp;&ensp;G1收集器运行过程的4个步骤：<br>&ensp;&ensp;1.初始标记：只标记GC Roots直达对象。stop the world，单线程。<br>&ensp;&ensp;2.并发标记：对堆中对象进行可达性判断，耗时长，和用户线程并发，并发阶段通过 <strong>原始快照算法SATB</strong> ，让用户线程和GC线程互不干扰。Region的一部分空间用于并发回收时的新对象分配，这个空间的新对象默认不在回收范围。 <strong>和CMS一样如果最终回收速度比分配速度慢，导致内存不够，还是会暂停用户线程</strong> 。<br>&ensp;&ensp;3.最终标记：处理并发阶段遗留的SATB，stop the world，多线程。<br>&ensp;&ensp;4.筛选回收：stop the world，多线程处理，将旧Region中对象复制到新Region中，在清空旧Region。</p><h4 id="ensp-ensp-ZGC-收集器"><a href="#ensp-ensp-ZGC-收集器" class="headerlink" title="&ensp;&ensp;ZGC 收集器"></a>&ensp;&ensp;ZGC 收集器</h4><h3 id="内存分配及回收策略"><a href="#内存分配及回收策略" class="headerlink" title="内存分配及回收策略"></a>内存分配及回收策略</h3><h4 id="ensp-ensp-对象优先分配eden区"><a href="#ensp-ensp-对象优先分配eden区" class="headerlink" title="&ensp;&ensp;对象优先分配eden区"></a>&ensp;&ensp;对象优先分配eden区</h4><p>&ensp;&ensp;当eden区没有足够空间时，发生minor GC，对新生代回收垃圾。<strong>如果survivor区空间小于minor GC 存活对象，则该存活对象直接进入老年代</strong> 。  </p><h4 id="ensp-ensp-大对象直接进入老年代"><a href="#ensp-ensp-大对象直接进入老年代" class="headerlink" title="&ensp;&ensp;大对象直接进入老年代"></a>&ensp;&ensp;大对象直接进入老年代</h4><p>&ensp;&ensp;为了避免提前触发GC，通过参数 <strong>PretenureSizeThreshold</strong> 设置进入大对象的界限。 <strong>该参数只有 serial 和 parNew 两个新生代收集器 有用</strong> 。  </p><h4 id="ensp-ensp-长期存活对象进入老年代"><a href="#ensp-ensp-长期存活对象进入老年代" class="headerlink" title="&ensp;&ensp;长期存活对象进入老年代"></a>&ensp;&ensp;长期存活对象进入老年代</h4><p>对象每经历一次minor GC，年龄+1，通过参数 <strong>MaxTenuringThreshold</strong> 设置进入老年代年龄界限 。  </p><h4 id="ensp-ensp-动态判断对象进入老年代"><a href="#ensp-ensp-动态判断对象进入老年代" class="headerlink" title="&ensp;&ensp;动态判断对象进入老年代"></a>&ensp;&ensp;动态判断对象进入老年代</h4><p>&ensp;&ensp;如果survivor区中某个年龄的所有对象空间占用超过survivor区的一半，则大于或等于这个年龄的所有对象进入老年代。  </p><h4 id="ensp-ensp-空间分配担保"><a href="#ensp-ensp-空间分配担保" class="headerlink" title="&ensp;&ensp;空间分配担保"></a>&ensp;&ensp;空间分配担保</h4><p>&ensp;&ensp;在minor GC 发生前，虚拟机先判断老年代可用空间是否能容纳当前新生代所有对象，如果可以，则认为这次minor GC是安全的。如果不行，通过参数 <strong>HandlePromotionFailure</strong> 是否允许担保失败。如果允许，则判断老年代可用空间是否 大于 <strong>前几次升到老年代的对象的平均大小</strong> ，如果大于，则依旧执行minor GC。如果小于或者不允许，则直接进行 full GC。因为新生代存活对象要进入到survivor区，如果survivor区容量不够，则对象直接进入老年代区， <strong>相当于老年代的担保</strong> 。因此minor GC时判断老年代大小，来判定minor GC 风险 如：如果不判定老年代大小，直接进行minor GC，如果老年代空间不够，依旧要执行 full GC，minor GC + full GC 两次回收造成的停顿时间就更长，而风险判定也许可以减少一次minor GC的停顿而直接进行 full GC。</p>]]></content>
       
       
       <categories>
           
-          <category> JVM </category>
+          <category> java </category>
           
       </categories>
       
@@ -839,11 +896,11 @@
             
             <tag> java锁机制 </tag>
             
+            <tag> synchronized </tag>
+            
             <tag> Lock </tag>
             
             <tag> AQS </tag>
-            
-            <tag> synchronized </tag>
             
         </tags>
       
@@ -931,7 +988,7 @@
       <link href="/2021/04/25/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
       <url>/2021/04/25/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><h4 id="ensp-ensp-建堆的时间复杂度"><a href="#ensp-ensp-建堆的时间复杂度" class="headerlink" title="&ensp;&ensp;建堆的时间复杂度"></a>&ensp;&ensp;建堆的时间复杂度</h4><p>&ensp;&ensp;建堆时，当前节点向上移动，也就是说父节点向下移动。对于长度为N的数组，高度为H；H = log2(N) + 1：<br>原最后一层的节点 下移的次数 为0，原倒数第二层 最多下移一次，以此类推。<br>因此 总时间复杂度 为 :<br>假设当前高度为X，该层共有 2^(X - 1) 个节点<br>倒数第一层所有节点时间 + 倒数第二层所有节点时间 + …. + 第一层时间所有节点时间<br>2^(H - 1) * 0 + 2^(H - 2) * 1 + … + 2^(0) * (H - 1) = 2N - 2 - log2(N) = O(N);<br>因此 时间复杂度为 O(N)</p><h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><h4 id="ensp-ensp-分治处理-最小K个数-的时间复杂度计算"><a href="#ensp-ensp-分治处理-最小K个数-的时间复杂度计算" class="headerlink" title="&ensp;&ensp;分治处理 最小K个数 的时间复杂度计算"></a>&ensp;&ensp;分治处理 最小K个数 的时间复杂度计算</h4><p>最小k个数(TopK),使用分治思路的时间复杂度;<br>&ensp;&ensp;遍历完一遍后,O(N);如果 index != k -1;则继续分区,第二次遍历平均 O(N/2);<br>因此时间复杂度为 O(N) + O(N/2) + O(N/4) +….  = O(2N) = O(N);  </p><h3 id="中位数-—-寻找两个正序数组的中位数"><a href="#中位数-—-寻找两个正序数组的中位数" class="headerlink" title="中位数 — 寻找两个正序数组的中位数"></a>中位数 — 寻找两个正序数组的中位数</h3><h4 id="ensp-ensp-中位数的特点"><a href="#ensp-ensp-中位数的特点" class="headerlink" title="&ensp;&ensp;中位数的特点"></a>&ensp;&ensp;中位数的特点</h4><p>&ensp;&ensp;1.该位置左边的长度 等于 该位置右边的长度。2.左边的最大值 小于等于 右边的最小值。</p><h4 id="ensp-ensp-找第K个数"><a href="#ensp-ensp-找第K个数" class="headerlink" title="&ensp;&ensp;找第K个数"></a>&ensp;&ensp;找第K个数</h4><p>&ensp;&ensp;实现方法1，在两个有序数组中，找第K个数，只是K在该场景下等于 长度/2，也就是中位数是特殊的第K个数。每次循环 比较两数组 第K/2 上的数，并排除K/2个。当K为1时，两数组中，小的那个就是第K个数。该方法时间复杂度 O(logK)。但是没有用到中位数的特性，只是把中位数当 第K个处理。  </p><h4 id="ensp-ensp-数组区域划分"><a href="#ensp-ensp-数组区域划分" class="headerlink" title="&ensp;&ensp;数组区域划分"></a>&ensp;&ensp;数组区域划分</h4><p>&ensp;&ensp;实现方法2，在两个数组1和2中找中位数，将两个数组分别划分为左右两个区域。左区域个数根据len1和len2计算出。假设 i为数组1上划分左右的坐标，j为数组2上划分左右的坐标。得i + j = 左区域个数。然后再根据，中位数特性2，找到符合条件的位置，就能找到中位数。时间复杂度 O(log(min(len1,len2)))<br><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/Leetcode_04_%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0.jpg" alt="leetcode_04">  </p><h3 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h3><h4 id="ensp-ensp-回文串的特点"><a href="#ensp-ensp-回文串的特点" class="headerlink" title="&ensp;&ensp;回文串的特点"></a>&ensp;&ensp;回文串的特点</h4><p>&ensp;&ensp;1.从左右两个向内遍历，两边字符相同。2.从中间向两边遍历，遍历字符相同。3.回文串去掉最左边及最右边，中间部分依旧是回文串。  </p><h4 id="ensp-ensp-判断回文串的方式"><a href="#ensp-ensp-判断回文串的方式" class="headerlink" title="&ensp;&ensp;判断回文串的方式"></a>&ensp;&ensp;判断回文串的方式</h4><p>&ensp;&ensp;1.从左右向内遍历。2.从中间向外遍历。3.在左右两边相等的情况下，判断中间部分是否为回文串。  </p>]]></content>
+        <content type="html"><![CDATA[<h3 id="算法无关，记录一下"><a href="#算法无关，记录一下" class="headerlink" title="算法无关，记录一下"></a>算法无关，记录一下</h3><h4 id="ensp-ensp-小数转二进制"><a href="#ensp-ensp-小数转二进制" class="headerlink" title="&ensp;&ensp;小数转二进制"></a>&ensp;&ensp;小数转二进制</h4><p>&ensp;&ensp;小数部分乘2取整数部分，也就是0或1，顺序排序，得到的结果就是小数转二进制。4.125 转 二进制 就是，100.001。</p><h4 id="ensp-ensp-单精度浮点数二进制表达"><a href="#ensp-ensp-单精度浮点数二进制表达" class="headerlink" title="&ensp;&ensp;单精度浮点数二进制表达"></a>&ensp;&ensp;单精度浮点数二进制表达</h4><p>&ensp;&ensp;单精度浮点数32位，1位符号位，8位指数位，需要加127偏移量，23底数位。<br>&ensp;&ensp;双精度浮点数64位，1位符号位，11位指数为，需要加1023偏移量，52底数位。</p><pre><code class="java">4.125 -&gt; 100.001       -&gt; 1.00001 * 10^2 -&gt; 1.00001 * 10^10其中 00001 就是底数，2就是指数，需要加上127偏移量。2 + 127 -&gt; 100000014.125 -&gt; 0 10000001 00001000000000000000000</code></pre><p>为什么要加上偏移量：计算机中使用补码表示数，如果指数的8位 还是补码表示，那么会使得 浮点数中有两个符号位，多了一个指数的符号位。因此加上偏移量的结果，也就是 <strong>移码</strong> ，来实现无符号整数表示。这样在比较浮点数大小时，就只需要判断一个符号位即可。指数的8位，可以直接无符号的判断大小。<br>为什么偏移量的值是127：8位无符号的值范围是 0 ~ 255 (00000000 ~ 11111111)，其中 00000000 和 11111111 移码，在 指数中不不使用，因此指数的范围是 1 ~ 254 (00000001 ~ 11111110) 共 254个值。因此使用254的中位数，127 或 128作为偏移量，是合理的。<br>&ensp;&ensp;如果以 128 为偏移量，那么 在指数值为 +127 (01111111)时，结果为 11111111，因为不使用该值，相当于溢出。因此以 128 为偏移量，指数的范围是，-127 ~ 126。<br>&ensp;&ensp;如果以 127 为偏移量，那么 在指数值为 -127 (10000001)时，结果为00000000，因为不适用该值，相当于溢出。因此以 127 为偏移量，指数的范围是，-126 ~ 127。  </p><pre><code class="java">当23位底数全为1时，底数值最大1.11111111111111111111111 = 1.9999998... 约为 2当23位底数全为0时，底数值最小1.00000000000000000000000 = 1  因此128偏移量，浮点数的取值范围是：-2 * 2^126 ~ -1 * 2^-127 和 1 * 2^-127 ~ 2 * 2^126。数量为 ： 2 * ( 2 * 2^126 - 1 * 2^-127 ) 约为 2 ^ 128。因此127偏移量，浮点数的取值范围是：-2 * 2^127 ~ -1 * 2^-126 和 1 * 2^-126 ~ 2 * 2^127。  数量为 ： 2 * ( 2 * 2^127 - 1 * 2^-126 ) 约为 2 ^ 129。</code></pre><p>&ensp;&ensp;由此可得，当偏移量为127时，取值范围更大。精度越大则取值范围越小，精度越小则取值范围越大。标准规定偏移量值为127。</p><h3 id="整型边界值"><a href="#整型边界值" class="headerlink" title="整型边界值"></a>整型边界值</h3><p>&ensp;&ensp;在int整型范围内，负数 转 正数可能会越界，正数 转 负数，是不会越界的。因此，当题目中条件涉及到正负数计算时，可以根据条件，把所有正数 转为 负数 计算，在统一都为负数的条件下，进行计算，只需要考虑 结果的正负，以及结果的越界情况。如果判断一个值 乘 A的绝对值，是否越界，可以先将边界值 除 A的绝对值。  </p><h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><h4 id="ensp-ensp-字符串的乘法加法"><a href="#ensp-ensp-字符串的乘法加法" class="headerlink" title="&ensp;&ensp;字符串的乘法加法"></a>&ensp;&ensp;字符串的乘法加法</h4><pre><code class="java">int res = num1 + num2 + carry;或者 res = num1 * num2 + carry;carry = res / 10;res = res % 10;</code></pre><p>&ensp;&ensp;字符串运算中，不管乘法还是加法 ，上面这部分是通用的逻辑。<br>&ensp;&ensp;在乘法中，长度为n的数 和 长度为m短的数 相乘，那么结果的长度不会超过 n + m，不会低于 m + n - 1。因此字符串乘法时，可以利用该特点，做辅助数组，保存每一字符相乘结果 到 数组中对应位置。如，n中 i上的字符，和m中j上的字符相乘，因为字符相乘结果最大81，不会超过2位数，那么对应的结果就是在，i+j和 i+j+1，这两个位置上。也就是 res/10 在 i+j位置，res%10在i+j+1位置。  </p><h4 id="ensp-ensp-减法实现除法"><a href="#ensp-ensp-减法实现除法" class="headerlink" title="&ensp;&ensp;减法实现除法"></a>&ensp;&ensp;减法实现除法</h4><p>&ensp;&ensp;以被除数100，除数3为例。100 减 4 次 3 和 100 减 1 次 4*3，是一样的结果。因此可以通过左移除数，也就是 3 &lt;&lt; 2 或者 直接 除数乘4，来减少循环次数。需要注意的是，减法的次数 同样需要随着除数的同步移动, 也就是 减 1 次的这个 1， 1 &lt;&lt; 2。  </p><h4 id="ensp-ensp-乘法实现x的n次幂"><a href="#ensp-ensp-乘法实现x的n次幂" class="headerlink" title="&ensp;&ensp;乘法实现x的n次幂"></a>&ensp;&ensp;乘法实现x的n次幂</h4><p>&ensp;&ensp;和减法实现除法思路相似，不使用暴力法一个一个计算。直接计算n/2次幂，再将结果相乘。  </p><pre><code class="java">res = x^(n/2) x^n =  res * res 或者 x^n = res * res * x注意奇偶</code></pre><h3 id="位运算保存状态"><a href="#位运算保存状态" class="headerlink" title="位运算保存状态"></a>位运算保存状态</h3><p>&ensp;&ensp;当用二维数组保存状态时，如果数组长度，及值的大小在某个固定范围内 (类似于leetcode_36_有效的数独) ，可以考虑用一维数组 + 位运算来保存值。</p><h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><h4 id="ensp-ensp-建堆的时间复杂度"><a href="#ensp-ensp-建堆的时间复杂度" class="headerlink" title="&ensp;&ensp;建堆的时间复杂度"></a>&ensp;&ensp;建堆的时间复杂度</h4><p>&ensp;&ensp;建堆时，当前节点向上移动，也就是说父节点向下移动。对于长度为N的数组，高度为H；H = log2(N) + 1：<br>原最后一层的节点 下移的次数 为0，原倒数第二层 最多下移一次，以此类推。<br>因此 总时间复杂度 为 :<br>假设当前高度为X，该层共有 2^(X - 1) 个节点<br>倒数第一层所有节点时间 + 倒数第二层所有节点时间 + …. + 第一层时间所有节点时间<br>2^(H - 1) * 0 + 2^(H - 2) * 1 + … + 2^(0) * (H - 1) = 2N - 2 - log2(N) = O(N);<br>因此 时间复杂度为 O(N)</p><h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><h4 id="ensp-ensp-分治处理-最小K个数-的时间复杂度计算"><a href="#ensp-ensp-分治处理-最小K个数-的时间复杂度计算" class="headerlink" title="&ensp;&ensp;分治处理 最小K个数 的时间复杂度计算"></a>&ensp;&ensp;分治处理 最小K个数 的时间复杂度计算</h4><p>最小k个数(TopK),使用分治思路的时间复杂度;<br>&ensp;&ensp;遍历完一遍后,O(N);如果 index != k -1;则继续分区,第二次遍历平均 O(N/2);<br>因此时间复杂度为 O(N) + O(N/2) + O(N/4) +….  = O(2N) = O(N);  </p><h3 id="中位数-—-寻找两个正序数组的中位数"><a href="#中位数-—-寻找两个正序数组的中位数" class="headerlink" title="中位数 — 寻找两个正序数组的中位数"></a>中位数 — 寻找两个正序数组的中位数</h3><h4 id="ensp-ensp-中位数的特点"><a href="#ensp-ensp-中位数的特点" class="headerlink" title="&ensp;&ensp;中位数的特点"></a>&ensp;&ensp;中位数的特点</h4><p>&ensp;&ensp;1.该位置左边的长度 等于 该位置右边的长度。2.左边的最大值 小于等于 右边的最小值。</p><h4 id="ensp-ensp-找第K个数"><a href="#ensp-ensp-找第K个数" class="headerlink" title="&ensp;&ensp;找第K个数"></a>&ensp;&ensp;找第K个数</h4><p>&ensp;&ensp;实现方法1，在两个有序数组中，找第K个数，只是K在该场景下等于 长度/2，也就是中位数是特殊的第K个数。每次循环 比较两数组 第K/2 上的数，并排除K/2个。当K为1时，两数组中，小的那个就是第K个数。该方法时间复杂度 O(logK)。但是没有用到中位数的特性，只是把中位数当 第K个处理。  </p><h4 id="ensp-ensp-数组区域划分"><a href="#ensp-ensp-数组区域划分" class="headerlink" title="&ensp;&ensp;数组区域划分"></a>&ensp;&ensp;数组区域划分</h4><p>&ensp;&ensp;实现方法2，在两个数组1和2中找中位数，将两个数组分别划分为左右两个区域。左区域个数根据len1和len2计算出。假设 i为数组1上划分左右的坐标，j为数组2上划分左右的坐标。得i + j = 左区域个数。然后再根据，中位数特性2，找到符合条件的位置，就能找到中位数。时间复杂度 O(log(min(len1,len2)))<br><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/Leetcode_04_%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0.jpg" alt="leetcode_04">  </p><h3 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h3><h4 id="ensp-ensp-回文串的特点"><a href="#ensp-ensp-回文串的特点" class="headerlink" title="&ensp;&ensp;回文串的特点"></a>&ensp;&ensp;回文串的特点</h4><p>&ensp;&ensp;1.从左右两个向内遍历，两边字符相同。2.从中间向两边遍历，遍历字符相同。3.回文串去掉最左边及最右边，中间部分依旧是回文串。  </p><h4 id="ensp-ensp-判断回文串的方式"><a href="#ensp-ensp-判断回文串的方式" class="headerlink" title="&ensp;&ensp;判断回文串的方式"></a>&ensp;&ensp;判断回文串的方式</h4><p>&ensp;&ensp;1.从左右向内遍历。2.从中间向外遍历。3.在左右两边相等的情况下，判断中间部分是否为回文串。因为回文串长度有奇偶之分，因此从i点向左右两边判断是否是回文串时，除了left,right = i以外，还需要判断left = i，right = i+1 判断偶数时的情况。  </p><h3 id="递归、回溯"><a href="#递归、回溯" class="headerlink" title="递归、回溯"></a>递归、回溯</h3><p> &ensp;&ensp;自己调用自己，也就是递归，是算法结构；多种选择，选择其中一种，根据条件退回，再选择，也就是回溯，是算法思想。回溯在题目中的体现，一般就是 添加一个值，相当于选择，去掉添加的值，相当于回退，在添加下一个值。算法题中涉及的回溯，最常见的就是上面的这个流程。递归 + 回溯 一般就是 DFS 深度优先遍历。 当题目中出现 “所有符合条件的结果” 这类情况时，一般就是 dfs + 根据条件剪枝。根据题目画出树，会更加清晰。  </p><h3 id="旋转有序数组"><a href="#旋转有序数组" class="headerlink" title="旋转有序数组"></a>旋转有序数组</h3><h4 id="ensp-ensp-特点"><a href="#ensp-ensp-特点" class="headerlink" title="&ensp;&ensp;特点"></a>&ensp;&ensp;特点</h4><p> &ensp;&ensp;左边，及右边有序；当要在该类数组中，搜索target时，需要考虑 mid 在左右升序位置 及 target在左右升序位置。也就是 mid target 和 数组第1位或最后一位位的大小关系。直接画出图形表示，两个升序</p><h3 id="接雨水"><a href="#接雨水" class="headerlink" title="接雨水"></a>接雨水</h3><p>&ensp;&ensp;接雨水提，如果是计算i位置垂直容量，那么涉及 min(i左边最大高度，i右边最大高度)，因此需要双指针，或者2个辅助数组保存i位置的左右最大高度。如果计算i 和 j之间的水平容量，使用单调递减栈计算。<br><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%8E%A5%E9%9B%A8%E6%B0%B4-%E6%80%9D%E8%B7%AF.jpg" alt="接雨水双指针思路"><br>&ensp;&ensp;如图所示，假设右边存在一个比左边都高的高度，可以使得左区域的位置i，垂直容量只需要考虑i位置时的leftMax。因此一个变量来保存并更新leftMax即可。同理，如果左边存在一个比右边都高的高度，右区域只需要考虑rightMax。<br><img src="/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E6%8E%A5%E9%9B%A8%E6%B0%B4.jpg" alt="接雨水双指针"><br>&ensp;&ensp;如图所示，当存在 left高度 小于 right高度时，那么right位置，就相当于上面提到的，比左区域都大的高度。那么left位置能存储的雨水，只需要考虑， 0 ~ left位置的 leftMax。同理，如果存在 left高度 大于 right高度时，right位置能存储的雨水，只需考虑，right ~ length - 1位置的 rightMax。</p>]]></content>
       
       
       <categories>
