@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="动态规划 与 背包问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划 与 背包问题">
+<meta property="og:url" content="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="动态规划 与 背包问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85_1.jpg">
+<meta property="article:published_time" content="2022-01-03T03:48:00.000Z">
+<meta property="article:modified_time" content="2023-11-02T03:48:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="滚动数组">
+<meta property="article:tag" content="背包问题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85_1.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/","path":"算法和数据结构/算法-动态规划/","title":"动态规划 与 背包问题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>动态规划 与 背包问题 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">状态表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">状态转移方程式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84"><span class="nav-number">1.3.</span> <span class="nav-text">滚动数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">背包问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E5%8C%85"><span class="nav-number">2.1.</span> <span class="nav-text">01背包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E4%BC%98%E5%8C%96%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.1.</span> <span class="nav-text">滚动数组优化空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85"><span class="nav-number">2.2.</span> <span class="nav-text">完全背包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E4%BC%98%E5%8C%96%E7%A9%BA%E9%97%B4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">滚动数组优化空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85"><span class="nav-number">2.3.</span> <span class="nav-text">多重背包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85-%E8%BD%AC-01%E8%83%8C%E5%8C%85"><span class="nav-number">2.3.1.</span> <span class="nav-text">多重背包 转 01背包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6-%E4%BC%98%E5%8C%96-%E8%BD%AC%E6%8D%A2%E7%BB%93%E6%9E%9C"><span class="nav-number">2.3.2.</span> <span class="nav-text">二进制 优化 转换结果</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="动态规划 与 背包问题 | Blog">
+      <meta itemprop="description" content="动态规划 与 背包问题">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          动态规划 与 背包问题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-03 11:48:00" itemprop="dateCreated datePublished" datetime="2022-01-03T11:48:00+08:00">2022-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-02 11:48:00" itemprop="dateModified" datetime="2023-11-02T11:48:00+08:00">2023-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">动态规划 与 背包问题</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="动态规划">动态规划</h1>
+<ul>
+<li><h2 id="状态表示">状态表示</h2>
+<p>  一维数组，或者多维数组，单项元素所代表的内容，相当于最优子结构，如：斐波那契数列中，dp[i]
+就可以表示 i 位的值。</p></li>
+<li><h2 id="状态转移方程式">状态转移方程式</h2>
+<p>  通过 已获得的元素 计算转换为 当前元素
+的方程式，如：斐波那契数列中，dp[i] = dp[i - 1] + dp[i - 2]。</p></li>
+<li><h2 id="滚动数组">滚动数组</h2>
+<p>  滚动数组是对 空间复杂度 的优化。<br />
+  以二维数组(i,j)为例，如果状态转移方程式的 i 维度，只和 i - 1 或 i + 1
+行这类固定位置有关，和其他行的值无关。就可以去掉 i 维度，只保留 j
+维度的数组，也就是直接用一维数组替代。更新一维数组的值即可。类似的，如果一维数组中
+i 位置的值，只和 i - 1
+这类固定位置有关，那么同样可以降一维，只用一个变量表示。如：斐波那契数列中，dp[i]
+的值只和 i - 1 及 i - 2
+这固定位置的值有关，因此可以用变量代替一维数组：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 相当于 dp[i - 2]</span>
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token comment">// 相当于 dp[i - 1]</span>
+<span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 相当于 dp[i] = dp[i - 1] + dp[i - 2]</span>
+  <span class="token keyword">int</span> c <span class="token operator">=</span> b <span class="token operator">+</span> a<span class="token punctuation">;</span>
+  a <span class="token operator">=</span> b<span class="token punctuation">;</span>
+  b <span class="token operator">=</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="背包问题">背包问题</h1>
+<p>  背包问题基本上是：<strong>N</strong> 个物品 和 一个总容量为
+<strong>C</strong> 的背包。每个物品有：体积 <span
+class="math inline">\(C_i\)</span>，价值 <span
+class="math inline">\(V_i\)</span>，数量 <span
+class="math inline">\(Q_i\)</span>
+。将若干物品放入到背包中，追求最大值。<br />
+  背包问题最基本的公式为：<br />
+<span class="math display">\[dp[i][j] = max\{dp[i - 1][j],dp[i - 1][j -
+C_i] + V_i\}\]</span>   dp[i][j] 表示：在容量为 j 的背包中，0 ~ i
+号的物品，能够得到的最大价值。<br />
+  上面的公式也就是 01背包问题 的公式，有最基本的 状态表示 、状态转移
+、思路流程。根据题目场景，由该 公式 及 思路流程 进行扩展。</p>
+<ul>
+<li><h2 id="背包">01背包</h2>
+<p>  最基本的背包问题，每个物品只有 1 个，所以只有 选择 和 不选择
+两种情况。<br />
+  得到 dp[i][j] 也就是上面两种情况：</p>
+<ul>
+<li>不选择 i号 物品：<br />
+  那么 dp[i][j] 的结果和 dp[i - 1][j] 是一样的。<br />
+</li>
+<li>选择 i号 物品：<br />
+  表示 0 ~ <em>i - 1</em> 号占据空间不能超过 j - <span
+class="math inline">\(C_i\)</span> 。dp[i - 1][j - <span
+class="math inline">\(C_i\)</span>] 表示 0 ~ <em>i - 1</em> 号，在容量为
+j - <span class="math inline">\(C_i\)</span> 时最大的价值。因此 dp[i][j]
+的结果为 dp[i - 1][j - <span class="math inline">\(C_i\)</span>] + <span
+class="math inline">\(V_i\)</span> 。</li>
+</ul>
+<p>  结合上面两种情况，j 容量下，0 ~ i号 的最大价值为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token class-name">Ci</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token class-name">Vi</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li><h3 id="滚动数组优化空间">滚动数组优化空间</h3>
+<p>  在 01背包 中，dp[i][j] 在 i 维度，只和 i - 1 有关系。因此可以去掉 i
+维度，用一维数组 dp[j] 实现。因为存在 dp[i - 1][j - <span
+class="math inline">\(C_i\)</span>] 这个转换关系，所以在更新滚动数组
+dp[j] 时，需要从大往小更新，也就是从滚动数组的右边，往 0位
+的左边更新。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token class-name">C</span><span class="token punctuation">;</span> j <span class="token operator">>=</span> <span class="token class-name">Ci</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token class-name">Ci</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token class-name">Vi</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p>  当一个场景和条件符合 01背包 问题时，那么 dp[i][j] 的值，基本上和
+dp[i - 1][j - Ci] + Vi 有关，根据场景来判断关系。</p></li>
+<li><h2 id="完全背包">完全背包</h2>
+<p>  每个物品有 无限 个。在 01背包
+的选择和不选择的情况下，多了选择不同数量的情况。<br />
+  一个物品选择 k 个，占用 <span
+class="math inline">\(k*C_i\)</span>，价值 <span
+class="math inline">\(k*V_i\)</span> 。从 01背包 公式转换可得：<br />
+<span class="math display">\[dp[i][j] = max\{dp[i - 1][j - k*C_i] +
+k*V_i| 0&lt;=k*C_i&lt;=j\}\]</span>   和 01背包 思路一样，因为多了 k
+这个变量，因此需要在 01背包 的流程中在加一个
+k的循环。大致的代码流程为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">C</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">*</span><span class="token class-name">Ci</span> <span class="token operator">&lt;=</span> j<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> k<span class="token operator">*</span><span class="token class-name">Ci</span><span class="token punctuation">]</span> <span class="token operator">+</span> k<span class="token operator">*</span><span class="token class-name">Vi</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  上面代码的格式，虽然是根据完全背包的公式直接实现的，但是会多次访问重复的元素，因此需要将流程优化。
+<img src="/assets/posts_jpg/算法和数据结构/动态规划/完全背包_1.jpg"
+alt="完全背包_1" /><br />
+  如上图所示：当外层循环值为 i 时，<span
+class="math inline">\(C_i\)</span> 的值为 3，内层循环指针遍历到 <span
+class="math inline">\(j_2\)</span>。根据完全背包的公式来看，dp[i][<span
+class="math inline">\(j_2\)</span>] 的值，为 dp[i - 1][<span
+class="math inline">\(j_0\)</span>] ~ dp[i - 1][<span
+class="math inline">\(j_2\)</span>]，中最大的那一项，也就是图中红色部分。<br />
+  当指针遍历到 <span class="math inline">\(j_3\)</span> 时，dp[i][<span
+class="math inline">\(j_3\)</span>]
+的值从图中的红色部分获得。此时会发现，<span
+class="math inline">\(j_2\)</span> 和 <span
+class="math inline">\(j_3\)</span> 有重复部分，而
+<strong>重复部分的结果</strong> ，就是蓝色格子的 dp[i][<span
+class="math inline">\(j_2\)</span>]。因此流程优化成，<span
+class="math inline">\(j_3\)</span> 只需要比较 dp[i - 1][<span
+class="math inline">\(j_3\)</span>] 和 dp[i][<span
+class="math inline">\(j_2\)</span>] 取更大那一项即可。<br />
+<span class="math display">\[dp[i][j] = max\{dp[i - 1][j],dp[i][j - C_i]
++ V_i\}\]</span>   大致的代码流程为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">C</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">>=</span> <span class="token class-name">Ci</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token class-name">Ci</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token class-name">Vi</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><h3 id="滚动数组优化空间-1">滚动数组优化空间</h3>
+<p>  思路是一样的，优化后的流程中，dp[i][j] 只和 <em>i - 1</em> 及 i维度
+有关，直接去掉 i维度 即可。和 01背包 不一样的地方是，dp[i][j] 涉及到
+同一维度的新值 dp[i][j - <span
+class="math inline">\(C_i\)</span>]，所以滚动数组 dp[j]
+的更新方向，需要从左往右更新。大致的代码为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token class-name">Ci</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">C</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token class-name">Ci</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token class-name">Vi</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p>  当一个场景和条件符合 完全背包 问题时，那么 dp[i][j] 的值，基本上和
+dp[i - 1][j - k*Ci] + k*Vi 等有关，根据场景来判断关系。</p></li>
+<li><h2 id="多重背包">多重背包</h2>
+<p>  每个物品有 <span class="math inline">\(Q_i\)</span> 个。在 01背包
+的选择和不选择的情况下，多了选择不同数量的情况。<br />
+  一个物品选择 k 个，占用 <span
+class="math inline">\(k*C_i\)</span>，价值 <span
+class="math inline">\(k*V_i\)</span> 。从 01背包 公式转换可得：<br />
+<span class="math display">\[dp[i][j] = max\{dp[i - 1][j - k*C_i] +
+k*V_i | 0&lt;=k*C_i&lt;=j，0&lt;=k&lt;=Q_i\}\]</span>   和 01背包
+流程思路一致，加一个 k 的限制条件。大致的代码流程为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">N</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token class-name">C</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k<span class="token operator">*</span><span class="token class-name">Ci</span> <span class="token operator">&lt;=</span> j <span class="token operator">&amp;&amp;</span> k <span class="token operator">&lt;=</span> <span class="token class-name">Qi</span><span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> k<span class="token operator">*</span><span class="token class-name">Ci</span><span class="token punctuation">]</span> <span class="token operator">+</span> k<span class="token operator">*</span><span class="token class-name">Vi</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  这种流程有一个明显的问题，就是当物品 i 的数量 <span
+class="math inline">\(Q_i\)</span> 非常大时，时间复杂度非常高。</p>
+<ul>
+<li><h3 id="多重背包-转-01背包">多重背包 转 01背包</h3>
+<table>
+<thead>
+<tr class="header">
+<th>物品编号</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>数量</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<p>  将多重背包转为 01背包，可以将 i号 物品拆分成 <span
+class="math inline">\(Q_i\)</span> 个同样价值、体积的物品。只是这样做对
+时间复杂度 没什么优化，如果 <span class="math inline">\(Q_i\)</span>
+很大，时间复杂度依然很高，只是代码结构上，可以用 01背包 流程的 2
+个循环实现。</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 2%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">物品编号</th>
+<th style="text-align: center;">1_1</th>
+<th style="text-align: center;">1_2</th>
+<th style="text-align: center;">1_3</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3_1</th>
+<th style="text-align: center;">3_2</th>
+<th style="text-align: center;">4_1</th>
+<th style="text-align: center;">4_2</th>
+<th>...</th>
+<th style="text-align: center;">4_1000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">数量</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td>...</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>  此时，多重背包问题就转为了： <span
+class="math inline">\(\sum_{i}^{N}Q_i\)</span> 个物体 和 一个总容量为 C
+的 01背包 问题。原dp[N - 1][C] 和 新dp[<span
+class="math inline">\(\sum_{i}^{N}Q_i\)</span> - 1][C]
+结果上是一样的。</p></li>
+<li><h3 id="二进制-优化-转换结果">二进制 优化 转换结果</h3>
+<p>  优化思路其实和 1000 试剂瓶以及 10
+个小白鼠这种场景类似。每个小白鼠代表 1 位，10
+位二进制数能表示出任意的一个试剂瓶编号。而二进制每一位只能是 1 或
+0，刚好对应的 01背包 的 选择 或 不选择。多重背包的优化，就是通过用
+二进制 表示出 任意的 <span class="math inline">\(Q_i\)</span> ，来避免
+<span class="math inline">\(\sum_{i}^{N}Q_i\)</span>
+个物体的出现。<br />
+<img src="/assets/posts_jpg/算法和数据结构/动态规划/多重背包_1.jpg"
+alt="多重背包_1" /><br />
+  假设编号 4 的物品有 1000 个。那么 10 位二进制数能把 0 ~ 1000
+的数都表示出来。把原本转换成 1000 个格子表示的 4号 物品，转为 10
+个格子表示：</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">物品编号</th>
+<th style="text-align: center;">4_1</th>
+<th style="text-align: center;">4_2</th>
+<th style="text-align: center;">4_3</th>
+<th style="text-align: center;">4_4</th>
+<th style="text-align: center;">4_5</th>
+<th style="text-align: center;">4_6</th>
+<th style="text-align: center;">4_7</th>
+<th style="text-align: center;">4_8</th>
+<th style="text-align: center;">4_9</th>
+<th style="text-align: center;">4_10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">价值</td>
+<td style="text-align: center;">1 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">2 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">4 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">8 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">16 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">32 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">64 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">128 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;">256 * <span
+class="math inline">\(V_4\)</span></td>
+<td style="text-align: center;"><strong>489</strong> * <span
+class="math inline">\(V_4\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">体积</td>
+<td style="text-align: center;">1 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">2 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">4 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">8 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">16 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">32 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">64 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">128 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;">256 * <span
+class="math inline">\(C_4\)</span></td>
+<td style="text-align: center;"><strong>489</strong> * <span
+class="math inline">\(C_4\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">数量</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>  4 号物品有 1000 个，而 9 位二进制数能表示出 <em>0 ~ 511</em>
+任意一个数，所以最后一个分到的 <em>1000 - 511</em> 个。此时 4
+号物品转换成了 10 个物品，01背包的 选择 或 不选择 就相当于在该位置 1 或
+0 。置为 1 的位置计算得到的结果，就是 4 号物品取的个数。<br />
+  对于 i号，体积 <span class="math inline">\(C_i\)</span>，价值 <span
+class="math inline">\(V_i\)</span>，数量 <span
+class="math inline">\(S_i\)</span> 的物品，转换后可得：</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">物品编号</th>
+<th style="text-align: center;">i_1</th>
+<th style="text-align: center;">i_2</th>
+<th style="text-align: center;">i_3</th>
+<th style="text-align: center;">...</th>
+<th style="text-align: center;">i_n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">价值</td>
+<td style="text-align: center;">1 * <span
+class="math inline">\(V_i\)</span></td>
+<td style="text-align: center;">2 * <span
+class="math inline">\(V_i\)</span></td>
+<td style="text-align: center;">4 * <span
+class="math inline">\(V_i\)</span></td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;"><span class="math inline">\((S_i -
+(2^{n-1} - 1))\)</span> * <span class="math inline">\(V_i\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">体积</td>
+<td style="text-align: center;">1 * <span
+class="math inline">\(C_i\)</span></td>
+<td style="text-align: center;">2 * <span
+class="math inline">\(C_i\)</span></td>
+<td style="text-align: center;">4 * <span
+class="math inline">\(C_i\)</span></td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;"><span class="math inline">\((S_i -
+(2^{n-1} - 1))\)</span> * <span class="math inline">\(C_i\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">数量</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>  转换后，新的 n 个物品，能表示取 0 ~ <span
+class="math inline">\(S_i\)</span> 个的原 i 号物品。n 和 <span
+class="math inline">\(S_i\)</span> 的关系有：<span
+class="math inline">\(2^{n - 1} &lt;= S_i &lt; 2^n\)</span> 。<br />
+  在 多重背包 整个流程中，不需要在意一个物品究竟取了多少个，关键在于
+<strong>转换成了01背包</strong> 且
+<strong>优化了空间和时间复杂度</strong> 。</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- ### 原题
+ 279.完全平方数
+ 322.零钱兑换
+ 416.分割等和子集
+ 494.目标和 -->
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+              <a href="/tags/%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84/" rel="tag"># 滚动数组</a>
+              <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" rel="tag"># 背包问题</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%9F%BA%E7%A1%80/jvm-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="JVM学习笔记">
+                  <i class="fa fa-angle-left"></i> JVM学习笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E5%88%86%E5%B8%83%E5%BC%8F%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/" rel="next" title="保留文件">
+                  保留文件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MySQL学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL学习笔记">
+<meta property="og:url" content="https://fyyon.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="MySQL学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-17T07:41:00.000Z">
+<meta property="article:modified_time" content="2021-06-27T01:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="事务">
+<meta property="article:tag" content="索引">
+<meta property="article:tag" content="日志">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"数据库/Mysql-A学习笔记/","title":"MySQL学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MySQL学习笔记 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">MySQL架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">事务的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">2.2.</span> <span class="nav-text">事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB-%E5%92%8C-%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">事务隔离 和 并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">2.3.1.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mvcc_%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">MVCC_多版本并发控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mvcc-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.4.</span> <span class="nav-text">MVCC 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">2.5.</span> <span class="nav-text">视图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">3.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95_%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95"><span class="nav-number">3.1.</span> <span class="nav-text">主键索引_聚簇索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95_%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95"><span class="nav-number">3.2.</span> <span class="nav-text">非主键索引_二级索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">覆盖索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8E%9F%E5%88%99"><span class="nav-number">3.3.</span> <span class="nav-text">最左前缀原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8"><span class="nav-number">3.4.</span> <span class="nav-text">索引下推</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E7%9A%84%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">MySQL的锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E9%94%81%E7%9A%84%E6%80%9D%E6%83%B3%E5%88%92%E5%88%86"><span class="nav-number">4.1.</span> <span class="nav-text">根据锁的思想划分：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E4%BB%96%E9%94%81"><span class="nav-number">4.1.1.</span> <span class="nav-text">排他锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E9%94%81"><span class="nav-number">4.1.2.</span> <span class="nav-text">共享锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E9%94%81%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%92%E5%88%86"><span class="nav-number">4.2.</span> <span class="nav-text">根据锁的作用域划分：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%94%81"><span class="nav-number">4.2.1.</span> <span class="nav-text">全局锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E9%94%81"><span class="nav-number">4.2.2.</span> <span class="nav-text">表锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E9%94%81"><span class="nav-number">4.2.3.</span> <span class="nav-text">行锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mvcc"><span class="nav-number">4.3.</span> <span class="nav-text">MVCC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">4.3.1.</span> <span class="nav-text">乐观并发控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%82%B2%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">4.3.2.</span> <span class="nav-text">悲观并发控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gap-lock"><span class="nav-number">4.4.</span> <span class="nav-text">GAP LOCK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-key-lock"><span class="nav-number">4.5.</span> <span class="nav-text">NEXT KEY LOCK</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E7%9A%84%E6%97%A5%E5%BF%97"><span class="nav-number">5.</span> <span class="nav-text">MySQL的日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wal-write-ahead-logging"><span class="nav-number">5.1.</span> <span class="nav-text">WAL Write-Ahead Logging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redo-log-%E9%87%8D%E5%81%9A%E6%97%A5%E5%BF%97"><span class="nav-number">5.2.</span> <span class="nav-text">Redo Log 重做日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4"><span class="nav-number">5.2.1.</span> <span class="nav-text">两阶段提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#binlog-%E5%BD%92%E6%A1%A3%E6%97%A5%E5%BF%97"><span class="nav-number">5.3.</span> <span class="nav-text">BinLog 归档日志</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MySQL学习笔记 | Blog">
+      <meta itemprop="description" content="MySQL学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-17 15:41:00" itemprop="dateCreated datePublished" datetime="2021-05-17T15:41:00+08:00">2021-05-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-06-27 09:41:00" itemprop="dateModified" datetime="2021-06-27T09:41:00+08:00">2021-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">MySQL学习笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="mysql架构">MySQL架构</h1>
+<ul>
+<li>连接器：管理连接、验证用户密码、获取用户权限</li>
+<li>分析器：SQL语句解析
+<ul>
+<li>词法分析：识别字符串的命令，识别表名、列名等</li>
+<li>语法分析：对词法分析结构进行规则判定</li>
+</ul></li>
+<li>优化器：多索引时，对采用索引的选择，关联表的连接顺序，SQL条件顺序</li>
+<li>执行器：判断用户权限，调用存储引擎接口，处理数据。一条SQL可能涉及到触发器，而触发器涉及的表是否有权限，只能在执行阶段才能判断</li>
+</ul></li>
+<li><h1 id="事务">事务</h1>
+<ul>
+<li><h2 id="事务的特性">事务的特性</h2>
+<ul>
+<li>原子性：</li>
+<li>一致性：</li>
+<li>隔离性：确保一个事务的执行不会被其他事务干扰。一个事务开启后的写操作，在提交前，对其他事务不可见。受
+<strong>隔离级别</strong> 影响。</li>
+<li>持久性：</li>
+</ul>
+<p>  当多个线程开启事务并发操作时，可能会出现：</p>
+<ul>
+<li>脏读：</li>
+<li>不可重复读：</li>
+<li>幻读：</li>
+</ul></li>
+<li><h2 id="事务的隔离级别">事务的隔离级别</h2>
+<ul>
+<li>读未提交：</li>
+<li>读提交：</li>
+<li>可重复读：</li>
+<li>串行化：在该隔离等级下，事务中的读写操作，系统会自动添加读或写的行锁。所有的读取和写入操作都是串行执行的，每个事务都在独占使用资源。</li>
+</ul></li>
+<li><h2 id="事务隔离-和-并发控制">事务隔离 和 并发控制</h2>
+<p>  在除了 不提交读 的其他隔离级别中，串行化
+通过添加锁，来管理数据的并发操作。提交读 和
+可重复读需要不通过加锁的方式来管理数据的并发操作。<br />
+  并发控制的目的：保证事务的隔离性的实现。当多个事务同时对数据进行读写操作时，需要保证数据的安全、可用、隔离等。通过锁
+和 MVCC 两种机制对线程的并发进行管理：</p>
+<ul>
+<li><h3 id="锁">锁</h3></li>
+<li><h3 id="mvcc_多版本并发控制">MVCC_多版本并发控制</h3>
+  用于实现 事务隔离性 的一种设计思想。不同的数据库 或 存储引擎 对于 MVCC
+的实现不同。</li>
+</ul>
+<p>  MVCC 和 锁 是两种不同的并发控制设计，但不互斥。</p></li>
+<li><h2 id="mvcc-的实现">MVCC 的实现</h2>
+<p><strong>每条记录在更新的时候都会同时记录一条回滚操作</strong><br />
+InnoDB 在实现 MVCC 时用到的一致性读视图<br />
+undo log（回滚日志）<br />
+MVCC只在可重复读（REPEATABLE READ）和提交读（READ
+COMMITTED）两个隔离级别下工作。</p>
+<p>可重复读
+隔离级别：视图是在事务启动时创建的，整个事务存在期间都用这个视图。<br />
+读提交 隔离级别：视图是在每个 SQL 语句开始执行的时候创建的。<br />
+系统里没有比这个回滚日志更早的 视图 的时候。</p></li>
+<li><h2 id="视图">视图</h2>
+<p>在 MySQL 里，有两个“视图”的概念：<br />
+一个是
+view。它是一个用查询语句定义的虚拟表，在调用的时候执行查询语句并生成结果。创建视图的语法是
+create view … ，而它的查询方法与表一样。<br />
+另一个是 InnoDB 在实现 MVCC 时用到的一致性读视图，即 consistent read
+view，用于支持 RC（Read Committed，读提交）和 RR（Repeatable
+Read，可重复读）隔离级别的实现。</p></li>
+</ul></li>
+<li><h1 id="索引">索引</h1>
+<p>高数据查询的效率</p>
+<ul>
+<li><h2 id="主键索引_聚簇索引">主键索引_聚簇索引</h2></li>
+<li><h2 id="非主键索引_二级索引">非主键索引_二级索引</h2>
+<p>回到主键索引树搜索的过程，我们称为回表</p>
+<ul>
+<li><h3 id="覆盖索引">覆盖索引</h3>
+如果执行的语句是 select ID from T where k between 3 and 5，这时只需要查
+ID 的值，而 ID 的值已经在 k
+索引树上了，因此可以直接提供查询结果，不需要回表。也就是说，在这个查询里面，索引
+k 已经“覆盖了”我们的查询需求，我们称为覆盖索引。<br />
+由于覆盖索引可以减少树的搜索次数，显著提升查询性能，所以使用覆盖索引是一个常用的性能优化手段</li>
+</ul></li>
+<li><h2 id="最左前缀原则">最左前缀原则</h2></li>
+<li><h2 id="索引下推">索引下推</h2></li>
+</ul>
+<p>  索引是根据索引定义里面字段的顺序排序的，也就是
+<strong>最左前缀原则</strong>
+。如联合索引(a，b)就是先根据a排序，然后再根据b排序。因为最左前缀原则，如果再(a，b)上有联合索引，则该索引树中已经按照先a后b的顺序，那么
+<strong>没有必要再单独的a上建立索引</strong>
+。如果表中主键是(a，b)，现有一个索引c，那没在索引c的树结构中，就是以c的顺序构造树，如果有相同的值，则根据主键先a后b的顺序来构造，相当于先c再a再b。<strong>最左前缀原则可以减少没必要的索引</strong>
+，节省空间。<br />
+  <strong>最左前缀原则</strong>
+针对的是联合索引，可以理解成先后排序。举例说明：联合索引 (a,b,c)
+其实在树结构上来看其实 <strong>只有a是有序</strong>
+的，b和c是无序的。只有在a是某个确定固定的值时，b才是有序的而此时就c无序。只有a和b都是固定值时，c才是有序的。就是申明索引时的从左到右。<strong>声明一个
+(a,b,c) 的联合索引，相当于 有 (a),(a,b),(a,b,c) 三个索引</strong>
+。查询语句使用联合索引不符合该原则时，可能就会出现
+<strong>索引失效</strong> 。举例说明：假设联合索引 (a,b,c)
+，当select语句的 where条件 涉及的字段只有 b,c ，没有 a 时
+那么(a,b,c)的索引就无效了，因为对于(a,b,c)索引来说只有a是有序的，只有在a固定的时候b才有序。因此
+where条件中 没有a 或者 a使用了范围 (如&gt;,&lt;,!=,%等)
+使得a值不固定，那么b也失去了有序的前提条件，(a,b,c)索引也会失效。<br />
+  因为 <strong>优化器</strong> 的存在，联合索引的字段在 where条件
+中出现的 <strong>顺序是无所谓的</strong> ，如：a = 1 and b = 2 and c = 3
+和 c = 3 and b = 2 and a = 1
+是一样的都会使用(a,b,c)联合索引。因为使用二级索引可能会发生回表操作，因此使用二级索引然后回表
+或者 不使用索引直接全表遍历 这种情况也是由 <strong>优化器</strong>
+判断具体使用哪种方法。可以使用 <strong>explain</strong> 来查看 sql语句
+执行的情况。<br />
+  Mysql
+5.6之后，在二级索引遍历过程中，优先对二级索引中包含的字段进行判断，只有判断通过了才回表，这一优化称为
+<strong>索引下推</strong> 。如：有二级索引(a,b),然后执行 select * from
+table where a = 2 and b = 1 and c = 3；在Mysql
+5.6之前，当二级索引找到第一个a=2的叶子节点后，就通过叶子节点的主键值，回表获得主键值所对应的行数据，再判断b和c是否符合。这样每次都回表，开销大。Mysql
+5.6后进行优化，会先判定二级索引中包含的字段。也就是先找到第一个a =
+2的叶子节点，然后判断二级索引中包含的b是否符合 b =
+1，如果符合才回表去获得c的值，如果不符合则跳过下一个。</p></li>
+<li><h1 id="mysql的锁机制">MySQL的锁机制</h1>
+<ul>
+<li><h2 id="根据锁的思想划分">根据锁的思想划分：</h2>
+<ul>
+<li><h3 id="排他锁">排他锁</h3></li>
+<li><h3 id="共享锁">共享锁</h3></li>
+</ul></li>
+<li><h2 id="根据锁的作用域划分">根据锁的作用域划分：</h2>
+<ul>
+<li><h3 id="全局锁">全局锁</h3>
+<p>  对整个库加 读锁 (Flush Tables With Read
+Lock)，所有线程在该库中只能执行读操作。更新数据DML、更新表结构DDL
+等操作会被阻塞。一般对整个库做备份时使用。<br />
+  对于 innoDB引擎
+来说，事务的可重复读隔离级别，能做到开启事务时，得到一个视图。该视图能够保证操作数据的一致，因此没必要使用全局锁。</p></li>
+<li><h3 id="表锁">表锁</h3>
+<ul>
+<li>表数据锁<br />
+  对数据加锁</li>
+<li>元数据锁，Meta Data Lock<br />
+  对表结构加锁</li>
+</ul></li>
+<li><h3 id="行锁">行锁</h3>
+<p>行锁由引擎层实现</p></li>
+</ul></li>
+<li><h2 id="mvcc">MVCC</h2>
+<ul>
+<li><h3 id="乐观并发控制">乐观并发控制</h3></li>
+<li><h3 id="悲观并发控制">悲观并发控制</h3></li>
+</ul></li>
+<li><h2 id="gap-lock">GAP LOCK</h2></li>
+<li><h2 id="next-key-lock">NEXT KEY LOCK</h2></li>
+</ul></li>
+<li><h1 id="mysql的日志">MySQL的日志</h1>
+<ul>
+<li><h2 id="wal-write-ahead-logging">WAL Write-Ahead Logging</h2>
+<p>先写日志、再写入磁盘</p></li>
+<li><h2 id="redo-log-重做日志">Redo Log 重做日志</h2>
+<p>crash safe innoDB引擎层的日志 记录的是执行 SQL语句 的结果</p>
+<ul>
+<li><h3 id="两阶段提交">两阶段提交</h3></li>
+</ul></li>
+<li><h2 id="binlog-归档日志">BinLog 归档日志</h2>
+<p>Server层的日志，无关引擎 记录的 SQL语句</p></li>
+</ul></li>
+</ul>
+<!--
+mysql config option file
+官方文档：https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html
+
+[client]
+客户端配置，对应如 mysql -uroot，启动客户端 读取设定
+
+[mysqld]
+服务器配置，对应如 net start mysql，启动 mysql-server 读取设定
+
+-->
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag"># 事务</a>
+              <a href="/tags/%E7%B4%A2%E5%BC%95/" rel="tag"># 索引</a>
+              <a href="/tags/%E6%97%A5%E5%BF%97/" rel="tag"># 日志</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="prev" title="保留文件">
+                  <i class="fa fa-angle-left"></i> 保留文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%9F%BA%E7%A1%80/juc-%E9%9B%86%E5%90%88/" rel="next" title="juc包中的集合">
+                  juc包中的集合 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

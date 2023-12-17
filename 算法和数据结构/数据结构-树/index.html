@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="树结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树结构">
+<meta property="og:url" content="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="树结构">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/Morris_%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/AVL_%E5%8F%82%E4%B8%8E%E6%97%8B%E8%BD%AC%E8%8A%82%E7%82%B9.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/AVL_LL%E5%8F%B3%E6%97%8B%E8%B0%83%E6%95%B4.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/AVL_RR%E5%B7%A6%E6%97%8B%E8%B0%83%E6%95%B4.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/AVL_LR%E5%85%88%E5%B7%A6%E5%86%8D%E5%8F%B3.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/AVL_RL%E5%85%88%E5%8F%B3%E5%86%8D%E5%B7%A6.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/AVL_%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91_%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9_A.jpg">
+<meta property="article:published_time" content="2021-05-26T03:48:00.000Z">
+<meta property="article:modified_time" content="2023-11-01T03:48:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%BB%93%E6%9E%84/Morris_%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/","path":"算法和数据结构/数据结构-树/","title":"树结构"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>树结构 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">二叉树结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B8%B8%E8%A7%81%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">二叉树的常见遍历方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.</span> <span class="nav-text">二叉树的前、中、后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.1.</span> <span class="nav-text">递归前、中、后序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.2.</span> <span class="nav-text">迭代前、中、后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">后序遍历</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91morris%E9%81%8D%E5%8E%86"><span class="nav-number">1.3.</span> <span class="nav-text">二叉树Morris遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E4%B8%AA%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%89%8D%E5%BA%8F%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.3.1.</span> <span class="nav-text">换个角度看前序、后序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#morris%E5%BA%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">Morris序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#morris%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">1.3.3.</span> <span class="nav-text">Morris前、中、后序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#morris%E9%81%8D%E5%8E%86%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.3.4.</span> <span class="nav-text">Morris遍历时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91bst"><span class="nav-number">1.4.</span> <span class="nav-text">二叉排序树BST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bst%E7%89%B9%E7%82%B9"><span class="nav-number">1.4.1.</span> <span class="nav-text">BST特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81bst"><span class="nav-number">1.4.2.</span> <span class="nav-text">验证BST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bst%E8%8A%82%E7%82%B9%E6%9B%B4%E6%96%B0"><span class="nav-number">1.4.3.</span> <span class="nav-text">BST节点更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E8%8A%82%E7%82%B9"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">新增节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">删除节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bst%E7%BC%BA%E7%82%B9"><span class="nav-number">1.4.4.</span> <span class="nav-text">BST缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91avl"><span class="nav-number">1.5.</span> <span class="nav-text">平衡二叉排序树AVL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC"><span class="nav-number">1.5.1.</span> <span class="nav-text">旋转 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%A6%E6%97%8B"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">左旋</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%B3%E6%97%8B"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">右旋</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E4%B8%8E%E6%97%8B%E8%BD%AC%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">参与旋转的节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E8%A2%AB%E7%A0%B4%E5%9D%8F%E6%97%B6%E7%9A%84-4-%E7%A7%8D%E8%B0%83%E6%95%B4"><span class="nav-number">1.5.2.</span> <span class="nav-text">平衡被破坏时的 4 种调整</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ll%E5%8F%B3%E6%97%8B"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">LL，右旋</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rr%E5%B7%A6%E6%97%8B"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">RR，左旋</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lr%E5%85%88%E5%B7%A6%E5%86%8D%E5%8F%B3"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">LR，先左再右</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rl%E5%85%88%E5%8F%B3%E5%86%8D%E5%B7%A6"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">RL，先右再左</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avl%E8%8A%82%E7%82%B9%E5%8F%98%E5%8C%96"><span class="nav-number">1.5.3.</span> <span class="nav-text">AVL节点变化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E8%8A%82%E7%82%B9-1"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">新增节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9-1"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">删除节点 </span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avl%E7%BC%BA%E7%82%B9"><span class="nav-number">1.5.4.</span> <span class="nav-text">AVL缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">1.6.</span> <span class="nav-text">红黑树 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%E5%9C%A8-avl-%E4%B8%8A%E6%96%B0%E5%A2%9E%E7%89%B9%E7%82%B9"><span class="nav-number">1.6.1.</span> <span class="nav-text">红黑树在 AVL 上新增特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%E6%96%B0%E5%A2%9E%E8%8A%82%E7%82%B9-%E7%BA%A2%E8%8A%82%E7%82%B9%E7%A0%B4%E5%9D%8F%E5%B9%B3%E8%A1%A1"><span class="nav-number">1.6.2.</span> <span class="nav-text">红黑树新增节点
+(红节点破坏平衡)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%94%E4%B8%BA%E7%BA%A2"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">叔为红</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%94%E4%B8%BA%E9%BB%91"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">叔为黑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#rl-%E5%92%8C-rr"><span class="nav-number">1.6.2.2.1.</span> <span class="nav-text">RL 和 RR</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lr-%E5%92%8C-ll"><span class="nav-number">1.6.2.2.2.</span> <span class="nav-text">LR 和 LL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.3.</span> <span class="nav-text">红黑树删除节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%BA%E6%99%AFa%E5%88%A0%E9%99%A4%E7%BA%A2%E8%89%B2%E5%8F%B6%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">场景A：删除红色叶子节点 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%BA%E6%99%AFb%E5%88%A0%E9%99%A4%E9%BB%91%E8%89%B2%E5%8F%B6%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">场景B：删除黑色叶子节点 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%BA%E6%99%AFc%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.3.3.</span> <span class="nav-text">场景C：删除节点只有一个子节点
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%BA%E6%99%AFd%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.3.4.</span> <span class="nav-text">场景D：删除节点有两个子节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%91%E8%8A%82%E7%82%B9%E7%A0%B4%E5%9D%8F%E5%B9%B3%E8%A1%A1"><span class="nav-number">1.6.4.</span> <span class="nav-text">黑节点破坏平衡 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#b1.%E5%85%84%E5%BC%9F%E4%B8%BA%E7%BA%A2"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">B1.兄弟为红 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b2.%E5%85%84%E5%BC%9F%E4%B8%BA%E9%BB%91_%E4%B8%A4%E4%B8%AA%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">B2.兄弟为黑_两个子节点 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b3.%E5%85%84%E5%BC%9F%E4%B8%BA%E9%BB%91_%E4%B8%80%E4%B8%AA%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">B3.兄弟为黑_一个子节点 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b4.%E5%85%84%E5%BC%9F%E4%B8%BA%E9%BB%91_%E6%97%A0%E5%AD%90%E8%8A%82%E7%82%B9_%E7%88%B6%E4%B8%BA%E7%BA%A2"><span class="nav-number">1.6.4.4.</span> <span class="nav-text">B4.兄弟为黑_无子节点_父为红
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b5.%E5%85%84%E5%BC%9F%E4%B8%BA%E9%BB%91_%E6%97%A0%E5%AD%90%E8%8A%82%E7%82%B9_%E7%88%B6%E4%B8%BA%E9%BB%91"><span class="nav-number">1.6.4.5.</span> <span class="nav-text">B5.兄弟为黑_无子节点_父为黑
+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B%E6%95%B4%E5%90%88"><span class="nav-number">1.6.4.6.</span> <span class="nav-text">删除流程整合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#avl%E6%A0%91-%E5%92%8C-%E7%BA%A2%E9%BB%91%E6%A0%91%E6%AF%94%E8%BE%83"><span class="nav-number">1.6.5.</span> <span class="nav-text">AVL树 和 红黑树比较</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E5%8F%89%E6%A0%91%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">多叉树结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E5%89%8D%E7%BC%80%E6%A0%91trie"><span class="nav-number">2.1.</span> <span class="nav-text">字典(前缀)树Trie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">2.1.1.</span> <span class="nav-text">前缀和</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">树结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86"><span class="nav-number">3.1.</span> <span class="nav-text">广度优先遍历</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="树结构 | Blog">
+      <meta itemprop="description" content="树结构">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          树结构
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-26 11:48:00" itemprop="dateCreated datePublished" datetime="2021-05-26T11:48:00+08:00">2021-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-01 11:48:00" itemprop="dateModified" datetime="2023-11-01T11:48:00+08:00">2023-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">树结构</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="二叉树结构">二叉树结构</h1>
+<ul>
+<li><h2 id="二叉树的常见遍历方式">二叉树的常见遍历方式</h2>
+<p>  前序遍历、中序遍历、后序遍历、Morris遍历、深度优先遍历、广度优先遍历。dfs一般涉及到递归和回溯。<br />
+  二叉搜索树的中序遍历，就是节点值的从小到大的排列，也就是有序链表的从头到尾的顺序。</p></li>
+<li><h2 id="二叉树的前中后序遍历">二叉树的前、中、后序遍历</h2>
+<ul>
+<li><h3 id="递归前中后序遍历">递归前、中、后序遍历</h3>
+<p>  递归的方式遍历树没什么好说的，如果没有禁止递归的方式遍历，那么优先使用递归，更省事。N
+个节点的二叉树，递归的时间复杂度为 O(N)，空间复杂度为
+树的递归深度，也就是树的高度，平均为
+O(logN)。最坏情况树成链状，空间复杂度为 O(N)。</p></li>
+<li><h3 id="迭代前中后序遍历">迭代前、中、后序遍历</h3>
+<p>  非递归方式的时间复杂度一样为节点个数 O(N)，空间复杂度为
+栈的存储元素个数，同样和树的高度相关。平均为
+O(logN)，最坏情况树成链状，空间复杂度为 O(N)。</p>
+<ul>
+<li><h4 id="前序遍历">前序遍历</h4>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">TreeNode</span> cur <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root <span class="token operator">=</span> cur<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  root以 先左后右 遍历树结构，栈用来保存途径节点。</p></li>
+<li><h4 id="中序遍历">中序遍历</h4>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 相当于父节点入栈</span>
+      stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+      <span class="token comment">// 当 root节点为null，也就是 root的父节点 左子树为空</span>
+      <span class="token class-name">TreeNode</span> cur <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// 遍历父节点的右子树</span>
+      root <span class="token operator">=</span> cur<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  如上所示，前序遍历 和
+中序遍历，只需要变更记录节点的位置即可。root以 先左后右
+遍历树结构，栈用来保存途径节点。</p></li>
+<li><h4 id="后序遍历">后序遍历</h4>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token operator">!</span>stack<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">TreeNode</span> curNode <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 如果当前节点没有 右节点，则直接读取该节点值</span>
+        <span class="token comment">// 如果有 右节点，且已被读过。表示当前节点，左右都已遍历，则读取该节点值</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> curNode<span class="token punctuation">.</span>right <span class="token operator">==</span> preNode<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            preNode <span class="token operator">=</span> curNode<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            root <span class="token operator">=</span> curNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  后续遍历总的思路不变，root以 先左后右
+遍历树结构，栈用来保存途径节点，相当于保存父节点。使用preNode记录上一个读到的节点。<br />
+  在后序遍历中，节点A的左节点，是A的左子树中，最后遍历的节点。A的右节点，是A的右子树中，最后遍历的节点。同时，A的右节点，是A左右子树中，最后一个遍历的节点。通过preNode保存最后访问的节点，来判断A的右子树是否遍历过。如果没有则遍历A的右子树,也就是root
+= curNode.right，如果有则读取节点A的值。来实现后序遍历。</p></li>
+</ul></li>
+</ul></li>
+<li><h2 id="二叉树morris遍历">二叉树Morris遍历</h2>
+<ul>
+<li><h3 id="换个角度看前序后序遍历">换个角度看前序、后序遍历</h3>
+<p>  在二叉树的morris遍历之前，先了解下前序遍历和后序遍历。这样更方便理解Morris后序遍历。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/Morris_树的前序遍历是从上到下的顺序输出.jpg"
+alt="树的前序遍历是从上到下的顺序输出" /><br />
+  如上图所示，二叉树的前序遍历，也就是随着箭头数字的顺序，从上往下的顺序输出。</p>
+<p><img
+src="/assets/posts_jpg/算法和数据结构/树结构/Morris_树的后序遍历是从下往上的逆序输出.jpg"
+alt="树的后序遍历是从下往上的逆序输出" /><br />
+  如上图所示，二叉树的后序遍历，也就是随着箭头数字的顺序，从下往上的逆序输出。</p></li>
+<li><h3 id="morris序">Morris序</h3>
+<p>  Morris遍历，不通过辅助数组，而是使用叶子节点的空闲的指针。将叶子节点的右孩子指向后序节点，使得遍历能够从叶节点回到上面的某个节点。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/Morris_二叉树Morris遍历.jpg"
+alt="二叉树Morris遍历" /><br />
+  当前节点的 <strong>左子树</strong>
+中，最右边的叶节点，就是当前节点的前序节点。找到该节点并将前序节点的右孩子指针，指向当前节点。这就是Morris遍历的一个重要的流程，而
+Morris前序、中序、后序都是这个流程。Morris
+遍历二叉树时，遍历的顺序都是一样的，和前序、后序这些无关。只是在不同的时机，来读取节点的值，来得到前、中、后序遍历结果。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Morris遍历的流程</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 当前节点没有左子树</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        root <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">TreeNode</span> preNode <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token comment">// 在当前节点的左子树中，找到最右的节点</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>preNode<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> preNode<span class="token punctuation">.</span>right <span class="token operator">!=</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            preNode <span class="token operator">=</span> preNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 如果preNode.right不为空 表示当前节点之前遍历过</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>preNode<span class="token punctuation">.</span>right <span class="token operator">==</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+            <span class="token comment">// 重置指针</span>
+            preNode<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// 前序节点 指向 当前节点</span>
+            preNode<span class="token punctuation">.</span>right <span class="token operator">=</span> root<span class="token punctuation">;</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  上面的代码中，root变量表示
+当前节点。那么图中的树在Morris遍历的流程中，root节点的访问顺序，也就是
+<strong>Morris序</strong> 为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// * 表示第二次出现</span>
+<span class="token number">1</span>、<span class="token number">2</span>、<span class="token number">4</span>、<span class="token number">8</span>、<span class="token operator">*</span><span class="token number">4</span>、<span class="token number">9</span>、<span class="token operator">*</span><span class="token number">2</span>、<span class="token number">5</span>、<span class="token number">10</span>、<span class="token operator">*</span><span class="token number">5</span>、<span class="token number">11</span>、<span class="token operator">*</span><span class="token number">1</span>、<span class="token number">3</span>、<span class="token number">6</span>、<span class="token operator">*</span><span class="token number">3</span>、<span class="token number">7</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  在Morris遍历中，左孩子不为空的节点，root会访问两次。<strong>第一次</strong>
+遍历到时，将当前节点的左子树中最右节点，指向当前节点。<strong>第二次</strong>
+遍历到时，需要重置前序节点的右孩子指针为null，防止破坏树的结构。因此，可以通过前序节点的
+<strong>右孩子是否为null</strong> ，来判断 当前节点
+是否是第一次访问。</p></li>
+<li><h3 id="morris前中后序遍历">Morris前、中、后序遍历</h3>
+<p>  在上面提到的 <strong>Morris序</strong>
+中，如果出现两次的节点值中，取第一次，那么就是前序遍历，也就是第一次遍历到当前节点，取当前节点值。取第二次，就是中序遍历，也就是当前节点的左子树全部遍历完时，从前序节点回到当前节点时。如果当前节点没有左孩子，就是说
+Morris序 中，只会出现一次的节点，那么直接取值即可。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 当前节点没有左子树</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 直接取值</span>
+        ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        root <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token class-name">TreeNode</span> preNode <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token comment">// 在当前节点的左子树中，找到最右的节点</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>preNode<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> preNode<span class="token punctuation">.</span>right <span class="token operator">!=</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            preNode <span class="token operator">=</span> preNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token comment">// 如果preNode.right不为空 表示当前节点之前遍历过</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>preNode<span class="token punctuation">.</span>right <span class="token operator">==</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// ans.add(root.val); 这里读取，得到中序遍历结果</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+            <span class="token comment">// 重置指针</span>
+            preNode<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// ans.add(root.val); 这里读取，得到前序遍历结果</span>
+            <span class="token comment">// 前序节点 指向 当前节点</span>
+            preNode<span class="token punctuation">.</span>right <span class="token operator">=</span> root<span class="token punctuation">;</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  从Morris遍历中得到后序遍历结果需要额外的处理，要结合上面提到的二叉树的后序遍历的逆序输出。因为后序遍历，就是从下向上的逆序遍历树。所以Morris后序遍历，在Morris序的基础上，需要这样实现：<br />
+<img src="/assets/posts_jpg/算法和数据结构/树结构/Morris_后序遍历.jpg"
+alt="Morris后序遍历" /><br />
+  当前节点如果是第二次遍历到，那么 <strong>逆序</strong>
+输出，当前节点的左孩子到前序节点之间的所有节点。根据图中树结构举例说明，当第二次遍历到4节点时，逆序输出8。当第二次遍历到2时，逆序输出9、4。当第二次遍历到5时，逆序输出10。当第二次遍历到1时，逆序输出11、5、2。当第二次遍历到3时，逆序输出6。根据这个例子可以看到，最后从
+根节点 到
+右子树最右叶子节点之间，没有办法在Morris序的流程中逆序输出，因此需要在Morris遍历流程结束后，再额外输出这部分节点。<br />
+  而如何实现节点逆序输出，只看2、5、11这三个需要逆序输出的节点的话，其实就是一个
+<strong>单向链</strong>
+。因此反转2、5、11的单向链后，再输出，然后再反转一次复原即可。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> <span class="token class-name">Morris</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">TreeNode</span> head <span class="token operator">=</span> root<span class="token punctuation">;</span>
+    ans <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 没有左孩子</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            root <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// 左子树最右叶节点</span>
+            <span class="token class-name">TreeNode</span> preNode <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>preNode<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> preNode<span class="token punctuation">.</span>right <span class="token operator">!=</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                preNode <span class="token operator">=</span> preNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>preNode<span class="token punctuation">.</span>right <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                preNode<span class="token punctuation">.</span>right <span class="token operator">=</span> root<span class="token punctuation">;</span>
+                root <span class="token operator">=</span> root<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+                <span class="token comment">// 重置</span>
+                preNode<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                <span class="token comment">// 反转 左孩子 到 前序节点间的所有节点</span>
+                <span class="token function">rev</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 复原并读取节点</span>
+                <span class="token function">getAns</span><span class="token punctuation">(</span>preNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                root <span class="token operator">=</span> root<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 将 根节点 到 最右节点反转</span>
+    <span class="token class-name">TreeNode</span> rightNode <span class="token operator">=</span> <span class="token function">rev</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 复原</span>
+    <span class="token function">getAns</span><span class="token punctuation">(</span>rightNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 反转</span>
+<span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">rev</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> cur<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">TreeNode</span> pre <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>cur <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">TreeNode</span> next <span class="token operator">=</span> cur<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        cur<span class="token punctuation">.</span>right <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+        pre <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+        cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 遍历单向链并反转</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getAns</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> cur<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">TreeNode</span> pre <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>cur <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>cur<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">TreeNode</span> next <span class="token operator">=</span> cur<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+        cur<span class="token punctuation">.</span>right <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+        pre <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+        cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h3 id="morris遍历时间复杂度">Morris遍历时间复杂度</h3>
+<p>  Morris遍历中，除了 root 变量表示的遍历树时的当前节点，还有 preNode
+节点，遍历树找到前序节点。而这个找到前序节点的流程有
+<strong>两次</strong> 。第一次建立指针，第二次重置指针。每个 当前节点 到
+前序节点的路径 是 <strong>不相交</strong>
+的。如图中所示的，1节点的路径是2、5、11。2节点的路径是4、9。所有的当前节点到前序节点的路径，其实就相当于整个树。也就是说，Morris
+遍历流程中，就算有 preNode
+找前序节点，这过程也就相当于最多遍历两次树结构，时间复杂度为
+O(N)。同理，Morris
+后序遍历中，需要反转两次单向链，而所有的单向链，也就相当于整个树，最多遍历两次树结构。所以，Morris
+遍历时间复杂度为 <strong>O(N)</strong> 。<br />
+  Morris遍历没有使用辅助数组，因此空间复杂度是 O(1)。</p></li>
+</ul></li>
+<li><h2 id="二叉排序树bst">二叉排序树BST</h2>
+<ul>
+<li><h3 id="bst特点">BST特点</h3>
+<ul>
+<li>左子树的值都比 当前节点 小，右子树的值都比 当前节点 大。</li>
+<li>当前节点的值，是左子树值的上限，是右子树值的下限。</li>
+<li>中序遍历BST，结果递增。</li>
+</ul></li>
+<li><h3 id="验证bst">验证BST</h3>
+<p>  根据BST的特点，可以中序遍历树，遍历结果如果不是递增的，则不是BST。也可以用递归验证
+左子树 和 右子树
+是否符合条件，也就是当前值不能小于下限，不能大于上限。</p></li>
+<li><h3 id="bst节点更新">BST节点更新</h3>
+<ul>
+<li><h4 id="新增节点">新增节点</h4>
+<p>  没什么好说的，比当前节点小的，放左子树中，比当前节点大的，放右子树中。</p></li>
+<li><h4 id="删除节点">删除节点</h4>
+<p>  将 当前节点，左子树中最大节点 或 右子树中最小节点，作为
+替代节点，来取代当前节点，然后删除旧位置的替代节点。<br />
+  AVL 和 红黑树 删除节点思路是基于 BST
+删除节点衍生的。BST这里不写出大致流程，直接看后面的<a
+href="#jump_avl_del"><font color="007FFF">AVL删除节点流程</font></a>。</p></li>
+</ul></li>
+<li><h3 id="bst缺点">BST缺点</h3>
+<p>  BST结构实现了在查询时直接排除另一半子树上的节点，理想情况下时间复杂度为
+O(logN)。但是最坏情况，当 树成链
+结构时，BST查询只能每一个节点遍历，时间复杂度为 O(N)。<br />
+  平衡二叉排序树AVL，解决了这个缺点。</p></li>
+</ul></li>
+<li><h2 id="平衡二叉排序树avl">平衡二叉排序树AVL</h2>
+<p>  AVL 在 BST 基础上新增特点：</p>
+<ul>
+<li>每个节点的 左子树 和 右子树 的深度之差，不超过 1。</li>
+</ul>
+<p>  将新增节点插入到 AVL 时，会发生节点 左右子树的深度差 超过
+1，也就是平衡被破坏。 <img
+src="/assets/posts_jpg/算法和数据结构/树结构/AVL_树的平衡破坏.jpg"
+alt="AVL_树的平衡破坏" /><br />
+  如上图所示，当插入新节点C时，平衡被破坏。新节点C是破坏平衡节点，A节点左右子树深度差大于
+1，A节点是平衡被破坏节点。为了保持树的平衡，就需要将节点旋转来调整平衡，<strong>调整更长那一边</strong>
+，旋转分为两种。</p>
+<ul>
+<li><h3 id="旋转">旋转 <span id="jump_avl_rotate"></span></h3>
+<ul>
+<li><h4 id="左旋">左旋</h4>
+<p>  将 目标节点 转为 其右孩子 的 <strong>左</strong>孩子。</p></li>
+<li><h4 id="右旋">右旋</h4>
+<p>  将 目标节点 转为 其左孩子 的 <strong>右</strong>孩子。</p></li>
+<li><h4 id="参与旋转的节点">参与旋转的节点</h4>
+<p>  当平衡被破坏时，旋转涉及到的主要节点为：被破坏节点 和 其子节点 和
+其孙节点。会作为 目标节点 的，是 被破坏节点 和 其子节点。<br />
+<img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_参与旋转节点.jpg"
+alt="AVL_参与旋转节点" /><br />
+  如图所示，当新增 F 后，A 平衡被破坏。参与旋转的节点为：被破坏节点
+A、子节点 B、孙节点 E。A节点 和 B节点 会作为旋转的 目标节点。</p></li>
+</ul></li>
+<li><h3 id="平衡被破坏时的-4-种调整">平衡被破坏时的 4 种调整</h3>
+<p>  根据参与旋转的节点：被破坏节点，其子节点，其孙节点。3个节点的位置关系，可以分为四种调整方法：</p>
+<ul>
+<li><h4 id="ll右旋">LL，右旋</h4>
+<p><img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_LL右旋调整.jpg"
+alt="LL右旋调整" /><br />
+  破坏平衡节点 位于：被破坏节点 A 的 <strong>左孩子</strong> 的
+<strong>左子树</strong> 中，也就是LL。进行右旋，将 A节点
+转为右孩子。<br />
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// curNode 目标节点；leftNode 左孩子</span>
+<span class="token class-name">TreeNode</span> leftNode <span class="token operator">=</span> curNode<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+<span class="token comment">// 左孩子的右子树 转移成 curNode 的左子树 </span>
+curNode<span class="token punctuation">.</span>left <span class="token operator">=</span> leftNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+<span class="token comment">// curNode 成为 左孩子的 右孩子</span>
+leftNode<span class="token punctuation">.</span>right <span class="token operator">=</span> curNode<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+<li><h4 id="rr左旋">RR，左旋</h4>
+<p><img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_RR左旋调整.jpg"
+alt="RR左旋调整" /><br />
+  破坏平衡节点 位于：被破坏节点 A 的 <strong>右孩子</strong> 的
+<strong>右子树</strong> 中，也就是RR。进行左旋，将 A节点
+转为左孩子。<br />
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// curNode 目标节点；rightNode 右孩子</span>
+<span class="token class-name">TreeNode</span> rightNode <span class="token operator">=</span> curNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
+<span class="token comment">// 右孩子的左子树 转移成 curNode 的右子树</span>
+curNode<span class="token punctuation">.</span>right <span class="token operator">=</span> rightNode<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
+<span class="token comment">// curNode 成为 右孩子的 左孩子</span>
+rightNode<span class="token punctuation">.</span>left <span class="token operator">=</span> curNode<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+<li><h4 id="lr先左再右">LR，先左再右</h4>
+<p><img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_LR先左再右.jpg"
+alt="LR先左再右" /><br />
+  破坏平衡节点 位于：被破坏节点 A 的 <strong>左孩子</strong> 的
+<strong>右子树</strong> 中，也就是LR。先将 B节点 进行左旋，再对 A节点
+进行右旋。<br />
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 先对 左孩子 左旋</span>
+curNode<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">letfMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 再 右旋</span>
+<span class="token function">rightMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+<li><h4 id="rl先右再左">RL，先右再左</h4>
+<p><img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_RL先右再左.jpg"
+alt="RL先右再左" /><br />
+  破坏平衡节点 位于：被破坏节点 A 的 <strong>右孩子</strong> 的
+<strong>左子树</strong> 中，也就是RL。先将 B节点 进行右旋，再对 A节点
+进行左旋。<br />
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 先对 右孩子 右旋</span>
+curNode<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token function">rightMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 再 左旋</span>
+<span class="token function">letfMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+</ul></li>
+<li><h3 id="avl节点变化">AVL节点变化</h3>
+<ul>
+<li><h4 id="新增节点-1">新增节点</h4>
+<p>  插入节点时，根据 AVL
+特性，决定新节点的位置。需要注意的是，新增节点后，是对应的分支
+<strong>深度+1</strong> 。如果平衡被破坏，那么肯定是 深度+1
+这一边长度更长。通过 新节点 和 当前节点
+的值大小，来判断出位置关系。<br />
+  大致流程为：<br />
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> curNode<span class="token punctuation">,</span> <span class="token keyword">int</span> newVal<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>curNode <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 新建节点</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>newVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>val <span class="token operator">></span> newVal<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 插入到 左边</span>
+    curNode<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">insert</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">,</span> newVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 平衡被破坏时</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// newVal 比 左孩子 小 --> LL</span>
+      <span class="token comment">//                 大 --> LR</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>newVal <span class="token operator">&lt;</span> curNode<span class="token punctuation">.</span>left<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">llMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token function">lrMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> newVal<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 插入到 右边，思路同左边，省略</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> curNode<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+<li><h4 id="删除节点-1">删除节点 <span id="jump_avl_del"></span></h4>
+<p>  删除节点时，根据 AVL
+特性，可以判断要删除的节点方向。需要注意的是，删除节点后，是对应的分支
+<strong>深度-1</strong> 。如果平衡被破坏，那么肯定是 深度不变
+这一方更长。所以需要 <strong>判断子节点深度</strong>
+来辨别位置关系。<br />
+  大致流程为：<br />
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">TreeNode</span> <span class="token function">delete</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> curNode<span class="token punctuation">,</span> <span class="token keyword">int</span> delVal<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>curNode <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>val <span class="token operator">></span> delVal<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 要删除的 在左边</span>
+    curNode<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">delete</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">,</span> delVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 平衡被破坏</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 判断 右孩子 的 左子树 和 右子树 深度 </span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">rrMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token function">rlMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> delVal<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 要删除的 在右边，思路同左边，省略</span>
+  <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">// curNode 就是 要删除的节点</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> curNode<span class="token punctuation">.</span>right <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 比较深度</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 左子树更深，将左子树中 最大的节点 移到 curNode位置，赋值就行</span>
+        <span class="token keyword">int</span> leftMaxVal <span class="token operator">=</span> <span class="token function">getMax</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        curNode<span class="token punctuation">.</span>val <span class="token operator">=</span> leftMaxVal<span class="token punctuation">;</span>
+        <span class="token comment">// 删除 原来的位置</span>
+        <span class="token function">delete</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">,</span> leftMaxVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">// 同理，右子树中 最小的节点，省略</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+      curNode <span class="token operator">=</span> curNode<span class="token punctuation">.</span>left <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> curNode<span class="token punctuation">.</span>right <span class="token operator">:</span> curNode<span class="token punctuation">.</span>left<span class="token operator">:</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> curNode<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>   在上面删除节点的大致流程中，当 curNode
+就是要删除的节点，且 curNode 左右子树 <strong>都不为空</strong>
+，那么将更长那一方的子树，左子树最大节点 或 右子树最小节点，移到 curNode
+位置，变相的删除 curNode。此时就从删除
+curNode，递归成了删除子树中的旧节点。<br />
+<img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_删除节点.jpg"
+alt="AVL删除节点" /><br />
+  当 E节点 为要删除的节点时，通过将左子树中最大 F节点 移到 E节点
+位置，来删除 E节点。此时流程就递归成了，在左子树中删除
+旧F节点。</p></li>
+</ul></li>
+<li><h3 id="avl缺点">AVL缺点</h3>
+<p>  当更新节点时，为了保证深度差的平衡结构，需要旋转更新树结构。当数据新增或者删除等操作频繁时，对应的调整树结构的旋转也会消耗更多的资源。<br />
+  红黑树，解决了这个缺点。</p></li>
+</ul></li>
+<li><h2 id="红黑树">红黑树 <span id="jump_rbt"></span></h2>
+<ul>
+<li><h3 id="红黑树在-avl-上新增特点">红黑树在 AVL 上新增特点</h3>
+<ul>
+<li><strong>a</strong>. 不必须保持，左右子树深度差的平衡 。<br />
+</li>
+<li><ol start="2" type="a">
+<li>节点逻辑上分为 红 和 黑 两种节点。<br />
+</li>
+</ol></li>
+<li><strong>c</strong>. 任意节点 到 其可达叶节点 的路径，上面的 黑节点
+数量一致。<br />
+</li>
+<li><strong>d</strong>. 所有路径上不会有连续的 红节点，红节点 父、子节点
+一定是 黑节点。<br />
+</li>
+<li><ol start="5" type="a">
+<li>根节点 一定是 黑节点，Null 视为 黑节点。新插入的节点视为 红节点
+插入。</li>
+</ol></li>
+</ul>
+<p>  在上面的几个特点中，需要注意的是：当插入新节点时，可能会破坏规则
+d，红节点破坏平衡；当删除节点时，可能会破坏规则
+c，黑节点破坏平衡。</p></li>
+<li><h3 id="红黑树新增节点-红节点破坏平衡">红黑树新增节点
+(红节点破坏平衡)</h3>
+<p><img src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_1.jpg"
+alt="红黑树_1" /><br />
+  在插入新节点时，因为新节点视为红色插入，所以会引起红黑平衡破坏的场景：连续的红节点，新节点的父节点为红节点。同时能够得到：如果父节点是
+黑节点，就能直接插入新节点。父节点为红时，分为两种情况：</p>
+<ul>
+<li><h4 id="叔为红">叔为红</h4>
+<p><img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_平衡破坏_红节点.jpg"
+alt="红黑树_红黑平衡破坏" /><br />
+  当父、叔节点都为红节点时，将父、叔节点 和 爷节点 颜色对调。爷节点 变为
+红节点，父、叔节点 变为 黑节点。如果 爷节点 是
+<strong>根节点</strong>，再将 红色 改为
+黑色。因为爷节点改成了红色，可能会成为了破坏上层红黑平衡的节点，就需要<strong>继续向上调整</strong>。</p></li>
+<li><h4 id="叔为黑">叔为黑</h4>
+<p>  当叔节点为黑时，与 AVL
+的参与旋转的节点位置关系思路一致，根据位置来进行 <a
+href="#jump_avl_rotate"><font color="#007FFF">旋转</font></a> 和
+变色。<br />
+  红黑树中参与旋转的节点有：破坏红黑平衡节点，其父节点，其爷节点。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_参与旋转节点.jpg"
+alt="红黑树_参与旋转节点" /><br />
+  如上图所示，新节点E
+破坏了红黑平衡，其父节点D、爷节点B，3个节点参与红黑调整。旋转思路和 AVL
+一样。变色思路就是 爷节点 和 其子节点 颜色对调。</p>
+<ul>
+<li><h5 id="rl-和-rr">RL 和 RR</h5>
+<p><img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_RL_RR旋转.jpg"
+alt="红黑树_RL_RR旋转" /><br />
+  旋转的思路和 AVL 一致。当 RL 旋转成 RR 时，将 爷节点 和 其子节点
+颜色对调，再继续旋转。</p></li>
+<li><h5 id="lr-和-ll">LR 和 LL</h5>
+<p><img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_LR_LL旋转.jpg"
+alt="红黑树_LR_LL旋转" /><br />
+  旋转的思路和 AVL 一致。当 LR 旋转成 LL 时，将 爷节点 和 其子节点
+颜色对调，再继续旋转。</p></li>
+</ul>
+<p>  总结：当参与调整的三个节点，在一条直线上时，对调颜色。节点旋转思路和
+AVL 一致。</p></li>
+</ul>
+<p>  红黑树的节点一般会有 parent 字段记录父节点。红黑平衡涉及到
+爷节点、叔节点等。<br />
+  用变量记录 爷节点、叔节点 等，就能辨别颜色场景。只要注意 根节点
+一定要为
+黑色，且在参与旋转的节点在一条直线时，颜色对调即可。剩下的思路和 AVL
+一致。</p></li>
+<li><h3 id="红黑树删除节点">红黑树删除节点</h3>
+<p>  在删除节点时，会引起红黑平衡被破坏的场景：路径上黑节点数量不一致，也就是删除了黑色节点。<br />
+  红黑树删除节点思路和<a
+href="#jump_avl_del"><font color="007FFF">AVL删除节点</font></a>类似。在红黑树中删除一个节点，有以下场景：</p>
+<ul>
+<li><h4 id="场景a删除红色叶子节点">场景A：删除红色叶子节点 <span
+id="jump_rbt_del_a"></span></h4>
+<p>  不会破坏红黑平衡，直接删除。<br />
+<img src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_A.jpg"
+alt="红黑树_删除节点_A" /><br />
+  没什么好说。</p></li>
+<li><h4 id="场景b删除黑色叶子节点">场景B：删除黑色叶子节点 <span
+id="jump_rbt_del_b"></span></h4>
+<p>  会破坏红黑平衡，需要调整。删除黑色叶节点情况复杂，单独拿出来举例：<a
+href="#jump_rbt_del_b0"><font color="007FFF">黑节点破坏红黑平衡</font></a>。</p></li>
+<li><h4 id="场景c删除节点只有一个子节点">场景C：删除节点只有一个子节点
+<span id="jump_rbt_del_c"></span></h4>
+<ul>
+<li><p>C1.
+删除节点为红，不可能只有一个子节点，因此不会出现这种场景。</p></li>
+<li><p>C2. 删除节点为黑，唯一子节点只可能为 <strong>红节点</strong> 且
+<strong>一定是叶节点</strong>。将替代节点取代删除节点，并将颜色置为删除节点同色。删除旧位置替代节点等价于<a
+href="#jump_rbt_del_a"><font color="007FFF">场景A</font></a>。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_C2.jpg"
+alt="红黑树_删除节点_C2" /></p></li>
+</ul></li>
+<li><h4 id="场景d删除节点有两个子节点">场景D：删除节点有两个子节点</h4>
+<p>  替代节点 取代 删除节点后，再删除原替代节点。</p>
+<ul>
+<li><p>D1. 替代节点 没有子节点
+且为红色，将替换节点取代并和删除节点同色。后续删除等价于<a
+href="#jump_rbt_del_a"><font color="007FFF">场景A</font></a>。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_D1.jpg"
+alt="红黑树_删除节点_D1" /></p></li>
+<li><p>D2. 替代节点 没有子节点 且为黑色，等价于<a
+href="#jump_rbt_del_b"><font color="007FFF">场景B</font></a>。</p></li>
+<li><p>D3. 替代节点
+有一个子节点，将替换节点取代并和删除节点同色。后续删除等价于<a
+href="#jump_rbt_del_c"><font color="007FFF">场景C</font></a>。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_D3.jpg"
+alt="红黑树_删除节点_D3" /></p></li>
+</ul></li>
+</ul></li>
+<li><h3 id="黑节点破坏平衡">黑节点破坏平衡 <span
+id="jump_rbt_del_b0"></span></h3>
+<p><img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_平衡破坏_黑节点.jpg"
+alt="红黑树_平衡破坏_黑节点" />
+  删除黑节点后，会导致某个节点其路径的黑节点数量不一致。如图所示：当
+A节点 处于平衡被破坏状态。但是 B节点 平衡正常，所以主动将 B节点
+的红孩子置为黑色，使得 B节点
+也处于平衡被破坏状态。大致思路：删除黑色叶子节点后，会导致父节点失衡，此时主动破坏兄弟节点的平衡，再通过位置关系进行旋转处理。<br />
+  删除黑色<strong>叶</strong>节点分为以下场景：</p>
+<ul>
+<li><h4 id="b1.兄弟为红">B1.兄弟为红 <span
+id="jump_rbt_del_b1"></span></h4>
+<p>  当前节点是黑色叶节点，兄弟节点为红。那么根据红黑平衡规则可得：父节点一定为黑色，且兄弟节点一定有两个黑色子节点。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_B_兄红.jpg"
+alt="红黑树_删除节点_B_兄红" /><br />
+  删除 B节点 后，A节点 失衡，将 C节点 和 D节点 颜色对换，能够得到
+A、C节点 RR失衡，左旋处理。</p></li>
+<li><h4 id="b2.兄弟为黑_两个子节点">B2.兄弟为黑_两个子节点 <span
+id="jump_rbt_del_b2"></span></h4>
+<p>  父节点颜色不影响平衡调整。当前节点是黑色叶节点，兄弟节点为黑，且有两个子节点。那么根据红黑平衡规则可得：<strong>两个子节点一定为红</strong>
+。所以 B2 场景也是指，两个红子节点。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_B_兄黑_两子.jpg"
+alt="红黑树_删除节点_B_兄黑_两子" /><br />
+  删除 B节点 后，A节点 失衡，将 E节点 置为黑色，能够得到 A、C节点
+RR失衡，左旋处理。</p>
+<ul>
+<li>A节点 是黑色，直接左旋就可以。</li>
+<li>A节点 是红色，为了保持平衡，需要将 A、C 颜色对换，再左旋。</li>
+</ul>
+<p>  综合以上得到：先将 兄弟 和 父节点 颜色对换，再左旋。</p></li>
+<li><h4 id="b3.兄弟为黑_一个子节点">B3.兄弟为黑_一个子节点 <span
+id="jump_rbt_del_b3"></span></h4>
+<p>  父节点颜色不影响平衡调整。当前节点是黑色叶节点，兄弟节点为黑，且只有一个子节点。那么根据红黑平衡规则可得：<strong>子节点一定为红</strong>
+。所以 B3 场景也是指，一个红子节点。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_B_兄黑_一子.jpg"
+alt="红黑树_删除节点_B_兄黑_一子" /><br />
+  主动破坏 C节点 的平衡，可以得到 RL 或 RR 失衡，而 RL失衡，又能转为
+RR失衡。和 B2场景 类似，为了保持平衡，先将 兄弟 和 父节点
+颜色对换，再左旋。</p></li>
+<li><h4 id="b4.兄弟为黑_无子节点_父为红">B4.兄弟为黑_无子节点_父为红
+<span id="jump_rbt_del_b4"></span></h4>
+<p>  当前节点是黑色叶节点，兄弟节点为黑，且没有子节点。根据规则：Null
+视为 黑色。所以 B4 场景也是指，无红子节点。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_B_兄黑_无子_父红.jpg"
+alt="红黑树_删除节点_B_兄黑_无子_父红" /></p></li>
+<li><h4 id="b5.兄弟为黑_无子节点_父为黑">B5.兄弟为黑_无子节点_父为黑
+<span id="jump_rbt_del_b5"></span></h4>
+<p>  当前节点是黑色叶节点，兄弟节点为黑，且没有子节点。根据规则：Null
+视为 黑色。所以 B5 场景也是指，无红子节点。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_B_兄黑_无子_父黑.jpg"
+alt="红黑树_删除节点_B_兄黑_无子_父黑" /><br />
+  A节点
+平衡后，改变了黑节点深度，会导致上层节点的红黑平衡被破坏，所以需要往上层节点继续调整平衡。直到
+根节点 或者 遇到 <em>B1 ~ B4</em>
+调整后不会改变黑节点深度的场景。</p></li>
+<li><h4 id="删除流程整合">删除流程整合</h4>
+<p>  <em>B1 ~ B4</em> 的场景，调整前黑节点深度 等于
+调整后黑节点深度，也就是该子树部分 <strong>黑节点深度不变</strong>
+。子树的黑节点深度不变表示：不需要往上处理其他节点 。<br />
+  <em>B5</em>
+的场景导致黑节点深度变化。不管是递归还是迭代，只要向上处理，就可能会遇到
+<em>B1 ~ B5</em> 全部场景，处理方式不变。只是 <em>B1 ~ B5</em>
+是黑色<strong>叶</strong>子节点的条件，所以向上调整时，当前节点和其他节点的关系条件稍作修改。修改方式就是根据红黑树规则，将
+Null 视为黑色，那么 <em>B3</em> 场景相当于一红一黑的条件，<em>B5</em>
+场景相当于两个黑子节点。同理转换可得：</p>
+<ul>
+<li>兄弟为红 ---&gt; <a
+href="#jump_rbt_del_b1"><font color="007FFF">B1</font></a> 。</li>
+<li>兄弟为黑_<strong>两个红色</strong>子节点 ---&gt; <a
+href="#jump_rbt_del_b2"><font color="007FFF">B2</font></a> 。</li>
+<li>兄弟为黑_<strong>一个红色</strong>子节点 ---&gt; <a
+href="#jump_rbt_del_b3"><font color="007FFF">B3</font></a> 。</li>
+<li>兄弟为黑_<strong>无红色</strong>子节点_父为红 ---&gt; <a
+href="#jump_rbt_del_b4"><font color="007FFF">B4</font></a> 。</li>
+<li>兄弟为黑_<strong>无红色</strong>子节点_父为黑 ---&gt; <a
+href="#jump_rbt_del_b5"><font color="007FFF">B5</font></a> 。</li>
+</ul>
+<p>  如果再遇到 <em>B5</em> 场景，就继续向上调整，直到当前节点为 根节点
+或者 遇到 <em>B1 ~ B4</em> 场景。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_B_流程整合_1.jpg"
+alt="红黑树_删除节点_B_流程整合_1" /><br />
+  如上图所示，删除节点D，处于 <em>B5</em>
+场景。调整后黑节点深度变化，继续向上平衡。此时处于 场景 <em>B5</em>
+，调整后黑节点深度变化，继续向上平衡。此时当前节点为
+根节点，结束。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_B_流程整合_2.jpg"
+alt="红黑树_删除节点_B_流程整合_2" /><br />
+  如上图所示，删除节点G，处于 <em>B5</em>
+场景。调整后黑节点深度变化，继续向上平衡。此时处于 场景 <em>B3</em>
+，调整后黑节点深度不变，结束。</p></li>
+</ul>
+<p>  上面所有的场景，基本都是删除节点为左孩子的场景，右孩子的场景思路相同，省略。</p></li>
+<li><h3 id="avl树-和-红黑树比较">AVL树 和 红黑树比较</h3>
+<ul>
+<li>N个节点的红黑树，其深度最大值 <span class="math inline">\(2*log(N +
+1)\)</span></li>
+<li>N个节点的AVL，深度为 <span class="math inline">\(logN +
+1\)</span>。</li>
+<li>红黑树不需要频繁调整树结构，综合性能更强。</li>
+<li>AVL树，平衡结构更好，查询效率更好。</li>
+<li>当场景写操作少，读操作多，可以用 AVL。其他场景 红黑树更好。</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><h1 id="多叉树结构">多叉树结构</h1>
+<ul>
+<li><h2 id="字典前缀树trie">字典(前缀)树Trie</h2>
+<ul>
+<li><h3 id="前缀和">前缀和</h3>
+  当题目要求，计算 数组的子区间，单向链或树中的单向链路径 的
+总和，类似这种的 连续子区间。大概率可以通过 前缀和
+解决。前缀和的大致思路：对于 preI 为 0 ~ i 的 前缀和，preJ 为 0 ~ j
+的前缀和，且 j &gt; i。那么 preJ - preI 就是 区间 i+1 ~ j 的 总和。</li>
+</ul></li>
+</ul></li>
+<li><h1 id="树结构与算法">树结构与算法</h1>
+<ul>
+<li><h2 id="广度优先遍历">广度优先遍历</h2>
+  当需要计算 树或图 节点与节点
+间的最短路径，一般都是指使用bfs。同时可以通过 起点和终点
+两边bfs来优化，减少搜索空间。类似与题126，就抓该题的关键字，图的最短路径-&gt;bfs，全部结果-&gt;dfs，除了关键字以外，该题还涉及到
+建图。</li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A0%91/" rel="tag"># 树</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-LC%E5%8E%9F%E9%A2%98/" rel="prev" title="算法笔记_LC原题">
+                  <i class="fa fa-angle-left"></i> 算法笔记_LC原题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="next" title="保留文件">
+                  保留文件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

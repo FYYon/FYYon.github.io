@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="java中的集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java中的集合">
+<meta property="og:url" content="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="java中的集合">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-25T03:48:00.000Z">
+<meta property="article:modified_time" content="2023-11-26T01:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="集合">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88/","path":"Java/java基础/java-集合/","title":"java中的集合"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>java中的集合 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hashmap"><span class="nav-number">1.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">1.1.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#treeifybin"><span class="nav-number">1.2.</span> <span class="nav-text">treeifyBin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#treeify"><span class="nav-number">1.3.</span> <span class="nav-text">treeify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">哈希冲突和解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E9%93%BE%E8%BD%AC%E6%A0%91%E7%9A%84%E9%98%88%E5%80%BC"><span class="nav-number">1.5.</span> <span class="nav-text">时间复杂度和链转树的阈值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E7%9A%84%E8%A7%92%E5%BA%A6%E5%AF%B9%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D%E7%A7%BB%E7%9A%84%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">扩容的角度对二进制位移的总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linkedhashmap"><span class="nav-number">2.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#arraylist"><span class="nav-number">3.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linkedlist"><span class="nav-number">4.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#priorityqueue"><span class="nav-number">5.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84modcount"><span class="nav-number">6.</span> <span class="nav-text">集合框架中的modCount</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="java中的集合 | Blog">
+      <meta itemprop="description" content="java中的集合">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java中的集合
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-25 11:48:00" itemprop="dateCreated datePublished" datetime="2021-05-25T11:48:00+08:00">2021-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-26 09:41:00" itemprop="dateModified" datetime="2023-11-26T09:41:00+08:00">2023-11-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">java中的集合</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="hashmap">HashMap</h1>
+<ul>
+<li><h2 id="红黑树">红黑树</h2>
+<p><a
+href="/算法和数据结构/数据结构-树/#jump_rbt"><font color="007FFF">红黑树</font></a></p></li>
+<li><h2 id="treeifybin">treeifyBin</h2>
+<p>  当数组中的某一条 Node 单向链上的节点数大于等于
+<strong>TREEIFY_THRESHOLD</strong> 时，会执行 treeifyBin() 方法。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">treeifyBin</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> tab<span class="token punctuation">,</span> <span class="token keyword">int</span> hash<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> index<span class="token punctuation">;</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> e<span class="token punctuation">;</span>
+    <span class="token comment">// 扩容</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>tab <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> <span class="token punctuation">(</span>n <span class="token operator">=</span> tab<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token constant">MIN_TREEIFY_CAPACITY</span><span class="token punctuation">)</span>
+        <span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e <span class="token operator">=</span> tab<span class="token punctuation">[</span>index <span class="token operator">=</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> hash<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> hd <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> tl <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token comment">// 将 Node单向链 替换成 TreeNode双向链</span>
+        <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> p <span class="token operator">=</span> <span class="token function">replacementTreeNode</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>tl <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+                hd <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                p<span class="token punctuation">.</span>prev <span class="token operator">=</span> tl<span class="token punctuation">;</span>
+                tl<span class="token punctuation">.</span>next <span class="token operator">=</span> p<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            tl <span class="token operator">=</span> p<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>e <span class="token operator">=</span> e<span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 将 Node单向链头节点 替换成 TreeNode双向链头节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>tab<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">=</span> hd<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            hd<span class="token punctuation">.</span><span class="token function">treeify</span><span class="token punctuation">(</span>tab<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  如果数组长度，大于等于 <strong>MIN_TREEIFY_CAPACITY</strong>
+，就将该单向链，优化成红黑树。首先先将Node单向链，转换为TreeNode双向链，再转为红黑树结构。</p></li>
+<li><h2 id="treeify">treeify</h2>
+<p>  TreeNode类中的treeify方法，将TreeNode双向链转为树结构。TreeNode类中，有
+next，prev 字段，来保存双向链结构。有 parent，left，right
+字段，保存红黑树结构。双向链结构节点顺序 和 红黑树结构节点顺序 之间
+<strong>互不影响</strong> 。在 resize() 扩容时，TreeNode节点是通过
+<strong>双向链结构</strong> ，更新节点的位置。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">treeify</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> tab<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> root <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token comment">// 从当前节点，也就是调用该方法的节点开始到链末，转为树结构</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> x <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">,</span> next<span class="token punctuation">;</span> x <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> x <span class="token operator">=</span> next<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        next <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">)</span>x<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        x<span class="token punctuation">.</span>left <span class="token operator">=</span> x<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token comment">// 如果还没有根节点，当前节点设为根节点</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            x<span class="token punctuation">.</span>parent <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            x<span class="token punctuation">.</span>red <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            root <span class="token operator">=</span> x<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">K</span> k <span class="token operator">=</span> x<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> h <span class="token operator">=</span> x<span class="token punctuation">.</span>hash<span class="token punctuation">;</span>
+            <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> kc <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token comment">// 将当前链节点插入到树中</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> p <span class="token operator">=</span> root<span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// dir表示节点左右 ；ph表示当前树节点的hash</span>
+                <span class="token keyword">int</span> dir<span class="token punctuation">,</span> ph<span class="token punctuation">;</span>
+                <span class="token class-name">K</span> pk <span class="token operator">=</span> p<span class="token punctuation">.</span>key<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>ph <span class="token operator">=</span> p<span class="token punctuation">.</span>hash<span class="token punctuation">)</span> <span class="token operator">></span> h<span class="token punctuation">)</span>
+                    <span class="token comment">// 插入的链节点 往该树节点左侧插入</span>
+                    dir <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ph <span class="token operator">&lt;</span> h<span class="token punctuation">)</span>
+                    <span class="token comment">// 右侧</span>
+                    dir <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token comment">/**
+                如果key的hash相等的情况下：
+                1.当前链节点的key实现了comparable接口，且compare后依然相等即dir为0。
+                2.没有实现comparable接口
+                通过tieBreakOrder方法比较。  
+                */</span>    
+                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>kc <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span>
+                        <span class="token punctuation">(</span>kc <span class="token operator">=</span> <span class="token function">comparableClassFor</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+                        <span class="token punctuation">(</span>dir <span class="token operator">=</span> <span class="token function">compareComparables</span><span class="token punctuation">(</span>kc<span class="token punctuation">,</span> k<span class="token punctuation">,</span> pk<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                    dir <span class="token operator">=</span> <span class="token function">tieBreakOrder</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> pk<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token class-name">TreeNode</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span> xp <span class="token operator">=</span> p<span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>p <span class="token operator">=</span> <span class="token punctuation">(</span>dir <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> p<span class="token punctuation">.</span>left <span class="token operator">:</span> p<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    x<span class="token punctuation">.</span>parent <span class="token operator">=</span> xp<span class="token punctuation">;</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>dir <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                        xp<span class="token punctuation">.</span>left <span class="token operator">=</span> x<span class="token punctuation">;</span>
+                    <span class="token keyword">else</span>
+                        xp<span class="token punctuation">.</span>right <span class="token operator">=</span> x<span class="token punctuation">;</span>
+                    <span class="token comment">// 树的重新平衡    </span>
+                    root <span class="token operator">=</span> <span class="token function">balanceInsertion</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
+    当链节点全部添加到树中后：
+    对于TreeNode节点来说，即存在prev，next所指的双向链结构，也存在parent，left，right所指的红黑树结构。
+    经过多次重新平衡，数组中的头节点，不一定是root节点。将root节点设为数组中头节点，并在双向链结构中，将头节点和root节点位置对调。
+    */</span>
+    <span class="token function">moveRootToFront</span><span class="token punctuation">(</span>tab<span class="token punctuation">,</span> root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  在当前连接点插入到树后，红黑树需要重新平衡。多次平衡后，树的root节点，不一定是链的头节点。因此需要把数组中的对应位置上的对象，改为root节点作为遍历入口。因为树结构遍历入口是root节点，因此数组中的对应位置上保存的是root节点，但是在扩容时，TreeNode通过双向链结构遍历节点，因此需要将root节点和原链结构头节点位置对换，保证root节点也是
+<strong>双向链头节点</strong>。</p></li>
+<li><h2 id="哈希冲突和解决方法">哈希冲突和解决方法</h2>
+<ul>
+<li>开放定址法</li>
+<li>再哈希法</li>
+<li>链地址法</li>
+<li>建立公共溢出区</li>
+</ul></li>
+<li><h2 id="时间复杂度和链转树的阈值">时间复杂度和链转树的阈值</h2>
+<p>  在hashMap中，put，get等方法，通过key值做hash，可以O(1)得到数组中的位置。对于链来说，找到对应的元素时间复杂度O(n)。对于红黑树来说，找到对应元素的时间复杂度为O(logn)。<br />
+  但是，哈希表存放数据是符合 <strong>泊松分布</strong> (
+随机事件发生多少次的概率分布
+)。λ是事件平均发生率。泊松分布概率计算公式：<br />
+<span class="math display">\[P(X = n) =
+\frac{\lambda^{n}e^{-\lambda}}{n!}\]</span>
+  以hashMap举例：put一个元素，key的一次hash冲突，相当于一个独立事件。n次hash冲突相当于链的长度。而put一个元素，发生多次hash冲突的概率相当的低。因此，从概率上说hashMap的put、get等方法的时间复杂度可以当作
+<strong>O(1)</strong> 。<br />
+  换一种角度来说，链转树的阈值设为8，也是符合泊松分布。在默认的
+<strong>LOAD_FACTOR = 0.75f</strong> 的情况下，概率计算公式中
+<strong>λ的值约为0.5</strong> 。在这个情况下，一次put操作，发生
+<strong>冲突次数大于8的概率几乎为0</strong>
+。因此，如果阈值设为大于8的数，几乎不会到达这个值。也就是说几乎不会发生链转树。总的来说，hashMap中的LOAD_FACTOR，影响泊松分布函数中的λ，从而影响链转树的阈值。</p></li>
+<li><h2
+id="扩容的角度对二进制位移的总结">扩容的角度对二进制位移的总结</h2>
+<p>  以HashMap扩容时举例，当数组size为16时，扩容后size为32。原数组上的节点，扩容后有两种结果，原坐标，或者原坐标+原size的新坐标，也就是扩容后新增的位，结果是0或者1的区别。从这个例子中，来总结下，二进制的位移的部分知识点，是在LeetCode做题中忽视过的。4位二进制数表示范围是
+0~15 共16个数，左移1位，5位二进制数表示范围是 0 ~ 31
+共32个数。左移1位，就相当于乘以10，二进制中的10转为十进制就是2。对于5位二进制的32个数中，已经包含了全部的4位二进制的16个数。那么5位和4位相比，高位新增的一位，也就只有两种结果：0或者1。为0时，值的大小和原4位保持一致。为1时，值的大小是对应的原4位大小
++ <span class="math inline">\({2^4}\)</span> 。换个角度说，就相当于在
+原4位能表示的所有二进制数前面补0，这部分的数值不变，而多增加的16个数，就是原4位的所有二进制数前面补1。如：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">2</span>位数能表示的所有结果： <span class="token number">00</span> <span class="token number">01</span> <span class="token number">10</span> <span class="token number">11</span>
+<span class="token number">3</span>位数能表示的所有结果，原<span class="token number">2</span>位前补<span class="token number">0</span>： <span class="token number">000</span> <span class="token number">001</span> <span class="token number">010</span> <span class="token number">011</span>
+                     原<span class="token number">2</span>位前补<span class="token number">1</span>： <span class="token number">100</span> <span class="token number">101</span> <span class="token number">110</span> <span class="token number">111</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="linkedhashmap">LinkedHashMap</h1>
+<p>LinkedHashMap.Entry类中通过 before 和 after 字段，记录节点 添加顺序
+  afterNode...</p></li>
+<li><h1 id="arraylist">ArrayList</h1></li>
+<li><h1 id="linkedlist">LinkedList</h1></li>
+<li><h1 id="priorityqueue">PriorityQueue</h1></li>
+<li><h1 id="集合框架中的modcount">集合框架中的modCount</h1>
+<p>  对集合对象的增，删，改，都会增加啊modCount值，该值用于记录集合对象修改次数。只有在迭代器中有使用，当迭代器遍历元素时，如果生成迭代器时的modCount
+和
+现在的不相等，就表示有其他线程，对集合对象做了写操作。而迭代器在遍历过程中，如果也需要进行写操作，且modCount不一致，就会直接抛出异常。这个也就是
+Fail-Fast机制。<br />
+  modCount字段，和线程安全相关，对于juc包中的集合，不需要该字段。</p></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9B%86%E5%90%88/" rel="tag"># 集合</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%9F%BA%E7%A1%80/juc-%E9%9B%86%E5%90%88/" rel="prev" title="juc包中的集合">
+                  <i class="fa fa-angle-left"></i> juc包中的集合
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-LC%E5%8E%9F%E9%A2%98/" rel="next" title="算法笔记_LC原题">
+                  算法笔记_LC原题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

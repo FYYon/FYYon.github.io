@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JVM的可达性分析算法的笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM的可达性分析算法的笔记">
+<meta property="og:url" content="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="JVM的可达性分析算法的笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/jvm/%E6%95%B0%E5%80%BC%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%86.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/jvm/%E5%AD%98%E6%B4%BB%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8%E5%8F%91%E7%94%9F%E6%94%B9%E5%8F%98.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/jvm/%E6%96%B0%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AF%B9%E8%B1%A1.jpg">
+<meta property="article:published_time" content="2023-07-07T11:41:00.000Z">
+<meta property="article:modified_time" content="2023-11-05T01:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="GC">
+<meta property="article:tag" content="可达性分析算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/Java/jvm/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/","path":"Java/java基础/jvm-GC-可达性分析算法/","title":"JVM的可达性分析算法的笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JVM的可达性分析算法的笔记 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">可达性分析算法基本思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89gc-roots%E8%8A%82%E7%82%B9%E6%A0%B9%E8%8A%82%E7%82%B9%E6%9E%9A%E4%B8%BE"><span class="nav-number">2.</span> <span class="nav-text">找到所有GC
+roots节点，根节点枚举</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E5%AE%88%E5%BC%8Fgc"><span class="nav-number">2.1.</span> <span class="nav-text">保守式GC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8A%E4%BF%9D%E5%AE%88%E5%BC%8Fgc"><span class="nav-number">2.2.</span> <span class="nav-text">半保守式GC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E7%A1%AE%E5%BC%8Fgc"><span class="nav-number">2.3.</span> <span class="nav-text">准确式GC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E6%97%B6%E5%BF%AB%E9%80%9F%E5%AE%9A%E4%BD%8Doop-map"><span class="nav-number">3.</span> <span class="nav-text">可达性分析时快速定位，OOP
+Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%82%B9safe-point"><span class="nav-number">4.</span> <span class="nav-text">安全点，Safe point</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9Fsafe-region"><span class="nav-number">5.</span> <span class="nav-text">安全区域，Safe Region</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">可达性分析，三色标记法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95%E5%A4%A7%E6%A6%82%E6%B5%81%E7%A8%8B"><span class="nav-number">6.1.</span> <span class="nav-text">三色标记法大概流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E6%97%B6%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.2.</span> <span class="nav-text">应用线程并发时可能出现的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E5%8A%A8%E5%9E%83%E5%9C%BE%E7%9A%84%E5%A4%9A%E6%A0%87"><span class="nav-number">6.2.1.</span> <span class="nav-text">浮动垃圾的多标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E6%B4%BB%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%BC%8F%E6%A0%87"><span class="nav-number">6.2.2.</span> <span class="nav-text">存活对象的漏标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%8F%E6%A0%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">6.3.</span> <span class="nav-text">漏标的解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E6%97%B6%E5%88%9B%E5%BB%BA%E6%96%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86"><span class="nav-number">6.3.1.</span> <span class="nav-text">并发时创建新对象的特殊处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%B1%8F%E9%9A%9C"><span class="nav-number">6.3.2.</span> <span class="nav-text">写屏障</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cms-%E5%A2%9E%E9%87%8F%E6%9B%B4%E6%96%B0"><span class="nav-number">6.3.2.1.</span> <span class="nav-text">CMS 增量更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#g1-%E5%8E%9F%E5%A7%8B%E5%BF%AB%E7%85%A7satb"><span class="nav-number">6.3.2.2.</span> <span class="nav-text">G1 原始快照SATB</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BF%86%E9%9B%86%E5%92%8C%E5%8D%A1%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">记忆集和卡表</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-GC-%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JVM的可达性分析算法的笔记 | Blog">
+      <meta itemprop="description" content="JVM的可达性分析算法的笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JVM的可达性分析算法的笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-07 19:41:00" itemprop="dateCreated datePublished" datetime="2023-07-07T19:41:00+08:00">2023-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-05 09:41:00" itemprop="dateModified" datetime="2023-11-05T09:41:00+08:00">2023-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">JVM的可达性分析算法的笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="可达性分析算法基本思路">可达性分析算法基本思路</h1>
+<p><img src="/assets/posts_jpg/Java/jvm/可达性分析算法基本思路.jpg"
+alt="可达性分析算法基本思路" /><br />
+  从根对象作为起始节点，通过引用的关系向下遍历，并标记可达对象。过程中走过的路径成为
+<strong>引用链</strong> 。如果一个对象和GC
+Roots之间没有引用链，即为该对象不可达，是垃圾回收对象。<br />
+  在这可达性分析算法中，主要有以下几点。</p></li>
+<li><h1 id="找到所有gc-roots节点根节点枚举">找到所有GC
+roots节点，根节点枚举</h1>
+<p>  根节点枚举，也就是找到符合作为Root条件的对象。GC
+Roots主要是由栈中引用指向的对象集合成的。因此，根节点枚举就相当于从虚拟机栈、方法区等中，<strong>找到引用</strong>并把引用所指对象作为GC
+Root。找到栈上的引用，是根节点枚举的关键。<br />
+  JVM内存中某地址上的数据分为两种，一种是 <strong>数值型</strong>
+，一种是 <strong>引用型</strong>
+。可达性分析时，如果该数据为引用型，也即
+<strong>指向堆中对象的指针</strong> ，就表示是需要标记的可达对象。<br />
+  对于该过程而言，数值型数据并不需要，只需要引用型来标记该可达对象。因此需要有
+<strong>辨别</strong>
+某位置数据是否为引用型的方法，也即JVM需要记录数据的类型。有三种处理方式：主流垃圾收集器，标记对象时都是以准确式GC找到root对象的。保守式
+和 半保守式不需要太关心 ：<br />
+<img src="/assets/posts_jpg/Java/jvm/数值和引用的区分.jpg"
+alt="数值和引用的区分" /></p>
+<ul>
+<li><h2 id="保守式gc">保守式GC</h2>
+<p>  JVM <strong>不记录</strong> 数据类型， <strong>不能区分</strong>
+某个位置上的数据是数值，还是指向堆的地址。只能在 <strong>扫描栈</strong>
+时，保守的将数据 <strong>优先视为引用型</strong> ，判断该数据是否符合在
+<strong>堆地址</strong>
+上下边界之间等条件。如果数据不符合条件，那肯定不是引用型。就算符合条件，该数据也不一定就表示指向堆的地址，也可能就只是个值。<br />
+  保守式GC，不会误杀可达对象，但可能会因为某个数值刚好和垃圾对象的地址一样，而放过垃圾对象。</p></li>
+<li><h2 id="半保守式gc">半保守式GC</h2>
+<p>  半保守式GC，大致上和保守式GC差不多。只是在对象上会记录类型数值这些信息。所以根据这些对象上的引用链，可以区分对象里的引用，然后顺着引用链来发现可达对象。<br />
+  但是，因为是保存在对象中的信息，因此对于从栈中区分哪些是引用没有帮助。所以对找到根节点没有效果，只是方便从根节点顺着引用链向下遍历。和保守式GC一样，不能区分栈或方法区中的数值和引用。</p></li>
+<li><h2 id="准确式gc">准确式GC</h2>
+<p>  JVM能够准确的知道，栈中哪些位置上是指针。在当前主流虚拟机中，都通过保存指针位置到
+<strong>映射表</strong> 中来实现，也就是下面提到的OOP
+Map。HotSpot中，将该数据结构称为OOP Map。</p></li>
+</ul>
+<p>  目前 <strong>所有</strong>
+的垃圾收集器，在找到根节点，也即根结点枚举这一步时，都要stop the
+world。</p></li>
+<li><h1 id="可达性分析时快速定位oop-map">可达性分析时快速定位，OOP
+Map</h1>
+<p>  OOP为ordinary object
+pointer，普通对象指针。通过映射表，根节点枚举时，可以知道哪些位置是指针，不用遍历栈，即可获得GC
+Roots。<br />
+  对象的类信息中有记录自己的OOP
+Map。通过该映射表，能知道该类的实例对象中，哪些 <strong>偏移量</strong>
+位置上是指针。OOP Map映射表，就相当于告诉JVM哪些位置上是指针。<br />
+  一个线程对应一个栈，一个栈中栈帧对应一个方法，一个方法记录多个OOP
+Map。一个方法通过 <strong>安全点</strong> 分为多段，每一段对应一个OOP
+Map。<br />
+  对于 <strong>JNI</strong> 方法，没有OOP Map。因此JNI方法中的
+<strong>java引用</strong> ( <strong>入参引用</strong> ，
+<strong>返回值</strong> 等 ) ，需要用 <strong>句柄</strong>
+包装起来。JNI方法中的引用先指向句柄，然后句柄再指向堆中对象。GC时扫描句柄，就可以得到引用所指对象。因为JNI中引用
+<strong>不是直接指向</strong>
+堆中对象，而是指向的句柄。因此调用JNI方法，会有句柄的
+<strong>装包</strong> 和 <strong>拆包</strong> 的开销。<br />
+  在HotSpot中，对象的类型信息里有记录自己的OopMap，记录了在该类型的对象内什么偏移量上是什么类型的数据。可以通过
+OOP MAP 获得 GC ROOTS，以及对象类信息自己的OOP
+MAP准确获得引用的对象。这些数据是在类加载过程中计算得到的。GC开始的时候，就通过OopMap这样的一个映射表知道，在对象内的什么偏移量上哪些是引用的对象。</p></li>
+<li><h1 id="安全点safe-point">安全点，Safe point</h1>
+<p>  方法在执行过程中，可能会导致引用关系发生改变，OOP
+Map映射表就要随之更新。但引用每发生一次变化就更新，成本很高。因此JVM在运行到预先选定的位置，才更新OOP
+Map。这些位置就是 <strong>安全点</strong> 。因为OOP
+Map在安全点会更新，也就是说安全点的OOP Mao是准确的，因此只有
+<strong>在安全点才进行GC</strong> 操作。<br />
+  这些位置主要特点是： <strong>程序长时间执行</strong>
+，如：1.循环末尾、2.调用方法的位置、3.方法临返回前、4.抛出异常的位置。<br />
+  把这些位置设为安全点就是为了
+<strong>避免长时间无法进入安全点，从而无法GC</strong>
+。JVM在GC时，要等到 <strong>所有</strong> 应用 <strong>线程</strong>
+处于 <strong>安全状态</strong> 。也即要么在安全点，要么在安全区。<br />
+  当GC需要stop the world时，线程通过 <strong>中断标志位</strong>
+发现需要挂起，会在最近的安全点主动挂起，这就是
+<strong>主动式中断</strong> 。目前虚拟机使用的都是主动式。<br />
+  另一种中断方式是 <strong>抢断式中断</strong> 。当需要stop the
+world时，先挂起线程，如果线程不在安全点，再恢复线程运行到安全点。</p></li>
+<li><h1 id="安全区域safe-region">安全区域，Safe Region</h1>
+<p>  安全点只解决 <strong>运行中</strong>
+的线程进入GC的问题。对于不处于运行中的线程，如sleep，block，无法到最近的安全点。<br />
+   <strong>安全区域</strong> 能保证在某一段代码中，
+<strong>不会变更java堆中状态，或者说不会导致引用关系变化</strong>
+。而被挂起的线程认定处于安全区域内。<br />
+  对于 <strong>正在执行JNI</strong>
+的线程，JNI中的代码不由JVM管理。JNI执行中，认为不会影响引用关系变化。因此，执行中的JNI，也被视为在安全区中。而调用JNI时，调用的位置也会有安全点，在执行JNI
+<strong>前</strong>
+就需要STW线程挂起的话，也能够在这个安全点挂起。<br />
+  当线程进入安全区域时，标记自己进入安全区域。就算这个时候发生GC，因为不会导致引用关系变化，所以不需要考虑安全区域内的线程。当线程
+<strong>离开</strong> 安全区域时，要检查JVM是否 <strong>处于</strong>
+需要stop the world阶段，换句话说 <strong>应用线程</strong> 需要
+<strong>中断</strong>
+阶段，如根节点枚举。如果不需要，则继续执行。否则挂起，直到阶段完成，收到离开信号。<br />
+  正在在执行JNI的线程，被认为处于安全区域。而stop the
+world是防止线程的执行变更引用关系。因此线程在执行JNI时，
+<strong>不受</strong> stop the
+world的影响。只是在离开安全区域时，要判断能否离开。</p></li>
+<li><h1 id="可达性分析三色标记法">可达性分析，三色标记法</h1>
+<p>  一般使用可达性分析的垃圾收集器，使用 <strong>三色标记法</strong>
+进行存活对象的标记。<br />
+<img src="/assets/posts_jpg/Java/jvm/可达性分析三色标记法.jpg"
+alt="可达性分析三色标记法" /><br />
+  由图中所示，三色标记法状态分为三种：</p>
+<ul>
+<li><p>黑色 ：该节点已访问，且对象中field字段的节点
+<strong>全部</strong> 都访问完成，标记为黑色节点。</p></li>
+<li><p>灰色
+：该节点已访问，但对象中字段的节点还没访问，或者没全部访问完，标记为灰色节点。</p></li>
+<li><p>白色
+：没被访问到的节点。不可达的垃圾对象一定是白色节点，白色节点不一定是垃圾对象。</p></li>
+<li><h2 id="三色标记法大概流程">三色标记法大概流程</h2>
+<p>  一开始所有对象都在白色集合中，GC
+Roots可直接关联对象标记为灰色，并从白色集合中移除，加入到灰色集合中。从灰色集合中依次取出对象，并遍历该灰色对象中的字段的对象，将遍历到的对象移出白色集合并加入到灰色集合中。当该对象的全部字段对象加入到灰色后，加入到黑色集合中。</p></li>
+<li><h2
+id="应用线程并发时可能出现的问题">应用线程并发时可能出现的问题</h2>
+<p>  在CMS，G1等垃圾收集器中，有个 <strong>并发标记</strong>
+阶段，GC线程和应用线程并发执行。应用线程执行时可能会导致引用关系变化。而
+<strong>引用关系的变化</strong> 可能导致：</p>
+<ul>
+<li><h3 id="浮动垃圾的多标">浮动垃圾的多标</h3>
+<p>  浮动垃圾是，已经标记为黑色或者灰色的对象，引用链断开，变为要回收的垃圾对象。浮动垃圾
+<strong>不会影响</strong> 程序的 <strong>正确性</strong>
+，只是本应该回收但没回收到的内存。因此本轮GC，不回收，下一轮再判断。</p></li>
+<li><h3 id="存活对象的漏标">存活对象的漏标</h3>
+<p>  因为应用线程的并发执行，导致 <strong>黑色</strong>
+对象的引用关系发生变化，产生了 <strong>黑色-白色</strong>
+的引用链。而黑色对象被认为是已经完成遍历的对象。因此黑色对象不会被重新遍历，导致新引用链的白色对象，不会被访问到，一直会是白色对象，造成还在使用的存活对象，被视为垃圾对象回收。<br />
+<img src="/assets/posts_jpg/Java/jvm/存活对象的引用发生改变.jpg"
+alt="存活对象的引用发生改变" /><br />
+  如图所示，原引用链灰色指向白色消失 且 新引用链是黑色指向白色。<br />
+  原本存在的 B指向C 的引用链删除，而出现了 A指向C 的引用链。因为 A
+已近标记为黑色，因此不会再遍历。导致还在使用的对象
+C，没有被访问到视为垃圾对象。</p></li>
+</ul></li>
+<li><h2 id="漏标的解决方法">漏标的解决方法</h2>
+<ul>
+<li><h3 id="并发时创建新对象的特殊处理">并发时创建新对象的特殊处理</h3>
+<p><img src="/assets/posts_jpg/Java/jvm/新创建的对象.jpg"
+alt="新创建的对象" /><br />
+  对于并发阶段创建的新对象，是不会被视为垃圾对象的。垃圾收集器会把并发阶段创建的新对象存储在
+<strong>指定区域</strong> ，不会被回收。</p></li>
+<li><h3 id="写屏障">写屏障</h3>
+<p>  写屏障是解决漏标的基础。写操作就是在赋值操作时，添加额外处理，类似与AOP。不同的垃圾收集器，有着不同的处理方式：</p>
+<ul>
+<li><h4 id="cms-增量更新">CMS 增量更新</h4>
+<p>  CMS垃圾收集器，目前差不多淘汰。CMS处理方式在写屏障的基础上，通过增量更新解决漏标，针对发生漏标的第二条件。解决思路就是，针对新增的引用进行修改。<br />
+  当发生黑色节点指向白色节点时，将黑色指向白色这个新的引用关系记录。在
+<strong>重新标记</strong> 阶段，再扫描 <strong>记录的引用链</strong>
+，防止漏标。<br />
+  对于并发阶段的新对象，CMS会预留空间用来存放新的对象。</p></li>
+<li><h4 id="g1-原始快照satb">G1 原始快照SATB</h4>
+<p>  G1在写屏障基础上，通过 SATB
+解决漏标。主要针对发生漏标的第一条件。解决思路就是，记录删除的引用。<br />
+  当灰色指向白色的引用链消失时，记录下该旧引用关系，在
+<strong>最终标记</strong>
+阶段，扫描旧的引用关系来防止漏标。相当于G1收集器会按照
+<strong>开始扫描时</strong> 的 <strong>对象引用关系快照</strong>
+来扫描。<br />
+  G1收集器在并发阶段中，通过Region中的两个 <strong>TAMS</strong>
+指针来划分出一个空间，存储新创建的对象。</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><h1 id="记忆集和卡表">记忆集和卡表</h1>
+<p>  解决新生代，老年代的跨代引用。待补充。。。</p></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JVM/" rel="tag"># JVM</a>
+              <a href="/tags/GC/" rel="tag"># GC</a>
+              <a href="/tags/%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95/" rel="tag"># 可达性分析算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%9F%BA%E7%A1%80/java-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8Cvolatile/" rel="prev" title="cpu缓存模型、java内存模型 和 java中的volatile">
+                  <i class="fa fa-angle-left"></i> cpu缓存模型、java内存模型 和 java中的volatile
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

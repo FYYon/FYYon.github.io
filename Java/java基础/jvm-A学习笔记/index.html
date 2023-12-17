@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JVM学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM学习笔记">
+<meta property="og:url" content="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="JVM学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-11T11:41:00.000Z">
+<meta property="article:modified_time" content="2022-01-29T01:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="JVM">
+<meta property="article:tag" content="GC">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"Java/java基础/jvm-A学习笔记/","title":"JVM学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JVM学习笔记 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jvm%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">JVM的垃圾回收知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%9B%9E%E6%94%B6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.1.</span> <span class="nav-text">判断对象是否回收的方法 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">引用计数法 ：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">可达性分析法 ：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%B8%AD%E7%9A%84%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.2.</span> <span class="nav-text">java中的引用 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">强引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AF%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">软引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">弱引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%BC%95%E7%94%A8"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">虚引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.0.3.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%90%86%E8%AE%BA"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">分代收集理论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">标记-复制算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">标记-整理算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">1.0.4.</span> <span class="nav-text">垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#serial-%E6%94%B6%E9%9B%86%E5%99%A8-%E5%92%8C-serial-old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">serial 收集器 和 serial
+old 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parnew-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">parNew 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parallel-%E6%94%B6%E9%9B%86%E5%99%A8-%E5%92%8C-parallel-old-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">parallel 收集器 和
+parallel old 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cms-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">CMS 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#g1-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">G1 收集器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zgc-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">1.0.4.6.</span> <span class="nav-text">ZGC 收集器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8F%8A%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><span class="nav-number">1.0.5.</span> <span class="nav-text">内存分配及回收策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E4%BC%98%E5%85%88%E5%88%86%E9%85%8Deden%E5%8C%BA"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">对象优先分配eden区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E5%AF%B9%E8%B1%A1%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">大对象直接进入老年代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%95%BF%E6%9C%9F%E5%AD%98%E6%B4%BB%E5%AF%B9%E8%B1%A1%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">长期存活对象进入老年代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E8%BF%9B%E5%85%A5%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">动态判断对象进入老年代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%88%86%E9%85%8D%E6%8B%85%E4%BF%9D"><span class="nav-number">1.0.5.5.</span> <span class="nav-text">空间分配担保</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jvm%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">JVM类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">2.0.1.</span> <span class="nav-text">类的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">2.0.2.</span> <span class="nav-text">类加载的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD-loading"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">  加载 Loading</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81-verify"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">    验证 Verify</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%86%E5%A4%87-prepare"><span class="nav-number">2.0.2.3.</span> <span class="nav-text">    准备 Prepare</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90-resolve"><span class="nav-number">2.0.2.4.</span> <span class="nav-text">    解析 Resolve</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-initialization"><span class="nav-number">2.0.2.5.</span> <span class="nav-text">  初始化 Initialization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%88%86%E7%B1%BB"><span class="nav-number">2.0.3.</span> <span class="nav-text">类加载器分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.0.4.</span> <span class="nav-text">双亲委派模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8-bootstrap-class-loader"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">  启动类加载器 Bootstrap
+Class Loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.0.4.2.</span> <span class="nav-text">  双亲委派模型工作过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%B4%E5%9D%8F%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.0.5.</span> <span class="nav-text">破坏双亲委派模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%B4%E5%9D%8F%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.0.5.1.</span> <span class="nav-text">破坏双亲委派模型的作用</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/jvm-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JVM学习笔记 | Blog">
+      <meta itemprop="description" content="JVM学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JVM学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-11 19:41:00" itemprop="dateCreated datePublished" datetime="2021-12-11T19:41:00+08:00">2021-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-29 09:41:00" itemprop="dateModified" datetime="2022-01-29T09:41:00+08:00">2022-01-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">JVM学习笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="jvm的垃圾回收知识点">JVM的垃圾回收知识点</h1></li>
+<li><h3 id="判断对象是否回收的方法">判断对象是否回收的方法 ：</h3>
+<ul>
+<li><h4 id="引用计数法">引用计数法 ：</h4>
+<p>  给对象添加一个引用计数器，当对象每次被引用时 +1，失去一次引用
+-1，根据计数器判定对象是否还有在使用。缺点是只靠引用计数法，无法解决对象相互引用的问题。如：引用
+oA 指向 对象A，引用 oB 指向 对象B， oA 中内部字段指向 对象B，oB
+中的内部字段指向 对象A，这时 对象A和对象B之间相互引用，就算通过 oA =
+null，oB = null取消引用，对象A 和 对象B
+的计数器也不为0。因此java虚拟机中不通过引用计数法判断对象是否存活。</p></li>
+<li><h4 id="可达性分析法">可达性分析法 ：</h4>
+<p>  将符合条件的对象GC
+Roots作为起点集合，从这些对象开始，通过引用关系向下搜索，搜索的路径也就是
+<strong>引用链</strong> ，当对象和GC
+Roots间没有引用链时，也就是该对象不可达，则该对象已不再可用。<br />
+  能够作为GC Root的对象有：<br />
+  1. 虚拟机栈中引用所指对象。<br />
+  2. 方法区中静态引用所指对象。<br />
+  3. 方法区中常量引用所指对象。<br />
+  4. 本地方法栈中引用所指对象。<br />
+  5. 同步锁(synchronized)获得的对象。<br />
+  6. 运行中的线程对象。</p></li>
+</ul></li>
+</ul>
+<p>  可达性分析法不是直接把不可达对象作为垃圾回收，会通过两次标记来让部分对象自救存活。第一次可达性判定后，所有不可达的对象做上标记这是
+<strong>第一次标记</strong> ，然后进行筛选，将所有标记对象分为
+执行finalize()方法的 和 不执行finalize()方法的，筛选条件是 对象是否
+<strong>重写了finalize()方法</strong> 或
+<strong>对象是否已经被虚拟机执行过一次finalize()方法</strong> 。如果
+<strong>对象重写了方法 且 还没有被执行过finalize()方法</strong> 则视为
+执行方法的对象，否则为 不执行方法对象。如果
+对象是不执行方法的，则依旧是等待回收的垃圾对象，如果
+对象是执行方法的，则将该对象加入到F-Queue队列中，虚拟机开启一个Finalizer线程来执行队列中对象的finalize()方法，如果队列中的某个对象因为执行finalize()方法后，使得GC
+Roots可达，则取消标记不用被回收，这就是 <strong>第二次标记</strong>
+，相当于 finalize()方法是
+垃圾对象的一次自救机会但也只有一次。任何一个对象的finalize()方法都只会被
+<strong>系统自动调用一次</strong> 。</p>
+<ul>
+<li><h3 id="java中的引用">java中的引用 ：</h3>
+  jdk1.2后将引用这个概念进行了细分，由强到弱为:
+<ul>
+<li><h4 id="强引用">强引用</h4>
+  指的就是最常使用的引用，即Object obj = new
+Object(),obj就是强引用。只要强引用还指向对象，也就是对象可达，该对象是不会被垃圾回收的。<br />
+</li>
+<li><h4 id="软引用">软引用</h4>
+  通过SoftReference类实现的引用，当内存不够发生溢出异常前，会将
+<strong>只有</strong>
+软引用所指对象列入回收范围中进行第二次回收。也就是说，如果GC后内存还是不够，那么即使对象可达，只被软引用指向的对象，还是会被回收。使用方法
+SoftReference soft = new SoftReference(obj)。<br />
+</li>
+<li><h4 id="弱引用">弱引用</h4>
+  通过WeakReference类实现的引用，生存到下一次垃圾回收前。当垃圾收集器开始执行时，无论内存是否够，<strong>只有</strong>
+弱引用所指对象会被回收。使用方法 WeakReference weak = new
+WeakReference(obj)。<br />
+</li>
+<li><h4 id="虚引用">虚引用</h4>
+  通过PhantomReference类实现的引用，虚引用唯一作用是当被虚引用关联的对象被回收时，获得系统通知，相当于跟踪GC。
+<strong>java8及之前 虚引用 ( 本身就是PhantomReference对象 )
+被回收后，虚引用所指对象才会回收，java9及之后虚引用不会对对象造成影响，在虚引用所指对象回收后，虚引用会有
+引用队列 处理</strong> 。使用方法 PhantomReference phantom = new
+PhantomReference(obj,referenceQueue)，垃圾回收后虚引用会被添加到引用队列中。</li>
+</ul></li>
+<li><h3 id="垃圾收集算法">垃圾收集算法</h3>
+<ul>
+<li><h4 id="分代收集理论">分代收集理论</h4>
+<p>  首先这个不算算法，而是一种分区域处理的理论，3种垃圾收集算法：标记-清除，标记-复制，标记-整理，就是对这个理论的具体思路设计。多数垃圾收集器都遵循分代收集理论，将java堆分区域处理。
+<strong>java虚拟机中，分代收集理论的具体表现，一般都有将java堆分为
+新生代和老年代</strong> 。</p></li>
+<li><h4 id="标记-清除算法">标记-清除算法</h4>
+<p>  标记-清除就是两个阶段，第一阶段给对象是将存活对象做标记，清除就是将没有标记的垃圾对象回收。这个方法有两个问题：1.标记和清除的效率都受
+堆中需要清除的对象数量 影响 ；2.该算法回收内存空间后，
+<strong>会造成碎片化空间</strong>
+，空间资源的浪费，碎片太多可能导致生成大对象时没有足够的空间，而提前发生垃圾回收。</p></li>
+<li><h4 id="标记-复制算法">标记-复制算法</h4>
+<p>  简称复制算法，最开始提出的是半区分代，将内存分为等大小两块，使用时只使用其中一块，应一块作为保留空间。垃圾回收时，对使用的那一块内存中的垃圾对象做标记，然后将存活对象按顺序分配保留空间的内存中，然后清除掉使用中内存的
+<strong>所有对象</strong>
+，这时两块内存区域也就互换，清除完对象的那一块成为新的保留空间，前保留空间也成了新使用中内存。复制算法的优点是不会有碎片化空间，缺点是
+<strong>只有原本的一半空间可以使用</strong> 。<br />
+  为了解决一半空间浪费问题，且针对 <strong>新生代</strong>
+大部分对象朝生夕灭，将复制算法进行优化，称为
+<strong>Appel式回收</strong>
+。Appel式将新生代分为了三块，1块eden区，2块survivor区。默认1 eden : 1
+survivor = 8 : 1,每次分配内存只使用eden区 +
+一个survivor区，另一个survivor用来保存存活的对象。当发生垃圾收集时，将eden区和survior区的存活对象复制到另一个survivor区，然后清空eden
++ survivor区的所有对象。Appel式回收将使用空间从 50% 增加到
+90%。当复制时survivor区内存大小不足够存放时，会依赖其他内存空间进行分配担保(就老年代，即对象直接进入老年代)。
+<strong>标记-复制法在对象成活率较高的区域要进行大量复制</strong>
+，因此该算法不能用在老年代。</p></li>
+<li><h4 id="标记-整理算法">标记-整理算法</h4>
+<p>  针对老年代的算法。整体流程和标记-清除算法差不多，但标记完的后续步骤不是直接清除对象，是把存活对象向内存中一段移动，未存活的清除掉。<br />
+  标记-清除和标记-整理之间的差距在于最后的整理，是否对对象进行整理都存在弊端。不对对象进行整理，内存分配时会更麻烦，速度快，但是会产生碎片化空间。对对象进行整理，速度慢，移动对象操作消耗大，如果
+<strong>不是ZGC或者Shenandoah垃圾收集器</strong> ，这个
+<strong>移动对象的过程会全程暂停用户线程，也就是stop the world</strong>
+，但不会产生碎片化空间。</p></li>
+</ul></li>
+<li><h3 id="垃圾收集器">垃圾收集器</h3>
+  垃圾回收算法相当于回收方法，垃圾收集器相当于回收执行者。作用于新生代的
+serial，parallel，parNew。作用于老年代的 serial Old，parallel
+Old，CMS，及比较特殊的G1。
+<ul>
+<li><h4 id="serial-收集器-和-serial-old-收集器">serial 收集器 和 serial
+old 收集器</h4>
+<p>  单线程收集器，只有一条垃圾收集线程。serial收集器作用于新生代，使用
+<strong>标记-复制算法</strong> 。serial old收集器作用于老年代，使用
+<strong>标记-整理算法</strong> 。缺点是垃圾收集时会stop the
+world，暂停其他所用工作线程，直到收集结束。serial收集器是客户端默认新生代收集器，serial
+old收集器的主要作用也是客户端下的老年代收集器。</p></li>
+<li><h4 id="parnew-收集器">parNew 收集器</h4>
+<p>  serial收集器的多线程版本，有多条垃圾回收线程，垃圾收集时同样也会stop
+the
+world。作用于新生代，几乎和serial收集器没有太多差别。java9开始，只支持和老年代收集器CMS搭配使用，几乎退出历史舞台。</p></li>
+<li><h4 id="parallel-收集器-和-parallel-old-收集器">parallel 收集器 和
+parallel old 收集器</h4>
+<p>  多线程处理器，有多条垃圾收集线程，垃圾收集时同样也会stop the
+world。parallel收集器作用于新生代，使用标记整理算法。几乎和parNew收集器差不多，唯一的特点是对
+<strong>吞吐量</strong> 的关注。 <strong>吞吐量 = 运行用户代码时间 / (
+运行用户代码时间 + 运行垃圾收集时间 )</strong> ，相当于parNew收集器的
+关注吞吐量版本。有两个参数用来控制吞吐量，直接设置吞吐量的
+<strong>GCTimeRatio</strong> 和 设置最大垃圾收集停顿时间的
+<strong>MaxGCPauseMillis</strong>
+,垃圾收集停顿时间就是垃圾回收线程执行时，用户线程停顿时间。parallel old
+就是 parallel的老年代版本，使用标记-整理算法，其他没什么差别。</p></li>
+<li><h4 id="cms-收集器">CMS 收集器</h4>
+<p>  concurrent-mark-sweap
+收集器，作用于老年代，使用标记-清除算法。整个垃圾收集过程分为4个部分。1.初始标记，2.并发标记，3.重新标记，4.并发清除。其中
+初始标记 和 重新标记 会stop the world。初始标记阶段就是标记 GC Roots
+可直接关联对象，耗时短，暂停用户线程。并发标记阶段，从GC Roots
+可直接关联对象出发遍历整个引用链，耗时长，但是和用户线程并发执行。重新标记阶段为了解决并发标记阶段用户线程运行导致的变化，多条线程处理，耗时比并发标记短，暂停用户线程。并发清理阶段，清理标记的对象。由于使用的标记-清除算法，因此
+<strong>会产生碎片化空间</strong>
+且并发标记和并发清除阶段和用户线程并发执行，所以
+<strong>处理器资源占用较大</strong>
+。在并发清除阶段，只能清除之前标记的对象，如果在这个阶段，用户线程的行为产生的垃圾对象，只能下一次垃圾回收执行，这种对象也称为
+<strong>浮动垃圾</strong> ，CMS收集器无法处理浮动垃圾。</p></li>
+<li><h4 id="g1-收集器">G1 收集器</h4>
+<p>  Garbage First
+收集器。主要面向服务端，作用于新生代和老年代，面向堆内任何部分回收垃圾。G1收集器
+将java堆内存分为若干 <strong>大小相等的独立区域Region</strong>
+，每一个Region根据分配可以作为新生代Eden，Surviver区，和老年代空间，G1收集器中，还有专门用来存储大对象的Humongous区，对超过Region大小一半的对象视为大对象，如果大对象超过1个Region大小，就多个连续Humongous区存储，Region大小可以通过参数
+<strong>G1HeapRegionSize设置</strong> ，范围在1MB~32MB。收集器可以
+<strong>对不同的Region使用不同的垃圾回收策略</strong>
+，新生代Region，Appel式标记-复制算法，老年代Region，标记-整理算法，大对象按老年代对象处理。G1收集器避免对全Region进行GC，对回收价值高的Region回收，
+<strong>价值是回收后获得的空间和回收所需的时间</strong>
+。G1收集器有个优先级列表，回收时根据最大收集停顿时间，收集停顿时间可以使用参数
+<strong>MaxGCPauseMillis</strong> 设置，优先回收高价值Region。<br />
+  G1收集器运行过程的4个步骤：<br />
+  1.初始标记：只标记GC Roots直达对象。stop the world，单线程。<br />
+  2.并发标记：对堆中对象进行可达性判断，耗时长，和用户线程并发，并发阶段通过
+<strong>原始快照算法SATB</strong>
+，让用户线程和GC线程互不干扰。Region的一部分空间用于并发回收时的新对象分配，这个空间的新对象默认不在回收范围。
+<strong>和CMS一样如果最终回收速度比分配速度慢，导致内存不够，还是会暂停用户线程</strong>
+。<br />
+  3.最终标记：处理并发阶段遗留的SATB，stop the world，多线程。<br />
+  4.筛选回收：stop the
+world，多线程处理，将旧Region中对象复制到新Region中，在清空旧Region。</p></li>
+<li><h4 id="zgc-收集器">ZGC 收集器</h4></li>
+</ul></li>
+<li><h3 id="内存分配及回收策略">内存分配及回收策略</h3>
+<ul>
+<li><h4 id="对象优先分配eden区">对象优先分配eden区</h4>
+<p>  当eden区没有足够空间时，发生minor
+GC，对新生代回收垃圾。<strong>如果survivor区空间小于minor GC
+存活对象，则该存活对象直接进入老年代</strong> 。</p></li>
+<li><h4 id="大对象直接进入老年代">大对象直接进入老年代</h4>
+<p>  为了避免提前触发GC，通过参数
+<strong>PretenureSizeThreshold</strong> 设置进入大对象的界限。
+<strong>该参数只有 serial 和 parNew 两个新生代收集器 有用</strong>
+。</p></li>
+<li><h4 id="长期存活对象进入老年代">长期存活对象进入老年代</h4>
+<p>对象每经历一次minor GC，年龄+1，通过参数
+<strong>MaxTenuringThreshold</strong> 设置进入老年代年龄界限 。</p></li>
+<li><h4 id="动态判断对象进入老年代">动态判断对象进入老年代</h4>
+<p>  如果survivor区中某个年龄的所有对象空间占用超过survivor区的一半，则大于或等于这个年龄的所有对象进入老年代。</p></li>
+<li><h4 id="空间分配担保">空间分配担保</h4>
+<p>  在minor GC
+发生前，虚拟机先判断老年代可用空间是否能容纳当前新生代所有对象，如果可以，则认为这次minor
+GC是安全的。如果不行，通过参数 <strong>HandlePromotionFailure</strong>
+是否允许担保失败。如果允许，则判断老年代可用空间是否 大于
+<strong>前几次升到老年代的对象的平均大小</strong>
+，如果大于，则依旧执行minor GC。如果小于或者不允许，则直接进行 full
+GC。因为新生代存活对象要进入到survivor区，如果survivor区容量不够，则对象直接进入老年代区，
+<strong>相当于老年代的担保</strong> 。因此minor
+GC时判断老年代大小，来判定minor GC 风险
+如：如果不判定老年代大小，直接进行minor
+GC，如果老年代空间不够，依旧要执行 full GC，minor GC + full GC
+两次回收造成的停顿时间就更长，而风险判定也许可以减少一次minor
+GC的停顿而直接进行 full GC。</p></li>
+</ul></li>
+<li><h1 id="jvm类加载器">JVM类加载器</h1>
+<h3 id="类的生命周期">类的生命周期</h3>
+  类的生命周期为：加载，链接，初始化，使用，卸载。其中 <strong>加载 到
+初始化</strong> 的过程，就是类加载过程 。</li>
+</ul>
+<h3 id="类加载的过程">类加载的过程</h3>
+<h4 id="加载-loading">  加载 Loading</h4>
+<p>  通过类的全名，也就是包名+类名。读取该类的.class文件 并将
+.class文件的二进制流在方法区中转化为该类的数据结构，且在堆中生成该类的class对象。
+####   链接 Linking<br />
+  链接分为三部，验证，准备，解析。</p>
+<h4 id="验证-verify">    验证 Verify</h4>
+<p>    验证.class文件的正确性。</p>
+<h4 id="准备-prepare">    准备 Prepare</h4>
+<p>    为类static变量分配内存，并给变量初始值(初始值不是初始化阶段的赋值)。如果static修饰的变量也
+<strong>被final修饰</strong>
+，那么初始值就是赋的值。准备阶段只对static修饰的类变量分配内存。Java8之后，类变量会随着class对象
+<strong>存在堆</strong> 中。</p>
+<h4 id="解析-resolve">    解析 Resolve</h4>
+<p>    将常量池中的符号引用转为直接引用。在将.java文件编译成.class文件时，因为还没加载到内存中，并不知道所引用的
+<strong>实际地址</strong> 。因此先用一个符号来表示，这就是
+<strong>符号引用</strong> 。</p>
+<h4 id="初始化-initialization">  初始化 Initialization</h4>
+<p>    初始化阶段为static变量赋值，及执行static代码块。<strong>类的初始化
+不是
+生成类的实例对象</strong>。当要用该类但没初始化时，会先初始化。如果有多个线程去初始化同一个类，只有获得初始化锁的线程来初始化该类。使用ClassLoader类的loadClass方法加载一个类，不是对类的使用，因此不会触发初始化。</p>
+<h3 id="类加载器分类">类加载器分类</h3>
+<p>  从虚拟机角度看，类加载器分为两种：一种是
+<strong>虚拟机自身一部分</strong> ，由c++实现的启动类加载器Bootstrap
+ClassLoader。一种是虚拟机外部，由java实现的
+<strong>继承抽象类ClassLoader</strong> 的类加载器。<br />
+  java一直保持着三层类加载器的类加载结构，也就是双亲委派模型。</p>
+<h3 id="双亲委派模型">双亲委派模型</h3>
+<h4 id="启动类加载器-bootstrap-class-loader">  启动类加载器 Bootstrap
+Class Loader</h4>
+<p>  由c++实现的加载器，是虚拟机内部的一部分，不能被java程序调用。负责加载jre/lib目录下能够识别的类库，如rt.jar，tool.jar等，不符合的类库放在目录下也不会加载，通过
+<strong>sun.boot.class.path</strong>
+可以查看加载的类库。在java中，无法表达出c++实现的加载器，因此用ClassLoader为
+<strong>null</strong>
+，表示bootstrap类加载器。除了启动类加载器，每个类加载器都要有自己的父类。<strong>类加载器之间的父类关系不是继承上的父类</strong>。抽象类ClassLoader的字段parent，用来保存该类加载器的父类。
+####   扩展类加载器 Extension Class Loader<br />
+  在java中由ExtClassLoader类实现，URLClassLoader的子类，字段parent 为
+null表示父类加载器为BootStrap加载器。加载jre/lib/ext目录中的类库，通过
+<strong>Java.ext.dirs</strong>
+查看加载的类库。允许用户将类库放到ext目录下扩展功能。 ####
+  应用程序类加载器 Application Class Loader<br />
+  在java中由AppClassLoader类是实现，同样也是URLClassLoader类子类，字段parent为ExtClassLoader对象，表示父类加载器为Extension加载器。ClassLoader类的getSystemClassLoader方法返回值就是AppClassLoader。加载
+<strong>java.class.path</strong> 系统属性
+所指定的类库，这其中包括项目本身。</p>
+<h4 id="双亲委派模型工作过程">  双亲委派模型工作过程</h4>
+<p>  一个类加载器接收到类加载请求，不会自己加载类，会要父类也即字段parent的类去加载。每一层都是这样，直到到达顶部BootStrap加载器。只有当父类加载器无法加载，就是加载范围中不包括该类，才会要自己的子加载器去加载。<br />
+  该过程的就是通过抽象类ClassLoader的方法 <strong>loadClass()</strong>
+实现的。loadClass()方法内部会进行 if
+判断，如果parent字段不为null，则调用父类的loadClass()方法。如果为null，就通过findBootStrapClassOrNull()方法委托BootStrap加载器。如果父类加载器无法加载，则会抛出ClassNotFoundException异常，这个时候会调用自己的
+<strong>findClass()</strong> 方法。<br />
+  findClass()过程内部会将包名+类名，转换为路径+.class后缀。如：a.b.Test类，转为a/b/Test.class。<br />
+  每个加载器都会对自己加载过的类 <strong>缓存</strong>
+。在loadClass()时，先通过 <strong>findedLoadClass()</strong>
+方法检查是否已加载。如果已加载则返回该类class对象。没有才执行后面的步骤。而
+<strong>热加载</strong>
+不通过重启项目，达到功能上的更新，就需要解决类加载的缓存。</p>
+<h3 id="破坏双亲委派模型">破坏双亲委派模型</h3>
+<p>  上面提到了双亲委派是由 loadClass()
+方法中的判断流程实现的。因此重写loadClass()方法，修改加载顺序就破坏了双亲委派。</p>
+<h4 id="破坏双亲委派模型的作用">破坏双亲委派模型的作用</h4>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JVM/" rel="tag"># JVM</a>
+              <a href="/tags/GC/" rel="tag"># GC</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="prev" title="贪心算法">
+                  <i class="fa fa-angle-left"></i> 贪心算法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="next" title="动态规划 与 背包问题">
+                  动态规划 与 背包问题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

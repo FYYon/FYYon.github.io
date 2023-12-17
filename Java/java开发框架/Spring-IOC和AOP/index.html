@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Spring的 IOC 和 AOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring的 IOC 和 AOP">
+<meta property="og:url" content="https://fyyon.github.io/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring-IOC%E5%92%8CAOP/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="Spring的 IOC 和 AOP">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/bean%E6%AD%A3%E5%9C%A8%E5%88%9B%E5%BB%BA%E4%B8%AD%E9%9B%86%E5%90%88.png">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/newProxyInstance1.png">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/getProxyClass0.png">
+<meta property="article:published_time" content="2021-08-24T07:41:00.000Z">
+<meta property="article:modified_time" content="2021-08-25T01:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="IOC">
+<meta property="article:tag" content="AOP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-framework/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring-IOC%E5%92%8CAOP/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring-IOC%E5%92%8CAOP/","path":"Java/java开发框架/Spring-IOC和AOP/","title":"Spring的 IOC 和 AOP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring的 IOC 和 AOP | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ioc"><span class="nav-number">1.</span> <span class="nav-text">IOC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC-ioc"><span class="nav-number">1.1.</span> <span class="nav-text">控制反转 IOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5-di"><span class="nav-number">1.2.</span> <span class="nav-text">依赖注入 DI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">1.3.</span> <span class="nav-text">bean的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98%E8%A7%A3%E5%86%B3%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="nav-number">1.4.</span> <span class="nav-text">三级缓存解决循环依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%89%8D%E6%9B%9D%E5%85%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">提前曝光</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E7%9A%84%E5%8F%91%E7%8E%B0%E6%9C%BA%E5%88%B6"><span class="nav-number">1.4.2.</span> <span class="nav-text">循环依赖的发现机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E7%BA%A7%E7%BC%93%E5%AD%98-singletonobjects"><span class="nav-number">1.4.3.</span> <span class="nav-text">一级缓存 singletonObjects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98-earlysingletonobjects"><span class="nav-number">1.4.4.</span> <span class="nav-text">二级缓存
+earlySingletonObjects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98-singletonfactories"><span class="nav-number">1.4.5.</span> <span class="nav-text">三级缓存
+singletonFactories</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98-%E5%92%8C-%E4%BA%8C%E7%BA%A7%E7%BC%93%E5%AD%98"><span class="nav-number">1.4.6.</span> <span class="nav-text">三级缓存 和 二级缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aop"><span class="nav-number">2.</span> <span class="nav-text">AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk-proxy-jdk%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">JDK Proxy JDK动态代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cglib-proxy-cglib%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">CGLIB Proxy CGLIB动态代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.3.</span> <span class="nav-text">Spring事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E6%80%A7"><span class="nav-number">2.3.1.</span> <span class="nav-text">Spring事务的传播性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transactional-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.3.2.</span> <span class="nav-text">@Transactional 的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#transactional-%E5%A4%B1%E6%95%88%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">@Transactional 失效的场景：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#transactional%E6%96%B9%E6%B3%95%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="nav-number">2.3.3.</span> <span class="nav-text">@Transactional方法的继承</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring-IOC%E5%92%8CAOP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring的 IOC 和 AOP | Blog">
+      <meta itemprop="description" content="Spring的 IOC 和 AOP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring的 IOC 和 AOP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-24 15:41:00" itemprop="dateCreated datePublished" datetime="2021-08-24T15:41:00+08:00">2021-08-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-08-25 09:41:00" itemprop="dateModified" datetime="2021-08-25T09:41:00+08:00">2021-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">java开发框架</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Spring的 IOC 和 AOP</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="ioc">IOC</h1>
+<ul>
+<li><h2 id="控制反转-ioc">控制反转 IOC</h2>
+<p>  Spring Ioc容器控制bean的生命周期。即bean的创建，销毁等。</p></li>
+<li><h2 id="依赖注入-di">依赖注入 DI</h2>
+<p>  通过接口，构造方法，注解等方法，由Ioc容器动态的将某个依赖，注入到组件中。相当于bean之间的关系由容器完成。</p></li>
+<li><h2 id="bean的生命周期">bean的生命周期</h2>
+<p><img src="/assets/posts_jpg/Java/java-framework/bean生命周期.jpg"
+alt="循环依赖" /><br />
+  在bean执行构造方法实例化后，通过依赖注入填充属性，而此阶段可能发生循环依赖。如果bean实现了Aware接口，则按图中顺序执行实现的方法。<br />
+  BeanPostProcessor就是后置处理器，AOP就是在初始化
+<strong>后置阶段</strong> 实现。BeanPostProcessor是
+<strong>针对所有</strong> 的bean的，每个bean在生命周期中，都会执行
+<strong>所有的</strong>
+BeanPostProcessor中方法，包括实现接口自定义的BeanPostProcessor。可以在方法中添加条件判断，让自定义的BeanPostProcessor跳过不符合条件的Bean。<br />
+  bean的初始化阶段，就是在使用bean之前，执行初始化方法中的内容，来扩展功能，如读取mysql中数据。</p></li>
+<li><h2 id="三级缓存解决循环依赖">三级缓存解决循环依赖</h2>
+<ul>
+<li><h3 id="提前曝光">提前曝光</h3>
+<p>  解决循环依赖，核心即为 bean 的提前曝光。只执行
+<strong>构造方法</strong> ，完成对象创建，没有执行
+<strong>注入依赖</strong> 及 <strong>初始化</strong> 。</p></li>
+<li><h3 id="循环依赖的发现机制">循环依赖的发现机制</h3>
+<p><img src="/assets/posts_jpg/Java/java-framework/循环依赖.jpg"
+alt="循环依赖" /><br />
+  当生成A的bean时，会通过
+<strong>isSingletonCurrentlyInCreation()</strong> 方法先判断
+<strong>该beanName对应的bean</strong>
+是否处于正在创建，如果没有就将该beanName添加到一个
+<strong>set集合</strong>
+中，表示该beanName的bean正在创建，当bean生成流程全部执行完时再移除集合。<br />
+  通过 <strong>createBeanInstance()</strong> 方法实例化bean，然后通过
+<strong>populateBean()</strong>
+方法进行填充属性，此时无法直接给字段b填充B的bean，因此开始实例化B的bean并填充属性，且在实例化该bean时，将该bean的beanName添加到
+<strong>"正在创建"set集合</strong> 中。<br />
+  此时填充属性发现，B依赖的A存在于set集合中，表示A正在创建中。因此发现发生了循环依赖。<br />
+<img src="/assets/posts_jpg/Java/java-framework/bean正在创建中集合.png"
+alt="bean正在创建中集合" /></p></li>
+<li><h3 id="一级缓存-singletonobjects">一级缓存 singletonObjects</h3>
+<p><img src="/assets/posts_jpg/Java/java-framework/一级缓存.jpg"
+alt="循环依赖" /><br />
+  假设A，B，C之间的关系如图所示。创建B的bean时，在填充属性时会创建一个A的bean。当创建C的bean时，在填充属性时也需要A的bean。此时如果再创建一个A的bean，就破坏了beanName和bean之间的单例关系。因此需要一个容器保存
+<strong>创建完成</strong> 的bean。<br />
+  使用 <strong>ConcurrentHashMap</strong> 保存完整的bean。</p></li>
+<li><h3 id="二级缓存-earlysingletonobjects">二级缓存
+earlySingletonObjects</h3>
+<p><img src="/assets/posts_jpg/Java/java-framework/二级缓存.jpg"
+alt="循环依赖" /><br />
+  假设A，B，C之间的关系如图所示。在创建A的bean时，在填充属性时会创建B的bean。而B的bean时需要用到A的bean，而此时A的bean还没有完成。为了进行下去，就需要用到二级缓存，来保存实例化，但未注入依赖的bean，也就是
+<strong>不完整</strong> 的bean。<br />
+  使用 <strong>HashMap</strong>
+保存不完整的bean。只有一级缓存是用concurrentHashMap，其他使用的为HashMap，但是会通过
+<strong>synchronized</strong> 同步锁来实现线程安全。</p></li>
+<li><h3 id="三级缓存-singletonfactories">三级缓存
+singletonFactories</h3>
+<p>  解决循环依赖的核心是 <strong>提前曝光</strong>
+，也就是在bean构造后，就要有一个容器来保存，以供后面可能发生的循环依赖来使用，也就是
+<strong>singletonFactories</strong>
+。在构造阶段，Spring不知道是否会发生循环依赖。如果bean涉及到AOP，也就是需要代理对象。<br />
+  正常流程中，生成代理对象bean，是在完成初始化等操作后，添加到singletonObjects
+<strong>之前</strong>
+执行。Spring采取发生依赖循环时将AOP生成的代理对象bean
+<strong>提前</strong>
+。因此三级缓存提前曝光的是SingletonFactory对象。<br />
+  遇到循环依赖时，如果需要提前aop代理bean，singletonFactory.<strong>getObject()</strong>创建代理bean，并保存到earlySingletonObjects中。如果不涉及到AOP，SingletonFactory本来就保存了原始bean，getObject()方法返回原始bean，保存到earlySingletonObjects中。</p></li>
+<li><h3 id="三级缓存-和-二级缓存">三级缓存 和 二级缓存</h3>
+<p>  三级缓存中， <strong>提前曝光的是singletonFactory对象</strong>
+。发生循环依赖时通过该对象可以得到，bean或者代理bean，再加入到二级缓存中。<br />
+  如果没有发生循环依赖，那么bean的生命周期过程不受影响。只有发生循环依赖且涉及到AOP生成代理对象，才会影响本来的生命周期，需要将AOP提前。<br />
+  如果不采用三级缓存，取消掉singletonFactories。那么需要将earlySingletonObjects提前，在bean构造后就直接保存到earlySingletonObjects中，
+<strong>提前曝光的是未完成的bean</strong> 。因为在
+<strong>构造阶段不知道是否会发生循环依赖</strong>
+的。在只有二级缓存中，如果涉及到AOP，那么必须在bean构造后就生成代理bean，并将代理bean保存到earlySingletonObjects中。就算没有发生循环依赖，那也已经AOP提前了，破化了原来的生命周期流程。</p></li>
+</ul></li>
+</ul></li>
+<li><h1 id="aop">AOP</h1>
+<ul>
+<li><h2 id="jdk-proxy-jdk动态代理">JDK Proxy JDK动态代理</h2>
+<p>  代理类实现 <strong>InvocationHandler</strong> 接口，实现
+<strong>invoke()</strong> 方法。通过
+<strong>Proxy.newProxyInstance()</strong> 方法生成动态代理对象。<br />
+<img src="/assets/posts_jpg/Java/java-framework/newProxyInstance1.png"
+alt="ProxyInstance" />   newProxyInstance()方法内部通过
+<strong>getProxyClass0()</strong> 方法生成动态代理类的
+<strong>class对象</strong>，其中动态代理类的Class字节码只在内存中。<br />
+<img src="/assets/posts_jpg/Java/java-framework/getProxyClass0.png"
+alt="getProxyClass0" /><br />
+  在class文件中，类的接口数量通过 <strong>2字节</strong>
+的interfaces_count表示，因此一个类的接口数量上限为2<sup>16</sup>个。<br />
+  ProxyClassFactory工厂的apply方法中，通过
+<strong>ProxyGenerator</strong>
+类的<strong>generateProxyClass()</strong>方法，生成动态类的字节码。 <img
+src="/assets/posts_jpg/Java/java-framework/generateProxyClass.png"
+alt="getProxyClass0" /><br />
+  生成的动态类类名一般为$Proxy +
+编号，该类实现了被代理类的接口，且继承自Proxy类。Proxy类有参构造方法接收InvocationHandler接口实现类，作为字段h，动态代理类实现的方法，就是
+<strong>调用</strong>
+InvocationHandler接口实现类中重写的invoke()方法。JDK动态代理是通过实现被代理类的接口中的方法，来完成调用invoke()方法，因此JDK动态代理使用时，被代理类
+<strong>必须有接口</strong>。</p></li>
+<li><h2 id="cglib-proxy-cglib动态代理">CGLIB Proxy CGLIB动态代理</h2>
+<p>  代理类实现 <strong>MethodInterceptor</strong>
+接口，实现intercept()方法。CGLIB和JDK的区别在于，CGLIB通过
+<strong>继承关系</strong>
+来实现被代理类功能的扩展，就相当于重写父类方法，然后在子类方法中添加功能，然后通过super调用父类方法。因此CGLIB动态代理不能用于
+<strong>final修饰</strong>
+的类或者方法，因为final修饰的不能继承。</p></li>
+<li><h2 id="spring事务">Spring事务</h2>
+<ul>
+<li><h3 id="spring事务的传播性">Spring事务的传播性</h3>
+<ul>
+<li>Propagation.REQUIRED：支持当前事务，如果当前有事务，就运行在当前事务中。如果没有则新建事务。<br />
+</li>
+<li>Propagation.SUPPORTS：支持当前事务，如果当前有事务，就运行到当前事务中。如果没有，就以非事务方式执行。<br />
+</li>
+<li>Propagation.MANDATORY：支持当前事务，如果当前有事务，就运行在当前事务中。如果没有，抛出异常。<br />
+</li>
+<li>Propagation.REQUIRES_NEW
+：不支持当前事务，新建事务，如果当前有事务，则挂起当前事务。该方法不受调用者影响，也即
+父级(调用该方法的方法) 抛出异常，不影响该方法。<br />
+</li>
+<li>Propagation.NOT_SUPPROTED：不支持当前事务，以非事务方式执行，如果当前有事务，则挂起当前事务。<br />
+</li>
+<li>Propagation.NEVER：不支持当前事务，如果当前存在事务，则抛出异常。<br />
+</li>
+<li>Propagation.NESTED：如果当前没有事务，就新建事务，如果当前有事务，成为父事务的子事务，只有父事务结束，才提交。子事务异常不影响父事务。父事务异常影响子事务而回滚。</li>
+</ul></li>
+</ul></li>
+<li><h3 id="transactional-的实现"><span class="citation"
+data-cites="Transactional">@Transactional</span> 的实现</h3>
+<p>  Spring事务通过动态代理实现。在代理类中，通过jdbc等开启事务，再执行target的方法。<br />
+<span id="3"></span> <img
+src="/assets/posts_jpg/Java/java-framework/spring注解注意点.png"
+alt="spring注解注意点" /><br />
+  上图中，当 test2()
+被@Transactional修饰时，因为事务是通过动态代理实现的，因此通过<strong>this</strong>调用方法，不会使注解生效，只会执行方法，而不涉及到事务。只有代理对象执行时，原方法被代理类增强扩展，开启了事务。this
+和 注入的command1不是同一个对象，command1是代理对象。<br />
+  command1对象调用 test1() 方法，执行代理类增强部分，再调用target的
+test1() 方法。因此，会执行图中源码 test1()
+内容的依旧是原对象。this，就是该原对象，不会开启事务。</p>
+<ul>
+<li><h4 id="transactional-失效的场景"><span class="citation"
+data-cites="Transactional">@Transactional</span> 失效的场景：</h4>
+<ul>
+<li><p>数据库存储引擎不支持事务：存储引擎本身需要支持事务。<br />
+</p></li>
+<li><p>目标方法不是public修饰：Spring需要通过AbstractFallbackTransactionAttributeSource类来获得@Transactional属性配置信息。该类中的方法会判断目标方法修饰符是否为public。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token class-name">TransactionAttribute</span> <span class="token function">computeTransactionAttribute</span><span class="token punctuation">(</span><span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token annotation punctuation">@Nullable</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> targetClass<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">allowPublicMethodsOnly</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token class-name">Modifier</span><span class="token punctuation">.</span><span class="token function">isPublic</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getModifiers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 省略</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>方法调用问题：this调用和注入的代理对象调用区别。代理类对象扩展了原类对象方法，因此只有通过代理对象调用方法，才会开启事务。<br />
+</p></li>
+<li><p>方法无法抛出异常：如在方法中使用try
+catch，捕获异常，则事务不能回滚。可以在捕获异常后，在catch代码块中再抛出异常来达到回滚。<br />
+</p></li>
+<li><p>目标方法所在类没有被Spring容器管理：也就是没有生成对应的bean，如类没有用注解声明为组件。</p></li>
+</ul></li>
+</ul></li>
+<li><h3 id="transactional方法的继承"><span class="citation"
+data-cites="Transactional方法的继承">@Transactional方法的继承</span></h3>
+<p>  父类中有@Transactional方法，子类继承父类，不管是否重写该方法，子类的bean都是动态代理对象。</p></li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+              <a href="/tags/IOC/" rel="tag"># IOC</a>
+              <a href="/tags/AOP/" rel="tag"># AOP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/" rel="prev" title="保留文件">
+                  <i class="fa fa-angle-left"></i> 保留文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Mybatis-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="保留文件">
+                  保留文件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

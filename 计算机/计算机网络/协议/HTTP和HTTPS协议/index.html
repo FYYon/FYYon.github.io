@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="HTTP 和 HTTPS 协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP 和 HTTPS 协议">
+<meta property="og:url" content="https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/HTTP%E5%92%8CHTTPS%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="HTTP 和 HTTPS 协议">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TLS%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B.jpg">
+<meta property="article:published_time" content="2021-07-15T07:41:00.000Z">
+<meta property="article:modified_time" content="2021-07-16T01:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="HTTP">
+<meta property="article:tag" content="TLS">
+<meta property="article:tag" content="HTTPS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TLS%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/HTTP%E5%92%8CHTTPS%E5%8D%8F%E8%AE%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/HTTP%E5%92%8CHTTPS%E5%8D%8F%E8%AE%AE/","path":"计算机/计算机网络/协议/HTTP和HTTPS协议/","title":"HTTP 和 HTTPS 协议"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>HTTP 和 HTTPS 协议 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#http%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-1.0"><span class="nav-number">1.1.</span> <span class="nav-text">Http 1.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%AD%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.1.1.</span> <span class="nav-text">短连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%AD%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">短连接的解决办法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82-%E5%93%8D%E5%BA%94%E6%9C%BA%E5%88%B6-%E5%AF%BC%E8%87%B4%E7%9A%84-http1.0-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E"><span class="nav-number">1.1.3.</span> <span class="nav-text">请求-响应机制 导致的
+Http1.0 队头阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-1.1"><span class="nav-number">1.2.</span> <span class="nav-text">Http 1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E9%95%BF%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.2.1.</span> <span class="nav-text">默认长连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E5%8C%96"><span class="nav-number">1.2.2.</span> <span class="nav-text">管道化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E5%8C%96%E4%B8%8B%E7%9A%84-http1.1-%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">管道化下的 Http1.1
+队头阻塞</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-2"><span class="nav-number">1.3.</span> <span class="nav-text">Http 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%A0%E8%BE%93"><span class="nav-number">1.3.1.</span> <span class="nav-text">二进制传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E5%A4%B4%E5%8E%8B%E7%BC%A9"><span class="nav-number">1.3.3.</span> <span class="nav-text">报头压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81"><span class="nav-number">1.3.4.</span> <span class="nav-text">服务器推送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-3"><span class="nav-number">1.4.</span> <span class="nav-text">Http 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tcp%E7%9A%84%E9%98%9F%E5%A4%B4%E9%98%BB%E5%A1%9E"><span class="nav-number">1.4.1.</span> <span class="nav-text">TCP的队头阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Eudp%E5%8D%8F%E8%AE%AE%E7%9A%84quic%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.4.2.</span> <span class="nav-text">基于UDP协议的QUIC协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http%E5%8D%8F%E8%AE%AE%E5%9C%A8%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%92%8C%E6%8E%A5%E6%94%B6%E4%B8%AD%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">1.5.</span> <span class="nav-text">HTTP协议在数据传输和接收中干了什么</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#https%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">HTTPS协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86"><span class="nav-number">2.1.</span> <span class="nav-text">数据加密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86"><span class="nav-number">2.1.1.</span> <span class="nav-text">共享密钥加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86"><span class="nav-number">2.1.2.</span> <span class="nav-text">公开密钥加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https%E4%BD%BF%E7%94%A8%E6%B7%B7%E5%90%88%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.3.</span> <span class="nav-text">Https使用混合加密方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tls-%E7%9A%84%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">TLS 的握手过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82"><span class="nav-number">2.2.1.</span> <span class="nav-text">第一次握手 客户端发起请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%8F%A1%E6%89%8B-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%9B%9E%E5%BA%94"><span class="nav-number">2.2.2.</span> <span class="nav-text">第二次握手 服务器端回应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9B%9E%E5%BA%94"><span class="nav-number">2.2.3.</span> <span class="nav-text">第三次握手 客户端回应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AC%A1%E6%8F%A1%E6%89%8B-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%BB%93%E6%9D%9F%E5%9B%9E%E5%BA%94"><span class="nav-number">2.2.4.</span> <span class="nav-text">第四次握手
+服务器端结束回应</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%81%E4%B9%A6%E9%93%BE"><span class="nav-number">2.3.</span> <span class="nav-text">证书链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tls%E5%8D%8F%E8%AE%AE%E5%9C%A8%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%92%8C%E6%8E%A5%E6%94%B6%E4%B8%AD%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">2.4.</span> <span class="nav-text">TLS协议在数据传输和接收中干了什么</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/HTTP%E5%92%8CHTTPS%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="HTTP 和 HTTPS 协议 | Blog">
+      <meta itemprop="description" content="HTTP 和 HTTPS 协议">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTTP 和 HTTPS 协议
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-15 15:41:00" itemprop="dateCreated datePublished" datetime="2021-07-15T15:41:00+08:00">2021-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-07-16 09:41:00" itemprop="dateModified" datetime="2021-07-16T09:41:00+08:00">2021-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">HTTP 和 HTTPS 协议</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!--
+请求头中参数 Host 作用
+  一台计算机上可以运行多个虚拟主机，每个虚拟主机都可以使用 相同的IP地址 。在这种情况下，Host请求头用于指定请求发送到哪个虚拟主机
+  当一台计算机上有多个虚拟主机时，Host参数 可以告诉服务器使用哪个虚拟主机
+或者
+  因为 一个 域名 对应 一个 ip，一个 ip 可对应 多个 域名
+  所以 Host中 指定的域名
+-->
+<ul>
+<li><h1 id="http协议">HTTP协议</h1>
+<p>  Http协议是应用层协议，无状态 且
+不干扰传输层协议。因此在数据传输时，Http既可以基于Tcp协议，也能基于Udp协议。浏览器默认访问服务器的80端口，相当于访问的是，www.abc.com:80。</p>
+<ul>
+<li><h2 id="http-1.0">Http 1.0</h2>
+<ul>
+<li><h3 id="短连接">短连接</h3>
+<p>  连接不可复用，每次请求都要三次握手，成本高，效率低。</p></li>
+<li><h3 id="短连接的解决办法">短连接的解决办法</h3>
+<p>  在报文头部字段的Connection字段上，修改为Connection:
+keep-alive。</p></li>
+<li><h3 id="请求-响应机制-导致的-http1.0-队头阻塞">请求-响应机制 导致的
+Http1.0 队头阻塞</h3>
+<p>  队头阻塞就相当于，队首没处理完，后面的请求在排队。在http1.0中，必须接收到前一个请求的响应，才能发送下一个请求。如果上一次请求的响应还没收到，后续的请求就被阻塞了。因此Http
+1.0中的队头阻塞发生在 <strong>客户端</strong> ，请求阻塞。</p></li>
+</ul></li>
+<li><h2 id="http-1.1">Http 1.1</h2>
+<ul>
+<li><h3 id="默认长连接">默认长连接</h3>
+<p>  Http 1.1默认持久连接，TCP连接不关闭。</p></li>
+<li><h3 id="管道化">管道化</h3>
+<p>  管道化技术解决了Http
+1.0中的客户端队头阻塞。管道化技术允许不用等待上一个响应，<strong>直接发送请求</strong>，但是只有
+<strong>GET</strong> 和 <strong>HEAD</strong> 请求才能管道化。<br />
+  服务器FIFO原则下，<strong>响应的发送要根据 接收的请求的顺序
+来排队</strong>，也就是 <strong>先接收</strong> 到的请求，
+<strong>先发送</strong> 响应。<br />
+  目前浏览器默认关闭管道化。</p></li>
+<li><h4 id="管道化下的-http1.1-队头阻塞">管道化下的 Http1.1
+队头阻塞</h4>
+<p>  因为服务器的FIFO原则，如果先到的请求处理时间长没完成，其他的后续请求已近处理完成并生成了响应，那么已生成的响应就阻塞，必须等到先到请求的响应发送。Http
+1.1中的队头阻塞发生在 <strong>服务器端</strong> ，响应阻塞。<br />
+  一个 <strong>域名支持多个长连接</strong>
+，也就相当于多个任务队列，通过多个任务队列可以减小队头阻塞后续的影响。因为发生队头阻塞，也只有其中一个长连接受影响。</p></li>
+</ul></li>
+<li><h2 id="http-2">Http 2</h2>
+<ul>
+<li><h3 id="二进制传输">二进制传输</h3>
+<p>  Http 2中，以二进制格式传输，而不是文本格式。将请求和响应
+<strong>分割为帧</strong> ，并以二进制表示。Http
+2中，同域名下的所有请求响应都是在 <strong>一个连接</strong>
+下完成，一个连接可以有 <strong>任意数量的双向数据流</strong>
+。帧可以乱序发送，通过帧首部的流标识重新组装。</p></li>
+<li><h3 id="多路复用">多路复用</h3>
+<p>  完全多路复用，允许一个连接中客户端和服务器端发送多个请求或响应，不用
+<strong>顺序对应</strong> 。因此解决了Http 1.1中的队头阻塞。<br />
+  但是传输时使用TCP，依旧可能发生
+<strong>TCP的队头阻塞</strong>。</p></li>
+<li><h3 id="报头压缩">报头压缩</h3>
+<p>  客户端和服务器端共同维护一个报文头信息表，所有字段都保存在其中。通过发送索引号表示包含的字段，不需要在报文头信息中附上字段，因此可以减少报文头的大小。<br />
+  会通过gzip或者compress压缩头信息。</p></li>
+<li><h3 id="服务器推送">服务器推送</h3>
+<p>  允许服务器端主动向客户端发送资源。</p></li>
+</ul></li>
+<li><h2 id="http-3">Http 3</h2>
+<ul>
+<li><h3 id="tcp的队头阻塞">TCP的队头阻塞</h3>
+<p>  为了保证TCP的可靠性，如果一个序列号低的包丢失，会等待该包重传。因此整个TCP连接会阻塞，直到丢失的包重传并接收为止。只要是使用TCP传输数据，就可能发生TCP队头阻塞。因此Http
+1、Http 2中都可能发生，而且Http
+2中同域名下只有一个连接，因此发生TCP队头阻塞时，整个连接都受影响。</p></li>
+<li><h3 id="基于udp协议的quic协议">基于UDP协议的QUIC协议</h3>
+<p>  QUIC协议为Quick UDP Internet
+Connection，是一个使用UDP多路并发传输的
+<strong>传输层协议</strong>。</p></li>
+</ul></li>
+<li><h2
+id="http协议在数据传输和接收中干了什么">HTTP协议在数据传输和接收中干了什么</h2>
+<p>  http协议，作为应用层协议，数据传输中所指的这个"数据"(不算其他协议头部)，应用层协议的工作主要就是对这个要传输的"数据"的，格式，内容等做规定。像http协议请求格式就是为：</p>
+<ul>
+<li>请求行，包含 方法，文件路径，发送端的协议版本。<br />
+</li>
+<li>请求头，包含
+客户端的基本信息以及一些传输给服务器端的请求头字段。<br />
+</li>
+<li>请求体，包含 发送给服务器的数据，像是form-data等。</li>
+</ul>
+<p>  总的来说，Http协议的行为，就是对 要传输/接收的
+"数据"做出规定，发送端应该按这个格式这么发，然后接收端应该按照这个格式这么解析。</p></li>
+</ul></li>
+<li><h1 id="https协议">HTTPS协议</h1>
+<p>  在Http和Tcp之间，添加安全协议TLS，就是Https。TLS的前身就是SSL。Https对数据进行加密，且能服务器端身份验证。</p>
+<ul>
+<li><h2 id="数据加密">数据加密</h2>
+<ul>
+<li><h3 id="共享密钥加密">共享密钥加密</h3>
+<p>  共享密钥加密也叫做 <strong>对称密钥加密</strong>
+，就是客户端和服务器端都是用同一把密钥对数据进行加密解密。优点是处理快。缺点是
+<strong>使用共享的密钥就必须先将该密钥传给对方</strong>
+，该过程是不安全的，如果第三方在传输过程中获得了密钥，那数据加密也没了意义。</p></li>
+<li><h3 id="公开密钥加密">公开密钥加密</h3>
+<p>  公开密钥加密也叫做 <strong>非对称密钥加密</strong>
+，就是加密和解密的密钥不是同一把，称为 <strong>公钥</strong> 和
+<strong>私钥</strong> 。<br />
+  公钥是任何人都可以获得的，私钥是不能给别人的。将公钥传给对方，数据使用公钥加密，然后将加密后的数据使用私钥解密，通过
+<strong>数字证书</strong>
+来验证公钥的真实性。优点是即使获得了公钥也不能解密数据。缺点是和共享密钥加密相比，处理更复杂也更慢。</p></li>
+<li><h3 id="https使用混合加密方式">Https使用混合加密方式</h3>
+<p>  首先通过公开密钥加密，对将要使用的共享密钥加密，来保证共享密钥传输时的安全性。后续的通信使用共享密钥加密来保证数据的安全性。</p></li>
+</ul></li>
+<li><h2 id="tls-的握手过程">TLS 的握手过程</h2>
+<p>  TLS的四次握手建立在TCP三次握手之上。因此Https需要先是TCP的三次握手，然后是TLS的四次握手，共七次握手。<br />
+<img src="/assets/posts_jpg/TcpIp/TLS握手过程.jpg"
+alt="TLS 握手过程" /></p>
+<ul>
+<li><h3 id="第一次握手-客户端发起请求">第一次握手 客户端发起请求</h3>
+<p>  由客户端发起，发送Client Hello消息。消息中包含：客户端生成的
+<strong>随机字符串X</strong>，客户端
+<strong>支持的加密算法列表</strong>，客户端
+<strong>支持的压缩算法列表</strong> ，客户端的
+<strong>TLS协议版本</strong> 。</p></li>
+<li><h3 id="第二次握手-服务器端回应">第二次握手 服务器端回应</h3>
+<p>  服务器接收到客户端的Hello消息后，回应Server
+Hello消息。消息中包含：服务器端生成的 <strong>随机字符串Y</strong> ，且
+<strong>选择</strong>
+后续使用的加密算法、压缩算法、协议版本等。发送Certificate消息，也就是服务器证书。最后Server
+Hello Done表示回应结束。</p></li>
+<li><h3 id="第三次握手-客户端回应">第三次握手 客户端回应</h3>
+<p>  客户端收到证书后验证服务器身份，并从证书中获得公钥。生成
+<strong>随机字符串Z</strong> 并使用 <strong>公钥加密</strong>
+，发送给服务器端。此时客户端已有随机字符串X，Y，Z，通过
+<strong>随机字符串和协商的加密算法</strong> 生成
+<strong>共享密钥</strong> ，也就是对称密钥加密中使用的密钥。Change
+Cipher
+Spec表示告诉服务器端，客户端已经切换到共享密钥加密状态。最后发送Finished消息，表示结束TLS握手。</p></li>
+<li><h3 id="第四次握手-服务器端结束回应">第四次握手
+服务器端结束回应</h3>
+<p>  服务器端收到通过公钥加密的随机字符串Z后，使用私钥解密。此时服务器端有随机字符串X，Y，Z。通过协商好的加密算法和随机字符串生成
+<strong>共享密钥</strong>。Change Cipher
+Spec表示服务器端已经切换到使用共享密钥加密状态。最后发送Finished消息，结束TLS握手。</p></li>
+</ul></li>
+<li><h2 id="证书链">证书链</h2>
+<p>  在TLS中，客户端接收到服务器端的证书，要验证证书的合法性。一般浏览器内置了
+<strong>信任的根证书</strong>，但是服务器发送过来的证书一般
+<strong>不是根证书签发</strong>
+的。因此通过证书链的信任关系来判断证书的合法性。<br />
+  当客户端收到服务器端发的证书后，如果发现该证书的签发者不是信任的根证书，就会向
+<strong>CA</strong> 证书机构请求该 <strong>中间证书</strong>
+。在收到中间证书后，判断该中间证书的签发者是否为信任的根证书，以此类推。</p></li>
+<li><h2
+id="tls协议在数据传输和接收中干了什么">TLS协议在数据传输和接收中干了什么</h2>
+<p>  TLS协议是应用层协议，应用层协议的工作主要就是对这个要传输的"数据"的，格式，内容等做规定。TLS在数据传输中，通过四次TLS握手双方协商的加密方式。接下来，客户端会根据TLS协议协商的加密方式，加密要传输的数据。接收端会根据TLS协议协商的加密方式，解密接收到的数据。</p></li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+              <a href="/tags/TLS/" rel="tag"># TLS</a>
+              <a href="/tags/HTTPS/" rel="tag"># HTTPS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/TCP%E5%92%8CUDP%E5%8D%8F%E8%AE%AE/" rel="prev" title="TCP 和 UDP 协议">
+                  <i class="fa fa-angle-left"></i> TCP 和 UDP 协议
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/" rel="next" title="保留文件">
+                  保留文件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

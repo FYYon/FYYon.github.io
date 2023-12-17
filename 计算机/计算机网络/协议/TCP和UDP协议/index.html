@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="TCP 和 UDP 协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP 和 UDP 协议">
+<meta property="og:url" content="https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/TCP%E5%92%8CUDP%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="TCP 和 UDP 协议">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3ACK%E4%B8%A2%E5%A4%B1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E7%AA%97%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%8C%85%E4%B8%A2%E5%A4%B1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E5%90%8C%E6%97%B6%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E5%90%8C%E6%97%B6%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5.jpg">
+<meta property="article:published_time" content="2021-07-14T07:41:00.000Z">
+<meta property="article:modified_time" content="2021-07-15T07:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta property="article:tag" content="TCP">
+<meta property="article:tag" content="UDP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/TcpIp/TCP%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/TCP%E5%92%8CUDP%E5%8D%8F%E8%AE%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/TCP%E5%92%8CUDP%E5%8D%8F%E8%AE%AE/","path":"计算机/计算机网络/协议/TCP和UDP协议/","title":"TCP 和 UDP 协议"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>TCP 和 UDP 协议 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tcp%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp%E7%9A%84%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="nav-number">1.1.</span> <span class="nav-text">TCP的可靠传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E8%AE%A4%E5%BA%94%E7%AD%94"><span class="nav-number">1.1.1.</span> <span class="nav-text">确认应答</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E5%8F%B7%E5%92%8C%E7%A1%AE%E8%AE%A4%E5%8F%B7"><span class="nav-number">1.1.2.</span> <span class="nav-text">序列号和确认号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E9%87%8D%E5%8F%91"><span class="nav-number">1.1.3.</span> <span class="nav-text">超时重发</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="nav-number">1.2.</span> <span class="nav-text">TCP数据传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%B6%88%E6%81%AF%E9%95%BF%E5%BA%A6"><span class="nav-number">1.2.1.</span> <span class="nav-text">最大消息长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E7%AA%97%E5%8F%A3%E6%8F%90%E9%AB%98%E4%BC%A0%E8%BE%93%E6%95%88%E7%8E%87"><span class="nav-number">1.2.2.</span> <span class="nav-text">通过窗口提高传输效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">滑动窗口机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3%E7%9A%84%E9%87%8D%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">1.2.4.</span> <span class="nav-text">窗口的重发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ack%E4%B8%A2%E5%A4%B1"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">ACK丢失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">数据丢失</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.3.</span> <span class="nav-text">三次握手建立连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#isn%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BA%8F%E5%88%97%E5%8F%B7"><span class="nav-number">1.3.1.</span> <span class="nav-text">ISN，初始化序列号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8A%E8%BF%9E%E6%8E%A5%E5%85%A8%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97"><span class="nav-number">1.3.2.</span> <span class="nav-text">半连接，全连接队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#syn%E6%94%BB%E5%87%BB%E9%98%B2%E5%BE%A1%E6%89%8B%E6%AE%B5"><span class="nav-number">1.3.3.</span> <span class="nav-text">SYN攻击防御手段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-tcp_syncookies-%E5%8A%9F%E8%83%BD"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">开启 tcp_syncookies 功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E5%8D%8A%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">增加半连接队列大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%8F%E5%B0%91%E6%8E%A5%E6%94%B6%E7%AB%AF-synack%E5%8C%85-%E7%9A%84%E9%87%8D%E4%BC%A0%E6%AC%A1%E6%95%B0"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">减少接收端 SYN+ACK包
+的重传次数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%97%B6%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.3.4.</span> <span class="nav-text">同时建立连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">状态转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7"><span class="nav-number">1.3.5.</span> <span class="nav-text">三次握手的必要性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.</span> <span class="nav-text">四次挥手断开连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#msl"><span class="nav-number">1.4.1.</span> <span class="nav-text">MSL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%97%B6%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.2.</span> <span class="nav-text">同时断开连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2-1"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">状态转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">1.5.</span> <span class="nav-text">流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-number">1.6.</span> <span class="nav-text">阻塞控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tcp%E5%8D%8F%E8%AE%AE%E5%9C%A8%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%92%8C%E6%8E%A5%E6%94%B6%E4%B8%AD%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">1.7.</span> <span class="nav-text">TCP协议在数据传输和接收中干了什么</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#udp%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">UDP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#udp%E5%8D%8F%E8%AE%AE-1"><span class="nav-number">2.1.</span> <span class="nav-text">UDP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kcp%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.2.</span> <span class="nav-text">KCP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#quic%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text">QUIC协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#udp%E5%8D%8F%E8%AE%AE%E5%9C%A8%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%92%8C%E6%8E%A5%E6%94%B6%E4%B8%AD%E5%B9%B2%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-number">2.4.</span> <span class="nav-text">UDP协议在数据传输和接收中干了什么</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/TCP%E5%92%8CUDP%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="TCP 和 UDP 协议 | Blog">
+      <meta itemprop="description" content="TCP 和 UDP 协议">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TCP 和 UDP 协议
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-14 15:41:00" itemprop="dateCreated datePublished" datetime="2021-07-14T15:41:00+08:00">2021-07-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-07-15 15:41:00" itemprop="dateModified" datetime="2021-07-15T15:41:00+08:00">2021-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">TCP 和 UDP 协议</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="tcp协议">TCP协议</h1>
+<ul>
+<li><h2 id="tcp的可靠传输">TCP的可靠传输</h2>
+<p>  TCP的可靠传输，建立在 <strong>序列号</strong> 和
+<strong>确认应答</strong>
+等基础之上，来实现TCP的报文重组、重发控制、重复判断等。</p>
+<ul>
+<li><h3 id="确认应答">确认应答</h3>
+<p>  当发送端的数据到达接收端后，接收端会返回一个通知表示自己接收到，也就是
+<strong>ACK</strong> 确认应答。<br />
+  当发送端在特定时间内没有收到ACK时，会认为数据包丢失而重传。如果数据包到达，但是ACK丢失，发送端也会认为是数据包丢失而重传，此时就需要序列号来区分重复数据。</p></li>
+<li><h3 id="序列号和确认号">序列号和确认号</h3>
+<p>  按顺序将发送的每一个 <strong>字节</strong> 都标上编号，也就是
+<strong>序列号</strong> 。接收端会将 <strong>下一步要接收</strong>
+的起始序号写在确认应答的报文中，表示该序号之前的都接收完毕，下一次应该从该序号开始发送，也就是
+<strong>确认号</strong> 。<br />
+  在发送接收正常的情况下，ACK中确认号一般是， 接收端
+<strong>已收到的序列号中最大值+1</strong> 。</p></li>
+<li><h3 id="超时重发">超时重发</h3>
+<p>  在特定时间内发送端没有收到ACK，就会将数据重发。随着网络环境的变化，该特定时间也不同。在
+<strong>每次发包</strong> 时都会计算 <strong>往返时间RTT</strong> 和
+RTT的抖动值。超时重发的特定时间就是比 RTT + 偏差
+的和要大一些的值。</p></li>
+</ul></li>
+<li><h2 id="tcp数据传输">TCP数据传输</h2>
+<ul>
+<li><h3 id="最大消息长度">最大消息长度</h3>
+<p>  在建立TCP连接时，可以确定发送一次数据的最大字节数，也就是
+<strong>最大消息长度 MSS</strong>
+。TCP传输数据时，将数据以MSS的大小进行分割发送，因此TCP是以
+<strong>段</strong> 为单位发送数据。<br />
+  在三次握手时，通过TCP报文首部写入MSS值，发送端和接收端确定MSS的值并使用该值进行传输，该MSS的值不包括TCP报文头，和IP报文头。<br />
+<img src="/assets/posts_jpg/TcpIp/TCP发送数据.jpg"
+alt="TCP发送数据" /></p></li>
+<li><h3 id="通过窗口提高传输效率">通过窗口提高传输效率</h3>
+<p>  TCP每发一个段，等待接收ACK。这种传输方式的效率会随着RTT的提高而降低。效率不高。因此通过窗口来提高效率。<br />
+<img src="/assets/posts_jpg/TcpIp/TCP窗口.jpg"
+alt="TCP窗口提高效率" /><br />
+  如上图所示，设窗口大小为3000字节，MSS为1000字节。发送端不需要等待接收端的ACK，可以继续发送。窗口大小就相当于，发送端无需等待ACK就可以继续发送数据的字节的
+<strong>最大值</strong>
+。图中窗口大小为3个段大小，因此发送端可以直接发送3次数据。</p></li>
+<li><h3 id="滑动窗口机制">滑动窗口机制</h3>
+<p>  在收到某段的ACK后，表示该段及其之前的数据已被接收，不会需要重发。将窗口移动到该ACK中的序列号位置。这个就是
+<strong>滑动窗口机制</strong> 。<br />
+<img src="/assets/posts_jpg/TcpIp/TCP滑动窗口.jpg"
+alt="TCP窗口提高效率" /><br />
+  如图所示，当发送端接收到ACK时，窗口会移动到ACK中序列号的位置。发送端收到了序列号1001的ACK，因此窗口移动到1001的位置，表示1001之前已经发送并被接收。从1001开始发送或者等待已发送段的ACK到达。</p></li>
+<li><h3 id="窗口的重发控制">窗口的重发控制</h3>
+<p>  在窗口机制下，有两种丢包情况：</p>
+<ul>
+<li><h4 id="ack丢失">ACK丢失</h4>
+<p><img src="/assets/posts_jpg/TcpIp/TCP窗口ACK丢失.jpg"
+alt="TCP窗口ACK丢失" /><br />
+  当ACK丢失，且出现如图所示的情况时，发送端可以通过
+<strong>下一个</strong> ACK确认1001 ~
+2000这一段已被接收。当接收到ACK:3001时，表示这之前的数据已接收，也就包括1001
+~ 2000这部分。<br />
+  即使ACK丢失，也 <strong>可能</strong>
+不需要重发数据，也就是通过下一个ACK来确认。如果无法通过下一个ACK确认时，那么就还是超时重传。</p></li>
+<li><h4 id="数据丢失">数据丢失</h4>
+<p><img src="/assets/posts_jpg/TcpIp/TCP窗口数据包丢失.jpg"
+alt="TCP窗口数据包丢失" /><br />
+  如图所示，当数据包丢失时，下一个段到达，接收端没有收到自己期望的序列号。因此ACK还是接收端期望的序列号。在发送端收到ACK后，又收到三次
+<strong>重复</strong> 的ACK。就会将该ACK的序列号进行重传。<br />
+  接收端会按序列号顺序保存已收到的段。重发数据包的ACK中确认号，就是已接收到的序列号最大值+1。</p></li>
+</ul></li>
+</ul></li>
+<li><h2 id="三次握手建立连接">三次握手建立连接</h2>
+<figure>
+<img src="/assets/posts_jpg/TcpIp/TCP三次握手.jpg" alt="TCP三次握手" />
+<figcaption aria-hidden="true">TCP三次握手</figcaption>
+</figure>
+<ul>
+<li><h3 id="isn初始化序列号">ISN，初始化序列号</h3>
+<p>  主机A和主机B之间的TCP连接，相当于A，B的ip和端口构成的
+<strong>四元组</strong>
+。如果每次建立连接的初始序列号相同，当A和B之间的连接意外中断，再次连接且是相同四元组时，那么接收端就会出现序列号重复且乱序的情况。恶意攻击可以通过ip，端口，序列号，伪造身份来破坏TCP的正常连接，如果初始序列号每次相同，那么就更容易被攻击。<br />
+  因此通过 <strong>初始化序列号</strong>
+，使得建立连接的序列号更随机，增加安全性。初始化序列号也就是，增加通信安全的方法之一。</p></li>
+<li><h3 id="半连接全连接队列">半连接，全连接队列</h3>
+<ul>
+<li>半连接队列
+：也就是SYN队列。当接收端收到SYN后，会将该连接相关信息保存在半连接队列。<br />
+</li>
+<li>全接连队列
+：也就是accept队列。当接收端收到ACK后，会将该连接从半连接队列中移除，并创建新的全连接保存在全连接队列。通过Socket的accept()，将连接从全连接队列中取出。<br />
+</li>
+<li>半连接队列溢出
+：当半连接队列已满时，发送端的SYN报文就会被丢弃。如果攻击者一直发送SYN包且不发送ACK包，那么接收端就会有大量处于SYN_RCVD的TCP连接，从而导致半连接队列溢出。接收端可以开启
+<strong>tcp_syncookies</strong> 防御SYN攻击。<br />
+</li>
+<li>全连接队列溢出 ：当全连接队列已满时。接收端 <strong>默认</strong>
+会丢弃发送端的ACK包。此时，发送端处于 ESTABLISHED 状态，接收端依然处于
+SYN_RCVD 状态，发送端此时发送数据也不会得到接收端回应。而接收端会重发
+SYN+ACK 包，重发次数超过 <strong>tcp_synack_retries</strong> 后，会发送
+<strong>RST</strong> 给发送端重置连接。</li>
+</ul>
+<p>  除了上面说的默认行为：丢弃ACK包，然后接收端重发 SYN+ACK
+包之外，另一种是，当接收端收到ACK包后，直接发送 <strong>RST</strong>
+重置连接。总的来说，如果全连接队列满了，tcp连接溢出，会导致
+<strong>服务器请求数量上不去</strong>
+。被丢弃的TCP连接数量会被统计，可以通过查看该数来判断是否发生全连接队列溢出。</p></li>
+<li><h3 id="syn攻击防御手段">SYN攻击防御手段</h3>
+<ul>
+<li><h4 id="开启-tcp_syncookies-功能">开启 tcp_syncookies 功能</h4>
+<p>  SYN攻击点在于服务器的 <strong>资源有限</strong>
+。当收到SYN包后，接收端需要分配资源保存该次连接的信息，如四元组，MSS，时间戳等。<br />
+  tcp_syncookies的关键在于 <strong>完成三次握手前，不分配资源</strong>
+。在接收端不分配资源的情况下，完成握手建立连接。也就是说，接收端要在没有四元组，序列号等信息的情况下，验证发送端的
+<strong>ACK包的有效性</strong> 。<br />
+  在 <strong>开启</strong>
+tcp_syncookies的情况下，初始化序列号的规则会以：5位 时间戳，3位
+MSS选项值，24位 四元组和时间戳加密后的hash值
+来创建。因此接收端收到ACK后，将第三次握手的包ack-1，就获得了第二次握手的序列号。此时在将四元组和时间戳加密后的hash值，与该序列号后24位进行比较，来验证有效性。<br />
+  由此看来，该功能 <strong>缺点</strong>
+很明显，1.增加了接收端加密解密运算。2.MSS只有3位选项值，也就是说只有8种MSS值可选。</p></li>
+<li><h4 id="增加半连接队列大小">增加半连接队列大小</h4>
+<p>  通过增加半连接队列大小，来接收更多的SYN请求。半连接队列大小最大值为
+max_qlen_log ，该值受 max_syn_backlog 的值的影响。</p></li>
+<li><h4 id="减少接收端-synack包-的重传次数">减少接收端 SYN+ACK包
+的重传次数</h4>
+<p>  通过修改tcp_synack_retries的值，来减少重传SYN+ACK包次数，可以更快发送
+RST 来中断连接。</p></li>
+</ul></li>
+<li><h3 id="同时建立连接">同时建立连接</h3>
+<figure>
+<img src="/assets/posts_jpg/TcpIp/TCP同时建立连接.jpg"
+alt="TCP同时建立连接" />
+<figcaption aria-hidden="true">TCP同时建立连接</figcaption>
+</figure>
+<ul>
+<li><h4 id="状态转换">状态转换</h4>
+  待补充</li>
+</ul></li>
+<li><h3 id="三次握手的必要性">三次握手的必要性</h3>
+<p>  TCP的可靠连接，是建立在序列号，确认号上的，而为了安全性，计算机A和计算机B，都会生成初始化序列号。因此，<strong>至少需要两次</strong>
+数据传输，才能建立安全可靠的连接，或者说数据传输前的握手，就是为了双方初始序列号交换。至少需要
+计算机A 将自己的初始化序列号传输给 计算机B，以及 计算机B
+将自己的初始化序列号传输给 计算机A。<br />
+  换个角度说，为了可靠的数据传输，提前告知初始序列号的必要性。TCP会将应用软件产生的数据包分段发送，而因为网络问题，发送顺序不一定就是接收顺序。如果没有提前告知接收端初始序列号，而第一个数据包丢失，其他数据包正常接收，接收端是感知不到包丢失的。<br />
+  而交换完初始化序列号后的第三次握手，更多的是为了保护服务器的资源。如果只要两次握手，那么服务器在发送自己的初始序列号后，状态就为ESTABLISHED，然后等待客户端发送的请求，导致服务器资源的浪费。在只有两次握手的情况下，如果因为网络问题，导致第一次握手的网络包A没有到达服务器，客户端后又重新发送第一次的网络包B并成功建立连接。后双方断开连接，此时网络包A延迟到达服务器，服务器收到网络包A后，会把该包当作客户端发送的建立连接请求，而发送自己的初始序列号，建立连接。但客户端当前并没有发送第一次握手包，因此不会因为收到服务器的
+ACK+SYN 报文，而建立连接。从而导致服务器资源浪费。</p></li>
+</ul></li>
+<li><h2 id="四次挥手断开连接">四次挥手断开连接</h2>
+<figure>
+<img src="/assets/posts_jpg/TcpIp/TCP四次挥手.jpg" alt="TCP四次挥手" />
+<figcaption aria-hidden="true">TCP四次挥手</figcaption>
+</figure>
+<ul>
+<li><h3 id="msl">MSL</h3>
+<p>  MSL，也就是段的最长 <strong>寿命</strong>
+。换句话说，段在网络中存活的最长时间，超过这个时间的段会被丢弃。<br />
+  如果发送端的ACK包丢失，接收端没有收到ACK，到达超时重传的时间后，会重传FIN+ACK包。从发送端的角度，有发送的ACK的MSL及可能重发的FIN+ACK的MSL。因此发送端要等待2MSL的原因为：1.保证能接收到重发的FIN+ACK包。2.保证该次连接中产生的段失效。<br />
+  如果ACK一直失效，而接收端一直重发FIN+ACK包的话，经过
+<strong>tcp_fin_timeout</strong> 后，断开连接。该值也就是发送端保持在
+FIN_WAIT_2 状态的时间。</p></li>
+<li><h3 id="同时断开连接">同时断开连接</h3>
+<figure>
+<img src="/assets/posts_jpg/TcpIp/TCP同时断开连接.jpg"
+alt="TCP同时断开连接" />
+<figcaption aria-hidden="true">TCP同时断开连接</figcaption>
+</figure>
+<ul>
+<li><h4 id="状态转换-1">状态转换</h4>
+  待补充</li>
+</ul></li>
+</ul></li>
+<li><h2 id="流量控制">流量控制</h2></li>
+<li><h2 id="阻塞控制">阻塞控制</h2></li>
+<li><h2
+id="tcp协议在数据传输和接收中干了什么">TCP协议在数据传输和接收中干了什么</h2>
+<p>  TCP头部控制信息，记录发送端 及 接收端
+端口号，以及包的序列号，确认号等，加上ip 协议头部的，发送端 及 接收端
+ip地址，能让数据传输的 发送端，接收端 直到对方的 端口号，和
+ip地址。的同时能够，让 数据传输时的发送端 知道
+接收端接收到哪了，结合发送端自己发送到哪了，来实现 丢失的包的发现 及
+重传等。</p></li>
+</ul></li>
+<li><h1 id="udp协议">UDP协议</h1>
+<ul>
+<li><h2 id="udp协议-1">UDP协议</h2>
+<p>  只关注发送数据，也就是 只加上 端口号。</p></li>
+<li><h2 id="kcp协议">KCP协议</h2></li>
+<li><h2 id="quic协议">QUIC协议</h2></li>
+<li><h2
+id="udp协议在数据传输和接收中干了什么">UDP协议在数据传输和接收中干了什么</h2>
+<p>  UDP头部控制信息，记录发送端 及 接收端 端口号，加上ip
+协议头部的，发送端 及 接收端 ip地址，能让数据传输的 发送端，接收端
+直到对方的 端口号，和 ip地址。<br />
+  UDP不像TCP一样，报文的切片和重组，因此需要使用UDP传输大文件时，需要在应用层的程序中，先对传输文件进行切割，使得每一个传输的报文
+在UDP可传输 范围以内。</p></li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TCP/" rel="tag"># TCP</a>
+              <a href="/tags/UDP/" rel="tag"># UDP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Spring-SpringBoot-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="保留文件">
+                  <i class="fa fa-angle-left"></i> 保留文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/HTTP%E5%92%8CHTTPS%E5%8D%8F%E8%AE%AE/" rel="next" title="HTTP 和 HTTPS 协议">
+                  HTTP 和 HTTPS 协议 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

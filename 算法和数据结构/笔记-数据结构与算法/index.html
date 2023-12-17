@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="算法笔记_数据结构与算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法笔记_数据结构与算法">
+<meta property="og:url" content="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="算法笔记_数据结构与算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E7%AE%97%E6%B3%95.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/KMP%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/KMP%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/KMP%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D_2.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/KMP%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D_3.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95_2.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95_3.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95_4.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95_5.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95_6.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95_7.jpg">
+<meta property="article:published_time" content="2021-03-15T03:48:00.000Z">
+<meta property="article:modified_time" content="2023-11-04T04:48:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/","path":"算法和数据结构/笔记-数据结构与算法/","title":"算法笔记_数据结构与算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法笔记_数据结构与算法 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A0%86"><span class="nav-number">1.1.</span> <span class="nav-text">堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E5%A0%86%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.1.1.</span> <span class="nav-text">建堆的时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84-%E5%92%8C-i---12%E8%BF%AD%E4%BB%A3"><span class="nav-number">1.1.2.</span> <span class="nav-text">数组 和 (i - 1)&#x2F;2迭代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%B0%83%E6%A0%88"><span class="nav-number">1.2.</span> <span class="nav-text">单调栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E6%A0%91"><span class="nav-number">1.4.</span> <span class="nav-text">字典树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B"><span class="nav-number">2.1.1.</span> <span class="nav-text">归并排序，自顶向下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A"><span class="nav-number">2.1.2.</span> <span class="nav-text">归并排序，自底向上</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">位运算相关算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#k-k-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">k &amp; (k-1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#k--k"><span class="nav-number">2.2.2.</span> <span class="nav-text">k &amp; -k</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">牛顿迭代法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">欧几里得算法(辗转相除法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#floyd%E5%88%A4%E5%9C%88%E7%AE%97%E6%B3%95%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91%E7%AE%97%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">Floyd判圈算法(龟兔赛跑算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%81%E6%98%8E%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88-%E5%9C%A8%E6%85%A2%E6%8C%87%E9%92%88%E7%AC%AC%E4%B8%80%E5%9C%88-%E5%89%8D%E7%9B%B8%E9%81%87"><span class="nav-number">2.5.1.</span> <span class="nav-text">证明：快慢指针
+在慢指针第一圈 前相遇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%81%E6%98%8E%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%9B%B8%E9%81%87-%E5%9C%A8%E7%8E%AF%E5%85%A5%E5%8F%A3"><span class="nav-number">2.5.2.</span> <span class="nav-text">证明：快慢指针 第二次相遇
+在环入口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E6%B3%95-%E5%A4%9A%E6%95%B0%E6%8A%95%E7%A5%A8%E6%B3%95"><span class="nav-number">2.6.</span> <span class="nav-text">摩尔投票法 (多数投票法)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kmp%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.7.</span> <span class="nav-text">KMP字符串匹配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%A7%A3%E5%86%B3%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6"><span class="nav-number">2.7.1.</span> <span class="nav-text">动态规划解决最长公共字符串长度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bm%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.8.</span> <span class="nav-text">BM字符串匹配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%8F%E5%AD%97%E7%AC%A6%E8%A7%84%E5%88%99"><span class="nav-number">2.8.1.</span> <span class="nav-text">坏字符规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A5%BD%E5%90%8E%E7%BC%80%E8%A7%84%E5%88%99"><span class="nav-number">2.8.2.</span> <span class="nav-text">好后缀规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6manacher%E7%AE%97%E6%B3%95"><span class="nav-number">2.9.</span> <span class="nav-text">马拉车&#x2F;Manacher算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%AE%B0%E5%BD%95%E6%AD%A5%E9%95%BF"><span class="nav-number">2.9.1.</span> <span class="nav-text">动态规划记录步长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maxright-%E5%92%8C-center-%E5%8F%98%E9%87%8F"><span class="nav-number">2.9.2.</span> <span class="nav-text">maxRight 和 center 变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF"><span class="nav-number">2.10.</span> <span class="nav-text">约瑟夫环</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法笔记_数据结构与算法 | Blog">
+      <meta itemprop="description" content="算法笔记_数据结构与算法">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法笔记_数据结构与算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-15 11:48:00" itemprop="dateCreated datePublished" datetime="2021-03-15T11:48:00+08:00">2021-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-04 12:48:00" itemprop="dateModified" datetime="2023-11-04T12:48:00+08:00">2023-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">算法笔记_数据结构与算法</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="数据结构">数据结构</h1>
+<ul>
+<li><h2 id="堆">堆</h2>
+<ul>
+<li><h3 id="建堆的时间复杂度">建堆的时间复杂度</h3>
+<p>  建堆时，当前节点向上移动，也就是说父节点向下移动。对于长度为N的数组，高度为H；H
+= log2(N) + 1：<br />
+  原最后一层的节点 下移的次数 为0，原倒数第二层
+最多下移一次，以此类推。<br />
+  假设当前高度为X，该层共有 2^(X - 1) 个节点。倒数第一层所有节点时间 +
+倒数第二层所有节点时间 + .... + 第一层时间所有节点时间2^(H - 1) * 0 +
+2^(H - 2) * 1 + ... + 2^(0) * (H - 1) = 2N - 2 - log2(N) = O(N);因此
+时间复杂度为 O(N)</p></li>
+<li><h3 id="数组-和-i---12迭代">数组 和 (i - 1)/2迭代</h3>
+<p>  当遇到数组，和坐标i的公式迭代：(i - 1) &gt;&gt; 1 或 (i - 1)/2
+这类时，一般就是和 堆 相关的，i是当前新插入的元素，(i -
+1)/2是父节点的坐标。</p></li>
+</ul></li>
+<li><h2 id="单调栈">单调栈</h2>
+<p>  在一维数组中对每一个数找到第一个比自己 小/大 的元素。这类
+“在一维数组中找第一个满足某种条件的数”
+的场景就是典型的单调栈应用场景<br />
+  数组中，对每一个数，从左往右，或从右往左，找到第一个满足某条件的数，这种场景下，一般就是使用单调栈<br />
+  需要找到当前位置，左边或者右边，第一个满足某条件的 (大或者小)</p></li>
+<li><h2 id="并查集">并查集</h2></li>
+<li><h2 id="字典树">字典树</h2></li>
+</ul></li>
+<li><h1 id="算法">算法</h1>
+<ul>
+<li><h2 id="排序算法">排序算法</h2>
+<ul>
+<li><h3 id="归并排序自顶向下">归并排序，自顶向下</h3>
+<p>  也就是通过递归实现。具体没什么好说的。因为是通过递归实现，因此除了创建数组的空间复杂度外，需要消耗
+方法入栈 的空间复杂度。也就是O(logN)，为递归的深度。</p></li>
+<li><h3 id="归并排序自底向上">归并排序，自底向上</h3>
+<p>  不使用递归的方法，不需要消耗递归的O(logN)的空间复杂度。思路有些类似于
+希尔排序的步长，先从底层，每两个排序，再到每四个排序，以此类推。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> length <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token comment">// i表示 合并的个数</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> length<span class="token punctuation">;</span> i <span class="token operator">*=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> leftStart <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> leftStart <span class="token operator">+</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>leftStart <span class="token operator">&lt;</span> length <span class="token operator">&amp;&amp;</span> mid <span class="token operator">&lt;</span> length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> rightEnd <span class="token operator">=</span> mid <span class="token operator">+</span> i <span class="token operator">>=</span> length <span class="token operator">?</span>  length <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">:</span> mid <span class="token operator">+</span> i<span class="token punctuation">;</span>
+        <span class="token comment">// 合并 leftStart ~ mid 和 mid + 1 ~ rightEnd </span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> leftStart<span class="token punctuation">,</span> mid<span class="token punctuation">,</span> rightEnd<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        leftStart <span class="token operator">=</span> rightEnd <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        mid <span class="token operator">=</span> leftStart <span class="token operator">+</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  自底向上的方法中，需要注意的是数组的长度。假设数组长度为10，递归方法的流程大致为：10
+分成 5 和 5的长度，5 分成 2 和
+3的长度。也就是说，递归方法不需要注意数组划分后的长度。不管数组的长度是多少，都能直接分成2个部分。<br />
+  而自底向上的流程大致为：i为 1 时，坐标 0、1
+排序，2、3排序......8、9排序。i为 2 时，坐标
+0、1、2、3排序，4、5、6、7排序，i为 4 时，坐标 0 ~ 7 排序。因为 i
+是从1开始翻倍，如果当 数组长度为 10，i为 8，那么最后合并的子数组长度为
+8、2。</p></li>
+</ul></li>
+<li><h2 id="位运算相关算法">位运算相关算法</h2>
+<ul>
+<li><h3 id="k-k-1">k &amp; (k-1)</h3>
+<p>  Brian Kernighan算法，k &amp; (k - 1) 得到的值，就相当于在 k
+中，从低位到高位，移除第一个 1，也就是最右侧的 1，其他位不变。</p></li>
+<li><h3 id="k--k">k &amp; -k</h3>
+<p>  k &amp; -k 得到的结果，就相当于在 k 中，从高位到低位，移除第一个
+1，也就是移除最左侧的 1，其他位不变。</p></li>
+</ul></li>
+<li><h2 id="牛顿迭代法">牛顿迭代法</h2>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/牛顿迭代法.jpg"
+alt="牛顿迭代法" /><br />
+  如图所示，计算 C 的平方根，可以理解成 <span class="math inline">\(x^2
+= C\)</span> 。也就是 <span class="math inline">\(y = x^2 - C\)</span>
+，当 y = 0 时，x 的值，也就是曲线和 x轴
+的交点。而牛顿迭代法就是从初始值<span
+class="math inline">\(x_0\)</span>，一直向交点接近。<span
+class="math inline">\(x_0\)</span> 一般取 C
+值即可，防止过大，或者过小。<span class="math inline">\(x_0\)</span>
+和曲线的交点为 <span class="math inline">\(x_0\)</span> , <span
+class="math inline">\(x{_0}{^2} - C\)</span> 。该点的切线曲率为 <span
+class="math inline">\(2x_0\)</span>，因此该切线的方程式为：<span
+class="math inline">\(y = 2x_0 * (x - x_0) + x{_0}{^2} -
+C\)</span>，因此 <span class="math inline">\(x_1\)</span> 就是当 y =
+0时的值。也就是 <span class="math inline">\(x_1 = (x_0 + C/x_0) /
+2\)</span> 。也就是说，代码这样写即可:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">b <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token class-name">C</span><span class="token operator">/</span>a<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+a <span class="token operator">=</span> b<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  当两次结果，也就是上一次结果 a，和这一次结果
+b，非常接近时，就可以视为结束。也就是:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">b <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> <span class="token class-name">C</span><span class="token operator">/</span>a<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0.0000001</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+a <span class="token operator">=</span> b<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h2 id="欧几里得算法辗转相除法">欧几里得算法(辗转相除法)</h2></li>
+<li><h2 id="floyd判圈算法龟兔赛跑算法">Floyd判圈算法(龟兔赛跑算法)</h2>
+<ul>
+<li><h3 id="证明快慢指针-在慢指针第一圈-前相遇">证明：快慢指针
+在慢指针第一圈 前相遇</h3></li>
+<li><h3 id="证明快慢指针-第二次相遇-在环入口">证明：快慢指针 第二次相遇
+在环入口</h3></li>
+</ul></li>
+<li><h2 id="摩尔投票法-多数投票法">摩尔投票法 (多数投票法)</h2>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/摩尔投票算法.jpg"
+alt="摩尔投票算法" /><br />
+  当数组中，target出现的次数，大于一半，也就是 target的数量 大于
+非target的数量，可以使用 <strong>抵消</strong> 来找到target。遇到
+当前target 相等的 次数+1，和 当前target 不相等
+次数-1。抵消到最后，剩下的 一定是 出现次数大于一半 的数。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> target <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> curNum <span class="token operator">:</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 当count为0时，将当前值设为target</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        target <span class="token operator">=</span> curNum<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// curNum 不等于 target 抵消相减</span>
+    count <span class="token operator">+=</span> target <span class="token operator">==</span> curNum <span class="token operator">?</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h2 id="kmp字符串匹配算法">KMP字符串匹配算法</h2>
+<p>  KMP算法的特点，不回溯主字符串的指针，只回溯查询的字符串的指针，实现对主字符串的一趟扫描遍历。大致流程为，文本串A
+和 查询串B 从 0
+位开始遍历并比较，当发生不匹配时，只回溯B串的指针到合适的位置。<br />
+<img src="/assets/posts_jpg/算法和数据结构/算法/KMP字符串匹配.jpg"
+alt="KMP字符串匹配" /><br />
+<img src="/assets/posts_jpg/算法和数据结构/算法/KMP字符串匹配_1.jpg"
+alt="KMP字符串匹配_1" /><br />
+  如上图所示，当 i 和 j 指针遍历到图中所示位置时，i位 和 j位
+字符不匹配，此时 <strong>i - j ~ i - 1</strong> 和 <strong>0 ~ j -
+1</strong> 上的字符串肯定是匹配的，都为 aba。因此在 i
+指针不动的情况下，只需要将 j 指针移动到图中的位置，继续开始匹配。而 KMP
+的关键就是：当字符不匹配时，能够获得 j 指针的新位置，而实现的方法就是
+<em>查询串B</em> 中 <strong>已匹配的部分(0 ~ j - 1)</strong> 的
+<strong>最长公共字符串</strong> 。这个公共字符串就是指：在 0 ~ <em>j -
+1</em> 范围中，符合 0 ~ k 的字符串 == <em>j - k - 1</em> ~ <em>j -
+1</em> 的字符串。使用一个数组保存每一位的最长公共串长度。</p>
+<ul>
+<li><h3
+id="动态规划解决最长公共字符串长度">动态规划解决最长公共字符串长度</h3>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/KMP字符串匹配_2.jpg"
+alt="KMP字符串匹配_2" /><br />
+  动态规划 dp 数组，dp[m] 表示：以 m
+位字符为尾的，能够构成的最长公共字符串的长度。如图所示，m
+位所指向的字符为 a，<em>m - 1</em> 位的 最长公共字符串的长度为
+2，也就是说 0 ~ 1 的字符串肯定和 <em>m - 2</em> ~ <em>m - 1</em>
+相同，因此判断 m位 的字符 和 2坐标 的字符是否相同。<br />
+  相同的话，就是在 dp[m - 1] 的值上加 1，也就是 dp[m] = dp[m - 1] +
+1。<br />
+<img src="/assets/posts_jpg/算法和数据结构/算法/KMP字符串匹配_3.jpg"
+alt="KMP字符串匹配_3" /><br />
+  如图所示，当 m 指针指向坐标 7 时，dp[m - 1] 为 3，可以得到 0 ~ 2
+的字符串 和 <em>m - 3</em> ~ <em>m - 1</em> 的字符串相同。 m 位 和 3
+坐标上的字符不相同，但是 2坐标的 a 和 m - 1 坐标的 a 相匹配，因此用
+dp[2] 记录的长度 1，来判断 1坐标 和 m位 的字符是否相等。更详细的说，m
+位的 b 无法与 m - 1 位的 a 组成长度为 4 的公共字符串，但是 m - 1 位的 a
+和 前面的 2坐标的 a 相匹配，通过用前面的 a 记录的最长长度
+1，来判断是否能够组成长度为 2 的字符串。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// dp[i] 表示 以 i 位结尾的，能够组成的最长公共字符串长度</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> dp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> idx <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">//</span>
+<span class="token keyword">int</span> preIdx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>idx <span class="token operator">&lt;</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>idx<span class="token punctuation">)</span> <span class="token operator">==</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>preIdx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        dp<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>preIdx<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        preIdx <span class="token operator">=</span> idx<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        <span class="token comment">// 如果不匹配 且 preIdx对应的最长公共字符串为 0</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>dp<span class="token punctuation">[</span>preIdx<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            dp<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            preIdx <span class="token operator">=</span> idx<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// 往前查找</span>
+            preIdx <span class="token operator">=</span> dp<span class="token punctuation">[</span>preIdx<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h2 id="bm字符串匹配算法">BM字符串匹配算法</h2>
+<ul>
+<li><h3 id="坏字符规则">坏字符规则</h3>
+<p>asdfasdfasdf
+移动查询串时，哪个规则移动的位数更多，就用哪个规则。</p></li>
+<li><h3 id="好后缀规则">好后缀规则</h3>
+<p>移动查询串时，哪个规则移动的位数更多，就用哪个规则。<br />
+移动查询串时，哪个规则移动的位数更多，就用哪个规则。</p></li>
+</ul></li>
+<li><h2 id="马拉车manacher算法">马拉车/Manacher算法</h2>
+<p>  以线性的时间复杂度解决最长回文子串的算法。<br />
+<img src="/assets/posts_jpg/算法和数据结构/算法/马拉车算法_1.jpg"
+alt="马拉车算法_1" /><br />
+  如图所示，原字符串 <em>str</em> 添加分隔符，保证新字符串 <em>new</em>
+的长度一定为 <strong>奇数</strong> ，而 <em>new</em>
+的最长回文子串，去掉分隔符后也是 <em>str</em>
+中的最长回文子串。<em>new</em> 去掉最左边的 # 后，每一个 <em>str</em>
+的原字符都有一个 # 对应，也就是说 <em>new</em> 和 <em>str</em>
+的长度转换为：<span class="math inline">\(str = (new -
+1)/2\)</span>，同理，最长回文子串的长度转换也是这个。<br />
+<img src="/assets/posts_jpg/算法和数据结构/算法/马拉车算法_2.jpg"
+alt="马拉车算法_2" /><br />
+  <em>new</em> 的 最长回文子串为 "#a#b#b#a#"，因此 <em>str</em>
+中的结果为 "abba"。<br />
+  以 i位 为中心，通过 <strong>中心扩散</strong>
+来获得回文子串，两个指针从 <em>i - 1</em> 向左 和 <em>i + 1</em>
+向右，判断字符是否相等。通过这种方法找到最长回文子串，最终的时间复杂度为
+<span class="math inline">\(O(N^2)\)</span> 。马拉车算法通过 动态规划 和
+回文串的对称特性，优化 中心扩散法 判断回文串时，两个指针的
+<strong>起点</strong> ，避免判断回文串时，多次遍历到重复的字符。</p>
+<ul>
+<li><h3 id="动态规划记录步长">动态规划记录步长</h3>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/马拉车算法_3.jpg"
+alt="马拉车算法_3" /><br />
+  dp[i]表示：以 i位 为中心的回文串的可扩展长度。如图中的 dp[8] =
+4，表示该位的左右两边可延长 4 的距离，来表示长度为 9 的回文串。</p></li>
+<li><h3 id="maxright-和-center-变量">maxRight 和 center 变量</h3>
+<p>  maxRight
+变量记录：目前回文子串能够扩展到的最右边的位置。也就是说，以之前某一位为中心的回文串，该回文串的最右边的位置。<br />
+  center 变量记录：maxRight 所对应的回文串的中心。<br />
+  maxRight 和 center
+对应的回文串，不一定就是最长回文串，只是能够更靠近右边的回文串。</p></li>
+</ul>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/马拉车算法_4.jpg"
+alt="马拉车算法_4" /><br />
+  如图所示，当 <strong>i &gt;= maxRight</strong>
+时，此时和普通中心扩散法一样，只能从 <em>i - 1</em> 和 <em>i + 1</em>
+开始判断回文串。</p>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/马拉车算法_5.jpg"
+alt="马拉车算法_5" /><br />
+  如上图所示，mirror指针 表示 i指针 的以 center
+为中心的对称指针。通过对称的关系得到 mirror 和 i 转换公式为：<span
+class="math inline">\(mirror = 2center - i\)</span> 。<br />
+  根据图中示例解释为：dp[mirror] = 0，说明以 mirror 为中心的回文串步长为
+0。根据回文串对称性可得：</p>
+<ul>
+<li>以 mirror 为中心：1位 和 3位 一定不相等</li>
+<li>以 center 为中心：1位 和 5位 一定相等。</li>
+</ul>
+<p>  推导可得：3位 和 5位 一定不相等。<br />
+  此时 <strong>maxRight - i &gt; dp[mirror]</strong> ，表示整个
+mirror回文串 都在 center回文串 的内部，且有左边界 mirror - dp[mirror]
+&gt; maxLeft。可以得到结果：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>mirror<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/马拉车算法_6.jpg"
+alt="马拉车算法_6" /><br />
+  如上图所示，当 <strong>maxRight - i = dp[mirror]</strong>
+时，mirror回文串 都在 center回文串 的内部。和上面的例子一样，只是左边界
+mirror - dp[mirror] = maxLeft。<br />
+  根据回文串对称关系可以得到：</p>
+<ul>
+<li>绿色箭头的字符一定相等</li>
+<li>橙色箭头的字符一定相等</li>
+</ul>
+<p>  推导可得：蓝色箭头的字符一定相等。同理，8 ~ 10 和 12 ~ 14
+内的字符都可以通过这种方式证明相等。因此 <strong>dp[i] 至少等于
+dp[mirror]</strong> 。<br />
+  已知 1位 和 9位 一定不相等，1位 和 15位 一定不相等，7位 和 9位
+一定相等，但是不能通过上面的条件判断 7位 和 15位
+的关系。因此从这两个位置作为 <strong>起点</strong>
+，进行回文串判断。所以有：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> i_left <span class="token operator">=</span> i <span class="token operator">-</span> dp<span class="token punctuation">[</span>mirror<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> i_right <span class="token operator">=</span> i <span class="token operator">+</span> dp<span class="token punctuation">[</span>mirror<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/马拉车算法_7.jpg"
+alt="马拉车算法_7" /><br />
+  如上图所示，当 <strong>maxRight - i &lt; dp[mirror]</strong>
+时，mirror回文串 一部分不在 center回文串 之中。mirror回文串
+左半部分中，在 center回文串 内部的部分为：maxLeft ~ mirror，以 center
+为中心进行转换可得：i ~ maxRight。和上面同理，根据对称的特性，i ~
+maxRight 一定能够以 i 为中心 匹配成回文串。<br />
+  根据回文串对称关系可以得到：</p>
+<ul>
+<li>绿色箭头的字符一定相等</li>
+<li>蓝色箭头的字符一定相等</li>
+<li>橙色箭头的字符一定不相等</li>
+</ul>
+<p>  推导可得：红色箭头的字符一定不相等。也就是说，i回文串
+无法继续扩展。最终得到结果：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> maxRight <span class="token operator">-</span> i<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  整理上面的条件：</p>
+<ul>
+<li>当 i &gt;= maxRight 时，判断起点是 i - 1 和 i + 1；</li>
+<li>当 i &lt; maxRight 时
+<ul>
+<li>dp[mirror] &lt; maxRight - i，dp[i] = dp[mirror]；</li>
+<li>dp[mirror] = maxRight - i，dp[i] = dp[mirror] 且判断起点为 i - 1 -
+dp[mirror] 和 i + 1 + dp[mirror]；</li>
+<li>dp[mirror] &gt; maxRight - i，dp[i] = maxRight - i；</li>
+</ul></li>
+</ul>
+<p>  结合上述条件可以得到马拉车算法的关键为：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> maxRight<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> mirror <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> center <span class="token operator">-</span> i<span class="token punctuation">;</span>
+  <span class="token comment">/* 
+  maxRight - i &lt; dp[mirror]，dp[i] = maxRight - i
+  maxRight - i >= dp[mirror]，dp[i] 至少为 dp[mirror]
+  相当于取 dp[mirror] 和 maxRight - i 中更小的 */</span>
+  dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>mirror<span class="token punctuation">]</span> <span class="token punctuation">,</span> maxRight <span class="token operator">-</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> i_left <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">-</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> i_right <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">+</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 回文串判断</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// 更新 maxRight 和 center</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> maxRight<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  maxRight <span class="token operator">=</span> i <span class="token operator">+</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  center <span class="token operator">=</span> i<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  原字符串 转 新字符串 时间复杂度为 <span
+class="math inline">\(O(N)\)</span> 。回文串判断过程中，i_right
+指针向右遍历时，基本上避免了重复遍历，每个字符只遍历了一次，时间复杂度为
+<span class="math inline">\(O(N)\)</span>。最终时间复杂度为 <span
+class="math inline">\(O(N)\)</span> 。</p></li>
+<li><h2 id="约瑟夫环">约瑟夫环</h2>
+<p>  约瑟夫环：0,1,···,n-1这 n 个数字排成一个圆圈，从数字 0
+开始，每次从这个圆圈里删除第 m
+个数字，然后从下一个数开始计数。求出这个圆圈里剩下的最后一个数字。<br />
+  假设F(n,m)，表示 n 个数时，从第一个计数，每次删除第 m
+个数，最后剩下的坐标。那么有：<br />
+  设 F(n - 1, m) = x，也就是在 n - 1 个数中，最后剩下的是坐标为 x
+的那个。当从坐标 0 开始 计数时，此时有 n 个数，用 F(n, m)
+表示，第一次移除的数为第 m 个，坐标 m - 1，考虑到循环问题，直接用 m % n
+来表示，移除后，从下一个数开始计数，坐标 m，此时还剩 n - 1 个数。</p>
+<ul>
+<li>F(n - 1, m) ：从 坐标0 开始计数，最终结果为 x;</li>
+<li>F(n, m) ：从 坐标0 开始计数，移除第 m 个后，还剩 n - 1 个数，从 m %
+n 计数。F(n, m) 等价于 从 m % n 开始计数的 F(n - 1, m);</li>
+</ul>
+<p>  已知，F(n - 1, m) 结果为 x。F(n, m) 结果的坐标为 ：x + m %
+n。考虑到循环，所以结果为 (x + m % n) % n，最终整理可得： <span
+class="math display">\[F(n, m) = (F(n - 1, m) + m) \%
+n\]</span></p></li>
+</ul></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%E4%BD%BF%E7%94%A8/" rel="prev" title="Hexo 和 Next主题 和 思维导图">
+                  <i class="fa fa-angle-left"></i> Hexo 和 Next主题 和 思维导图
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="next" title="保留文件">
+                  保留文件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

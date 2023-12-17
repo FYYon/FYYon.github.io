@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="java学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java学习笔记">
+<meta property="og:url" content="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="java学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-knowledge/MarkWord%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-knowledge/%E6%97%A0%E9%94%81%E5%8D%87%E7%BA%A7%E5%81%8F%E5%90%91%E9%94%81.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-knowledge/%E5%85%B6%E4%BB%96%E7%BA%BF%E7%A8%8B%E8%8E%B7%E5%BE%97%E5%81%8F%E5%90%91%E9%94%81.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-knowledge/%E8%8E%B7%E5%8F%96%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-knowledge/%E8%8E%B7%E5%8F%96%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81.jpg">
+<meta property="article:published_time" content="2021-04-20T02:48:00.000Z">
+<meta property="article:modified_time" content="2023-11-21T01:41:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/Java/java-knowledge/MarkWord%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"Java/java基础/java-A学习笔记/","title":"java学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>java学习笔记 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jdk-21-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">JDK 21 新特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jdk-17-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">JDK 17 新特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E4%B8%AD%E7%9A%84%E9%94%81%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">java中的锁分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%AF%E5%90%A6%E7%BB%99%E8%B5%84%E6%BA%90%E4%B8%8A%E9%94%81%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%88%86%E4%B8%BA"><span class="nav-number">3.1.</span> <span class="nav-text">是否给资源上锁的设计分为：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%82%B2%E8%A7%82%E9%94%81"><span class="nav-number">3.1.1.</span> <span class="nav-text">悲观锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-number">3.1.2.</span> <span class="nav-text">乐观锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E8%B5%84%E6%BA%90%E4%B8%8A%E9%94%81%E5%A4%B1%E8%B4%A5%E5%90%8E%E7%9A%84%E8%A1%8C%E4%B8%BA%E5%88%92%E5%88%86%E4%B8%BA"><span class="nav-number">3.2.</span> <span class="nav-text">给资源上锁失败后的行为划分为：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E8%87%AA%E6%97%8B%E9%94%81"><span class="nav-number">3.2.1.</span> <span class="nav-text">非自旋锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%97%8B%E9%94%81"><span class="nav-number">3.2.2.</span> <span class="nav-text">自旋锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E7%BA%BF%E7%A8%8B%E8%83%BD%E5%90%A6%E7%BB%99%E5%B7%B2%E4%B8%8A%E9%94%81%E8%B5%84%E6%BA%90%E4%B8%8A%E9%94%81%E5%88%92%E5%88%86%E4%B8%BA"><span class="nav-number">3.3.</span> <span class="nav-text">其他线程能否给已上锁资源上锁划分为：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E9%94%81"><span class="nav-number">3.3.1.</span> <span class="nav-text">共享锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E4%BB%96%E9%94%81"><span class="nav-number">3.3.2.</span> <span class="nav-text">排他锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%9E%E4%BA%89%E8%B5%84%E6%BA%90%E6%97%B6%E6%98%AF%E5%90%A6%E6%8E%92%E9%98%9F%E5%88%92%E5%88%86%E4%B8%BA"><span class="nav-number">3.4.</span> <span class="nav-text">竞争资源时是否排队划分为：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%B9%B3%E9%94%81"><span class="nav-number">3.4.1.</span> <span class="nav-text">公平锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="nav-number">3.4.2.</span> <span class="nav-text">非公平锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%A4%9A%E6%AC%A1%E8%8E%B7%E5%BE%97%E5%90%8C%E4%B8%80%E6%8A%8A%E9%94%81%E5%88%92%E5%88%86%E4%B8%BA"><span class="nav-number">3.5.</span> <span class="nav-text">线程是否可以多次获得同一把锁划分为：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">3.5.1.</span> <span class="nav-text">可重入锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">3.5.2.</span> <span class="nav-text">不可重入锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synchronized%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">3.6.</span> <span class="nav-text">synchronized关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E9%94%81"><span class="nav-number">3.6.1.</span> <span class="nav-text">无锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%8F%E5%90%91%E9%94%81"><span class="nav-number">3.6.2.</span> <span class="nav-text">偏向锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81"><span class="nav-number">3.6.3.</span> <span class="nav-text">轻量级锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81"><span class="nav-number">3.6.4.</span> <span class="nav-text">重量级锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lock%E7%B1%BB"><span class="nav-number">3.7.</span> <span class="nav-text">Lock类</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/Java/java%E5%9F%BA%E7%A1%80/java-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="java学习笔记 | Blog">
+      <meta itemprop="description" content="java学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-20 10:48:00" itemprop="dateCreated datePublished" datetime="2021-04-20T10:48:00+08:00">2021-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-21 09:41:00" itemprop="dateModified" datetime="2023-11-21T09:41:00+08:00">2023-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">java学习笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- java中 局部变量的生命周期 随着方法结束而销毁。  
+     外部类 和 内部类 同级，也就是 内部类对象 不会随着 方法结束 而被回收，当没用被引用时才会被回收。  
+     如果内部类对象 需要 用到 局部变量，那么生命周期的 不一致 会导致，内部类对象 访问了 不存在的变量。  
+     因此java中，会复制局部变量 作为内部类 成员变量 以供 内部类对象使用，为了保证 原局部变量 和 复制的变量 数据一致，必须使用 final，来保证 变量的值 或者 引用 不被改变
+
+
+     不同的操作系统，机器码的识别不同，java源码， 编译成 jvm 识别的字节码，然后由 jvm 编译成 对应的 机器码，从而实现跨平台
+
+
+     java asser
+     java 动态编译
+     IO，字节流，字符流，NIO
+     lambuda
+ -->
+<ul>
+<li><h1 id="jdk-21-新特性">JDK 21 新特性</h1></li>
+<li><h1 id="jdk-17-新特性">JDK 17 新特性</h1></li>
+<li><h1 id="java中的锁分类">java中的锁分类</h1>
+<p>  在多线程并发操作中，常见并发控制方式就是锁。锁根据并发控制策略，可以分为
+悲观锁、可重入锁 等。<strong>并发控制策略是设计思想</strong>
+，不同的策略之间不完全互斥，一个具体的实现可能包含多种策略。如
+synchronized 相当于：悲观、可重入、排他 。</p>
+<ul>
+<li><h2 id="是否给资源上锁的设计分为">是否给资源上锁的设计分为：</h2>
+<ul>
+<li><h3 id="悲观锁">悲观锁</h3>
+<p>  就是认为一定有其他线程来修改数据，因此给获取到的数据加锁，防止其他线程进行修改。悲观锁
+的特点是先获取锁，然后再操作。<br />
+  在 java 中，<em>synchronized</em> 和 <em>Lock</em>
+实现类都是悲观锁。像 <em>排他锁</em> ，<em>共享锁</em>
+等分类算是悲观锁的更详细的划分。</p></li>
+<li><h3 id="乐观锁">乐观锁</h3>
+<p>  不会给数据加锁，而是通过修改数据时先判定该数据是否被别的线程修改，如果没有则更新数据。乐观锁
+的特点是先操作，然后再判断该操作是否能行。乐观锁 在java中 通常用 CAS(
+compare and swap )实现，在AtomicInteger等类中，就使用到了CAS +
+自旋。</p></li>
+</ul></li>
+<li><h2
+id="给资源上锁失败后的行为划分为">给资源上锁失败后的行为划分为：</h2>
+<ul>
+<li><h3 id="非自旋锁">非自旋锁</h3>
+<p>  在竞争资源失败后，线程会进入阻塞状态，等待唤醒。线程的 阻塞 或 唤醒
+都需要操作系统的介入，需要切换cpu状态 ( <strong>线程上下文切换</strong>
+)。 <strong>cpu上下文切换</strong>
+就是保存前一个任务的cpu上下文(程序计数器和cpu寄存器)，然后加载新任务的cpu上下文，跳转到新程序计数器所指的位置，执行新任务。</p></li>
+<li><h3 id="自旋锁">自旋锁</h3>
+<p>  在竞争资源失败后，会通过自旋操作，不放弃cpu时间片，尝试获取资源，这样做可以减少cpu切换。</p></li>
+</ul></li>
+<li><h2
+id="其他线程能否给已上锁资源上锁划分为">其他线程能否给已上锁资源上锁划分为：</h2>
+<ul>
+<li><h3 id="共享锁">共享锁</h3>
+<p>  可以在已经加了共享锁的资源上继续加上共享锁，不能加在上了排他锁的资源上。ReentrantReadWriteLock内部类ReaderLock是在java中的具体实现。</p></li>
+<li><h3 id="排他锁">排他锁</h3>
+<p>  不能加在上了共享锁或排他锁的资源上，只能加在没有锁的资源上。ReentrantReadWriteLock
+内部类 WriteLock 是 java 中的具体实现。<br />
+  ReentrantReadWriteLock 内部类 Sync 是实现锁操作的关键，Sync类
+是AbstractQueuedSynchronizer类 的子类，其中 int型 字段 state
+表示资源上锁的数量。state共32位，高16位表示读锁数量，低16位表示写锁数量。因此读锁或写锁最多能上2<sup>16</sup>-1
+= 65535个。</p></li>
+</ul></li>
+<li><h2 id="竞争资源时是否排队划分为">竞争资源时是否排队划分为：</h2>
+<ul>
+<li><h3 id="公平锁">公平锁</h3>
+<p>  线程在给打算给资源上锁时，直接加入到等待队列中，只有当自己是队列中第一个时，才可以给资源上锁，其他线程等待。Lock实现类的内部类FairSync(Sync子类)是java中公平锁的具体实现。公平锁
+上锁的方法比 非公平锁
+多个调用hasQueuedPredecessors()判断等待队列情况。</p></li>
+<li><h3 id="非公平锁">非公平锁</h3>
+<p>  线程打算给资源上锁时，先尝试上锁获取资源，失败了后再加入到等待队列。非公平锁
+直接尝试获取资源可以省略线程的阻塞状态和唤醒状态的变更造成的cpu切换状态的消耗。线程在尝试获取锁时本来就处于获取到cpu时间片的运行状态，如果切换到阻塞状态就是上面提到的cpu线程上下文切换。Lock实现类的内部类
+NonFairSync(Sync子类) 是java中非公平锁的具体实现。Lock实现类默认内部sync
+= new NonFairSync()。<br />
+  java中接口 Lock
+的实现类，通过调用Sync的实例实现上锁操作，抽象类Sync有两个子类，NonFairSync和FairSync，Lock的实现类
+默认NonFairSync，也即 Sync sync = new NonFairSync() 。Lock接口的
+tryLock()方法也就是调用Sync类的抽象方法tryAcquire()方法，具体由两个子类实现。</p></li>
+</ul></li>
+<li><h2
+id="线程是否可以多次获得同一把锁划分为">线程是否可以多次获得同一把锁划分为：</h2>
+<ul>
+<li><h3 id="可重入锁">可重入锁</h3>
+<p>  允许线程中的流程多次获得同一个锁，防止内部给同一个锁上锁失败造成死锁。synchronized关键字还有ReentrantLock是java中可重入锁的具体实现。AbstractQueueSynchronizer的state字段表示上了多上锁。</p></li>
+<li><h3 id="不可重入锁">不可重入锁</h3>
+<p>  线程流程不能再获取同一个锁，当流程中尝试上锁同一个资源时，无法获取，当前线程也无法释放，所以会造成死锁。线程池ThreadPoolExecutor类中的内部类
+Worker 就是非可重入锁，继承AQS类，没有加可重入判定。<br />
+  Worker类继承AQS类实现Runnable接口，内部还有个Thread对象执行重写的run方法，相当于线程池中的
+执行任务线程。当线程池变为SHUTDOWN状态时，要中断空闲线程。判定空闲线程的方法就是tryLock()，worker获得任务要执行时，会先
+worker.lock() 来上锁。如果tryLock() 为 false，就表示这个 worker
+对象正在执行任务不能中断，因此要用不可重入锁。</p></li>
+</ul></li>
+<li><h2 id="synchronized关键字">synchronized关键字</h2>
+<p>  synchronized关键字，即同步锁，对于synchronized的代码块，不应该理解成synchronized锁住了这个代码块，而是
+<strong>执行这段代码时需要获得同步锁</strong>
+，synchronized锁住的是对象，而锁保存在对象头的 <strong>Mark
+Word</strong> 中。synchronized在 class文件也就是字节码表示中，是
+<strong>monitorenter</strong> 和 <strong>monitorexit</strong>
+指令。<br />
+  Mark Word在32位Jvm中长度就是32位，在64位Jvm中就是64位。Mark
+Word默认保存的是对象的
+hashcode，分代年龄，锁标志位等，也就是没有遇到同步锁时存储的数据。Mark
+Word的数据会随着锁标志位的变化而变化。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/MarkWord示意图.jpg"
+alt="MarkWord示意图" /><br />
+  根据上图所示，synchronized关键组锁的是对象，而该对象的状态在Mark
+Word中。</p>
+<ul>
+<li><h3 id="无锁">无锁</h3>
+<p>  无锁状态就是一个对象的默认状态，也就是没有遇到synchronized关键字的对象。其中Mark
+Word保存的是hashcode
+对象年龄等。标志位是01，和偏向锁一样，偏向锁和无锁状态通过是否偏向锁位
+0和1区分。因为分代年龄是4位，因此对象年龄最大值15。</p></li>
+<li><h3 id="偏向锁">偏向锁</h3>
+<p>  当无锁状态的对象，被 <strong>一个线程上锁</strong> 而
+<strong>不存在多线程竞争</strong> 时，会从无锁状态升级成偏向锁状态。
+<strong>锁可以升级不能降级，但是偏向锁可以重置为无锁状态</strong>
+。当无锁态升级到偏向锁时，原来无锁时的Mark Word中hash code等数据会
+<strong>备份到获得锁的线程的栈的栈帧中</strong> (
+栈是线程独有，栈帧元素的入栈出栈是方法的执行和结束，线程遇到synchronized代码块时也会在某个方法中，则
+<strong>备份数据就保存到该方法对应的栈帧中</strong> )。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/无锁升级偏向锁.jpg"
+alt="无锁升级偏向锁" /><br />
+  当一个线程给对象上锁时，先判断Mark
+Word中标志位，然后再判断是否为偏向锁。如果不是偏向锁，则通过CAS修改Mark
+Word，将Mark
+Word改为偏向锁状态且将线程id指向当前线程。如果对象已经是偏向锁了，则只需要判断Mark
+Word中的线程id是否是当前线程，如果是则不需要CAS操作，直接获得锁。因为
+<strong>偏向锁是不会释放的</strong>
+，其他线程想给偏向锁状态对象上锁时，就通过 <strong>Epoch</strong>
+位判断偏向锁是否能重新偏向，也就是上一个获得偏向锁的线程是否失效。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/其他线程获得偏向锁.jpg"
+alt="无锁升级偏向锁" /><br />
+  偏向锁相当于
+<strong>偏向第一个将对象无锁态升级为偏向锁态的线程</strong>
+，当该线程死亡，或者不需要该锁，其他线程尝试获得锁时，会先重置为无锁，然后再升级为偏向锁，这个过程的消耗导致
+<strong>偏向锁效率不一定比轻量级锁高</strong>
+。可以通过UseBiasedLocking参数来开启关闭偏向锁，如果关闭，则对象直接从无锁状态升级到轻量级锁。</p></li>
+<li><h3 id="轻量级锁">轻量级锁</h3>
+<p>  当偏向锁有多个线程竞争时，偏向锁会撤销，升级成轻量级锁。锁对象为轻量级状态时，Mark
+Word保存的数据是指向 <strong>Lock Record锁记录</strong>
+的指针。线程打算给轻量级锁对象上锁时，会先在栈的栈帧中创建Lock
+Record空间，然后把该锁的Mark
+Word复制到该空间中，然后通过CAS竞争将指针指向Lock Record。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/获取轻量级锁.jpg"
+alt="获取轻量级锁" /><br />
+  轻量级锁的特点是线程不会阻塞，而是自旋等待。当某个线程自旋次数超过一定次数时，轻量级锁会升级成重量级锁。可以通过参数PreBlockSpin设置，默认10次。</p></li>
+<li><h3 id="重量级锁">重量级锁</h3>
+<p>  当锁对象为重量级锁时，Mark
+Word保存的是，指向monitor对象的指针。monitor由C++实现。每一个重量级锁对象和一个monitor对象关联。monitor中有个等待队列，该队列保存竞争该锁对象的线程。重量级锁状态涉及到操作系统来实现阻塞线程。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/获取重量级锁.jpg"
+alt="获取重量级锁" /><br />
+  monitor对象由c++实现，内部属性 <strong>Owner</strong>
+保存获得锁对象的线程。 <strong>EntryList</strong>
+用来保存竞争锁失败的等待线程。<strong>WaitList</strong>
+保存等待唤醒的线程。当 <strong>锁对象调用wait()方法</strong>
+后，会将当前 <strong>owner线程阻塞</strong>
+并加入到WaitList中等待notify()，唤醒后WaitList中的线程会加入到EntryList中。<strong>recursions</strong>
+记录线程上锁次数，每重入一次recursions + 1，每释放一次recursions -
+1。</p></li>
+</ul></li>
+<li><h2 id="lock类">Lock类</h2>
+<p><a
+href="/Java/java基础/juc-AQS/#jump_aqs"><font color="007FFF">java的AQS类</font></a></p></li>
+</ul></li>
+</ul>
+<!-- - # java中synchornized和Lock的使用场景  
+  - ## synchronized  
+&ensp;&ensp;1.自动释放锁；2.不可中断；3.非公平；4.jdk1.6之后，synchronized优化，性能得到提升。一般优先使用synchronized。  
+
+  - ## Lock实现类  
+&ensp;&ensp;1.主动释放锁；2.可中断；3.可公平。4.读锁增加读操作并发效率。  
+
+  - ## 使用场景  
+&ensp;&ensp;在线程数量多，竞争激烈情况下，jdk1.6之后的synchronized执行效率，和Lock实现类，差距没有特别大,几乎差不多。  
+&ensp;&ensp;在线程数量少时，synchronzied效率比Lock实现类高。 -->
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/" rel="prev" title="算法笔记_做题总结">
+                  <i class="fa fa-angle-left"></i> 算法笔记_做题总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Go/go%E5%9F%BA%E7%A1%80/go-Effective/" rel="next" title="go学习笔记">
+                  go学习笔记 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

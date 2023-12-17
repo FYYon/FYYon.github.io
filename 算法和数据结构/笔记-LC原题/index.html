@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="算法笔记_LC原题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法笔记_LC原题">
+<meta property="og:url" content="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-LC%E5%8E%9F%E9%A2%98/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="算法笔记_LC原题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95.jpg">
+<meta property="article:published_time" content="2021-05-25T03:48:00.000Z">
+<meta property="article:modified_time" content="2022-10-25T03:48:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95.jpg">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-LC%E5%8E%9F%E9%A2%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-LC%E5%8E%9F%E9%A2%98/","path":"算法和数据结构/笔记-LC原题/","title":"算法笔记_LC原题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法笔记_LC原题 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">04_寻找两个正序数组的中位数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E7%AC%ACk%E4%B8%AA%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">找第K个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86"><span class="nav-number">1.2.</span> <span class="nav-text">数组区域划分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="nav-number">2.</span> <span class="nav-text">42_接雨水</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84"><span class="nav-number">3.</span> <span class="nav-text">62_不同路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="nav-number">4.</span> <span class="nav-text">69_x的平方根</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">二分查找法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">牛顿迭代法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-number">5.</span> <span class="nav-text">95_96_不同的二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%95%B0%E9%87%8F"><span class="nav-number">5.1.</span> <span class="nav-text">不同的二叉搜索树的数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E9%9B%86%E5%90%88"><span class="nav-number">5.2.</span> <span class="nav-text">生成不同的二叉搜索树集合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">6.</span> <span class="nav-text">137_只出现一次的数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8%E8%A1%8D%E7%94%9F_287_%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">142_环形链表衍生_287_寻找重复数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B4%E7%BA%BF%E4%B8%8A%E6%9C%80%E5%A4%9A%E7%9A%84%E7%82%B9%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">149_直线上最多的点数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%81%E6%98%8E%E6%9C%80%E5%A4%9A%E5%8F%AA%E6%9C%891%E6%9D%A1%E7%9B%B4%E7%BA%BF%E4%B8%8A%E7%9A%84%E8%8A%82%E7%82%B9%E6%95%B0-%E5%A4%A7%E4%BA%8E-%E6%80%BB%E7%BB%93%E7%82%B9%E6%95%B0%E4%B8%80%E5%8D%8A"><span class="nav-number">8.1.</span> <span class="nav-text">证明：最多只有1条直线上的节点数
+大于 总结点数一半</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E6%97%A0%E5%BA%8F%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-number">9.</span> <span class="nav-text">581_最短无序连续子数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%92%8C%E4%B8%BA-k-%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="nav-number">10.</span> <span class="nav-text">560_和为 K 的子数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="nav-number">11.</span> <span class="nav-text">621_任务调度器</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-LC%E5%8E%9F%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法笔记_LC原题 | Blog">
+      <meta itemprop="description" content="算法笔记_LC原题">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法笔记_LC原题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-25 11:48:00" itemprop="dateCreated datePublished" datetime="2021-05-25T11:48:00+08:00">2021-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-25 11:48:00" itemprop="dateModified" datetime="2022-10-25T11:48:00+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">算法笔记_LC原题</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="寻找两个正序数组的中位数">04_寻找两个正序数组的中位数</h1>
+<ul>
+<li><h2 id="找第k个数">找第K个数</h2>
+<p>  实现方法1，在两个有序数组中，找第K个数，只是K在该场景下等于
+长度/2，也就是中位数是特殊的第K个数。每次循环 比较两数组 第K/2
+上的数，并排除K/2个。当K为1时，两数组中，小的那个就是第K个数。该方法时间复杂度
+O(logK)。但是没有用到中位数的特性，只是把中位数当 第K个处理。</p></li>
+<li><h2 id="数组区域划分">数组区域划分</h2>
+<p>  实现方法2，在两个数组1和2中找中位数，将两个数组分别划分为左右两个区域。左区域个数根据len1和len2计算出。假设
+i为数组1上划分左右的坐标，j为数组2上划分左右的坐标。得i + j =
+左区域个数。然后再根据，中位数特性2，找到符合条件的位置，就能找到中位数。时间复杂度
+O(log(min(len1,len2)))<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/Leetcode原题/Leetcode_04_寻找两个正序数组的中位数.jpg"
+alt="leetcode_04" /></p></li>
+</ul></li>
+<li><h1 id="接雨水">42_接雨水</h1>
+<p>  接雨水题，如果是计算i位置垂直容量，那么涉及
+min(i左边最大高度，i右边最大高度)，因此需要双指针，或者2个辅助数组保存i位置的左右最大高度。如果计算i
+和 j之间的水平容量，使用单调递减栈计算。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/Leetcode原题/Leetcode_42_接雨水_思路.jpg"
+alt="接雨水双指针思路" /><br />
+  如图所示，假设右边存在一个比左边都高的高度，可以使得左区域的位置i，垂直容量只需要考虑i位置时的leftMax。因此一个变量来保存并更新leftMax即可。同理，如果左边存在一个比右边都高的高度，右区域只需要考虑rightMax。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/Leetcode原题/Leetcode_42_接雨水.jpg"
+alt="接雨水双指针" /><br />
+  如图所示，当存在 left高度 小于
+right高度时，那么right位置，就相当于上面提到的，比左区域都大的高度。那么left位置能存储的雨水，只需要考虑，
+0 ~ left位置的 leftMax。同理，如果存在 left高度 大于
+right高度时，right位置能存储的雨水，只需考虑，right ~ length - 1位置的
+rightMax。</p></li>
+<li><h1 id="不同路径">62_不同路径</h1>
+<p>  该题动态规划的解法没什么要说的，记录一下 排列组合方式
+的思路及为什么可以这样解。<br />
+  假设在m * n 的矩阵中，高度为 m，长度为 n。因此从 0,0 位置 移动到
+m-1,n-1 位置，需要 下移 m-1 次，右移 n-1 次。总共 m + n - 2
+次。也就是说路径固定有 m + n - 2 个操作。<br />
+<img
+src="/assets/posts_jpg/算法和数据结构/Leetcode原题/Leetcode_62_不同路径.jpg"
+alt="62_排列组合解法思路" /><br />
+  如上图所示，每一个方格相当于 从 0,0 到 m-1,n-1 的一步操作，总共 m + n
+- 2 个，而方格的从左到右，相当于操作顺序。也就是说，在 m + n - 2
+个操作中， 选出 m - 1 个作为下移，或者 选出 n -
+1个作为右移即可。方格本身的位置已经代表着执行的顺序，因此选出 m - 1
+个作为下移 的排列组合结果，就相当于矩阵中的所有不同路径。因此直接计算
+<span class="math inline">\(C{^{m-1}_{m+n-2}}\)</span> 或者 <span
+class="math inline">\(C{^{n-1}_{m+n-2}}\)</span> 即可。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/* 每连续2个整数一定有 2 的倍数
+每连续3个整数一定有 3 的倍数，以此类推
+因此下面这个，计算排列组合的结果一定是整数 */</span>
+<span class="token keyword">long</span> ans <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x <span class="token operator">=</span> n<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> y <span class="token operator">&lt;</span> m<span class="token punctuation">;</span> <span class="token operator">++</span>x<span class="token punctuation">,</span> <span class="token operator">++</span>y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    ans <span class="token operator">=</span> ans <span class="token operator">*</span> x <span class="token operator">/</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h1 id="x的平方根">69_x的平方根</h1>
+<ul>
+<li><h2 id="二分查找法">二分查找法</h2>
+<p>  以二分查找的思路，start 为 1，end 为 x，计算mid * mid 和
+x的关系。这种方法没什么好说的。只是需要注意 mid * mid
+可能会超过整型最大值，因此可以比较 mid 和 x/mid。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">while</span> <span class="token punctuation">(</span>start <span class="token operator">&lt;=</span> end<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> start <span class="token operator">+</span> <span class="token punctuation">(</span>end <span class="token operator">-</span> start<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token comment">// 防止 mid * mid 溢出</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>mid <span class="token operator">&lt;=</span> x <span class="token operator">/</span> mid<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      ans <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+      start <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+      end <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h2 id="牛顿迭代法">牛顿迭代法</h2>
+<p><img src="/assets/posts_jpg/算法和数据结构/算法/牛顿迭代法.jpg"
+alt="Leetcode_69_x的平方根_牛顿迭代法" /><br />
+  如图所示，计算C的平方根，可以理解成 <span class="math inline">\(x^2 =
+C\)</span> 。也就是 <span class="math inline">\(y = x^2 - C\)</span>
+，当 y = 0时，x 的值，也就是曲线和 x轴
+的交点。而牛顿迭代法就是从初始值<span
+class="math inline">\(x_0\)</span>，一直向交点接近。<br />
+  <span
+class="math inline">\(x_0\)</span>一般取C值即可，防止过大，或者过小。<span
+class="math inline">\(x_0\)</span>和曲线的交点为 <span
+class="math inline">\(x_0\)</span> , <span
+class="math inline">\(x{_0}{^2} - C\)</span> 。该点的切线曲率为 <span
+class="math inline">\(2x_0\)</span>，因此该切线的方程式为：<span
+class="math inline">\(y = 2x_0 * (x - x_0) + x{_0}{^2} -
+C\)</span>，因此 <span class="math inline">\(x_1\)</span> 就是当 y =
+0时的值。也就是 <span class="math inline">\(x_1 = (x_0 + C/x_0) /
+2\)</span> 。也就是说，代码这样写即可:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">xi <span class="token operator">=</span> <span class="token punctuation">(</span>x0 <span class="token operator">+</span> <span class="token class-name">C</span><span class="token operator">/</span>x0<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+x0 <span class="token operator">=</span> xi<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>  当两次结果，也就是上一次结果x0，和这一次结果xi，非常接近时，就可以视为结束。也就是:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">xi <span class="token operator">=</span> <span class="token punctuation">(</span>x0 <span class="token operator">+</span> <span class="token class-name">C</span><span class="token operator">/</span>x0<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>x0 <span class="token operator">-</span> xi<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0.0000001</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+x0 <span class="token operator">=</span> xi<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="不同的二叉搜索树">95_96_不同的二叉搜索树</h1>
+<ul>
+<li><h2 id="不同的二叉搜索树的数量">不同的二叉搜索树的数量</h2>
+<p>  这一题动态规划的方程式，及二叉搜索树的理解很重要。设f(n)为n个节点时的集合数量。假设n为3。那么该树节点值就是
+1~3。n为3时的二叉搜索树集合，就是 1为头节点集合 + 2为头节点集合 +
+3为头节点集合。1为头节点，右边有2个节点，这两个节点的集合数量就相当于
+f(2)，同理，左边0个节点，集合数量就为
+f(0)。1为头节点的集合数量，就相当于 f(0) * f(2)。同理可得
+2为头节点时的集合数量为 f(1) * f(1)。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">状态转换方程式为 <span class="token operator">:</span> <span class="token function">f</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">f</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">f</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token operator">+</span> <span class="token function">f</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+res<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> res<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 根据动态规划方程式计算 res[i] 的结果</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> res<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">*</span> res<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">-</span> j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h2 id="生成不同的二叉搜索树集合">生成不同的二叉搜索树集合</h2>
+<p>  这一题的递归解法，比较符合宏观的角度写出流程，然后再考虑出口，记录一下。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 生成 节点为 start ~ end 的 二叉搜索树 集合</span>
+<span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> <span class="token function">generate</span><span class="token punctuation">(</span><span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>start <span class="token operator">></span> end<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 以 i 为root节点的树</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> start<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> end<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// root节点为 i 时，左子树有 i - 1个节点</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> leftTree <span class="token operator">=</span> <span class="token function">generate</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// root节点为 i 时，右子树有 end - i个节点</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">TreeNode</span><span class="token punctuation">></span></span> rightTree <span class="token operator">=</span> <span class="token function">generate</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 拼接树</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span> left <span class="token operator">:</span> leftTree<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">TreeNode</span> right <span class="token operator">:</span> rightTree<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 当前root节点 是 i</span>
+                <span class="token class-name">TreeNode</span> curRoot <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TreeNode</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                curRoot<span class="token punctuation">.</span>left <span class="token operator">=</span> left<span class="token punctuation">;</span>
+                curRoot<span class="token punctuation">.</span>right <span class="token operator">=</span> right<span class="token punctuation">;</span>
+                res<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>curRoot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="只出现一次的数字">137_只出现一次的数字</h1></li>
+<li><h1
+id="环形链表衍生_287_寻找重复数">142_环形链表衍生_287_寻找重复数</h1></li>
+<li><h1 id="直线上最多的点数">149_直线上最多的点数</h1>
+<ul>
+<li><h2
+id="证明最多只有1条直线上的节点数-大于-总结点数一半">证明：最多只有1条直线上的节点数
+大于 总结点数一半</h2>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>ans <span class="token operator">>=</span> points<span class="token punctuation">.</span>length <span class="token operator">-</span> i <span class="token operator">||</span> ans <span class="token operator">></span> points<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="最短无序连续子数组">581_最短无序连续子数组</h1>
+<p>最短无序连续子数组</p></li>
+<li><h1 id="和为-k-的子数组">560_和为 K 的子数组</h1>
+<p>和为 K 的子数组</p></li>
+<li><h1 id="任务调度器">621_任务调度器</h1></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%9F%BA%E7%A1%80/java-%E9%9B%86%E5%90%88/" rel="prev" title="java中的集合">
+                  <i class="fa fa-angle-left"></i> java中的集合
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" rel="next" title="树结构">
+                  树结构 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

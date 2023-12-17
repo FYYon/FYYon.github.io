@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"fyyon.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false,"param_highlight_keyword":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="算法笔记_做题总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法笔记_做题总结">
+<meta property="og:url" content="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="算法笔记_做题总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-25T03:48:00.000Z">
+<meta property="article:modified_time" content="2022-06-25T03:48:00.000Z">
+<meta property="article:author" content="Fyy">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/","path":"算法和数据结构/笔记-做题总结/","title":"算法笔记_做题总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法笔记_做题总结 | Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E6%95%B0-%E5%92%8C-%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">小数 和 二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E8%BE%BE"><span class="nav-number">1.1.</span> <span class="nav-text">单精度浮点数二进制表达</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">浮点数精度问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6-%E4%BC%98%E5%8C%96-%E6%95%B0%E9%87%8F%E9%80%89%E6%8B%A9"><span class="nav-number">2.</span> <span class="nav-text">二进制 优化 数量选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">3.</span> <span class="nav-text">数学运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B9%98%E6%B3%95%E5%8A%A0%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">字符串的乘法加法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%8F%E6%B3%95%E5%AE%9E%E7%8E%B0%E9%99%A4%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">减法实现除法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E5%AE%9E%E7%8E%B0x%E7%9A%84n%E6%AC%A1%E5%B9%82"><span class="nav-number">3.3.</span> <span class="nav-text">乘法实现x的n次幂</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">4.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#addnull"><span class="nav-number">4.1.</span> <span class="nav-text">add(null)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%9E%8B"><span class="nav-number">4.2.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arrays.sort-%E5%92%8C-comparator"><span class="nav-number">4.3.</span> <span class="nav-text">Arrays.sort 和 Comparator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E8%B6%9F%E6%89%AB%E6%8F%8F%E9%81%8D%E5%8E%86"><span class="nav-number">5.</span> <span class="nav-text">一趟扫描遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E9%81%8D%E5%8E%86ij%E4%BD%8D%E7%BD%AE%E5%91%A8%E5%9B%B4"><span class="nav-number">6.</span> <span class="nav-text">二维数组中遍历(i,j)位置周围</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92"><span class="nav-number">7.</span> <span class="nav-text">杨辉三角</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><span class="nav-number">8.</span> <span class="nav-text">搜索旋转排序数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">8.1.</span> <span class="nav-text">旋转有序数组的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">9.</span> <span class="nav-text">前缀和</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%90%E9%9B%86%E7%9A%84%E6%80%BB%E5%92%8C"><span class="nav-number">10.</span> <span class="nav-text">子集的总和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%8C%BA%E9%97%B4"><span class="nav-number">10.1.</span> <span class="nav-text">连续子区间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%AD%90%E9%9B%86"><span class="nav-number">10.2.</span> <span class="nav-text">非连续子集</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="nav-number">11.</span> <span class="nav-text">中位数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E4%BD%8D%E6%95%B0%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">11.1.</span> <span class="nav-text">中位数的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E6%96%87%E4%B8%B2"><span class="nav-number">12.</span> <span class="nav-text">回文串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">12.1.</span> <span class="nav-text">回文串的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">12.2.</span> <span class="nav-text">判断回文串的方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%92%8C%E5%9B%9E%E6%BA%AF"><span class="nav-number">13.</span> <span class="nav-text">递归和回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%9B%9E%E6%BA%AF"><span class="nav-number">13.0.1.</span> <span class="nav-text">递归、回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%81%9A%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%B7%AF"><span class="nav-number">13.0.1.1.</span> <span class="nav-text">递归做题的一些思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E7%BB%93%E6%9E%84%E4%B8%8E%E9%80%92%E5%BD%92"><span class="nav-number">13.0.2.</span> <span class="nav-text">树结构与递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92-%E5%92%8C-%E6%97%B6%E9%97%B4%E8%B6%85%E6%97%B6"><span class="nav-number">13.0.3.</span> <span class="nav-text">递归 和 时间超时</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fyy"
+      src="/assets/icon.jpg">
+  <p class="site-author-name" itemprop="name">Fyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fyyon.github.io/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/icon.jpg">
+      <meta itemprop="name" content="Fyy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法笔记_做题总结 | Blog">
+      <meta itemprop="description" content="算法笔记_做题总结">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法笔记_做题总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-25 11:48:00" itemprop="dateCreated datePublished" datetime="2021-03-25T11:48:00+08:00">2021-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-25 11:48:00" itemprop="dateModified" datetime="2022-06-25T11:48:00+08:00">2022-06-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">算法笔记_做题总结</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="小数-和-二进制">小数 和 二进制</h1>
+<p>  小数部分乘2取整数部分，也就是0或1，顺序排序，得到的结果就是小数转二进制。4.125
+转 二进制 就是，100.001。</p>
+<ul>
+<li><h2 id="单精度浮点数二进制表达">单精度浮点数二进制表达</h2>
+<p>  单精度浮点数32位，1位符号位，8位指数位，需要加127偏移量，23底数位。<br />
+  双精度浮点数64位，1位符号位，11位指数为，需要加1023偏移量，52底数位。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">4.125</span> <span class="token operator">-></span> <span class="token number">100.001</span> 
+      <span class="token operator">-></span> <span class="token number">1.00001</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token operator">^</span><span class="token number">2</span> <span class="token operator">-></span> <span class="token number">1.00001</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token operator">^</span><span class="token number">10</span>
+其中 <span class="token number">00001</span> 就是底数，<span class="token number">2</span>就是指数，需要加上<span class="token number">127</span>偏移量。
+<span class="token number">2</span> <span class="token operator">+</span> <span class="token number">127</span> <span class="token operator">-></span> <span class="token number">10000001</span>
+<span class="token number">4.125</span> <span class="token operator">-></span> <span class="token number">0</span> <span class="token number">10000001</span> <span class="token number">00001000000000000000000</span>
+同理
+<span class="token number">0.25</span> <span class="token operator">-></span> <span class="token number">0</span> <span class="token number">01111101</span> <span class="token number">00000000000000000000000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  为什么指数要加上偏移量：指数部分 也是有 <strong>正负</strong>
+的，如果不做处理，那么会使得 浮点数 中有两个符号位，多了一个用来表示
+指数正负 的符号位。因此加上偏移量的结果，也就是 <strong>移码</strong>
+，来实现无符号整数表示。这样在比较浮点数大小时，就只需要判断一个符号位即可。指数的8位，可以直接无符号的判断大小。<br />
+  为什么偏移量的值是 127：8位无符号的值范围是 0 ~ 255 (00000000 ~
+11111111)，其中 00000000 和 11111111 移码，在
+指数中不不使用，因此指数的范围是 1 ~ 254 (00000001 ~ 11111110) 共 254
+个值。因此使用 254 的中位数，127 或 128 作为偏移量，是合理的。<br />
+  如果以 128 为偏移量，那么 在指数值为 +127 (01111111) 时，结果为
+11111111，因为不使用该值，相当于溢出。因此以 128
+为偏移量，指数的范围是，-127 ~ 126。<br />
+  如果以 127 为偏移量，那么 在指数值为 -127 (10000001) 时，结果为
+00000000，因为不适用该值，相当于溢出。因此以 127
+为偏移量，指数的范围是，-126 ~ 127。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">当 <span class="token number">23</span>位 底数全为 <span class="token number">1</span> 时，底数值最大
+<span class="token number">1.11111111111111111111111</span> <span class="token operator">=</span> <span class="token number">1.9999998</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 约为 <span class="token number">2</span>
+当 <span class="token number">23</span>位 底数全为 <span class="token number">0</span> 时，底数值最小
+<span class="token number">1.00000000000000000000000</span> <span class="token operator">=</span> <span class="token number">1</span>  
+
+因此 <span class="token number">128</span> 偏移量，浮点数的取值范围是：
+<span class="token operator">-</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span> <span class="token operator">~</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> 和 <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> <span class="token operator">~</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span>。
+数量为 ： <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> <span class="token punctuation">)</span> 约为 <span class="token number">2</span> <span class="token operator">^</span> <span class="token number">128</span>。
+
+因此 <span class="token number">127</span> 偏移量，浮点数的取值范围是：
+<span class="token operator">-</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span> <span class="token operator">~</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> 和 <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> <span class="token operator">~</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span>。  
+数量为 ： <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> <span class="token punctuation">)</span> 约为 <span class="token number">2</span> <span class="token operator">^</span> <span class="token number">129</span>。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  由此可得，当偏移量为 127
+时，取值范围更大。精度越大则取值范围越小，精度越小则取值范围越大。标准规定偏移量值为
+127。</p></li>
+<li><h2 id="浮点数精度问题">浮点数精度问题</h2>
+<p>  32位中，1位符号位，8位指数位，23位底数位。当出现 4.2
+这种，小数部分二进制无限循环的时候，100.001100110011...，只能有23位，也就是00
+0011 0011 0011 0011 0011
+0|0，第24位0舍去，类似于四舍五入这种说法，也就是精度丢失。最后23位底数位存的结果为
+00 0011 0011 0011 0011 0011 0，这时候在转换成十进制 则为
+4.199999809265137
+  两个单精度浮点数相加的结果，位数有限，也可能发生精度丢失</p></li>
+</ul></li>
+<li><h1 id="二进制-优化-数量选择">二进制 优化 数量选择</h1>
+<p>  假设场景下，需要取 n 个同一物品，一个一个的取，循环 n
+次。除了这种方法，可以通过二进制 预处理优化。原理就是用数组保存
+二进制每一位对应的十进制数，通过换一个角度的二进制表达式的方式计算获得结果。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">...</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">256</td>
+<td style="text-align: center;">512</td>
+<td style="text-align: center;">...</td>
+</tr>
+</tbody>
+</table>
+<p>  举例说明，23 的二进制数为，00010111，1 所在的每一位
+，转为十进制就是 1、2、4、16 。对应的预处理的后的数组的
+arr[0]、arr[1]、arr[2]、arr[4]。</p></li>
+<li><h1 id="数学运算">数学运算</h1>
+<ul>
+<li><h2 id="字符串的乘法加法">字符串的乘法加法</h2>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> res <span class="token operator">=</span> num1 <span class="token operator">+</span> num2 <span class="token operator">+</span> carry<span class="token punctuation">;</span>或者 res <span class="token operator">=</span> num1 <span class="token operator">*</span> num2 <span class="token operator">+</span> carry<span class="token punctuation">;</span>
+carry <span class="token operator">=</span> res <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+res <span class="token operator">=</span> res <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  字符串运算中，不管乘法还是加法 ，上面这部分是通用的逻辑。<br />
+  在乘法中，长度为n的数 和 长度为m短的数 相乘，那么结果的长度不会超过 n
++ m，不会低于 m + n -
+1。因此字符串乘法时，可以利用该特点，做辅助数组，保存每一字符相乘结果 到
+数组中对应位置。如，n中
+i上的字符，和m中j上的字符相乘，因为字符相乘结果最大81，不会超过2位数，那么对应的结果就是在，i+j和
+i+j+1，这两个位置上。也就是 res/10 在
+i+j位置，res%10在i+j+1位置。可以直接参考LeetCode_43_字符串相乘。</p></li>
+<li><h2 id="减法实现除法">减法实现除法</h2>
+<p>  以被除数100，除数3为例。100 减 4 次 3 和 100 减 1 次
+4*3，是一样的结果。因此可以通过左移除数，也就是 3 &lt;&lt; 2 或者 直接
+除数乘4，来减少循环次数。需要注意的是，减法的次数
+同样需要随着除数的同步移动, 也就是 减 1 次的这个 1， 1 &lt;&lt;
+2。</p></li>
+<li><h2 id="乘法实现x的n次幂">乘法实现x的n次幂</h2>
+<p>  和减法实现除法思路相似，不使用暴力法一个一个计算。直接计算n/2次幂，再将结果相乘。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">res <span class="token operator">=</span> x<span class="token operator">^</span><span class="token punctuation">(</span>n<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 注意奇偶</span>
+x<span class="token operator">^</span>n <span class="token operator">=</span>  res <span class="token operator">*</span> res 或者 x<span class="token operator">^</span>n <span class="token operator">=</span> res <span class="token operator">*</span> res <span class="token operator">*</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="集合">集合</h1>
+<ul>
+<li><h2 id="addnull">add(null)</h2>
+<p>  做题时，add(null) 和 size == 0，这两个需要理解清楚。add(null) 不是
+集合为空。集合add(null)后，集合元素 + 1，该元素为空。</p></li>
+<li><h2 id="泛型">泛型</h2>
+<p>  用List 和 int
+举例，如果返回结果是二维数组，除了生成1个二维数组，也可以泛型指定int[]，也就是
+List&lt;int[]&gt;，然后List的toArray方法，转为二维数组。指定集合的泛型，只能是引用类型
+或 数组类型。</p></li>
+<li><h2 id="arrays.sort-和-comparator">Arrays.sort 和 Comparator</h2>
+<p>  调用sort方法排序时，传comparator对象，可以处理像二维数组，或者字符的场景。需要指定Comparator泛型，类型要和数组元素类型保持一致，因为是指定类型，因此只能是引用类型或者数组类型，不能是基本类型。比如说是int[][]，那么指定类型int[]。然后重写compare方法，方法的两个参数同样需要和数组元素类型保持一致。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> o1<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> o2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 当返回值 > 0 ，前一个元素 o1 和 后一个元素位置 o2 互换</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="一趟扫描遍历">一趟扫描遍历</h1>
+<p>  部分算法题目中会有这个要求，这个一趟扫描需要注意的是，和for循环个数无关，如：长度为n的数组，第一个for循环，扫描n/2个元素，第二个for循环扫描剩下的元素，这任然是一趟扫描。重要的不是for循环的个数，而是一个元素在循环中只经过一次。</p></li>
+<li><h1 id="二维数组中遍历ij位置周围">二维数组中遍历(i,j)位置周围</h1>
+<p>  当需要遍历位置(i,j)周围，如以(i,j)为中心的九宫格，或者上下左右位置时，可以创建
+(i,j)偏移量二维数组
+来优化代码结构。如：对于(i,j)来说，上面位置的偏移量是
+(-1，0)，左边位置的偏移量是
+(0，-1)。所以遍历(i,j)周围时，可以这么实现：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 遍历九宫格</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> curI <span class="token operator">=</span> startI <span class="token operator">+</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> curJ <span class="token operator">=</span> startJ <span class="token operator">+</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 遍历上下左右</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> around <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ar <span class="token operator">:</span> around<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> curI <span class="token operator">=</span> startI <span class="token operator">+</span> ar<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> curJ <span class="token operator">=</span> startJ <span class="token operator">+</span> ar<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h1 id="杨辉三角">杨辉三角</h1>
+<p>  杨辉三角的题目前没遇到什么难的，只是记下 第n层 的公式：<br />
+<span
+class="math display">\[C_{n-1}^{0},C_{n-1}^{1},C_{n-1}^{0},C_{n-1}^{2},...,C_{n-1}^{n-2},C_{n-1}^{n-1}\]</span><br />
+  每一层直接套这个公式就可以，没必要从第一层递推了。<br />
+<span class="math display">\[C_{n}^{m} = C_{n}^{m - 1} * (n - m + 1) /
+m\]</span></p></li>
+<li><h1 id="搜索旋转排序数组">搜索旋转排序数组</h1>
+<ul>
+<li><h2 id="旋转有序数组的特点">旋转有序数组的特点</h2>
+  左边，及右边有序；当要在该类数组中，搜索target时，需要考虑 mid
+在左右升序位置 及 target在左右升序位置。也就是 mid target 和
+数组第1位或最后1位的大小关系。直接画出图形表示。</li>
+</ul></li>
+<li><h1 id="前缀和">前缀和</h1>
+<p>  当题目要求，计算 数组的子区间，单向链或树中的单向链路径 的
+总和，类似这种的 连续子区间。大概率可以通过 前缀和
+解决。前缀和的大致思路：对于 preI 为 0 ~ i 的 前缀和，preJ 为 0 ~ j
+的前缀和，且 j &gt; i。那么 preJ - preI 就是 区间 i+1 ~ j 的
+总和。</p></li>
+<li><h1 id="子集的总和">子集的总和</h1>
+<ul>
+<li><h2 id="连续子区间">连续子区间</h2>
+<p>  一般是前缀和</p></li>
+<li><h2 id="非连续子集">非连续子集</h2>
+<p>  一般是背包问题</p></li>
+</ul></li>
+<li><h1 id="中位数">中位数</h1>
+<ul>
+<li><h2 id="中位数的特点">中位数的特点</h2>
+<ul>
+<li>该位置左边的长度 等于 该位置右边的长度。<br />
+</li>
+<li>左边的最大值 小于等于 右边的最小值。</li>
+</ul></li>
+</ul></li>
+<li><h1 id="回文串">回文串</h1>
+<ul>
+<li><h2 id="回文串的特点">回文串的特点</h2>
+<ul>
+<li>从左右两边向内遍历，两边字符相同，从左向右遍历 和 从右向左遍历
+得到的结果相同。<br />
+</li>
+<li>从中间向两边遍历，遍历字符相同。<br />
+</li>
+<li>回文串去掉最左边及最右边，中间部分依旧是回文串。</li>
+</ul></li>
+<li><h2 id="判断回文串的方式">判断回文串的方式</h2>
+<ul>
+<li>从左右向内遍历。<br />
+</li>
+<li>从中间向外遍历。因为回文串长度有奇偶之分，因此从i点向左右两边判断是否是回文串时，除了left,right
+= i以外，还需要判断left = i，right = i+1 判断偶数时的情况。<br />
+</li>
+<li>动态规划。在左右两边相等的情况下，判断中间部分是否为回文串。</li>
+</ul></li>
+</ul></li>
+<li><h1 id="递归和回溯">递归和回溯</h1>
+<ul>
+<li><h3 id="递归回溯">递归、回溯</h3>
+<p>  自己调用自己，也就是递归，属于一种代码结构；多种选择，选择其中一种，根据条件退回，再选择，也就是回溯，属于代码思想。回溯在题目中的体现，一般就是
+添加一个值，相当于选择，去掉添加的值，相当于回退，在添加下一个值。算法题中涉及的回溯，最常见的就是上面的这个流程。递归
++ 回溯 一般就是 DFS 深度优先遍历。 当题目中出现 "所有符合条件的结果"
+这类情况时，一般就是 dfs +
+根据条件剪枝。根据题目画出树，会更加清晰。<br />
+  递归需要用到栈空间，也就是空间复杂度，栈空间的消耗，和递归的深度相关。</p></li>
+<li><h4 id="递归做题的一些思路">递归做题的一些思路</h4>
+<p>  涉及到递归的部分，最好直接从宏观的角度写出大致的流程，及递归的出口。然后再实现或调整细节。最后根据写的代码从入口走一遍流程过下细节。涉及到递归的题，整个输入参数，就当作宏观角度，从入参获得结果，就是宏观角度的流程。同时，入参的子区间，同样也适用于这个流程，然后获得这个子区间的结果。为了方便理解，这里使用
+汉诺塔 举例说明：</p></li>
+</ul></li>
+<li><h3 id="树结构与递归">树结构与递归</h3>
+<p>  如果 递归的过程 能够用 树结构
+表示，那么最终的结果，可以分为两种：<br />
+1.一种通过递归获得子区间结果，结果在根节点。<br />
+2.一种通过 递归+剪枝 从 0 生成结果，结果在叶节点。当题目中出现
+"所有符合条件的结果" 这类情况时 中心对称数 II</p></li>
+<li><h3 id="递归-和-时间超时">递归 和 时间超时</h3>
+<p>  当一个题目能够使用递归实现，但是递归执行结果超时。那么该题大概率需要
+动态规划
+实现。根据题目的入参提示，如果参数过大，导致递归深度过高，那么递归应该就是个陷阱。</p></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="prev" title="保留文件">
+                  <i class="fa fa-angle-left"></i> 保留文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/java%E5%9F%BA%E7%A1%80/java-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="java学习笔记">
+                  java学习笔记 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Fyy</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="/lib/hexo-generator-searchdb/dist/search.js"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"/lib/mathjax/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
