@@ -22,8 +22,75 @@ next主题中 _vendors.yml 里对应插件的 MD5 验证。 <pre class="line-num
   </entry>
   <entry>
     <title>保留文件</title>
+    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/</url>
+    <content><![CDATA[<h1 id="留空">留空</h1>
+<p>留空 <!--
+分布式 是 物理设备 上的划分
+微服务 是 逻辑、功能等 上的划分
+
+灰度发布(金丝雀发布)、蓝绿部署
+--></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>保留文件</title>
+    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1/RPC%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<!--
+### 分布式时主机间的通信方式  
+
+#### &ensp;&ensp;TCP、UDP  
+&ensp;&ensp;最基本的通信方式。二进制传输，其他所有通信方式，**都是建立** 在TCP或UDP之上。
+
+#### &ensp;&ensp;RPC，Remote Procedure Call  
+&ensp;&ensp;PRC为远程方法调用。RPC本身是一个 **概念** 。重点是方法的调用，没有对象概念。  
+
+#### &ensp;&ensp;Web Service  
+&ensp;&ensp;基于Http + Xml的通信方式。
+
+#### &ensp;&ensp;REST，Representational State Transfer  
+&ensp;&ensp;基于Http + JSON的通信方式。
+
+#### &ensp;&ensp;JMS，Java Message Service  
+&ensp;&ensp;Java消息服务。将对象在物理意义上传输，相当于将对象，从客户端传输到服务器。
+
+#### &ensp;&ensp;RMI，Remote Method Invocation  
+&ensp;&ensp;不能跨语言的Java远程方法调用。RMI也是一种RPC的实现方式。
+
+### RPC
+rpc是一种概念、技术思想，有多种实现方式。RPC也可以通过HTTP实现 / http是RPC的一种实现方式。  
+RPC是一种概念、技术思想，怎么实现这个概念。有哪些方式可以实现这个概念。  
+
+#### &ensp;&ensp;Dubbo中的RPC
+
+#### &ensp;&ensp;gRPC中的RPC  
+
+### RPC的核心  
+
+#### &ensp;&ensp;&ensp;&ensp;服务暴露和服务发现
+
+
+#### &ensp;&ensp;&ensp;&ensp;序列化和反序列化  
+
+#### &ensp;&ensp;&ensp;&ensp;网络传输
+
+### 实现了RPC的主流框架 -->
+]]></content>
+      <categories>
+        <category>RPC</category>
+      </categories>
+      <tags>
+        <tag>通信方式</tag>
+        <tag>RPC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>保留文件</title>
     <url>/%E5%AE%B9%E5%99%A8%E5%8C%96%E7%8E%AF%E5%A2%83/Docker-Effective/</url>
     <content><![CDATA[<!--
+Docker 镜像 的 tag 中 : lastest 只是一个 标签，和 其他版本标签没什么不同的。字面上为最新版本，实质上只是镜像的标签名称。当前最新版本除了 用版本号表示，还可以用 lastest 表示。一旦该镜像被拉取到本地，版本号就已经确定，不会自动更新。
+lastest标签的镜像 不会随着版本更新 而 自动更新。只是个名字，没有其它附加作用，更不会自动更新。建议直接下载 带版本号的 镜像 更加的直观。
+
+
 考虑到分布式或微服务，推荐单个容器只运行一个进程，也就是只负责一个功能
 docker-engine本质上，相当于 当前的 linux 系统上，创建了一个空间 来 隔离文件。
 docker 容器 所需要的 最基础的 linux 内核，就来自于 当前 linux 系统文件。
@@ -95,69 +162,6 @@ CAdvisor + influxDB + Granfana CIG：
       <categories>
         <category>Docker</category>
       </categories>
-  </entry>
-  <entry>
-    <title>保留文件</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1/RPC%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<!--
-### 分布式时主机间的通信方式  
-
-#### &ensp;&ensp;TCP、UDP  
-&ensp;&ensp;最基本的通信方式。二进制传输，其他所有通信方式，**都是建立** 在TCP或UDP之上。
-
-#### &ensp;&ensp;RPC，Remote Procedure Call  
-&ensp;&ensp;PRC为远程方法调用。RPC本身是一个 **概念** 。重点是方法的调用，没有对象概念。  
-
-#### &ensp;&ensp;Web Service  
-&ensp;&ensp;基于Http + Xml的通信方式。
-
-#### &ensp;&ensp;REST，Representational State Transfer  
-&ensp;&ensp;基于Http + JSON的通信方式。
-
-#### &ensp;&ensp;JMS，Java Message Service  
-&ensp;&ensp;Java消息服务。将对象在物理意义上传输，相当于将对象，从客户端传输到服务器。
-
-#### &ensp;&ensp;RMI，Remote Method Invocation  
-&ensp;&ensp;不能跨语言的Java远程方法调用。RMI也是一种RPC的实现方式。
-
-### RPC
-rpc是一种概念、技术思想，有多种实现方式。RPC也可以通过HTTP实现 / http是RPC的一种实现方式。  
-RPC是一种概念、技术思想，怎么实现这个概念。有哪些方式可以实现这个概念。  
-
-#### &ensp;&ensp;Dubbo中的RPC
-
-#### &ensp;&ensp;gRPC中的RPC  
-
-### RPC的核心  
-
-#### &ensp;&ensp;&ensp;&ensp;服务暴露和服务发现
-
-
-#### &ensp;&ensp;&ensp;&ensp;序列化和反序列化  
-
-#### &ensp;&ensp;&ensp;&ensp;网络传输
-
-### 实现了RPC的主流框架 -->
-]]></content>
-      <categories>
-        <category>RPC</category>
-      </categories>
-      <tags>
-        <tag>通信方式</tag>
-        <tag>RPC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>保留文件</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E5%92%8C%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/</url>
-    <content><![CDATA[<h1 id="留空">留空</h1>
-<p>留空 <!--
-分布式 是 物理设备 上的划分
-微服务 是 逻辑、功能等 上的划分
-
-灰度发布(金丝雀发布)、蓝绿部署
---></p>
-]]></content>
   </entry>
   <entry>
     <title>MySQL学习笔记</title>
@@ -347,51 +351,6 @@ mysql config option file
   </entry>
   <entry>
     <title>保留文件</title>
-    <url>/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/</url>
-    <content><![CDATA[<!--
-这种叫 有向无环图，把一个 有向无环图 转成 线性的排序 就叫 拓扑排序  
-
-有向图有 入度 和 出度 的概念：
-如果存在一条有向边 A -> B，则这条边给 A 增加了 1 个出度，给 B 增加了 1 个入度。
-
--->
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链结构</title>
-    <url>/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE/</url>
-    <content><![CDATA[<!-- 
-### 单向链常见处理方式  
-&ensp;&ensp;1.反转链：头插法，迭代法。
-&ensp;&ensp;2.快慢指针找中间节点；  
-&ensp;&ensp;3.逆序遍历单向链：反转链或者递归；  
-&ensp;&ensp;4.逆序遍历单向链部分节点：反转部分链；  
-&ensp;&ensp;5.拆分单向链：将单向链中某个节点，next 指针置为 null，就相当于拆分了链。置为null前先记录 next所指节点，就相当于有了head1 和 head2 两个链。  
-
-### Floyd判圈算法(龟兔赛跑算法)  
-
-#### &ensp;&ensp;证明：快慢指针 在慢指针第一圈 前相遇  
-
-#### &ensp;&ensp;证明：快慢指针 第二次相遇 在环入口   
-
-# 跳表 SkipList
--->
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>链</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>保留文件</title>
     <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis-%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<!--
 ## 持久化  
@@ -436,11 +395,13 @@ mysql config option file
 
 &ensp;&ensp;当快照和AOF都存在时，数据恢复 **优先加载AOF** 文件。  
 
-## 过期策略
+## 数据过期策略
 
 #### &ensp;&ensp;定时删除
 1
+
 #### &ensp;&ensp;惰性删除
+1
 
 #### &ensp;&ensp;定期删除
 1
@@ -451,6 +412,8 @@ mysql config option file
 &ensp;&ensp;&ensp;&ensp;RDB不会保存过期的key  
 #### &ensp;&ensp;&ensp;&ensp;AOF的处理方法  
 &ensp;&ensp;&ensp;&ensp;当key过期时，会在文件中追加DEL命令，删除过期key。AOF文件重写时过期key，不会保存到AOF文件中。
+
+## 数据淘汰策略
 -->
 ]]></content>
       <categories>
@@ -460,6 +423,76 @@ mysql config option file
         <tag>RDB</tag>
         <tag>AOF</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>保留文件</title>
+    <url>/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<!-- 
+意图:
+解决的问题:
+-->
+]]></content>
+  </entry>
+  <entry>
+    <title>保留文件</title>
+    <url>/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<!--
+编码：
+    将 信息 转换成 计算机 能够识别的 二进制序列。
+    如 图片，文字，声音等都属于信息，需要转为二进制表示，该过程可以分类为：
+        图形编码
+        字符编码
+        声音编码
+        视频编码
+计算机的关键点：
+    1. 程序由 数据 和 指令 构成
+    2. 计算机的关键步骤： 输入、计算、输出
+
+IC：集成电路，每一个针脚对应的是 输入 或者 输出
+
+
+-----------------------
+
+HZ：显示器显示画面是 从左上到右下的 逐行扫描。  
+    刷新率 就是指 1s中全屏幕完成逐行扫描的次数。60HZ ：1s 显示器能完成 60次 对全屏幕的逐行扫描。   
+FPS：一个画面为 1帧，1s中的 画面个数。60FPS ： 1s 能生成 60帧。
+
+分辨率：又称解析度、指系统对细节的分辨能力。可以细分为 图像分辨率、设备分辨率(打印机)。  
+    在 1080P、4K分辨率屏幕上，打开同一个1080P分辨率的图片，4K屏幕上图片尺寸更小，而让图片尺寸。  
+    在 1080P屏幕上，打开4K分辨率的图片，图片输出最终肯定还是1080P，但是 色度抽样为 4:4:4，色彩会更丰富。  
+像素密度：单位长度内的像素数量除以单位长度，单位为PPI。5PPI ：每英寸有5个像素。  
+像素总数：单独一帧图所含像素的数量。  
+像素点： 每一个像素点 由 红 绿 蓝 三个子像素点 构成
+色深： 每个 子像素点 亮度状态 bit数。6bit：就是指 每个子像素点 能够表示 2^6 个亮度状态 (000000 ~ 111111)。  
+-->
+]]></content>
+  </entry>
+  <entry>
+    <title>保留文件</title>
+    <url>/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/</url>
+    <content><![CDATA[<!--
+这种叫 有向无环图，把一个 有向无环图 转成 线性的排序 就叫 拓扑排序  
+
+有向图有 入度 和 出度 的概念：
+如果存在一条有向边 A -> B，则这条边给 A 增加了 1 个出度，给 B 增加了 1 个入度。
+
+-->
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>保留文件</title>
+    <url>/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<!-- 
+意图:
+解决的问题:
+-->
+]]></content>
   </entry>
   <entry>
     <title>树结构</title>
@@ -698,7 +731,7 @@ O(N)。同理，Morris
 遍历时间复杂度为 <strong>O(N)</strong> 。<br />
   Morris遍历没有使用辅助数组，因此空间复杂度是 O(1)。</p></li>
 </ul></li>
-<li><h2 id="二叉排序树bst">二叉排序树BST</h2>
+<li><h2 id="二叉排序树-bst">二叉排序树 BST</h2>
 <ul>
 <li><h3 id="bst特点">BST特点</h3>
 <ul>
@@ -725,9 +758,9 @@ href="#jump_avl_del"><font color="007FFF">AVL删除节点流程</font></a>。</p
 <p>  BST结构实现了在查询时直接排除另一半子树上的节点，理想情况下时间复杂度为
 O(logN)。但是最坏情况，当 树成链
 结构时，BST查询只能每一个节点遍历，时间复杂度为 O(N)。<br />
-  平衡二叉排序树AVL，解决了这个缺点。</p></li>
+  平衡二叉排序树 AVL，解决了这个缺点。</p></li>
 </ul></li>
-<li><h2 id="平衡二叉排序树avl">平衡二叉排序树AVL</h2>
+<li><h2 id="平衡二叉排序树-avl">平衡二叉排序树 AVL</h2>
 <p>  AVL 在 BST 基础上新增特点：</p>
 <ul>
 <li>每个节点的 左子树 和 右子树 的深度之差，不超过 1。</li>
@@ -746,7 +779,7 @@ alt="AVL_树的平衡破坏" /><br />
 <p>  将 目标节点 转为 其右孩子 的 <strong>左</strong>孩子。</p></li>
 <li><h4 id="右旋">右旋</h4>
 <p>  将 目标节点 转为 其左孩子 的 <strong>右</strong>孩子。</p></li>
-<li><h4 id="参与旋转的节点">参与旋转的节点</h4>
+<li><h4 id="avl-参与旋转的节点">AVL 参与旋转的节点</h4>
 <p>  当平衡被破坏时，旋转涉及到的主要节点为：被破坏节点 和 其子节点 和
 其孙节点。会作为 目标节点 的，是 被破坏节点 和 其子节点。<br />
 <img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_参与旋转节点.jpg"
@@ -762,45 +795,25 @@ A、子节点 B、孙节点 E。A节点 和 B节点 会作为旋转的 目标节
 alt="LL右旋调整" /><br />
   破坏平衡节点 位于：被破坏节点 A 的 <strong>左孩子</strong> 的
 <strong>左子树</strong> 中，也就是LL。进行右旋，将 A节点
-转为右孩子。<br />
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// curNode 目标节点；leftNode 左孩子</span>
-<span class="token class-name">TreeNode</span> leftNode <span class="token operator">=</span> curNode<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
-<span class="token comment">// 左孩子的右子树 转移成 curNode 的左子树 </span>
-curNode<span class="token punctuation">.</span>left <span class="token operator">=</span> leftNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
-<span class="token comment">// curNode 成为 左孩子的 右孩子</span>
-leftNode<span class="token punctuation">.</span>right <span class="token operator">=</span> curNode<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+转为右孩子。</p></li>
 <li><h4 id="rr左旋">RR，左旋</h4>
 <p><img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_RR左旋调整.jpg"
 alt="RR左旋调整" /><br />
   破坏平衡节点 位于：被破坏节点 A 的 <strong>右孩子</strong> 的
 <strong>右子树</strong> 中，也就是RR。进行左旋，将 A节点
-转为左孩子。<br />
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// curNode 目标节点；rightNode 右孩子</span>
-<span class="token class-name">TreeNode</span> rightNode <span class="token operator">=</span> curNode<span class="token punctuation">.</span>right<span class="token punctuation">;</span>
-<span class="token comment">// 右孩子的左子树 转移成 curNode 的右子树</span>
-curNode<span class="token punctuation">.</span>right <span class="token operator">=</span> rightNode<span class="token punctuation">.</span>left<span class="token punctuation">;</span>
-<span class="token comment">// curNode 成为 右孩子的 左孩子</span>
-rightNode<span class="token punctuation">.</span>left <span class="token operator">=</span> curNode<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+转为左孩子。</p></li>
 <li><h4 id="lr先左再右">LR，先左再右</h4>
 <p><img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_LR先左再右.jpg"
 alt="LR先左再右" /><br />
   破坏平衡节点 位于：被破坏节点 A 的 <strong>左孩子</strong> 的
 <strong>右子树</strong> 中，也就是LR。先将 B节点 进行左旋，再对 A节点
-进行右旋。<br />
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 先对 左孩子 左旋</span>
-curNode<span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">letfMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 再 右旋</span>
-<span class="token function">rightMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+进行右旋。</p></li>
 <li><h4 id="rl先右再左">RL，先右再左</h4>
 <p><img src="/assets/posts_jpg/算法和数据结构/树结构/AVL_RL先右再左.jpg"
 alt="RL先右再左" /><br />
   破坏平衡节点 位于：被破坏节点 A 的 <strong>右孩子</strong> 的
 <strong>左子树</strong> 中，也就是RL。先将 B节点 进行右旋，再对 A节点
-进行左旋。<br />
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 先对 右孩子 右旋</span>
-curNode<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token function">rightMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 再 左旋</span>
-<span class="token function">letfMethod</span><span class="token punctuation">(</span>curNode<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p></li>
+进行左旋。</p></li>
 </ul></li>
 <li><h3 id="avl节点变化">AVL节点变化</h3>
 <ul>
@@ -855,7 +868,7 @@ curNode<span class="token punctuation">.</span>right <span class="token operator
     <span class="token comment">// 平衡被破坏</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// 判断 右孩子 的 左子树 和 右子树 深度 </span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token function">height</span><span class="token punctuation">(</span>curNode<span class="token punctuation">.</span>right<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token function">rrMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
         <span class="token function">rlMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -894,28 +907,20 @@ alt="AVL删除节点" /><br />
 </ul></li>
 <li><h3 id="avl缺点">AVL缺点</h3>
 <p>  当更新节点时，为了保证深度差的平衡结构，需要旋转更新树结构。当数据新增或者删除等操作频繁时，对应的调整树结构的旋转也会消耗更多的资源。<br />
-  红黑树，解决了这个缺点。</p></li>
+  红黑树 不需要像 AVL 一样频繁的调整平衡。</p></li>
 </ul></li>
 <li><h2 id="红黑树">红黑树 <span id="jump_rbt"></span></h2>
 <ul>
 <li><h3 id="红黑树在-avl-上新增特点">红黑树在 AVL 上新增特点</h3>
 <ul>
-<li><strong>a</strong>. 不必须保持，左右子树深度差的平衡 。<br />
-</li>
-<li><ol start="2" type="a">
-<li>节点逻辑上分为 红 和 黑 两种节点。<br />
-</li>
-</ol></li>
-<li><strong>c</strong>. 任意节点 到 其可达叶节点 的路径，上面的 黑节点
-数量一致。<br />
-</li>
-<li><strong>d</strong>. 所有路径上不会有连续的 红节点，红节点 父、子节点
-一定是 黑节点。<br />
-</li>
-<li><ol start="5" type="a">
-<li>根节点 一定是 黑节点，Null 视为 黑节点。新插入的节点视为 红节点
+<li><strong>a</strong> 不必须保持，左右子树深度差的平衡 。</li>
+<li>b 节点逻辑上分为 红 和 黑 两种节点。</li>
+<li><strong>c</strong> 任意节点 到 其可达叶节点 的路径，上面的 黑节点
+数量一致。</li>
+<li><strong>d</strong> 所有路径上不会有连续的 红节点，红节点 父、子节点
+一定是 黑节点。</li>
+<li>e 根节点 一定是 黑节点，Null 视为 黑节点。新插入的节点视为 红节点
 插入。</li>
-</ol></li>
 </ul>
 <p>  在上面的几个特点中，需要注意的是：当插入新节点时，可能会破坏规则
 d，红节点破坏平衡；当删除节点时，可能会破坏规则
@@ -924,7 +929,7 @@ c，黑节点破坏平衡。</p></li>
 (红节点破坏平衡)</h3>
 <p><img src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_1.jpg"
 alt="红黑树_1" /><br />
-  在插入新节点时，因为新节点视为红色插入，所以会引起红黑平衡破坏的场景：连续的红节点，新节点的父节点为红节点。同时能够得到：如果父节点是
+  在插入新节点时，因为新节点视为红色插入，所以会引起红黑平衡破坏的场景为：连续的红节点，新节点的父节点为红节点。同时能够得到：如果父节点是
 黑节点，就能直接插入新节点。父节点为红时，分为两种情况：</p>
 <ul>
 <li><h4 id="叔为红">叔为红</h4>
@@ -1081,9 +1086,8 @@ alt="红黑树_删除节点_B_兄黑_无子_父黑" /><br />
 <p>  <em>B1 ~ B4</em> 的场景，调整前黑节点深度 等于
 调整后黑节点深度，也就是该子树部分 <strong>黑节点深度不变</strong>
 。子树的黑节点深度不变表示：不需要往上处理其他节点 。<br />
-  <em>B5</em>
-的场景导致黑节点深度变化。不管是递归还是迭代，只要向上处理，就可能会遇到
-<em>B1 ~ B5</em> 全部场景，处理方式不变。只是 <em>B1 ~ B5</em>
+  <em>B5</em> 的场景导致黑节点深度变化。要向上处理，可能会遇到 <em>B1 ~
+B5</em> 全部场景，处理方式不变。只是 <em>B1 ~ B5</em>
 是黑色<strong>叶</strong>子节点的条件，所以向上调整时，当前节点和其他节点的关系条件稍作修改。修改方式就是根据红黑树规则，将
 Null 视为黑色，那么 <em>B3</em> 场景相当于一红一黑的条件，<em>B5</em>
 场景相当于两个黑子节点。同理转换可得：</p>
@@ -1130,7 +1134,9 @@ alt="红黑树_删除节点_B_流程整合_2" /><br />
 </ul></li>
 <li><h1 id="多叉树结构">多叉树结构</h1>
 <ul>
-<li><h2 id="字典前缀树trie">字典(前缀)树Trie</h2>
+<li><h2 id="b树">B树</h2></li>
+<li><h2 id="b树-1">B+树</h2></li>
+<li><h2 id="字典树前缀树-trie">字典树/前缀树 Trie</h2>
 <ul>
 <li><h3 id="前缀和">前缀和</h3>
   当题目要求，计算 数组的子区间，单向链或树中的单向链路径 的
@@ -1154,6 +1160,33 @@ alt="红黑树_删除节点_B_流程整合_2" /><br />
       </categories>
       <tags>
         <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链结构</title>
+    <url>/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE/</url>
+    <content><![CDATA[<!-- 
+### 单向链常见处理方式  
+&ensp;&ensp;1.反转链：头插法，迭代法。
+&ensp;&ensp;2.快慢指针找中间节点；  
+&ensp;&ensp;3.逆序遍历单向链：反转链或者递归；  
+&ensp;&ensp;4.逆序遍历单向链部分节点：反转部分链；  
+&ensp;&ensp;5.拆分单向链：将单向链中某个节点，next 指针置为 null，就相当于拆分了链。置为null前先记录 next所指节点，就相当于有了head1 和 head2 两个链。  
+
+### Floyd判圈算法(龟兔赛跑算法)  
+
+#### &ensp;&ensp;证明：快慢指针 在慢指针第一圈 前相遇  
+
+#### &ensp;&ensp;证明：快慢指针 第二次相遇 在环入口   
+
+# 跳表 SkipList
+-->
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>链</tag>
       </tags>
   </entry>
   <entry>
@@ -1324,254 +1357,6 @@ id="证明最多只有1条直线上的节点数-大于-总结点数一半">证�
 <li><h1 id="和为-k-的子数组">560_和为 K 的子数组</h1>
 <p>和为 K 的子数组</p></li>
 <li><h1 id="任务调度器">621_任务调度器</h1></li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>算法笔记_做题总结</title>
-    <url>/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="小数-和-二进制">小数 和 二进制</h1>
-<p>  小数部分乘2取整数部分，也就是0或1，顺序排序，得到的结果就是小数转二进制。4.125
-转 二进制 就是，100.001。</p>
-<ul>
-<li><h2 id="单精度浮点数二进制表达">单精度浮点数二进制表达</h2>
-<p>  单精度浮点数32位，1位符号位，8位指数位，需要加127偏移量，23底数位。<br />
-  双精度浮点数64位，1位符号位，11位指数为，需要加1023偏移量，52底数位。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">4.125</span> <span class="token operator">-></span> <span class="token number">100.001</span> 
-      <span class="token operator">-></span> <span class="token number">1.00001</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token operator">^</span><span class="token number">2</span> <span class="token operator">-></span> <span class="token number">1.00001</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token operator">^</span><span class="token number">10</span>
-其中 <span class="token number">00001</span> 就是底数，<span class="token number">2</span>就是指数，需要加上<span class="token number">127</span>偏移量。
-<span class="token number">2</span> <span class="token operator">+</span> <span class="token number">127</span> <span class="token operator">-></span> <span class="token number">10000001</span>
-<span class="token number">4.125</span> <span class="token operator">-></span> <span class="token number">0</span> <span class="token number">10000001</span> <span class="token number">00001000000000000000000</span>
-同理
-<span class="token number">0.25</span> <span class="token operator">-></span> <span class="token number">0</span> <span class="token number">01111101</span> <span class="token number">00000000000000000000000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  为什么指数要加上偏移量：指数部分 也是有 <strong>正负</strong>
-的，如果不做处理，那么会使得 浮点数 中有两个符号位，多了一个用来表示
-指数正负 的符号位。因此加上偏移量的结果，也就是 <strong>移码</strong>
-，来实现无符号整数表示。这样在比较浮点数大小时，就只需要判断一个符号位即可。指数的8位，可以直接无符号的判断大小。<br />
-  为什么偏移量的值是 127：8位无符号的值范围是 0 ~ 255 (00000000 ~
-11111111)，其中 00000000 和 11111111 移码，在
-指数中不不使用，因此指数的范围是 1 ~ 254 (00000001 ~ 11111110) 共 254
-个值。因此使用 254 的中位数，127 或 128 作为偏移量，是合理的。<br />
-  如果以 128 为偏移量，那么 在指数值为 +127 (01111111) 时，结果为
-11111111，因为不使用该值，相当于溢出。因此以 128
-为偏移量，指数的范围是，-127 ~ 126。<br />
-  如果以 127 为偏移量，那么 在指数值为 -127 (10000001) 时，结果为
-00000000，因为不适用该值，相当于溢出。因此以 127
-为偏移量，指数的范围是，-126 ~ 127。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">当 <span class="token number">23</span>位 底数全为 <span class="token number">1</span> 时，底数值最大
-<span class="token number">1.11111111111111111111111</span> <span class="token operator">=</span> <span class="token number">1.9999998</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 约为 <span class="token number">2</span>
-当 <span class="token number">23</span>位 底数全为 <span class="token number">0</span> 时，底数值最小
-<span class="token number">1.00000000000000000000000</span> <span class="token operator">=</span> <span class="token number">1</span>  
-
-因此 <span class="token number">128</span> 偏移量，浮点数的取值范围是：
-<span class="token operator">-</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span> <span class="token operator">~</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> 和 <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> <span class="token operator">~</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span>。
-数量为 ： <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> <span class="token punctuation">)</span> 约为 <span class="token number">2</span> <span class="token operator">^</span> <span class="token number">128</span>。
-
-因此 <span class="token number">127</span> 偏移量，浮点数的取值范围是：
-<span class="token operator">-</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span> <span class="token operator">~</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> 和 <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> <span class="token operator">~</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span>。  
-数量为 ： <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> <span class="token punctuation">)</span> 约为 <span class="token number">2</span> <span class="token operator">^</span> <span class="token number">129</span>。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  由此可得，当偏移量为 127
-时，取值范围更大。精度越大则取值范围越小，精度越小则取值范围越大。标准规定偏移量值为
-127。</p></li>
-<li><h2 id="浮点数精度问题">浮点数精度问题</h2>
-<p>  32位中，1位符号位，8位指数位，23位底数位。当出现 4.2
-这种，小数部分二进制无限循环的时候，100.001100110011...，只能有23位，也就是00
-0011 0011 0011 0011 0011
-0|0，第24位0舍去，类似于四舍五入这种说法，也就是精度丢失。最后23位底数位存的结果为
-00 0011 0011 0011 0011 0011 0，这时候在转换成十进制 则为
-4.199999809265137
-  两个单精度浮点数相加的结果，位数有限，也可能发生精度丢失</p></li>
-</ul></li>
-<li><h1 id="二进制-优化-数量选择">二进制 优化 数量选择</h1>
-<p>  假设场景下，需要取 n 个同一物品，一个一个的取，循环 n
-次。除了这种方法，可以通过二进制 预处理优化。原理就是用数组保存
-二进制每一位对应的十进制数，通过换一个角度的二进制表达式的方式计算获得结果。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-<th style="text-align: center;">2</th>
-<th style="text-align: center;">3</th>
-<th style="text-align: center;">4</th>
-<th style="text-align: center;">5</th>
-<th style="text-align: center;">6</th>
-<th style="text-align: center;">7</th>
-<th style="text-align: center;">8</th>
-<th style="text-align: center;">9</th>
-<th style="text-align: center;">...</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">32</td>
-<td style="text-align: center;">64</td>
-<td style="text-align: center;">128</td>
-<td style="text-align: center;">256</td>
-<td style="text-align: center;">512</td>
-<td style="text-align: center;">...</td>
-</tr>
-</tbody>
-</table>
-<p>  举例说明，23 的二进制数为，00010111，1 所在的每一位
-，转为十进制就是 1、2、4、16 。对应的预处理的后的数组的
-arr[0]、arr[1]、arr[2]、arr[4]。</p></li>
-<li><h1 id="数学运算">数学运算</h1>
-<ul>
-<li><h2 id="字符串的乘法加法">字符串的乘法加法</h2>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> res <span class="token operator">=</span> num1 <span class="token operator">+</span> num2 <span class="token operator">+</span> carry<span class="token punctuation">;</span>或者 res <span class="token operator">=</span> num1 <span class="token operator">*</span> num2 <span class="token operator">+</span> carry<span class="token punctuation">;</span>
-carry <span class="token operator">=</span> res <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
-res <span class="token operator">=</span> res <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>  字符串运算中，不管乘法还是加法 ，上面这部分是通用的逻辑。<br />
-  在乘法中，长度为n的数 和 长度为m短的数 相乘，那么结果的长度不会超过 n
-+ m，不会低于 m + n -
-1。因此字符串乘法时，可以利用该特点，做辅助数组，保存每一字符相乘结果 到
-数组中对应位置。如，n中
-i上的字符，和m中j上的字符相乘，因为字符相乘结果最大81，不会超过2位数，那么对应的结果就是在，i+j和
-i+j+1，这两个位置上。也就是 res/10 在
-i+j位置，res%10在i+j+1位置。可以直接参考LeetCode_43_字符串相乘。</p></li>
-<li><h2 id="减法实现除法">减法实现除法</h2>
-<p>  以被除数100，除数3为例。100 减 4 次 3 和 100 减 1 次
-4*3，是一样的结果。因此可以通过左移除数，也就是 3 &lt;&lt; 2 或者 直接
-除数乘4，来减少循环次数。需要注意的是，减法的次数
-同样需要随着除数的同步移动, 也就是 减 1 次的这个 1， 1 &lt;&lt;
-2。</p></li>
-<li><h2 id="乘法实现x的n次幂">乘法实现x的n次幂</h2>
-<p>  和减法实现除法思路相似，不使用暴力法一个一个计算。直接计算n/2次幂，再将结果相乘。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java">res <span class="token operator">=</span> x<span class="token operator">^</span><span class="token punctuation">(</span>n<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 注意奇偶</span>
-x<span class="token operator">^</span>n <span class="token operator">=</span>  res <span class="token operator">*</span> res 或者 x<span class="token operator">^</span>n <span class="token operator">=</span> res <span class="token operator">*</span> res <span class="token operator">*</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-</ul></li>
-<li><h1 id="集合">集合</h1>
-<ul>
-<li><h2 id="addnull">add(null)</h2>
-<p>  做题时，add(null) 和 size == 0，这两个需要理解清楚。add(null) 不是
-集合为空。集合add(null)后，集合元素 + 1，该元素为空。</p></li>
-<li><h2 id="泛型">泛型</h2>
-<p>  用List 和 int
-举例，如果返回结果是二维数组，除了生成1个二维数组，也可以泛型指定int[]，也就是
-List&lt;int[]&gt;，然后List的toArray方法，转为二维数组。指定集合的泛型，只能是引用类型
-或 数组类型。</p></li>
-<li><h2 id="arrays.sort-和-comparator">Arrays.sort 和 Comparator</h2>
-<p>  调用sort方法排序时，传comparator对象，可以处理像二维数组，或者字符的场景。需要指定Comparator泛型，类型要和数组元素类型保持一致，因为是指定类型，因此只能是引用类型或者数组类型，不能是基本类型。比如说是int[][]，那么指定类型int[]。然后重写compare方法，方法的两个参数同样需要和数组元素类型保持一致。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> o1<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> o2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">// 当返回值 > 0 ，前一个元素 o1 和 后一个元素位置 o2 互换</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul></li>
-<li><h1 id="一趟扫描遍历">一趟扫描遍历</h1>
-<p>  部分算法题目中会有这个要求，这个一趟扫描需要注意的是，和for循环个数无关，如：长度为n的数组，第一个for循环，扫描n/2个元素，第二个for循环扫描剩下的元素，这任然是一趟扫描。重要的不是for循环的个数，而是一个元素在循环中只经过一次。</p></li>
-<li><h1 id="二维数组中遍历ij位置周围">二维数组中遍历(i,j)位置周围</h1>
-<p>  当需要遍历位置(i,j)周围，如以(i,j)为中心的九宫格，或者上下左右位置时，可以创建
-(i,j)偏移量二维数组
-来优化代码结构。如：对于(i,j)来说，上面位置的偏移量是
-(-1，0)，左边位置的偏移量是
-(0，-1)。所以遍历(i,j)周围时，可以这么实现：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 遍历九宫格</span>
-<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">&#125;</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> curI <span class="token operator">=</span> startI <span class="token operator">+</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> curJ <span class="token operator">=</span> startJ <span class="token operator">+</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// 遍历上下左右</span>
-<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> around <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ar <span class="token operator">:</span> around<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> curI <span class="token operator">=</span> startI <span class="token operator">+</span> ar<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> curJ <span class="token operator">=</span> startJ <span class="token operator">+</span> ar<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h1 id="杨辉三角">杨辉三角</h1>
-<p>  杨辉三角的题目前没遇到什么难的，只是记下 第n层 的公式：<br />
-<span
-class="math display">\[C_{n-1}^{0},C_{n-1}^{1},C_{n-1}^{0},C_{n-1}^{2},...,C_{n-1}^{n-2},C_{n-1}^{n-1}\]</span><br />
-  每一层直接套这个公式就可以，没必要从第一层递推了。<br />
-<span class="math display">\[C_{n}^{m} = C_{n}^{m - 1} * (n - m + 1) /
-m\]</span></p></li>
-<li><h1 id="搜索旋转排序数组">搜索旋转排序数组</h1>
-<ul>
-<li><h2 id="旋转有序数组的特点">旋转有序数组的特点</h2>
-  左边，及右边有序；当要在该类数组中，搜索target时，需要考虑 mid
-在左右升序位置 及 target在左右升序位置。也就是 mid target 和
-数组第1位或最后1位的大小关系。直接画出图形表示。</li>
-</ul></li>
-<li><h1 id="前缀和">前缀和</h1>
-<p>  当题目要求，计算 数组的子区间，单向链或树中的单向链路径 的
-总和，类似这种的 连续子区间。大概率可以通过 前缀和
-解决。前缀和的大致思路：对于 preI 为 0 ~ i 的 前缀和，preJ 为 0 ~ j
-的前缀和，且 j &gt; i。那么 preJ - preI 就是 区间 i+1 ~ j 的
-总和。</p></li>
-<li><h1 id="子集的总和">子集的总和</h1>
-<ul>
-<li><h2 id="连续子区间">连续子区间</h2>
-<p>  一般是前缀和</p></li>
-<li><h2 id="非连续子集">非连续子集</h2>
-<p>  一般是背包问题</p></li>
-</ul></li>
-<li><h1 id="中位数">中位数</h1>
-<ul>
-<li><h2 id="中位数的特点">中位数的特点</h2>
-<ul>
-<li>该位置左边的长度 等于 该位置右边的长度。<br />
-</li>
-<li>左边的最大值 小于等于 右边的最小值。</li>
-</ul></li>
-</ul></li>
-<li><h1 id="回文串">回文串</h1>
-<ul>
-<li><h2 id="回文串的特点">回文串的特点</h2>
-<ul>
-<li>从左右两边向内遍历，两边字符相同，从左向右遍历 和 从右向左遍历
-得到的结果相同。<br />
-</li>
-<li>从中间向两边遍历，遍历字符相同。<br />
-</li>
-<li>回文串去掉最左边及最右边，中间部分依旧是回文串。</li>
-</ul></li>
-<li><h2 id="判断回文串的方式">判断回文串的方式</h2>
-<ul>
-<li>从左右向内遍历。<br />
-</li>
-<li>从中间向外遍历。因为回文串长度有奇偶之分，因此从i点向左右两边判断是否是回文串时，除了left,right
-= i以外，还需要判断left = i，right = i+1 判断偶数时的情况。<br />
-</li>
-<li>动态规划。在左右两边相等的情况下，判断中间部分是否为回文串。</li>
-</ul></li>
-</ul></li>
-<li><h1 id="递归和回溯">递归和回溯</h1>
-<ul>
-<li><h3 id="递归回溯">递归、回溯</h3>
-<p>  自己调用自己，也就是递归，属于一种代码结构；多种选择，选择其中一种，根据条件退回，再选择，也就是回溯，属于代码思想。回溯在题目中的体现，一般就是
-添加一个值，相当于选择，去掉添加的值，相当于回退，在添加下一个值。算法题中涉及的回溯，最常见的就是上面的这个流程。递归
-+ 回溯 一般就是 DFS 深度优先遍历。 当题目中出现 "所有符合条件的结果"
-这类情况时，一般就是 dfs +
-根据条件剪枝。根据题目画出树，会更加清晰。<br />
-  递归需要用到栈空间，也就是空间复杂度，栈空间的消耗，和递归的深度相关。</p></li>
-<li><h4 id="递归做题的一些思路">递归做题的一些思路</h4>
-<p>  涉及到递归的部分，最好直接从宏观的角度写出大致的流程，及递归的出口。然后再实现或调整细节。最后根据写的代码从入口走一遍流程过下细节。涉及到递归的题，整个输入参数，就当作宏观角度，从入参获得结果，就是宏观角度的流程。同时，入参的子区间，同样也适用于这个流程，然后获得这个子区间的结果。为了方便理解，这里使用
-汉诺塔 举例说明：</p></li>
-</ul></li>
-<li><h3 id="树结构与递归">树结构与递归</h3>
-<p>  如果 递归的过程 能够用 树结构
-表示，那么最终的结果，可以分为两种：<br />
-1.一种通过递归获得子区间结果，结果在根节点。<br />
-2.一种通过 递归+剪枝 从 0 生成结果，结果在叶节点。当题目中出现
-"所有符合条件的结果" 这类情况时 中心对称数 II</p></li>
-<li><h3 id="递归-和-时间超时">递归 和 时间超时</h3>
-<p>  当一个题目能够使用递归实现，但是递归执行结果超时。那么该题大概率需要
-动态规划
-实现。根据题目的入参提示，如果参数过大，导致递归深度过高，那么递归应该就是个陷阱。</p></li>
 </ul>
 ]]></content>
       <categories>
@@ -1923,6 +1708,293 @@ n\]</span></p></li>
       </categories>
   </entry>
   <entry>
+    <title>算法笔记_做题总结</title>
+    <url>/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0-%E5%81%9A%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="小数-和-二进制">小数 和 二进制</h1>
+<p>  小数部分乘2取整数部分，也就是0或1，顺序排序，得到的结果就是小数转二进制。4.125
+转 二进制 就是，100.001。</p>
+<ul>
+<li><h2 id="科学计数法-和-二进制科学计数法">科学计数法 和
+二进制科学计数法</h2>
+<p><span class="math display">\[S * 10^N (1 &lt;= S &lt; 10)\]</span>
+  该计数方法中，S为尾数，N为整数，用 E或e (exponent 指数) 表示 10的 N
+次方：</p>
+<ul>
+<li><span class="math inline">\(1.23E + 7 = 1.23 * 10^7\)</span><br />
+</li>
+<li><span class="math inline">\(2.7E - 4 = 1.23 * 10^{-4}\)</span></li>
+</ul>
+<p>  二进制科学计数法同理。计算机的浮点数表示，本质上就是二进制科学计数法</p></li>
+<li><h2 id="单精度浮点数">单精度浮点数</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">位数</th>
+<th style="text-align: center;">符号位</th>
+<th style="text-align: center;">指数位</th>
+<th style="text-align: center;">尾数位</th>
+<th style="text-align: center;">指数偏移量</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">单精度</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">127</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">双精度</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">52</td>
+<td style="text-align: center;">1023</td>
+</tr>
+</tbody>
+</table>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token number">4.125</span> <span class="token operator">-></span> <span class="token number">100.001</span> 
+      <span class="token operator">-></span> <span class="token number">1.00001</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token operator">^</span><span class="token number">2</span>
+其中 <span class="token number">00001</span> 就是尾数，<span class="token number">2</span>就是指数，需要加上<span class="token number">127</span>偏移量。
+<span class="token number">2</span> <span class="token operator">+</span> <span class="token number">127</span> <span class="token operator">-></span> <span class="token number">10000001</span>
+<span class="token number">4.125</span> <span class="token operator">-></span> <span class="token number">0</span> <span class="token number">10000001</span> <span class="token number">00001000000000000000000</span>
+同理
+<span class="token number">0.25</span> <span class="token operator">-></span> <span class="token number">0</span> <span class="token number">01111101</span> <span class="token number">00000000000000000000000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  为什么指数要加上偏移量：指数部分 也是有 <strong>正负</strong>
+的，如果不做处理，那么会使得 浮点数 中有两个符号位，多了一个用来表示
+指数正负 的符号位。因此加上偏移量的结果，也就是 <strong>移码</strong>
+，来实现无符号整数表示。这样在比较浮点数大小时，就只需要判断一个符号位即可。指数的8位，可以直接无符号的判断大小。<br />
+  为什么偏移量的值是 127：8位无符号的值范围是 0 ~ 255 (00000000 ~
+11111111)，其中 00000000 和 11111111 移码，在
+指数中不不使用，因此指数的范围是 1 ~ 254 (00000001 ~ 11111110) 共 254
+个值。因此使用 254 的中位数，127 或 128 作为偏移量，是合理的。<br />
+  如果以 128 为偏移量，那么 在指数值为 +127 (01111111) 时，结果为
+11111111，因为不使用该值，相当于溢出。因此以 128
+为偏移量，指数的范围是，-127 ~ 126。<br />
+  如果以 127 为偏移量，那么 在指数值为 -127 (10000001) 时，结果为
+00000000，因为不适用该值，相当于溢出。因此以 127
+为偏移量，指数的范围是，-126 ~ 127。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">当 <span class="token number">23</span>位 尾数全为 <span class="token number">1</span> 时，尾数值最大
+<span class="token number">1.11111111111111111111111</span> <span class="token operator">=</span> <span class="token number">1.9999998</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 约为 <span class="token number">2</span>
+当 <span class="token number">23</span>位 尾数全为 <span class="token number">0</span> 时，尾数值最小
+<span class="token number">1.00000000000000000000000</span> <span class="token operator">=</span> <span class="token number">1</span>  
+
+因此 <span class="token number">128</span> 偏移量，浮点数的取值范围是：
+<span class="token operator">-</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span> <span class="token operator">~</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> 和 <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> <span class="token operator">~</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span>。
+数量为 ： <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">126</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">127</span> <span class="token punctuation">)</span> 约为 <span class="token number">2</span> <span class="token operator">^</span> <span class="token number">128</span>。
+
+因此 <span class="token number">127</span> 偏移量，浮点数的取值范围是：
+<span class="token operator">-</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span> <span class="token operator">~</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> 和 <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> <span class="token operator">~</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span>。  
+数量为 ： <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token number">127</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token operator">-</span><span class="token number">126</span> <span class="token punctuation">)</span> 约为 <span class="token number">2</span> <span class="token operator">^</span> <span class="token number">129</span>。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>  由此可得，当偏移量为 127
+时，取值范围更大。精度越大则取值范围越小，精度越小则取值范围越大。标准规定偏移量值为
+127。</p></li>
+<li><h2 id="浮点数精度问题">浮点数精度问题</h2>
+<p>  32位中，1位符号位，8位指数位，23位尾数位。当出现 4.2
+这种，小数部分二进制无限循环的时候，100.001100110011...，只能有23位，也就是00
+0011 0011 0011 0011 0011
+0|0，第24位0舍去，类似于四舍五入这种说法，也就是精度丢失。最后23位尾数位存的结果为
+00 0011 0011 0011 0011 0011 0，这时候在转换成十进制 则为
+4.199999809265137
+  两个单精度浮点数相加的结果，位数有限，也可能发生精度丢失</p></li>
+</ul></li>
+<li><h1 id="二进制-优化-数量选择">二进制 优化 数量选择</h1>
+<p>  假设场景下，需要取 n 个同一物品，一个一个的取，循环 n
+次。除了这种方法，可以通过二进制 预处理优化。原理就是用数组保存
+二进制每一位对应的十进制数，通过换一个角度的二进制表达式的方式计算获得结果。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">...</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;">256</td>
+<td style="text-align: center;">512</td>
+<td style="text-align: center;">...</td>
+</tr>
+</tbody>
+</table>
+<p>  举例说明，23 的二进制数为，00010111，1 所在的每一位
+，转为十进制就是 1、2、4、16 。对应的预处理的后的数组的
+arr[0]、arr[1]、arr[2]、arr[4]。</p></li>
+<li><h1 id="数学运算">数学运算</h1>
+<ul>
+<li><h2 id="字符串的乘法加法">字符串的乘法加法</h2>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> res <span class="token operator">=</span> num1 <span class="token operator">+</span> num2 <span class="token operator">+</span> carry<span class="token punctuation">;</span>或者 res <span class="token operator">=</span> num1 <span class="token operator">*</span> num2 <span class="token operator">+</span> carry<span class="token punctuation">;</span>
+carry <span class="token operator">=</span> res <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+res <span class="token operator">=</span> res <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>  字符串运算中，不管乘法还是加法 ，上面这部分是通用的逻辑。<br />
+  在乘法中，长度为n的数 和 长度为m短的数 相乘，那么结果的长度不会超过 n
++ m，不会低于 m + n -
+1。因此字符串乘法时，可以利用该特点，做辅助数组，保存每一字符相乘结果 到
+数组中对应位置。如，n中
+i上的字符，和m中j上的字符相乘，因为字符相乘结果最大81，不会超过2位数，那么对应的结果就是在，i+j和
+i+j+1，这两个位置上。也就是 res/10 在
+i+j位置，res%10在i+j+1位置。可以直接参考LeetCode_43_字符串相乘。</p></li>
+<li><h2 id="减法实现除法">减法实现除法</h2>
+<p>  以被除数100，除数3为例。100 减 4 次 3 和 100 减 1 次
+4*3，是一样的结果。因此可以通过左移除数，也就是 3 &lt;&lt; 2 或者 直接
+除数乘4，来减少循环次数。需要注意的是，减法的次数
+同样需要随着除数的同步移动, 也就是 减 1 次的这个 1， 1 &lt;&lt;
+2。</p></li>
+<li><h2 id="乘法实现x的n次幂">乘法实现x的n次幂</h2>
+<p>  和减法实现除法思路相似，不使用暴力法一个一个计算。直接计算n/2次幂，再将结果相乘。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">res <span class="token operator">=</span> x<span class="token operator">^</span><span class="token punctuation">(</span>n<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 注意奇偶</span>
+x<span class="token operator">^</span>n <span class="token operator">=</span>  res <span class="token operator">*</span> res 或者 x<span class="token operator">^</span>n <span class="token operator">=</span> res <span class="token operator">*</span> res <span class="token operator">*</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="集合">集合</h1>
+<ul>
+<li><h2 id="addnull">add(null)</h2>
+<p>  做题时，add(null) 和 size == 0，这两个需要理解清楚。add(null) 不是
+集合为空。集合add(null)后，集合元素 + 1，该元素为空。</p></li>
+<li><h2 id="泛型">泛型</h2>
+<p>  用List 和 int
+举例，如果返回结果是二维数组，除了生成1个二维数组，也可以泛型指定int[]，也就是
+List&lt;int[]&gt;，然后List的toArray方法，转为二维数组。指定集合的泛型，只能是引用类型
+或 数组类型。</p></li>
+<li><h2 id="arrays.sort-和-comparator">Arrays.sort 和 Comparator</h2>
+<p>  调用sort方法排序时，传comparator对象，可以处理像二维数组，或者字符的场景。需要指定Comparator泛型，类型要和数组元素类型保持一致，因为是指定类型，因此只能是引用类型或者数组类型，不能是基本类型。比如说是int[][]，那么指定类型int[]。然后重写compare方法，方法的两个参数同样需要和数组元素类型保持一致。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> o1<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> o2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 当返回值 > 0 ，前一个元素 o1 和 后一个元素位置 o2 互换</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul></li>
+<li><h1 id="一趟扫描遍历">一趟扫描遍历</h1>
+<p>  部分算法题目中会有这个要求，这个一趟扫描需要注意的是，和for循环个数无关，如：长度为n的数组，第一个for循环，扫描n/2个元素，第二个for循环扫描剩下的元素，这任然是一趟扫描。重要的不是for循环的个数，而是一个元素在循环中只经过一次。</p></li>
+<li><h1 id="二维数组中遍历ij位置周围">二维数组中遍历(i,j)位置周围</h1>
+<p>  当需要遍历位置(i,j)周围，如以(i,j)为中心的九宫格，或者上下左右位置时，可以创建
+(i,j)偏移量二维数组
+来优化代码结构。如：对于(i,j)来说，上面位置的偏移量是
+(-1，0)，左边位置的偏移量是
+(0，-1)。所以遍历(i,j)周围时，可以这么实现：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 遍历九宫格</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> curI <span class="token operator">=</span> startI <span class="token operator">+</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> curJ <span class="token operator">=</span> startJ <span class="token operator">+</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 遍历上下左右</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> around <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ar <span class="token operator">:</span> around<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> curI <span class="token operator">=</span> startI <span class="token operator">+</span> ar<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> curJ <span class="token operator">=</span> startJ <span class="token operator">+</span> ar<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><h1 id="杨辉三角">杨辉三角</h1>
+<p>  杨辉三角的题目前没遇到什么难的，只是记下 第n层 的公式：<br />
+<span
+class="math display">\[C_{n-1}^{0},C_{n-1}^{1},C_{n-1}^{0},C_{n-1}^{2},...,C_{n-1}^{n-2},C_{n-1}^{n-1}\]</span><br />
+  每一层直接套这个公式就可以，没必要从第一层递推了。<br />
+<span class="math display">\[C_{n}^{m} = C_{n}^{m - 1} * (n - m + 1) /
+m\]</span></p></li>
+<li><h1 id="搜索旋转排序数组">搜索旋转排序数组</h1>
+<ul>
+<li><h2 id="旋转有序数组的特点">旋转有序数组的特点</h2>
+  左边，及右边有序；当要在该类数组中，搜索target时，需要考虑 mid
+在左右升序位置 及 target在左右升序位置。也就是 mid target 和
+数组第1位或最后1位的大小关系。直接画出图形表示。</li>
+</ul></li>
+<li><h1 id="前缀和">前缀和</h1>
+<p>  当题目要求，计算 数组的子区间，单向链或树中的单向链路径 的
+总和，类似这种的 连续子区间。大概率可以通过 前缀和
+解决。前缀和的大致思路：对于 preI 为 0 ~ i 的 前缀和，preJ 为 0 ~ j
+的前缀和，且 j &gt; i。那么 preJ - preI 就是 区间 i+1 ~ j 的
+总和。</p></li>
+<li><h1 id="子集的总和">子集的总和</h1>
+<ul>
+<li><h2 id="连续子区间">连续子区间</h2>
+<p>  一般是前缀和</p></li>
+<li><h2 id="非连续子集">非连续子集</h2>
+<p>  一般是背包问题</p></li>
+</ul></li>
+<li><h1 id="中位数">中位数</h1>
+<ul>
+<li><h2 id="中位数的特点">中位数的特点</h2>
+<ul>
+<li>该位置左边的长度 等于 该位置右边的长度。<br />
+</li>
+<li>左边的最大值 小于等于 右边的最小值。</li>
+</ul></li>
+</ul></li>
+<li><h1 id="回文串">回文串</h1>
+<ul>
+<li><h2 id="回文串的特点">回文串的特点</h2>
+<ul>
+<li>从左右两边向内遍历，两边字符相同，从左向右遍历 和 从右向左遍历
+得到的结果相同。<br />
+</li>
+<li>从中间向两边遍历，遍历字符相同。<br />
+</li>
+<li>回文串去掉最左边及最右边，中间部分依旧是回文串。</li>
+</ul></li>
+<li><h2 id="判断回文串的方式">判断回文串的方式</h2>
+<ul>
+<li>从左右向内遍历。<br />
+</li>
+<li>从中间向外遍历。因为回文串长度有奇偶之分，因此从i点向左右两边判断是否是回文串时，除了left,right
+= i以外，还需要判断left = i，right = i+1 判断偶数时的情况。<br />
+</li>
+<li>动态规划。在左右两边相等的情况下，判断中间部分是否为回文串。</li>
+</ul></li>
+</ul></li>
+<li><h1 id="递归和回溯">递归和回溯</h1>
+<ul>
+<li><h3 id="递归回溯">递归、回溯</h3>
+<p>  自己调用自己，也就是递归，属于一种代码结构；多种选择，选择其中一种，根据条件退回，再选择，也就是回溯，属于代码思想。回溯在题目中的体现，一般就是
+添加一个值，相当于选择，去掉添加的值，相当于回退，在添加下一个值。算法题中涉及的回溯，最常见的就是上面的这个流程。递归
++ 回溯 一般就是 DFS 深度优先遍历。 当题目中出现 "所有符合条件的结果"
+这类情况时，一般就是 dfs +
+根据条件剪枝。根据题目画出树，会更加清晰。<br />
+  递归需要用到栈空间，也就是空间复杂度，栈空间的消耗，和递归的深度相关。</p></li>
+<li><h4 id="递归做题的一些思路">递归做题的一些思路</h4>
+<p>  涉及到递归的部分，最好直接从宏观的角度写出大致的流程，及递归的出口。然后再实现或调整细节。最后根据写的代码从入口走一遍流程过下细节。涉及到递归的题，整个输入参数，就当作宏观角度，从入参获得结果，就是宏观角度的流程。同时，入参的子区间，同样也适用于这个流程，然后获得这个子区间的结果。为了方便理解，这里使用
+汉诺塔 举例说明：</p></li>
+</ul></li>
+<li><h3 id="树结构与递归">树结构与递归</h3>
+<p>  如果 递归的过程 能够用 树结构
+表示，那么最终的结果，可以分为两种：<br />
+1.一种通过递归获得子区间结果，结果在根节点。<br />
+2.一种通过 递归+剪枝 从 0 生成结果，结果在叶节点。当题目中出现
+"所有符合条件的结果" 这类情况时 中心对称数 II</p></li>
+<li><h3 id="递归-和-时间超时">递归 和 时间超时</h3>
+<p>  当一个题目能够使用递归实现，但是递归执行结果超时。那么该题大概率需要
+动态规划
+实现。根据题目的入参提示，如果参数过大，导致递归深度过高，那么递归应该就是个陷阱。</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title>分治算法</title>
     <url>/%E7%AE%97%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<!--
@@ -1997,7 +2069,7 @@ C_i] + V_i\}\]</span>   dp[i][j] 表示：在容量为 j 的背包中，0 ~ 
   那么 dp[i][j] 的结果和 dp[i - 1][j] 是一样的。<br />
 </li>
 <li>选择 i号 物品：<br />
-  表示 0 ~ <em>i - 1</em> 号占据空间不能超过 j - <span
+  那么 0 ~ <em>i - 1</em> 号占据空间不能超过 j - <span
 class="math inline">\(C_i\)</span> 。dp[i - 1][j - <span
 class="math inline">\(C_i\)</span>] 表示 0 ~ <em>i - 1</em> 号，在容量为
 j - <span class="math inline">\(C_i\)</span> 时最大的价值。因此 dp[i][j]
@@ -2383,256 +2455,6 @@ class="math inline">\(2^{n - 1} &lt;= S_i &lt; 2^n\)</span> 。<br />
       </tags>
   </entry>
   <entry>
-    <title>保留文件</title>
-    <url>/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<!-- 
-意图:
-解决的问题:
--->
-]]></content>
-  </entry>
-  <entry>
-    <title>保留文件</title>
-    <url>/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<!-- 
-意图:
-解决的问题:
--->
-]]></content>
-  </entry>
-  <entry>
-    <title>go学习笔记</title>
-    <url>/Go/go%E5%9F%BA%E7%A1%80/go-Effective/</url>
-    <content><![CDATA[<!--
-1 go每声明一个变量 相当于 内存中的一个新地址  
-   
-2 go方法及函数 都是 值传递，形参 都是 实参 的副本，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变  
-
-3 go的赋值操作 都是 副本赋值 原数据不会因副本变动而变动，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变  
-
-4 结合 2.3 总的来说，go 和 java一样，没有引用传递，都是值传递。只是传的是 指针 或者 引用 指向的地址值。  
-
-5 切片 和 map ，通道 这些当相当于 指针，是隐式指针， 这些 结构 都需要 make() 函数 初始化。  
-
-6 类型 或者 该类型 指针 提供了 方法1，则 该变量 或者 该指针 都能使用该方法1，go编译器 会自动转换 变量或指针  
-
-7 类型 实现了 接口 的 方法1，则该 类型 变量 和 指针， 都能赋值给 该接口变量  
-
-8 类型指针 实现了 接口 的 方法1，则只有 类型指针，赋值给 该接口变量  
-
-9 go 中 需要将 字符 理解成 byte，s := "123", s[0] 为 '1'，如果输出 s[0] ，结果是49，也就是 相当于在go中会直接把 字符型 转为 byte型,不能输出'1'。java中可以输出字符，当把 字符 和 整型相比较时，字符型才会转为整型  
-
-10 go的位移中，>> 高位 补符号位的值 ; << 低位补0 ; go中没有和java一样直接提供Integer.MIN_VALUE，这样的参数。因此可以直接使用位运算 获得值。  
-
-11 方法 函数
--->
-]]></content>
-      <categories>
-        <category>go</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>保留文件</title>
-    <url>/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<!--
-编码：
-    将 信息 转换成 计算机 能够识别的 二进制序列。
-    如 图片，文字，声音等都属于信息，需要转为二进制表示，该过程可以分类为：
-        图形编码
-        字符编码
-        声音编码
-        视频编码
-计算机的关键点：
-    1. 程序由 数据 和 指令 构成
-    2. 计算机的关键步骤： 输入、计算、输出
-
-IC：集成电路，每一个针脚对应的是 输入 或者 输出
--->
-]]></content>
-  </entry>
-  <entry>
-    <title>java学习笔记</title>
-    <url>/Java/java%E5%9F%BA%E7%A1%80/java-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<!-- java中 局部变量的生命周期 随着方法结束而销毁。  
-     外部类 和 内部类 同级，也就是 内部类对象 不会随着 方法结束 而被回收，当没用被引用时才会被回收。  
-     如果内部类对象 需要 用到 局部变量，那么生命周期的 不一致 会导致，内部类对象 访问了 不存在的变量。  
-     因此java中，会复制局部变量 作为内部类 成员变量 以供 内部类对象使用，为了保证 原局部变量 和 复制的变量 数据一致，必须使用 final，来保证 变量的值 或者 引用 不被改变
-
-
-     不同的操作系统，机器码的识别不同，java源码， 编译成 jvm 识别的字节码，然后由 jvm 编译成 对应的 机器码，从而实现跨平台
-
-
-     java asser
-     java 动态编译
-     IO，字节流，字符流，NIO
-     lambuda
- -->
-<ul>
-<li><h1 id="jdk-21-新特性">JDK 21 新特性</h1></li>
-<li><h1 id="jdk-17-新特性">JDK 17 新特性</h1></li>
-<li><h1 id="java中的锁分类">java中的锁分类</h1>
-<p>  在多线程并发操作中，常见并发控制方式就是锁。锁根据并发控制策略，可以分为
-悲观锁、可重入锁 等。<strong>并发控制策略是设计思想</strong>
-，不同的策略之间不完全互斥，一个具体的实现可能包含多种策略。如
-synchronized 相当于：悲观、可重入、排他 。</p>
-<ul>
-<li><h2 id="是否给资源上锁的设计分为">是否给资源上锁的设计分为：</h2>
-<ul>
-<li><h3 id="悲观锁">悲观锁</h3>
-<p>  就是认为一定有其他线程来修改数据，因此给获取到的数据加锁，防止其他线程进行修改。悲观锁
-的特点是先获取锁，然后再操作。<br />
-  在 java 中，<em>synchronized</em> 和 <em>Lock</em>
-实现类都是悲观锁。像 <em>排他锁</em> ，<em>共享锁</em>
-等分类算是悲观锁的更详细的划分。</p></li>
-<li><h3 id="乐观锁">乐观锁</h3>
-<p>  不会给数据加锁，而是通过修改数据时先判定该数据是否被别的线程修改，如果没有则更新数据。乐观锁
-的特点是先操作，然后再判断该操作是否能行。乐观锁 在java中 通常用 CAS(
-compare and swap )实现，在AtomicInteger等类中，就使用到了CAS +
-自旋。</p></li>
-</ul></li>
-<li><h2
-id="给资源上锁失败后的行为划分为">给资源上锁失败后的行为划分为：</h2>
-<ul>
-<li><h3 id="非自旋锁">非自旋锁</h3>
-<p>  在竞争资源失败后，线程会进入阻塞状态，等待唤醒。线程的 阻塞 或 唤醒
-都需要操作系统的介入，需要切换cpu状态 ( <strong>线程上下文切换</strong>
-)。 <strong>cpu上下文切换</strong>
-就是保存前一个任务的cpu上下文(程序计数器和cpu寄存器)，然后加载新任务的cpu上下文，跳转到新程序计数器所指的位置，执行新任务。</p></li>
-<li><h3 id="自旋锁">自旋锁</h3>
-<p>  在竞争资源失败后，会通过自旋操作，不放弃cpu时间片，尝试获取资源，这样做可以减少cpu切换。</p></li>
-</ul></li>
-<li><h2
-id="其他线程能否给已上锁资源上锁划分为">其他线程能否给已上锁资源上锁划分为：</h2>
-<ul>
-<li><h3 id="共享锁">共享锁</h3>
-<p>  可以在已经加了共享锁的资源上继续加上共享锁，不能加在上了排他锁的资源上。ReentrantReadWriteLock内部类ReaderLock是在java中的具体实现。</p></li>
-<li><h3 id="排他锁">排他锁</h3>
-<p>  不能加在上了共享锁或排他锁的资源上，只能加在没有锁的资源上。ReentrantReadWriteLock
-内部类 WriteLock 是 java 中的具体实现。<br />
-  ReentrantReadWriteLock 内部类 Sync 是实现锁操作的关键，Sync类
-是AbstractQueuedSynchronizer类 的子类，其中 int型 字段 state
-表示资源上锁的数量。state共32位，高16位表示读锁数量，低16位表示写锁数量。因此读锁或写锁最多能上2<sup>16</sup>-1
-= 65535个。</p></li>
-</ul></li>
-<li><h2 id="竞争资源时是否排队划分为">竞争资源时是否排队划分为：</h2>
-<ul>
-<li><h3 id="公平锁">公平锁</h3>
-<p>  线程在给打算给资源上锁时，直接加入到等待队列中，只有当自己是队列中第一个时，才可以给资源上锁，其他线程等待。Lock实现类的内部类FairSync(Sync子类)是java中公平锁的具体实现。公平锁
-上锁的方法比 非公平锁
-多个调用hasQueuedPredecessors()判断等待队列情况。</p></li>
-<li><h3 id="非公平锁">非公平锁</h3>
-<p>  线程打算给资源上锁时，先尝试上锁获取资源，失败了后再加入到等待队列。非公平锁
-直接尝试获取资源可以省略线程的阻塞状态和唤醒状态的变更造成的cpu切换状态的消耗。线程在尝试获取锁时本来就处于获取到cpu时间片的运行状态，如果切换到阻塞状态就是上面提到的cpu线程上下文切换。Lock实现类的内部类
-NonFairSync(Sync子类) 是java中非公平锁的具体实现。Lock实现类默认内部sync
-= new NonFairSync()。<br />
-  java中接口 Lock
-的实现类，通过调用Sync的实例实现上锁操作，抽象类Sync有两个子类，NonFairSync和FairSync，Lock的实现类
-默认NonFairSync，也即 Sync sync = new NonFairSync() 。Lock接口的
-tryLock()方法也就是调用Sync类的抽象方法tryAcquire()方法，具体由两个子类实现。</p></li>
-</ul></li>
-<li><h2
-id="线程是否可以多次获得同一把锁划分为">线程是否可以多次获得同一把锁划分为：</h2>
-<ul>
-<li><h3 id="可重入锁">可重入锁</h3>
-<p>  允许线程中的流程多次获得同一个锁，防止内部给同一个锁上锁失败造成死锁。synchronized关键字还有ReentrantLock是java中可重入锁的具体实现。AbstractQueueSynchronizer的state字段表示上了多上锁。</p></li>
-<li><h3 id="不可重入锁">不可重入锁</h3>
-<p>  线程流程不能再获取同一个锁，当流程中尝试上锁同一个资源时，无法获取，当前线程也无法释放，所以会造成死锁。线程池ThreadPoolExecutor类中的内部类
-Worker 就是非可重入锁，继承AQS类，没有加可重入判定。<br />
-  Worker类继承AQS类实现Runnable接口，内部还有个Thread对象执行重写的run方法，相当于线程池中的
-执行任务线程。当线程池变为SHUTDOWN状态时，要中断空闲线程。判定空闲线程的方法就是tryLock()，worker获得任务要执行时，会先
-worker.lock() 来上锁。如果tryLock() 为 false，就表示这个 worker
-对象正在执行任务不能中断，因此要用不可重入锁。</p></li>
-</ul></li>
-<li><h2 id="synchronized关键字">synchronized关键字</h2>
-<p>  synchronized关键字，即同步锁，对于synchronized的代码块，不应该理解成synchronized锁住了这个代码块，而是
-<strong>执行这段代码时需要获得同步锁</strong>
-，synchronized锁住的是对象，而锁保存在对象头的 <strong>Mark
-Word</strong> 中。synchronized在 class文件也就是字节码表示中，是
-<strong>monitorenter</strong> 和 <strong>monitorexit</strong>
-指令。<br />
-  Mark Word在32位Jvm中长度就是32位，在64位Jvm中就是64位。Mark
-Word默认保存的是对象的
-hashcode，分代年龄，锁标志位等，也就是没有遇到同步锁时存储的数据。Mark
-Word的数据会随着锁标志位的变化而变化。<br />
-<img src="/assets/posts_jpg/Java/java-knowledge/MarkWord示意图.jpg"
-alt="MarkWord示意图" /><br />
-  根据上图所示，synchronized关键组锁的是对象，而该对象的状态在Mark
-Word中。</p>
-<ul>
-<li><h3 id="无锁">无锁</h3>
-<p>  无锁状态就是一个对象的默认状态，也就是没有遇到synchronized关键字的对象。其中Mark
-Word保存的是hashcode
-对象年龄等。标志位是01，和偏向锁一样，偏向锁和无锁状态通过是否偏向锁位
-0和1区分。因为分代年龄是4位，因此对象年龄最大值15。</p></li>
-<li><h3 id="偏向锁">偏向锁</h3>
-<p>  当无锁状态的对象，被 <strong>一个线程上锁</strong> 而
-<strong>不存在多线程竞争</strong> 时，会从无锁状态升级成偏向锁状态。
-<strong>锁可以升级不能降级，但是偏向锁可以重置为无锁状态</strong>
-。当无锁态升级到偏向锁时，原来无锁时的Mark Word中hash code等数据会
-<strong>备份到获得锁的线程的栈的栈帧中</strong> (
-栈是线程独有，栈帧元素的入栈出栈是方法的执行和结束，线程遇到synchronized代码块时也会在某个方法中，则
-<strong>备份数据就保存到该方法对应的栈帧中</strong> )。<br />
-<img src="/assets/posts_jpg/Java/java-knowledge/无锁升级偏向锁.jpg"
-alt="无锁升级偏向锁" /><br />
-  当一个线程给对象上锁时，先判断Mark
-Word中标志位，然后再判断是否为偏向锁。如果不是偏向锁，则通过CAS修改Mark
-Word，将Mark
-Word改为偏向锁状态且将线程id指向当前线程。如果对象已经是偏向锁了，则只需要判断Mark
-Word中的线程id是否是当前线程，如果是则不需要CAS操作，直接获得锁。因为
-<strong>偏向锁是不会释放的</strong>
-，其他线程想给偏向锁状态对象上锁时，就通过 <strong>Epoch</strong>
-位判断偏向锁是否能重新偏向，也就是上一个获得偏向锁的线程是否失效。<br />
-<img src="/assets/posts_jpg/Java/java-knowledge/其他线程获得偏向锁.jpg"
-alt="无锁升级偏向锁" /><br />
-  偏向锁相当于
-<strong>偏向第一个将对象无锁态升级为偏向锁态的线程</strong>
-，当该线程死亡，或者不需要该锁，其他线程尝试获得锁时，会先重置为无锁，然后再升级为偏向锁，这个过程的消耗导致
-<strong>偏向锁效率不一定比轻量级锁高</strong>
-。可以通过UseBiasedLocking参数来开启关闭偏向锁，如果关闭，则对象直接从无锁状态升级到轻量级锁。</p></li>
-<li><h3 id="轻量级锁">轻量级锁</h3>
-<p>  当偏向锁有多个线程竞争时，偏向锁会撤销，升级成轻量级锁。锁对象为轻量级状态时，Mark
-Word保存的数据是指向 <strong>Lock Record锁记录</strong>
-的指针。线程打算给轻量级锁对象上锁时，会先在栈的栈帧中创建Lock
-Record空间，然后把该锁的Mark
-Word复制到该空间中，然后通过CAS竞争将指针指向Lock Record。<br />
-<img src="/assets/posts_jpg/Java/java-knowledge/获取轻量级锁.jpg"
-alt="获取轻量级锁" /><br />
-  轻量级锁的特点是线程不会阻塞，而是自旋等待。当某个线程自旋次数超过一定次数时，轻量级锁会升级成重量级锁。可以通过参数PreBlockSpin设置，默认10次。</p></li>
-<li><h3 id="重量级锁">重量级锁</h3>
-<p>  当锁对象为重量级锁时，Mark
-Word保存的是，指向monitor对象的指针。monitor由C++实现。每一个重量级锁对象和一个monitor对象关联。monitor中有个等待队列，该队列保存竞争该锁对象的线程。重量级锁状态涉及到操作系统来实现阻塞线程。<br />
-<img src="/assets/posts_jpg/Java/java-knowledge/获取重量级锁.jpg"
-alt="获取重量级锁" /><br />
-  monitor对象由c++实现，内部属性 <strong>Owner</strong>
-保存获得锁对象的线程。 <strong>EntryList</strong>
-用来保存竞争锁失败的等待线程。<strong>WaitList</strong>
-保存等待唤醒的线程。当 <strong>锁对象调用wait()方法</strong>
-后，会将当前 <strong>owner线程阻塞</strong>
-并加入到WaitList中等待notify()，唤醒后WaitList中的线程会加入到EntryList中。<strong>recursions</strong>
-记录线程上锁次数，每重入一次recursions + 1，每释放一次recursions -
-1。</p></li>
-</ul></li>
-<li><h2 id="lock类">Lock类</h2>
-<p><a
-href="/Java/java基础/juc-AQS/#jump_aqs"><font color="007FFF">java的AQS类</font></a></p></li>
-</ul></li>
-</ul>
-<!-- - # java中synchornized和Lock的使用场景  
-  - ## synchronized  
-&ensp;&ensp;1.自动释放锁；2.不可中断；3.非公平；4.jdk1.6之后，synchronized优化，性能得到提升。一般优先使用synchronized。  
-
-  - ## Lock实现类  
-&ensp;&ensp;1.主动释放锁；2.可中断；3.可公平。4.读锁增加读操作并发效率。  
-
-  - ## 使用场景  
-&ensp;&ensp;在线程数量多，竞争激烈情况下，jdk1.6之后的synchronized执行效率，和Lock实现类，差距没有特别大,几乎差不多。  
-&ensp;&ensp;在线程数量少时，synchronzied效率比Lock实现类高。 -->
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-  </entry>
-  <entry>
     <title>AQS 和 juc中并发工具类</title>
     <url>/Java/java%E5%9F%BA%E7%A1%80/juc-AQS/</url>
     <content><![CDATA[<ul>
@@ -2979,79 +2801,187 @@ Line为I状态。缓存和内存中数据不一致。<br />
       </tags>
   </entry>
   <entry>
-    <title>java中的线程池</title>
-    <url>/Java/java%E5%9F%BA%E7%A1%80/juc-%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
-    <content><![CDATA[<ul>
-<li><h1 id="线程池的优点">线程池的优点</h1>
+    <title>java学习笔记</title>
+    <url>/Java/java%E5%9F%BA%E7%A1%80/java-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<!-- java中 局部变量的生命周期 随着方法结束而销毁。  
+     外部类 和 内部类 同级，也就是 内部类对象 不会随着 方法结束 而被回收，当没用被引用时才会被回收。  
+     如果内部类对象 需要 用到 局部变量，那么生命周期的 不一致 会导致，内部类对象 访问了 不存在的变量。  
+     因此java中，会复制局部变量 作为内部类 成员变量 以供 内部类对象使用，为了保证 原局部变量 和 复制的变量 数据一致，必须使用 final，来保证 变量的值 或者 引用 不被改变
+
+
+     不同的操作系统，机器码的识别不同，java源码， 编译成 jvm 识别的字节码，然后由 jvm 编译成 对应的 机器码，从而实现跨平台
+
+
+     java asser
+     java 动态编译
+     IO，字节流，字符流，NIO
+     lambuda
+     @ 注解 及 原理 及 自定义注解
+ -->
 <ul>
-<li>线程可重用，减少资源消耗。<br />
-</li>
-<li>提高线程管理性。<br />
-</li>
-<li>线程 和 任务 解耦。</li>
-</ul>
-<p>  线程池相当于两个部分组成,任务管理 和
-线程管理。任务管理相当于生产者，线程管理相当于消费者，非核心线程如果没申请到任务，会被回收。<br />
-  任务集合 由接口BlockingQueue实现类来实现，线程集合
-通过HashSet&lt;Worker&gt;来实现。任务集合也即阻塞队列的具体结构，规则等由BlockingQueue子类实现。<br />
-  线程池实现类ThreadPoolExecutor，构造方法接收参数
-<strong>corePoolSize</strong>
-表示核心线程数，核心线程即使没有任务执行也不会回收，<strong>maximumPoolSize</strong>
-表示最大允许线程数，BlockingQueue实例对象 <strong>workQueue</strong>
-表示阻塞队列，BlockingQueue是接口，阻塞队列的具体规则,内部结构,由子类实现。AtomicInteger型字段
-<strong>ctl</strong> 表示 线程池状态 和 线程数量，ctl
-高3位表示<em>状态</em>，低29位表示<em>线程数</em>。</p></li>
-<li><h1 id="线程池的5种运行状态为">线程池的5种运行状态为</h1>
+<li><h1 id="jdk-21-新特性">JDK 21 新特性</h1></li>
+<li><h1 id="jdk-17-新特性">JDK 17 新特性</h1></li>
+<li><h1 id="java中的锁分类">java中的锁分类</h1>
+<p>  在多线程并发操作中，常见并发控制方式就是锁。锁根据并发控制策略，可以分为
+悲观锁、可重入锁 等。<strong>并发控制策略是设计思想</strong>
+，不同的策略之间不完全互斥，一个具体的实现可能包含多种策略。如
+synchronized 相当于：悲观、可重入、排他 。</p>
 <ul>
-<li>Running 运行 ：运行时可接收任务，工作线程执行任务。<br />
-</li>
-<li>Shutdown 关闭 ：停止接收任务，工作线程执行任务，空闲线程中断。<br />
-</li>
-<li>Stop 停止 ：停止接收任务，空闲的和工作中的线程都中断。<br />
-</li>
-<li>Tidying 清空 ：线程数清0。<br />
-</li>
-<li>Terminated 结束 ：结束。</li>
-</ul>
-<p>  方法execute()相当于线程池入口，execute()接收一个Runnable对象，相当于提交任务。
-  根据线程池的线程数和阻塞队列状态，任务提交时可分为:</p>
+<li><h2 id="是否给资源上锁的设计分为">是否给资源上锁的设计分为：</h2>
 <ul>
-<li>poolSize &lt; corePoolSize，则直接创建线程执行该任务。<br />
-</li>
-<li>poolSize &gt;= corePoolSize 且
-阻塞队列没有满，则将任务添加到阻塞队列中，通过BlokingQueue类的offer()方法添加提交。<br />
-</li>
-<li>阻塞队列满了，且 poolSize &lt;
-maximumPoolSize，则创建线程执行任务。<br />
-</li>
-<li>poolSize &gt;= maximumPoolSize，拒绝任务。</li>
+<li><h3 id="悲观锁">悲观锁</h3>
+<p>  就是认为一定有其他线程来修改数据，因此给获取到的数据加锁，防止其他线程进行修改。悲观锁
+的特点是先获取锁，然后再操作。<br />
+  在 java 中，<em>synchronized</em> 和 <em>Lock</em>
+实现类都是悲观锁。像 <em>排他锁</em> ，<em>共享锁</em>
+等分类算是悲观锁的更详细的划分。</p></li>
+<li><h3 id="乐观锁">乐观锁</h3>
+<p>  不会给数据加锁，而是通过修改数据时先判定该数据是否被别的线程修改，如果没有则更新数据。乐观锁
+的特点是先操作，然后再判断该操作是否能行。乐观锁 在java中 通常用 CAS(
+compare and swap )实现，在AtomicInteger等类中，就使用到了CAS +
+自旋。</p></li>
 </ul></li>
-<li><h1 id="内部类worker">内部类Worker</h1>
-<p>  上面提到的创建线程执行任务， 创建的是
-内部类Worker的对象。内部类Worker继承AbstractQueueSynchronizer类，实现了Runnable接口，其本身既是一个不可重入锁，也是线程Thread要执行的target。Worker类的
-lock()方法直接调用AQS类的acquire()方法，tryLock()方法调用自己重写的tryAcquire()方法，tryAcquire()方法就只有通过CAS将AQS的字段state变为1和修改成功将锁的owner设成自己的线程，没有ReentrantLock中的可重入判断，来实现
-<strong>非可重入锁</strong> 。<br />
-  Worker类 有个Thread对象,创建时相当于new
-Thread(Worker.this)，启动时来执行Worker重写的run方法，因此Worker相当于一个封装好的线程池中执行任务的线程。Worker构造方法接收Runnable对象作为firstTask，也即线程执行的第一个任务，该任务也就是线程池入口execute()方法传进来的Runnable对象。work线程进入到一个while循环中，当线程的firstTask为空，且线程调用getTask()方法没获取的任务时，结束循环。其中getTask()方法内，通过
-<strong>自旋</strong> 和
-<strong>BlockQueue实现类中方法里的Lock锁</strong>
-来保证提取任务的线程安全。通过这个循环保证工作线程一直在执行任务，一个任务完成就从阻塞队列中获得任务去执行。当work线程获得了任务，在执行前会先通过worker.lock()上锁，任务完成时再unlock(),这里
-<strong>通过上锁来辨别线程状态</strong>
-。当worker上锁时，就表示在执行任务，反之则空闲。当线程池调用shutdown()方法进入SHUTDOWN状态时，会执行interruptIdleWorkers()方法来中断空闲线程，判断是否为空闲线程就是通过tryLock()方法，因此这里不能使用可重入锁。<br />
-  AQS上锁也是通过CAS修改int型字段
-state来实现的，state为0就没有上锁。非可重入锁的state只有0或者1，因此通过
-worker是否上锁来辨别是否空闲，也相当于 boolean
-来判断线程是否空闲。</p></li>
+<li><h2
+id="给资源上锁失败后的行为划分为">给资源上锁失败后的行为划分为：</h2>
+<ul>
+<li><h3 id="非自旋锁">非自旋锁</h3>
+<p>  在竞争资源失败后，线程会进入阻塞状态，等待唤醒。线程的 阻塞 或 唤醒
+都需要操作系统的介入，需要切换cpu状态 ( <strong>线程上下文切换</strong>
+)。 <strong>cpu上下文切换</strong>
+就是保存前一个任务的cpu上下文(程序计数器和cpu寄存器)，然后加载新任务的cpu上下文，跳转到新程序计数器所指的位置，执行新任务。</p></li>
+<li><h3 id="自旋锁">自旋锁</h3>
+<p>  在竞争资源失败后，会通过自旋操作，不放弃cpu时间片，尝试获取资源，这样做可以减少cpu切换。</p></li>
+</ul></li>
+<li><h2
+id="其他线程能否给已上锁资源上锁划分为">其他线程能否给已上锁资源上锁划分为：</h2>
+<ul>
+<li><h3 id="共享锁">共享锁</h3>
+<p>  可以在已经加了共享锁的资源上继续加上共享锁，不能加在上了排他锁的资源上。ReentrantReadWriteLock内部类ReaderLock是在java中的具体实现。</p></li>
+<li><h3 id="排他锁">排他锁</h3>
+<p>  不能加在上了共享锁或排他锁的资源上，只能加在没有锁的资源上。ReentrantReadWriteLock
+内部类 WriteLock 是 java 中的具体实现。<br />
+  ReentrantReadWriteLock 内部类 Sync 是实现锁操作的关键，Sync类
+是AbstractQueuedSynchronizer类 的子类，其中 int型 字段 state
+表示资源上锁的数量。state共32位，高16位表示读锁数量，低16位表示写锁数量。因此读锁或写锁最多能上2<sup>16</sup>-1
+= 65535个。</p></li>
+</ul></li>
+<li><h2 id="竞争资源时是否排队划分为">竞争资源时是否排队划分为：</h2>
+<ul>
+<li><h3 id="公平锁">公平锁</h3>
+<p>  线程在给打算给资源上锁时，直接加入到等待队列中，只有当自己是队列中第一个时，才可以给资源上锁，其他线程等待。Lock实现类的内部类FairSync(Sync子类)是java中公平锁的具体实现。公平锁
+上锁的方法比 非公平锁
+多个调用hasQueuedPredecessors()判断等待队列情况。</p></li>
+<li><h3 id="非公平锁">非公平锁</h3>
+<p>  线程打算给资源上锁时，先尝试上锁获取资源，失败了后再加入到等待队列。非公平锁
+直接尝试获取资源可以省略线程的阻塞状态和唤醒状态的变更造成的cpu切换状态的消耗。线程在尝试获取锁时本来就处于获取到cpu时间片的运行状态，如果切换到阻塞状态就是上面提到的cpu线程上下文切换。Lock实现类的内部类
+NonFairSync(Sync子类) 是java中非公平锁的具体实现。Lock实现类默认内部sync
+= new NonFairSync()。<br />
+  java中接口 Lock
+的实现类，通过调用Sync的实例实现上锁操作，抽象类Sync有两个子类，NonFairSync和FairSync，Lock的实现类
+默认NonFairSync，也即 Sync sync = new NonFairSync() 。Lock接口的
+tryLock()方法也就是调用Sync类的抽象方法tryAcquire()方法，具体由两个子类实现。</p></li>
+</ul></li>
+<li><h2
+id="线程是否可以多次获得同一把锁划分为">线程是否可以多次获得同一把锁划分为：</h2>
+<ul>
+<li><h3 id="可重入锁">可重入锁</h3>
+<p>  允许线程中的流程多次获得同一个锁，防止内部给同一个锁上锁失败造成死锁。synchronized关键字还有ReentrantLock是java中可重入锁的具体实现。AbstractQueueSynchronizer的state字段表示上了多上锁。</p></li>
+<li><h3 id="不可重入锁">不可重入锁</h3>
+<p>  线程流程不能再获取同一个锁，当流程中尝试上锁同一个资源时，无法获取，当前线程也无法释放，所以会造成死锁。线程池ThreadPoolExecutor类中的内部类
+Worker 就是非可重入锁，继承AQS类，没有加可重入判定。<br />
+  Worker类继承AQS类实现Runnable接口，内部还有个Thread对象执行重写的run方法，相当于线程池中的
+执行任务线程。当线程池变为SHUTDOWN状态时，要中断空闲线程。判定空闲线程的方法就是tryLock()，worker获得任务要执行时，会先
+worker.lock() 来上锁。如果tryLock() 为 false，就表示这个 worker
+对象正在执行任务不能中断，因此要用不可重入锁。</p></li>
+</ul></li>
+<li><h2 id="synchronized关键字">synchronized关键字</h2>
+<p>  synchronized关键字，即同步锁，对于synchronized的代码块，不应该理解成synchronized锁住了这个代码块，而是
+<strong>执行这段代码时需要获得同步锁</strong>
+，synchronized锁住的是对象，而锁保存在对象头的 <strong>Mark
+Word</strong> 中。synchronized在 class文件也就是字节码表示中，是
+<strong>monitorenter</strong> 和 <strong>monitorexit</strong>
+指令。<br />
+  Mark Word在32位Jvm中长度就是32位，在64位Jvm中就是64位。Mark
+Word默认保存的是对象的
+hashcode，分代年龄，锁标志位等，也就是没有遇到同步锁时存储的数据。Mark
+Word的数据会随着锁标志位的变化而变化。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/MarkWord示意图.jpg"
+alt="MarkWord示意图" /><br />
+  根据上图所示，synchronized关键组锁的是对象，而该对象的状态在Mark
+Word中。</p>
+<ul>
+<li><h3 id="无锁">无锁</h3>
+<p>  无锁状态就是一个对象的默认状态，也就是没有遇到synchronized关键字的对象。其中Mark
+Word保存的是hashcode
+对象年龄等。标志位是01，和偏向锁一样，偏向锁和无锁状态通过是否偏向锁位
+0和1区分。因为分代年龄是4位，因此对象年龄最大值15。</p></li>
+<li><h3 id="偏向锁">偏向锁</h3>
+<p>  当无锁状态的对象，被 <strong>一个线程上锁</strong> 而
+<strong>不存在多线程竞争</strong> 时，会从无锁状态升级成偏向锁状态。
+<strong>锁可以升级不能降级，但是偏向锁可以重置为无锁状态</strong>
+。当无锁态升级到偏向锁时，原来无锁时的Mark Word中hash code等数据会
+<strong>备份到获得锁的线程的栈的栈帧中</strong> (
+栈是线程独有，栈帧元素的入栈出栈是方法的执行和结束，线程遇到synchronized代码块时也会在某个方法中，则
+<strong>备份数据就保存到该方法对应的栈帧中</strong> )。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/无锁升级偏向锁.jpg"
+alt="无锁升级偏向锁" /><br />
+  当一个线程给对象上锁时，先判断Mark
+Word中标志位，然后再判断是否为偏向锁。如果不是偏向锁，则通过CAS修改Mark
+Word，将Mark
+Word改为偏向锁状态且将线程id指向当前线程。如果对象已经是偏向锁了，则只需要判断Mark
+Word中的线程id是否是当前线程，如果是则不需要CAS操作，直接获得锁。因为
+<strong>偏向锁是不会释放的</strong>
+，其他线程想给偏向锁状态对象上锁时，就通过 <strong>Epoch</strong>
+位判断偏向锁是否能重新偏向，也就是上一个获得偏向锁的线程是否失效。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/其他线程获得偏向锁.jpg"
+alt="无锁升级偏向锁" /><br />
+  偏向锁相当于
+<strong>偏向第一个将对象无锁态升级为偏向锁态的线程</strong>
+，当该线程死亡，或者不需要该锁，其他线程尝试获得锁时，会先重置为无锁，然后再升级为偏向锁，这个过程的消耗导致
+<strong>偏向锁效率不一定比轻量级锁高</strong>
+。可以通过UseBiasedLocking参数来开启关闭偏向锁，如果关闭，则对象直接从无锁状态升级到轻量级锁。</p></li>
+<li><h3 id="轻量级锁">轻量级锁</h3>
+<p>  当偏向锁有多个线程竞争时，偏向锁会撤销，升级成轻量级锁。锁对象为轻量级状态时，Mark
+Word保存的数据是指向 <strong>Lock Record锁记录</strong>
+的指针。线程打算给轻量级锁对象上锁时，会先在栈的栈帧中创建Lock
+Record空间，然后把该锁的Mark
+Word复制到该空间中，然后通过CAS竞争将指针指向Lock Record。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/获取轻量级锁.jpg"
+alt="获取轻量级锁" /><br />
+  轻量级锁的特点是线程不会阻塞，而是自旋等待。当某个线程自旋次数超过一定次数时，轻量级锁会升级成重量级锁。可以通过参数PreBlockSpin设置，默认10次。</p></li>
+<li><h3 id="重量级锁">重量级锁</h3>
+<p>  当锁对象为重量级锁时，Mark
+Word保存的是，指向monitor对象的指针。monitor由C++实现。每一个重量级锁对象和一个monitor对象关联。monitor中有个等待队列，该队列保存竞争该锁对象的线程。重量级锁状态涉及到操作系统来实现阻塞线程。<br />
+<img src="/assets/posts_jpg/Java/java-knowledge/获取重量级锁.jpg"
+alt="获取重量级锁" /><br />
+  monitor对象由c++实现，内部属性 <strong>Owner</strong>
+保存获得锁对象的线程。 <strong>EntryList</strong>
+用来保存竞争锁失败的等待线程。<strong>WaitList</strong>
+保存等待唤醒的线程。当 <strong>锁对象调用wait()方法</strong>
+后，会将当前 <strong>owner线程阻塞</strong>
+并加入到WaitList中等待notify()，唤醒后WaitList中的线程会加入到EntryList中。<strong>recursions</strong>
+记录线程上锁次数，每重入一次recursions + 1，每释放一次recursions -
+1。</p></li>
+</ul></li>
+<li><h2 id="lock类">Lock类</h2>
+<p><a
+href="/Java/java基础/juc-AQS/#jump_aqs"><font color="007FFF">java的AQS类</font></a></p></li>
+</ul></li>
 </ul>
+<!-- - # java中synchornized和Lock的使用场景  
+  - ## synchronized  
+&ensp;&ensp;1.自动释放锁；2.不可中断；3.非公平；4.jdk1.6之后，synchronized优化，性能得到提升。一般优先使用synchronized。  
+
+  - ## Lock实现类  
+&ensp;&ensp;1.主动释放锁；2.可中断；3.可公平。4.读锁增加读操作并发效率。  
+
+  - ## 使用场景  
+&ensp;&ensp;在线程数量多，竞争激烈情况下，jdk1.6之后的synchronized执行效率，和Lock实现类，差距没有特别大,几乎差不多。  
+&ensp;&ensp;在线程数量少时，synchronzied效率比Lock实现类高。 -->
 ]]></content>
       <categories>
         <category>java</category>
       </categories>
-      <tags>
-        <tag>juc</tag>
-        <tag>AQS</tag>
-        <tag>线程池</tag>
-      </tags>
   </entry>
   <entry>
     <title>java中的集合</title>
@@ -3208,6 +3138,81 @@ Fail-Fast机制。<br />
       </categories>
       <tags>
         <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java中的线程池</title>
+    <url>/Java/java%E5%9F%BA%E7%A1%80/juc-%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
+    <content><![CDATA[<ul>
+<li><h1 id="线程池的优点">线程池的优点</h1>
+<ul>
+<li>线程可重用，减少资源消耗。<br />
+</li>
+<li>提高线程管理性。<br />
+</li>
+<li>线程 和 任务 解耦。</li>
+</ul>
+<p>  线程池相当于两个部分组成,任务管理 和
+线程管理。任务管理相当于生产者，线程管理相当于消费者，非核心线程如果没申请到任务，会被回收。<br />
+  任务集合 由接口BlockingQueue实现类来实现，线程集合
+通过HashSet&lt;Worker&gt;来实现。任务集合也即阻塞队列的具体结构，规则等由BlockingQueue子类实现。<br />
+  线程池实现类ThreadPoolExecutor，构造方法接收参数
+<strong>corePoolSize</strong>
+表示核心线程数，核心线程即使没有任务执行也不会回收，<strong>maximumPoolSize</strong>
+表示最大允许线程数，BlockingQueue实例对象 <strong>workQueue</strong>
+表示阻塞队列，BlockingQueue是接口，阻塞队列的具体规则,内部结构,由子类实现。AtomicInteger型字段
+<strong>ctl</strong> 表示 线程池状态 和 线程数量，ctl
+高3位表示<em>状态</em>，低29位表示<em>线程数</em>。</p></li>
+<li><h1 id="线程池的5种运行状态为">线程池的5种运行状态为</h1>
+<ul>
+<li>Running 运行 ：运行时可接收任务，工作线程执行任务。<br />
+</li>
+<li>Shutdown 关闭 ：停止接收任务，工作线程执行任务，空闲线程中断。<br />
+</li>
+<li>Stop 停止 ：停止接收任务，空闲的和工作中的线程都中断。<br />
+</li>
+<li>Tidying 清空 ：线程数清0。<br />
+</li>
+<li>Terminated 结束 ：结束。</li>
+</ul>
+<p>  方法execute()相当于线程池入口，execute()接收一个Runnable对象，相当于提交任务。
+  根据线程池的线程数和阻塞队列状态，任务提交时可分为:</p>
+<ul>
+<li>poolSize &lt; corePoolSize，则直接创建线程执行该任务。<br />
+</li>
+<li>poolSize &gt;= corePoolSize 且
+阻塞队列没有满，则将任务添加到阻塞队列中，通过BlokingQueue类的offer()方法添加提交。<br />
+</li>
+<li>阻塞队列满了，且 poolSize &lt;
+maximumPoolSize，则创建线程执行任务。<br />
+</li>
+<li>poolSize &gt;= maximumPoolSize，拒绝任务。</li>
+</ul></li>
+<li><h1 id="内部类worker">内部类Worker</h1>
+<p>  上面提到的创建线程执行任务， 创建的是
+内部类Worker的对象。内部类Worker继承AbstractQueueSynchronizer类，实现了Runnable接口，其本身既是一个不可重入锁，也是线程Thread要执行的target。Worker类的
+lock()方法直接调用AQS类的acquire()方法，tryLock()方法调用自己重写的tryAcquire()方法，tryAcquire()方法就只有通过CAS将AQS的字段state变为1和修改成功将锁的owner设成自己的线程，没有ReentrantLock中的可重入判断，来实现
+<strong>非可重入锁</strong> 。<br />
+  Worker类 有个Thread对象,创建时相当于new
+Thread(Worker.this)，启动时来执行Worker重写的run方法，因此Worker相当于一个封装好的线程池中执行任务的线程。Worker构造方法接收Runnable对象作为firstTask，也即线程执行的第一个任务，该任务也就是线程池入口execute()方法传进来的Runnable对象。work线程进入到一个while循环中，当线程的firstTask为空，且线程调用getTask()方法没获取的任务时，结束循环。其中getTask()方法内，通过
+<strong>自旋</strong> 和
+<strong>BlockQueue实现类中方法里的Lock锁</strong>
+来保证提取任务的线程安全。通过这个循环保证工作线程一直在执行任务，一个任务完成就从阻塞队列中获得任务去执行。当work线程获得了任务，在执行前会先通过worker.lock()上锁，任务完成时再unlock(),这里
+<strong>通过上锁来辨别线程状态</strong>
+。当worker上锁时，就表示在执行任务，反之则空闲。当线程池调用shutdown()方法进入SHUTDOWN状态时，会执行interruptIdleWorkers()方法来中断空闲线程，判断是否为空闲线程就是通过tryLock()方法，因此这里不能使用可重入锁。<br />
+  AQS上锁也是通过CAS修改int型字段
+state来实现的，state为0就没有上锁。非可重入锁的state只有0或者1，因此通过
+worker是否上锁来辨别是否空闲，也相当于 boolean
+来判断线程是否空闲。</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>juc</tag>
+        <tag>AQS</tag>
+        <tag>线程池</tag>
       </tags>
   </entry>
   <entry>
@@ -3434,38 +3439,6 @@ id="辅助扩容helptransfer方法和transfer方法">辅助扩容，helpTransfer
       <tags>
         <tag>juc</tag>
         <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JVM的语法糖</title>
-    <url>/Java/java%E5%9F%BA%E7%A1%80/jvm-%E8%AF%AD%E6%B3%95%E7%B3%96/</url>
-    <content><![CDATA[<!--
-jvm 语法糖 + lambda 原理 + java stream + ? + 泛型 + default
--->
-<p><!-- 
- java stream流
- lambda表达式 就相当于 一个 匿名函数/方法 
-
- list.forEach(s -> System.out.println(s));
-  //                      变量  -> {return}
- Collections.sort(list, (o1,o2) -> o1.compareTo(o2));
- 
- Collections.sort(list, (o1,o2) -> {
-     return o1.compareTo(o2)
- });
-
- list.stream().filter(s -> s.startsWith()).collect(Collections.toList());
-
- list.stream().map(s -> s.lengt())
- --></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>JVM</tag>
-        <tag>类加载器</tag>
-        <tag>语法糖</tag>
       </tags>
   </entry>
   <entry>
@@ -3916,6 +3889,61 @@ alt="新创建的对象" /><br />
       </tags>
   </entry>
   <entry>
+    <title>JVM的语法糖</title>
+    <url>/Java/java%E5%9F%BA%E7%A1%80/jvm-%E8%AF%AD%E6%B3%95%E7%B3%96/</url>
+    <content><![CDATA[<!--
+jvm 语法糖 + lambda 原理 + java stream + ? + 泛型 + default
+-->
+<p><!-- 
+ java stream流
+ lambda表达式 就相当于 一个 匿名函数/方法 
+
+ list.forEach(s -> System.out.println(s));
+  //                      变量  -> {return}
+ Collections.sort(list, (o1,o2) -> o1.compareTo(o2));
+ 
+ Collections.sort(list, (o1,o2) -> {
+     return o1.compareTo(o2)
+ });
+
+ list.stream().filter(s -> s.startsWith()).collect(Collections.toList());
+
+ list.stream().map(s -> s.lengt())
+ --></p>
+<p><!--
+  java源码 === java编译器 ===> class文件 字节码 === JVM (包括JIT编译器 + java解释器) ===> 机器码
+
+  字节码 : 是源码和机器码之间的中间代码，在JVM上运行
+  javac : Java Compiler，java编译器 (前端编译器)
+  JIT : Just In Time，JVM一部分
+  AOT : Ahead Of Time，JVM一部分，应用程序部署之前将字节码预先编译为本地机器码的编译器
+
+  源码转化为字节码后，运行程序有两种选择：一种是使用 Java 解释器 (java interpreter) 解释执行字节码，另一种则是使用 JIT 编译器将字节码转化为本地机器码
+
+  在 Idea 的 SDK中，涉及到两项JDK相关路径：
+    class path：JDK自带的class文件路径。JDK源码官方已经编译好的 class文件，不必再从 编译 JDK source 开始。代码中调用的JDK API，都是在编译运行后 直接从 class文件中调用。不是 jdk source 一起编译后的结果。  
+    source path：JDK源码文件，可以阅读修改 源码，想让修改后的源码生效，需要 重新编译并将 生成的class 取代 class path中的 原文件。这样做没什么好处。
+                 可以在 项目中 添加 jdk源码 模块，并使用 该模块的接口，在编译运行项目后，就能绕过 官方编译的JDK class。 
+  具体可以搜索：编译JDK源码
+
+  需要查看源码 (如果查看 依赖的库、或使用的框架 的源码，也需要添加到 source path)，记得添加 source path。不然会跳转到 class文件，只能查看接口 命名等，无法看到具体设计。
+
+
+  泛型的协变和逆变：extends和super。本质就是指定 泛型的参数范围：
+   ? extends E ： E 的 任何一个 子类
+   ? super E ： E 的 任何一个 超类
+ --></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+        <tag>类加载器</tag>
+        <tag>语法糖</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>保留文件</title>
     <url>/Java/java%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Mybatis-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<!--
@@ -4144,6 +4172,9 @@ data-cites="Transactional方法的继承">@Transactional方法的继承</span></
 
 
 ### springboot 原理
+
+### @Transactional
+  spring会创建 动态代理
 -->
 ]]></content>
       <categories>
@@ -4153,6 +4184,52 @@ data-cites="Transactional方法的继承">@Transactional方法的继承</span></
         <tag>Spring</tag>
         <tag>Springboot</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>go学习笔记</title>
+    <url>/Go/go%E5%9F%BA%E7%A1%80/go-Effective/</url>
+    <content><![CDATA[<!--
+1 go每声明一个变量 相当于 内存中的一个新地址  
+   
+2 go方法及函数 都是 值传递，形参 都是 实参 的副本，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变  
+
+3 go的赋值操作 都是 副本赋值 原数据不会因副本变动而变动，但是 对于指针，或者 隐式指针来说，就算是 值副本，指向的地址依旧不变  
+
+4 结合 2.3 总的来说，go 和 java一样，没有引用传递，都是值传递。只是传的是 指针 或者 引用 指向的地址值。  
+
+5 切片 和 map ，通道 这些当相当于 指针，是隐式指针， 这些 结构 都需要 make() 函数 初始化。  
+
+6 类型 或者 该类型 指针 提供了 方法1，则 该变量 或者 该指针 都能使用该方法1，go编译器 会自动转换 变量或指针  
+
+7 类型 实现了 接口 的 方法1，则该 类型 变量 和 指针， 都能赋值给 该接口变量  
+
+8 类型指针 实现了 接口 的 方法1，则只有 类型指针，赋值给 该接口变量  
+
+9 go 中 需要将 字符 理解成 byte，s := "123", s[0] 为 '1'，如果输出 s[0] ，结果是49，也就是 相当于在go中会直接把 字符型 转为 byte型,不能输出'1'。java中可以输出字符，当把 字符 和 整型相比较时，字符型才会转为整型  
+
+10 go的位移中，>> 高位 补符号位的值 ; << 低位补0 ; go中没有和java一样直接提供Integer.MIN_VALUE，这样的参数。因此可以直接使用位运算 获得值。  
+
+11 方法 函数
+-->
+]]></content>
+      <categories>
+        <category>go</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>保留文件</title>
+    <url>/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BB%8E%E8%AE%A1%E7%BD%91%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%B8%A6%E5%AE%BD%E9%99%90%E9%80%9F/</url>
+    <content><![CDATA[<!--
+路由器限速
+链路层
+IP层限速
+TCP层限速
+应用层限速
+-->
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
   </entry>
   <entry>
     <title>从抓包工具查看网络协议</title>
@@ -4206,21 +4283,6 @@ description: 数据通信和协议
   </entry>
   <entry>
     <title>保留文件</title>
-    <url>/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BB%8E%E8%AE%A1%E7%BD%91%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%B8%A6%E5%AE%BD%E9%99%90%E9%80%9F/</url>
-    <content><![CDATA[<!--
-路由器限速
-链路层
-IP层限速
-TCP层限速
-应用层限速
--->
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>保留文件</title>
     <url>/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<!--
 TTL 丢弃前最大网段数量
@@ -4245,6 +4307,9 @@ TTL 丢弃前最大网段数量
 &ensp;&ensp;对于 计算机B 来说，ipA 所在网络为 ipA & mB，ipB 所在网络为 ipB & mB。
 &ensp;&ensp;对于不同网络下的通信，需要网关转发。在同一网络下，不需要网关转发。  
 &ensp;&ensp;如果 子网掩码配置问题，导致 计算机A的角度看，和计算机B是同一网络，计算机B的角度看，和计算机A不是同一网络。就会发生，计算机B 请求 计算机A ，通过网关转发，请求到达 计算机A。但是 计算机A 请求 计算机B ，不会走网关，因此 计算机A 请求无法达到计算机B。
+
+
+局域网由路由器产生，路由器即为网关  因为路由器既处于公网内，又处于私网内
 
 ### 路由
 
@@ -4299,7 +4364,110 @@ TTL 丢弃前最大网段数量
 &ensp;&ensp;socket  断开连接，就是 tcp断开连接的四次挥手
 
 
-# 正向代理 反向代理
+# 正向代理
+  代理客户端
+
+# 反向代理
+  代理服务器
+
+# IPv4 和 NAT 和 端口映射
+网络地址转换（NAT）来将内网地址转换为公网地址
+端口映射：NAT中 内网地址 都会转为 一个公网地址，因此 网关需要记录 映射表。 
+
+# IPv6 和 IPv4
+## IPv6 和 代理服务器
+   临时 IPv6 : 临时 ip 是真正暴露在外网的 ip。用于保护 ipv6 的隐私性。访问外网真正使用的地址，定时更换保护隐私。网关防火墙在默认配置下只允许使用临时IPv6地址通过。设备可根据隐私保护的需要生成任意数量临时地址。
+-->
+<!--
+### 蓝牙 与 通信 与 协议
+### LDAC协议
+
+### DDOS
+
+### Cloudflare
+  先跳转到 cf验证 再跳转到目标链接
+
+
+## VPN Virtual Private Network 虚拟专用网络
+
+  利用 互联网 (互联网并不安全，私网数据传输安全) 作为 数据报文传输的载体，在 节点之间 安全的传输 报文 ，提供 如在私网中传输报文一般的安全性。在逻辑上 像连通两个节点的专用链路，这就是 VPN技术。简单来说，就是在节点之间安全的传输数据。
+
+  VPN 技术原理 是 ：
+  
+  ###数据加密
+    VPN常见的加密协议 :　PPTP TLS IPSec 
+  
+  ###身份认证 
+  
+  ###数据完整性验证 
+
+  ------------------------ 下面这些 随便复制的 后续整理------------------------------------------
+
+  连接两个节点，真正的拉一条线不现实，那就虚拟一条这样的线路出来，感觉真的把两个节点连接一起一样，而这个技术就是VPN
+
+  VPN是一种通过公共网络（如互联网）建立加密连接的技术，用于在远程位置之间创建私密的通信通道。通过VPN，用户可以安全地访问公司网络或其他私有网络资源，就像是直接连接到了这个网络一样
+
+  VPN (Virtual Private Network) 利用隧道协议，使用户通过公网传递内网的消息，就好像直接连接到内部网络一样远程访问内网的资源。
+  通过建立VPN连接，公网用户就可以像在内网一样访问内网中的服务
+
+    
+  VPN 是 技术或着说思想，VPN可通过服务器、硬件、软件等多种方式实现
+  
+  利用隧道协议（Tunneling Protocol）来达到发送端认证、消息保密与准确性等功能。VPN是通过使用专用线路或在现有网络上使用隧道协议建立一个虚拟的点对点连接而形成的
+
+  内网穿透就是一种能够实现外网访问内网的技术
+  
+  专用网络 Private Network ：专用网络 也就是 私网。使用私有IP地址空间的网络。专用网络保证信息流的安全性和完整性
+  虚拟专用网络 Virtual Private Network ：指的是在公网上建立专用网络的技术。
+
+  私网IP无法直接连接互联网，需要使用网络地址转换（Network Address Translator，NAT）或者代理服务器（proxy server）来实现。与公网IP相比，私有IP是免费的，同时节省了IP地址资源，适合在局域网使用
+  私网IP属于非注册地址，只能在组织机构内部使用。也就是说，私网IP是不会出现在互联网上的，无法直接使用它们来访问互联网，而只能在本地连接也就是局域网中使用。
+
+
+
+  ### 隧道
+  隧道技术： 实现两个节点间的安全通信。可以想象成：在公网中建立一个安全隧道来连接两个私网并传输数据包，其实就是 隧道协议对数据包加密了。
+  TLS就是常见的隧道协议。
+  
+  隧道是一种使用 网络不支持的协议 在该网络中传输数据的方法
+  隧道的工作原理是对数据包进行封装：将数据包包装在其他数据包内
+  
+
+
+## 网络代理 和 代理协议
+  代理：
+  HTTP 网页代理
+  HTTPS 安全网页代理
+  FTP 代理
+  SOCKS 代理
+
+  SOCKS5是传输层代理协议
+  HTTP是网页代理协议
+
+## 网络代理原理
+   原理都是把设备A上的流量通过某种方式转发到设备B上。大致流程为：
+    1. 设备A 的软件a(浏览器)对 目标服务器T 发送请求。将 请求发送给 代理服务器B。
+           如果设备A 是通过代理工具 (代理软件 != 代理协议，clash v2ray 是软件工具; SS Trojan 是协议。代理工具 一般支持多种 代理协议) 、则将 请求发送给 代理软件的接入端，软件再发送请求给 代理服务器B。  
+           像clash (基于规则的代理软件工具) 这种代理软件的 系统代理功能，一般是通过指定 网络代理 实现。windows系统 可以通过在 '设置 -> 网络和Internet -> 代理' 中查看。
+           大概流程：流量发送给 代理服务器，也就是 127.0.0.1:软件端口，软件 根据 clash规则　选择出站协议(SS SSR Trojan VMess) 加密信息。
+    2. 设备B 再将请求发送给 目标服务器T，发送回的相应也是如此。 
+
+
+    不管代理软件，这些软件都会在 设备A 上监听一个端口来作为代理的接入端。Clash 默认 7890端口。可以通过设置，使某个软件的流量全部指向这个端口上。
+    通常情况下，这些监听的端口使用 Socks5代理 或 HTTP代理。区别在于，HTTP代理只能够代理HTTP协议的流量，SOCKS5则支持代理几乎所有的TCP和UDP流量。
+
+    代理软件就会修改系统设置中的代理选项。但是，系统设置中的代理往往只可设置为HTTP代理，而且这个HTTP代理只对当前系统上web浏览器有效。
+    这也就是为什么明明设置了系统代理，访问GitHub也很快，但在命令行里克隆一个GitHub的仓库却很慢的原因。在命令行下，执行git命令也就是直接执行git的二进制文件，跟你设置的系统代理是没有关系的。
+
+    利用 VPN 或 SS 或 Trojan 等 实现绕过GFW的原理，大致上都是：利用 协议 对数据进行加密 来绕过 GFW的明文检测，利用 代理服务器 来绕过 GFW的ip检测。
+
+
+### TAP 虚拟二层网卡
+TAP模式其实就是在设备上利用技术手段安装一个虚拟的”网卡”，工作于 数据链路层。从而使得系统所有的流量都能经过代理软件。
+
+### TUN 虚拟三层隧道网卡
+TUN模式则和TAP模式异曲同工。工作于 网络层，不需要虚拟的TAP设备。
+
 -->
 ]]></content>
       <categories>
@@ -4476,8 +4644,9 @@ id="tls协议在数据传输和接收中干了什么">TLS协议在数据传输�
     <url>/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%8D%8F%E8%AE%AE/TCP%E5%92%8CUDP%E5%8D%8F%E8%AE%AE/</url>
     <content><![CDATA[<ul>
 <li><h1 id="tcp协议">TCP协议</h1>
+<p>  TCP协议：实现两个节点间，数据包的可靠传输、流量控制、阻塞控制等。可以想象成：在网络上给两个节点间建立一个连接。</p>
 <ul>
-<li><h2 id="tcp的可靠传输">TCP的可靠传输</h2>
+<li><h2 id="可靠传输">可靠传输</h2>
 <p>  TCP的可靠传输，建立在 <strong>序列号</strong> 和
 <strong>确认应答</strong>
 等基础之上，来实现TCP的报文重组、重发控制、重复判断等。</p>
@@ -4542,7 +4711,7 @@ alt="TCP窗口数据包丢失" /><br />
   接收端会按序列号顺序保存已收到的段。重发数据包的ACK中确认号，就是已接收到的序列号最大值+1。</p></li>
 </ul></li>
 </ul></li>
-<li><h2 id="三次握手建立连接">三次握手建立连接</h2>
+<li><h2 id="三次握手">三次握手</h2>
 <figure>
 <img src="/assets/posts_jpg/TcpIp/TCP三次握手.jpg" alt="TCP三次握手" />
 <figcaption aria-hidden="true">TCP三次握手</figcaption>
@@ -4610,15 +4779,16 @@ alt="TCP同时建立连接" />
   待补充</li>
 </ul></li>
 <li><h3 id="三次握手的必要性">三次握手的必要性</h3>
-<p>  TCP的可靠连接，是建立在序列号，确认号上的，而为了安全性，计算机A和计算机B，都会生成初始化序列号。因此，<strong>至少需要两次</strong>
-数据传输，才能建立安全可靠的连接，或者说数据传输前的握手，就是为了双方初始序列号交换。至少需要
+<p>  三次握手本质上，是数据包传输前，交换两个节点之间所需要的信息。<br />
+  TCP的可靠连接，是建立在序列号，确认号上的，而为了安全性，计算机A和计算机B，都会生成初始化序列号。因此，<strong>至少需要两次</strong>
+数据传输，才能建立安全可靠的连接，或者说数据传输前的握手，至少需要
 计算机A 将自己的初始化序列号传输给 计算机B，以及 计算机B
 将自己的初始化序列号传输给 计算机A。<br />
   换个角度说，为了可靠的数据传输，提前告知初始序列号的必要性。TCP会将应用软件产生的数据包分段发送，而因为网络问题，发送顺序不一定就是接收顺序。如果没有提前告知接收端初始序列号，而第一个数据包丢失，其他数据包正常接收，接收端是感知不到包丢失的。<br />
   而交换完初始化序列号后的第三次握手，更多的是为了保护服务器的资源。如果只要两次握手，那么服务器在发送自己的初始序列号后，状态就为ESTABLISHED，然后等待客户端发送的请求，导致服务器资源的浪费。在只有两次握手的情况下，如果因为网络问题，导致第一次握手的网络包A没有到达服务器，客户端后又重新发送第一次的网络包B并成功建立连接。后双方断开连接，此时网络包A延迟到达服务器，服务器收到网络包A后，会把该包当作客户端发送的建立连接请求，而发送自己的初始序列号，建立连接。但客户端当前并没有发送第一次握手包，因此不会因为收到服务器的
 ACK+SYN 报文，而建立连接。从而导致服务器资源浪费。</p></li>
 </ul></li>
-<li><h2 id="四次挥手断开连接">四次挥手断开连接</h2>
+<li><h2 id="四次挥手">四次挥手</h2>
 <figure>
 <img src="/assets/posts_jpg/TcpIp/TCP四次挥手.jpg" alt="TCP四次挥手" />
 <figcaption aria-hidden="true">TCP四次挥手</figcaption>

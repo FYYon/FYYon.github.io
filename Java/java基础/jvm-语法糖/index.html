@@ -267,6 +267,29 @@ jvm 语法糖 + lambda 原理 + java stream + ? + 泛型 + default
 
  list.stream().map(s -> s.lengt())
  --></p>
+<p><!--
+  java源码 === java编译器 ===> class文件 字节码 === JVM (包括JIT编译器 + java解释器) ===> 机器码
+
+  字节码 : 是源码和机器码之间的中间代码，在JVM上运行
+  javac : Java Compiler，java编译器 (前端编译器)
+  JIT : Just In Time，JVM一部分
+  AOT : Ahead Of Time，JVM一部分，应用程序部署之前将字节码预先编译为本地机器码的编译器
+
+  源码转化为字节码后，运行程序有两种选择：一种是使用 Java 解释器 (java interpreter) 解释执行字节码，另一种则是使用 JIT 编译器将字节码转化为本地机器码
+
+  在 Idea 的 SDK中，涉及到两项JDK相关路径：
+    class path：JDK自带的class文件路径。JDK源码官方已经编译好的 class文件，不必再从 编译 JDK source 开始。代码中调用的JDK API，都是在编译运行后 直接从 class文件中调用。不是 jdk source 一起编译后的结果。  
+    source path：JDK源码文件，可以阅读修改 源码，想让修改后的源码生效，需要 重新编译并将 生成的class 取代 class path中的 原文件。这样做没什么好处。
+                 可以在 项目中 添加 jdk源码 模块，并使用 该模块的接口，在编译运行项目后，就能绕过 官方编译的JDK class。 
+  具体可以搜索：编译JDK源码
+
+  需要查看源码 (如果查看 依赖的库、或使用的框架 的源码，也需要添加到 source path)，记得添加 source path。不然会跳转到 class文件，只能查看接口 命名等，无法看到具体设计。
+
+
+  泛型的协变和逆变：extends和super。本质就是指定 泛型的参数范围：
+   ? extends E ： E 的 任何一个 子类
+   ? super E ： E 的 任何一个 超类
+ --></p>
 
     </div>
 
@@ -312,7 +335,7 @@ jvm 语法糖 + lambda 原理 + java stream + ? + 泛型 + default
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>

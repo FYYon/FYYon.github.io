@@ -1128,11 +1128,13 @@ Mybatis plus
 
 &ensp;&ensp;当快照和AOF都存在时，数据恢复 **优先加载AOF** 文件。  
 
-## 过期策略
+## 数据过期策略
 
 #### &ensp;&ensp;定时删除
 1
+
 #### &ensp;&ensp;惰性删除
+1
 
 #### &ensp;&ensp;定期删除
 1
@@ -1143,6 +1145,8 @@ Mybatis plus
 &ensp;&ensp;&ensp;&ensp;RDB不会保存过期的key  
 #### &ensp;&ensp;&ensp;&ensp;AOF的处理方法  
 &ensp;&ensp;&ensp;&ensp;当key过期时，会在文件中追加DEL命令，删除过期key。AOF文件重写时过期key，不会保存到AOF文件中。
+
+## 数据淘汰策略
 -->
 
       
@@ -1174,7 +1178,7 @@ Mybatis plus
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>

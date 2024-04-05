@@ -246,6 +246,10 @@
     
     
     <div class="post-body" itemprop="articleBody"><!--
+Docker 镜像 的 tag 中 : lastest 只是一个 标签，和 其他版本标签没什么不同的。字面上为最新版本，实质上只是镜像的标签名称。当前最新版本除了 用版本号表示，还可以用 lastest 表示。一旦该镜像被拉取到本地，版本号就已经确定，不会自动更新。
+lastest标签的镜像 不会随着版本更新 而 自动更新。只是个名字，没有其它附加作用，更不会自动更新。建议直接下载 带版本号的 镜像 更加的直观。
+
+
 考虑到分布式或微服务，推荐单个容器只运行一个进程，也就是只负责一个功能
 docker-engine本质上，相当于 当前的 linux 系统上，创建了一个空间 来 隔离文件。
 docker 容器 所需要的 最基础的 linux 内核，就来自于 当前 linux 系统文件。
@@ -326,7 +330,7 @@ CAdvisor + influxDB + Granfana CIG：
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%92%8C%E5%8D%8F%E8%AE%AE/" rel="prev" title="保留文件">
+                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BB%8E%E8%AE%A1%E7%BD%91%E8%A7%92%E5%BA%A6%E7%9C%8B%E5%B8%A6%E5%AE%BD%E9%99%90%E9%80%9F/" rel="prev" title="保留文件">
                   <i class="fa fa-angle-left"></i> 保留文件
                 </a>
             </div>
@@ -353,7 +357,7 @@ CAdvisor + influxDB + Granfana CIG：
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
