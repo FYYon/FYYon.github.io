@@ -168,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -179,7 +179,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -680,18 +680,18 @@ alt="AVL删除节点" /><br />
 <ul>
 <li><h3 id="红黑树在-avl-上新增特点">红黑树在 AVL 上新增特点</h3>
 <ul>
-<li><strong>a</strong> 不必须保持，左右子树深度差的平衡 。</li>
-<li>b 节点逻辑上分为 红 和 黑 两种节点。</li>
-<li><strong>c</strong> 任意节点 到 其可达叶节点 的路径，上面的 黑节点
-数量一致。</li>
-<li><strong>d</strong> 所有路径上不会有连续的 红节点，红节点 父、子节点
-一定是 黑节点。</li>
-<li>e 根节点 一定是 黑节点，Null 视为 黑节点。新插入的节点视为 红节点
-插入。</li>
+<li><p>不必须保持，左右子树深度差的平衡 。</p></li>
+<li><p>节点逻辑上分为 红 和 黑 两种节点。</p></li>
+<li><p>任意节点 到 其可达叶节点 的路径，上面的 黑节点
+数量一致。</p></li>
+<li><p>所有路径上不会有连续的 红节点，红节点 父、子节点 一定是
+黑节点。</p></li>
+<li><p>根节点 一定是 黑节点，Null 视为 黑节点。新插入的节点视为 红节点
+插入。</p></li>
 </ul>
 <p>  在上面的几个特点中，需要注意的是：当插入新节点时，可能会破坏规则
-d，红节点破坏平衡；当删除节点时，可能会破坏规则
-c，黑节点破坏平衡。</p></li>
+4，红节点破坏平衡；当删除节点时，可能会破坏规则
+3，黑节点破坏平衡。</p></li>
 <li><h3 id="红黑树新增节点-红节点破坏平衡">红黑树新增节点
 (红节点破坏平衡)</h3>
 <p><img src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_1.jpg"
@@ -760,9 +760,10 @@ href="#jump_rbt_del_b0"><font color="007FFF">黑节点破坏红黑平衡</font><
 <li><h4 id="场景c删除节点只有一个子节点">场景C：删除节点只有一个子节点
 <span id="jump_rbt_del_c"></span></h4>
 <ul>
-<li><p>C1.
-删除节点为红，不可能只有一个子节点，因此不会出现这种场景。</p></li>
-<li><p>C2. 删除节点为黑，唯一子节点只可能为 <strong>红节点</strong> 且
+<li><p>场景C1<br />
+  删除节点为红，不可能只有一个子节点，因此不会出现这种场景。</p></li>
+<li><p>场景C2<br />
+  删除节点为黑，唯一子节点只可能为 <strong>红节点</strong> 且
 <strong>一定是叶节点</strong>。将替代节点取代删除节点，并将颜色置为删除节点同色。删除旧位置替代节点等价于<a
 href="#jump_rbt_del_a"><font color="007FFF">场景A</font></a>。<br />
 <img
@@ -772,15 +773,18 @@ alt="红黑树_删除节点_C2" /></p></li>
 <li><h4 id="场景d删除节点有两个子节点">场景D：删除节点有两个子节点</h4>
 <p>  替代节点 取代 删除节点后，再删除原替代节点。</p>
 <ul>
-<li><p>D1. 替代节点 没有子节点
+<li><p>场景D1<br />
+  替代节点 没有子节点
 且为红色，将替换节点取代并和删除节点同色。后续删除等价于<a
 href="#jump_rbt_del_a"><font color="007FFF">场景A</font></a>。<br />
 <img
 src="/assets/posts_jpg/算法和数据结构/树结构/红黑树_删除节点_D1.jpg"
 alt="红黑树_删除节点_D1" /></p></li>
-<li><p>D2. 替代节点 没有子节点 且为黑色，等价于<a
+<li><p>场景D2<br />
+  替代节点 没有子节点 且为黑色，等价于<a
 href="#jump_rbt_del_b"><font color="007FFF">场景B</font></a>。</p></li>
-<li><p>D3. 替代节点
+<li><p>场景D3<br />
+  替代节点
 有一个子节点，将替换节点取代并和删除节点同色。后续删除等价于<a
 href="#jump_rbt_del_c"><font color="007FFF">场景C</font></a>。<br />
 <img

@@ -26,6 +26,18 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="MySQL学习笔记">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL_%E6%9E%B6%E6%9E%84.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_%E9%A1%B5%E7%BB%93%E6%9E%84_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E6%95%B0%E6%8D%AE%E8%A1%8C%E7%BB%93%E6%9E%84.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_%E6%95%B0%E6%8D%AE%E8%A1%8C%E5%92%8C%E9%A1%B5%E7%9B%AE%E5%BD%95_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_%E6%95%B0%E6%8D%AE%E8%A1%8C%E5%92%8C%E9%A1%B5%E7%9B%AE%E5%BD%95_2.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_%E6%95%B0%E6%8D%AE%E8%A1%8C%E5%92%8C%E9%A1%B5%E7%9B%AE%E5%BD%95_3.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_%E9%A1%B5%E7%BB%93%E6%9E%84_2_typeA.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_B+%E6%A0%91%E5%92%8C%E9%A1%B5%E7%BB%93%E6%9E%84_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_B+%E6%A0%91%E5%92%8C%E9%A1%B5%E7%BB%93%E6%9E%84_2.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_%E7%B4%A2%E5%BC%95_%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95_1.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_ReadView.jpg">
+<meta property="og:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql_ReadView%E5%8F%AF%E8%A7%81%E6%80%A7%E8%A7%84%E5%88%99.jpg">
 <meta property="article:published_time" content="2021-05-17T07:41:00.000Z">
 <meta property="article:modified_time" content="2021-06-27T01:41:00.000Z">
 <meta property="article:author" content="Fyy">
@@ -33,6 +45,7 @@
 <meta property="article:tag" content="索引">
 <meta property="article:tag" content="日志">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fyyon.github.io/assets/posts_jpg/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL_%E6%9E%B6%E6%9E%84.jpg">
 
 
 <link rel="canonical" href="https://fyyon.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql-A%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
@@ -141,7 +154,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">MySQL架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">事务的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">2.2.</span> <span class="nav-text">事务的隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB-%E5%92%8C-%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.</span> <span class="nav-text">事务隔离 和 并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">2.3.1.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mvcc_%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">MVCC_多版本并发控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mvcc-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.4.</span> <span class="nav-text">MVCC 的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">2.5.</span> <span class="nav-text">视图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">3.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95_%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95"><span class="nav-number">3.1.</span> <span class="nav-text">主键索引_聚簇索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95_%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95"><span class="nav-number">3.2.</span> <span class="nav-text">非主键索引_二级索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">覆盖索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8E%9F%E5%88%99"><span class="nav-number">3.3.</span> <span class="nav-text">最左前缀原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8"><span class="nav-number">3.4.</span> <span class="nav-text">索引下推</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E7%9A%84%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">MySQL的锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E9%94%81%E7%9A%84%E6%80%9D%E6%83%B3%E5%88%92%E5%88%86"><span class="nav-number">4.1.</span> <span class="nav-text">根据锁的思想划分：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E4%BB%96%E9%94%81"><span class="nav-number">4.1.1.</span> <span class="nav-text">排他锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E9%94%81"><span class="nav-number">4.1.2.</span> <span class="nav-text">共享锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E9%94%81%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%92%E5%88%86"><span class="nav-number">4.2.</span> <span class="nav-text">根据锁的作用域划分：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%94%81"><span class="nav-number">4.2.1.</span> <span class="nav-text">全局锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E9%94%81"><span class="nav-number">4.2.2.</span> <span class="nav-text">表锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E9%94%81"><span class="nav-number">4.2.3.</span> <span class="nav-text">行锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mvcc"><span class="nav-number">4.3.</span> <span class="nav-text">MVCC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">4.3.1.</span> <span class="nav-text">乐观并发控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%82%B2%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">4.3.2.</span> <span class="nav-text">悲观并发控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gap-lock"><span class="nav-number">4.4.</span> <span class="nav-text">GAP LOCK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-key-lock"><span class="nav-number">4.5.</span> <span class="nav-text">NEXT KEY LOCK</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E7%9A%84%E6%97%A5%E5%BF%97"><span class="nav-number">5.</span> <span class="nav-text">MySQL的日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wal-write-ahead-logging"><span class="nav-number">5.1.</span> <span class="nav-text">WAL Write-Ahead Logging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redo-log-%E9%87%8D%E5%81%9A%E6%97%A5%E5%BF%97"><span class="nav-number">5.2.</span> <span class="nav-text">Redo Log 重做日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4"><span class="nav-number">5.2.1.</span> <span class="nav-text">两阶段提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#binlog-%E5%BD%92%E6%A1%A3%E6%97%A5%E5%BF%97"><span class="nav-number">5.3.</span> <span class="nav-text">BinLog 归档日志</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">MySQL关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%9E%B6%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">MySQL架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">3.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B5%E6%A0%91%E8%8A%82%E7%82%B9%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">数据页(树节点)的结构 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%8C%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据行结构 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E7%9B%AE%E5%BD%95-%E5%92%8C-%E6%95%B0%E6%8D%AE%E8%A1%8C%E5%88%86%E7%BB%84"><span class="nav-number">3.1.2.</span> <span class="nav-text">页目录 和 数据行分组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A1%B5-%E5%92%8C-b%E6%A0%91"><span class="nav-number">3.2.</span> <span class="nav-text">数据页 和 B+树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95-%E5%92%8C-%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95"><span class="nav-number">3.3.</span> <span class="nav-text">聚簇索引 和 非聚簇索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95-%E5%92%8C-%E7%B4%A2%E5%BC%95%E6%89%A9%E5%B1%95-index-extensions"><span class="nav-number">3.3.1.</span> <span class="nav-text">二级索引 和 索引扩展
+(Index Extensions)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95"><span class="nav-number">3.4.</span> <span class="nav-text">联合索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8E%9F%E5%88%99"><span class="nav-number">3.4.1.</span> <span class="nav-text">最左前缀原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8"><span class="nav-number">3.4.2.</span> <span class="nav-text">索引下推</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">MySQL锁机制 </span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pcc%E6%82%B2%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6-%E6%82%B2%E8%A7%82%E9%94%81"><span class="nav-number">4.1.</span> <span class="nav-text">PCC悲观并发控制 (悲观锁) </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E4%BF%A1%E6%81%AF"><span class="nav-number">4.1.1.</span> <span class="nav-text">锁信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%88%86%E4%B8%BA"><span class="nav-number">4.1.2.</span> <span class="nav-text">锁的类型分为：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B1%E4%BA%AB%E9%94%81"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">共享锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E4%BB%96%E9%94%81"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">排他锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%86%E4%B8%BA"><span class="nav-number">4.1.3.</span> <span class="nav-text">锁的作用域分为：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%94%81"><span class="nav-number">4.1.3.1.</span> <span class="nav-text">全局锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E9%94%81"><span class="nav-number">4.1.3.2.</span> <span class="nav-text">表锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%8C%E9%94%81"><span class="nav-number">4.1.3.3.</span> <span class="nav-text">行锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8B"><span class="nav-number">4.1.4.</span> <span class="nav-text">死锁检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gap-lock"><span class="nav-number">4.1.5.</span> <span class="nav-text">Gap-Lock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next-key-lock"><span class="nav-number">4.1.6.</span> <span class="nav-text">Next-Key-Lock</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#occ%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6-%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-number">4.2.</span> <span class="nav-text">OCC乐观并发控制 (乐观锁)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#compare-and-swap-%E6%9C%BA%E5%88%B6"><span class="nav-number">4.2.1.</span> <span class="nav-text">Compare And Swap 机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mvcc%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">4.3.</span> <span class="nav-text">MVCC多版本并发控制 </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#readview-%E8%AF%BB%E8%A7%86%E5%9B%BE"><span class="nav-number">4.3.1.</span> <span class="nav-text">ReadView 读视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%89%88%E6%9C%AC%E6%95%B0%E6%8D%AE%E8%A1%8C%E5%8F%AF%E8%A7%81%E6%80%A7%E8%A7%84%E5%88%99"><span class="nav-number">4.3.2.</span> <span class="nav-text">多版本数据行可见性规则 </span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E5%B9%B6%E5%8F%91"><span class="nav-number">5.</span> <span class="nav-text">MySQL并发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E6%97%B6%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.1.</span> <span class="nav-text">并发时可能出现的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-number">5.2.</span> <span class="nav-text">事务的特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">5.3.</span> <span class="nav-text">并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mvcc"><span class="nav-number">5.3.1.</span> <span class="nav-text">MVCC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">5.3.2.</span> <span class="nav-text">锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%97%A5%E5%BF%97"><span class="nav-number">6.</span> <span class="nav-text">MySQL日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#write-ahead-logging"><span class="nav-number">6.1.</span> <span class="nav-text">Write Ahead Logging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%BB%9A%E6%97%A5%E5%BF%97undo-log"><span class="nav-number">6.2.</span> <span class="nav-text">回滚日志：undo log </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E7%BB%93%E6%9E%84"><span class="nav-number">6.2.1.</span> <span class="nav-text">日志结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%8C%E7%89%88%E6%9C%AC%E9%93%BE"><span class="nav-number">6.2.2.</span> <span class="nav-text">数据行版本链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%81%9A%E6%97%A5%E5%BF%97redo-log"><span class="nav-number">6.3.</span> <span class="nav-text">重做日志：redo log </span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4"><span class="nav-number">6.3.1.</span> <span class="nav-text">两阶段提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E6%A1%A3%E6%97%A5%E5%BF%97binlog"><span class="nav-number">6.4.</span> <span class="nav-text">归档日志：binlog </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="nav-number">7.</span> <span class="nav-text">存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#innodb"><span class="nav-number">7.1.</span> <span class="nav-text">InnoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#idb%E6%96%87%E4%BB%B6"><span class="nav-number">7.1.1.</span> <span class="nav-text">IDB文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buffer-pool"><span class="nav-number">7.1.2.</span> <span class="nav-text">Buffer Pool</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#free%E9%93%BE%E8%A1%A8"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">free链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flush%E9%93%BE%E8%A1%A8"><span class="nav-number">7.1.2.2.</span> <span class="nav-text">flush链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lru%E9%93%BE%E8%A1%A8"><span class="nav-number">7.1.2.3.</span> <span class="nav-text">lru链表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#log-pool"><span class="nav-number">7.1.3.</span> <span class="nav-text">Log Pool</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,7 +170,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -167,7 +181,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -253,165 +267,522 @@
     
     
     <div class="post-body" itemprop="articleBody"><ul>
+<li><h1 id="mysql关键字">MySQL关键字</h1>
+<p>explain 数据类型转换 (字符 转 数字)
+前缀索引：字符串的索引，将字符串前n个字符
+作为索引。定义好长度，就可以做到既节省空间，又不用额外增加太多的查询成本。但是系统并不确定前缀索引的定义是否截断了完整信息，所以
+字符串 前缀索引 和 索引覆盖 冲突。</p></li>
 <li><h1 id="mysql架构">MySQL架构</h1>
+<figure>
+<img src="/assets/posts_jpg/数据库/MySQL_架构.jpg" alt="MySQL_架构" />
+<figcaption aria-hidden="true">MySQL_架构</figcaption>
+</figure>
 <ul>
-<li>连接器：管理连接、验证用户密码、获取用户权限</li>
-<li>分析器：SQL语句解析
+<li><p>连接器<br />
+  管理连接、验证用户密码、获取用户权限</p></li>
+<li><p>分析器<br />
+  SQL语句解析</p>
 <ul>
-<li>词法分析：识别字符串的命令，识别表名、列名等</li>
-<li>语法分析：对词法分析结构进行规则判定</li>
+<li><p>词法分析<br />
+  识别字符串的命令，识别表名、列名等</p></li>
+<li><p>语法分析<br />
+  对词法分析结构进行规则判定</p></li>
 </ul></li>
-<li>优化器：多索引时，对采用索引的选择，关联表的连接顺序，SQL条件顺序</li>
-<li>执行器：判断用户权限，调用存储引擎接口，处理数据。一条SQL可能涉及到触发器，而触发器涉及的表是否有权限，只能在执行阶段才能判断</li>
-</ul></li>
-<li><h1 id="事务">事务</h1>
-<ul>
-<li><h2 id="事务的特性">事务的特性</h2>
-<ul>
-<li>原子性：</li>
-<li>一致性：</li>
-<li>隔离性：确保一个事务的执行不会被其他事务干扰。一个事务开启后的写操作，在提交前，对其他事务不可见。受
-<strong>隔离级别</strong> 影响。</li>
-<li>持久性：</li>
-</ul>
-<p>  当多个线程开启事务并发操作时，可能会出现：</p>
-<ul>
-<li>脏读：</li>
-<li>不可重复读：</li>
-<li>幻读：</li>
-</ul></li>
-<li><h2 id="事务的隔离级别">事务的隔离级别</h2>
-<ul>
-<li>读未提交：</li>
-<li>读提交：</li>
-<li>可重复读：</li>
-<li>串行化：在该隔离等级下，事务中的读写操作，系统会自动添加读或写的行锁。所有的读取和写入操作都是串行执行的，每个事务都在独占使用资源。</li>
-</ul></li>
-<li><h2 id="事务隔离-和-并发控制">事务隔离 和 并发控制</h2>
-<p>  在除了 不提交读 的其他隔离级别中，串行化
-通过添加锁，来管理数据的并发操作。提交读 和
-可重复读需要不通过加锁的方式来管理数据的并发操作。<br />
-  并发控制的目的：保证事务的隔离性的实现。当多个事务同时对数据进行读写操作时，需要保证数据的安全、可用、隔离等。通过锁
-和 MVCC 两种机制对线程的并发进行管理：</p>
-<ul>
-<li><h3 id="锁">锁</h3></li>
-<li><h3 id="mvcc_多版本并发控制">MVCC_多版本并发控制</h3>
-  用于实现 事务隔离性 的一种设计思想。不同的数据库 或 存储引擎 对于 MVCC
-的实现不同。</li>
-</ul>
-<p>  MVCC 和 锁 是两种不同的并发控制设计，但不互斥。</p></li>
-<li><h2 id="mvcc-的实现">MVCC 的实现</h2>
-<p><strong>每条记录在更新的时候都会同时记录一条回滚操作</strong><br />
-InnoDB 在实现 MVCC 时用到的一致性读视图<br />
-undo log（回滚日志）<br />
-MVCC只在可重复读（REPEATABLE READ）和提交读（READ
-COMMITTED）两个隔离级别下工作。</p>
-<p>可重复读
-隔离级别：视图是在事务启动时创建的，整个事务存在期间都用这个视图。<br />
-读提交 隔离级别：视图是在每个 SQL 语句开始执行的时候创建的。<br />
-系统里没有比这个回滚日志更早的 视图 的时候。</p></li>
-<li><h2 id="视图">视图</h2>
-<p>在 MySQL 里，有两个“视图”的概念：<br />
-一个是
-view。它是一个用查询语句定义的虚拟表，在调用的时候执行查询语句并生成结果。创建视图的语法是
-create view … ，而它的查询方法与表一样。<br />
-另一个是 InnoDB 在实现 MVCC 时用到的一致性读视图，即 consistent read
-view，用于支持 RC（Read Committed，读提交）和 RR（Repeatable
-Read，可重复读）隔离级别的实现。</p></li>
+<li><p>优化器<br />
+  多索引时，对采用索引的选择，关联表的连接顺序，SQL条件顺序</p></li>
+<li><p>执行器<br />
+  判断用户权限，调用存储引擎接口，处理数据表中的数据。一条SQL可能涉及到触发器，而触发器涉及的表是否有权限，只能在执行阶段才能判断。</p></li>
 </ul></li>
 <li><h1 id="索引">索引</h1>
-<p>高数据查询的效率</p>
+<p>  索引的作用是提高查询效率，由存储引擎实现。当表中有主键时，会自动生成主键字段的索引。如果表没有主键，会通过
+唯一索引
+来创建索引，相当于把唯一索引当作主键。如果也没有唯一索引，那么会把一个
+隐藏字段 视为主键字段并创建索引。<br />
+  不同的存储引擎，索引结构也不同。常见的数据结构有：</p>
 <ul>
-<li><h2 id="主键索引_聚簇索引">主键索引_聚簇索引</h2></li>
-<li><h2 id="非主键索引_二级索引">非主键索引_二级索引</h2>
-<p>回到主键索引树搜索的过程，我们称为回表</p>
+<li><p>哈希表<br />
+  通过 Key-Value
+的结构存储数据。缺点也很明显，就是只适合等值查询，区间查询作用不大。</p></li>
+<li><p>有序数组<br />
+  将数据有序排列，等值查询 和 区间查询
+都能起到作用。缺点是维护数据有序的开销大，不管是插入、修改还是删除都需要维护数组的有序性。</p></li>
+<li><p>B+树<br />
+  InnoDB 和 MyISAM 只支持该结构。和 B树 的区别：</p>
 <ul>
-<li><h3 id="覆盖索引">覆盖索引</h3>
-如果执行的语句是 select ID from T where k between 3 and 5，这时只需要查
-ID 的值，而 ID 的值已经在 k
-索引树上了，因此可以直接提供查询结果，不需要回表。也就是说，在这个查询里面，索引
-k 已经“覆盖了”我们的查询需求，我们称为覆盖索引。<br />
-由于覆盖索引可以减少树的搜索次数，显著提升查询性能，所以使用覆盖索引是一个常用的性能优化手段</li>
-</ul></li>
-<li><h2 id="最左前缀原则">最左前缀原则</h2></li>
-<li><h2 id="索引下推">索引下推</h2></li>
+<li>B+树的数据都保存在叶节点，B树的每个节点既保存数据也保存节点索引。B+树
+的非叶节点和 B树 相比能保存更多节点索引。因此 B+树 的深度 小于
+B树。</li>
+<li>B+树的叶子节点为双向链表，B+树的范围查询效率高于 B树。</li>
+<li>B+树的数据都保存在叶节点，查询效率比 B树 稳定。</li>
 </ul>
-<p>  索引是根据索引定义里面字段的顺序排序的，也就是
-<strong>最左前缀原则</strong>
-。如联合索引(a，b)就是先根据a排序，然后再根据b排序。因为最左前缀原则，如果再(a，b)上有联合索引，则该索引树中已经按照先a后b的顺序，那么
-<strong>没有必要再单独的a上建立索引</strong>
-。如果表中主键是(a，b)，现有一个索引c，那没在索引c的树结构中，就是以c的顺序构造树，如果有相同的值，则根据主键先a后b的顺序来构造，相当于先c再a再b。<strong>最左前缀原则可以减少没必要的索引</strong>
-，节省空间。<br />
-  <strong>最左前缀原则</strong>
-针对的是联合索引，可以理解成先后排序。举例说明：联合索引 (a,b,c)
-其实在树结构上来看其实 <strong>只有a是有序</strong>
-的，b和c是无序的。只有在a是某个确定固定的值时，b才是有序的而此时就c无序。只有a和b都是固定值时，c才是有序的。就是申明索引时的从左到右。<strong>声明一个
-(a,b,c) 的联合索引，相当于 有 (a),(a,b),(a,b,c) 三个索引</strong>
-。查询语句使用联合索引不符合该原则时，可能就会出现
-<strong>索引失效</strong> 。举例说明：假设联合索引 (a,b,c)
-，当select语句的 where条件 涉及的字段只有 b,c ，没有 a 时
-那么(a,b,c)的索引就无效了，因为对于(a,b,c)索引来说只有a是有序的，只有在a固定的时候b才有序。因此
-where条件中 没有a 或者 a使用了范围 (如&gt;,&lt;,!=,%等)
-使得a值不固定，那么b也失去了有序的前提条件，(a,b,c)索引也会失效。<br />
-  因为 <strong>优化器</strong> 的存在，联合索引的字段在 where条件
-中出现的 <strong>顺序是无所谓的</strong> ，如：a = 1 and b = 2 and c = 3
-和 c = 3 and b = 2 and a = 1
-是一样的都会使用(a,b,c)联合索引。因为使用二级索引可能会发生回表操作，因此使用二级索引然后回表
-或者 不使用索引直接全表遍历 这种情况也是由 <strong>优化器</strong>
-判断具体使用哪种方法。可以使用 <strong>explain</strong> 来查看 sql语句
-执行的情况。<br />
-  Mysql
-5.6之后，在二级索引遍历过程中，优先对二级索引中包含的字段进行判断，只有判断通过了才回表，这一优化称为
-<strong>索引下推</strong> 。如：有二级索引(a,b),然后执行 select * from
-table where a = 2 and b = 1 and c = 3；在Mysql
-5.6之前，当二级索引找到第一个a=2的叶子节点后，就通过叶子节点的主键值，回表获得主键值所对应的行数据，再判断b和c是否符合。这样每次都回表，开销大。Mysql
-5.6后进行优化，会先判定二级索引中包含的字段。也就是先找到第一个a =
-2的叶子节点，然后判断二级索引中包含的b是否符合 b =
-1，如果符合才回表去获得c的值，如果不符合则跳过下一个。</p></li>
-<li><h1 id="mysql的锁机制">MySQL的锁机制</h1>
+<p>B+树的每一个节点，对应一个<strong>数据页</strong>。一个数据页对应一次
+<strong>磁盘IO</strong>。</p></li>
+</ul>
+<p>  在创建表时，存储引擎会自动创建主键索引。表中所有用户数据都存储在该
+B+树 的叶子节点中，后续查询也是基于该主键索引进行的。
+<strong>用户数据存储在 主键B+树 的叶子节点中</strong>
+，由此也能得到：全表扫描就是遍历主键索引的叶子节点、InnoDB引擎的数据文件和索引文件是一体的
+等。<br />
+  操作系统磁盘IO的 <strong>最小单元为一页</strong>
+，通常情况下，一磁盘页=4KB。MySQL数据页默认大小为16KB (参数
+<em>Innodb_page_size</em> 设置)。把数据页 大小设置为 磁盘页
+的整数倍，可得到：一数据页 = 16KB = 1 * 磁盘页 + 3 * 预读磁盘页 = 4 *
+磁盘页 = 一次磁盘IO。来保证 一次磁盘IO 可以载入 一个树节点 到内存。</p>
 <ul>
-<li><h2 id="根据锁的思想划分">根据锁的思想划分：</h2>
+<li><h2 id="数据页树节点的结构">数据页(树节点)的结构 <span
+id="jump_mysql_page"></span></h2>
+<p><img src="/assets/posts_jpg/数据库/Mysql_索引_页结构_1.jpg"
+alt="索引_页结构_1" /><br />
+  如图所示：一个树节点，也就是数据页的结构可以分为：</p>
 <ul>
-<li><h3 id="排他锁">排他锁</h3></li>
-<li><h3 id="共享锁">共享锁</h3></li>
+<li><p>文件头<br />
+  除了记录本身的页号，还有两个指向 上页和下页 的指针，因此
+B+树的叶节点，之间可以构成 数据页的<strong>双向链表</strong>。</p></li>
+<li><p>文件尾<br />
+  因为数据页是16KB，而操作系统的最小单元为4KB。为了防止磁盘IO时突然中断，使得数据页不完整。通过文件尾和文件头中的
+<strong>校验字段</strong> 来验证数据页完整性。</p></li>
+<li><p>数据页头<br />
+  保存该数据页的一些特有信息。</p></li>
+<li><p>最大最小行<br />
+  不用于记录用户数据，作为数据链表的 <strong>头节点和尾节点</strong>
+。行结构 和 数据行的结构一致，只是不存数据。每一个行都有一个字段
+<em>heap_no</em>，记录 该行 在 该页 中的位置。最小行 heap_no 固定为
+0，位于第一个。最大行 heap_no 固定为 1，位于第二个。其他数据行的 heap_no
+从 2 开始。</p></li>
+<li><p>数据行<br />
+  <a
+href="#jump_mysql_row"><font color="#007FFF">数据行结构</font></a></p></li>
+<li><p>页目录<br />
+  因为数据行的结构是单向链表，该结构 增删操作 方便，但是 查询操作
+需要遍历整个链表。因此页目录的作用就相当于成为
+数据行的索引。当需要查询操作时，通过 <strong>二分查找</strong>
+页目录，获得数据行。</p></li>
+</ul>
+<p>  可以大致了解为：页结构中，有文件头记录上页和下页，数据行保存数据，页目录实现数据行索引。</p>
+<ul>
+<li><h3 id="数据行结构">数据行结构 <span
+id="jump_mysql_row"></span></h3>
+<img src="/assets/posts_jpg/数据库/Mysql_数据行结构.jpg"
+alt="Mysql_数据行结构" /><br />
+  数据行可分为两个部分：
+<ul>
+<li><p>额外数据<br />
+  数据行额外数据包含三个部分：行头信息、NULL值列表、可变字段长度列表。</p>
+<ul>
+<li><p>NULL值列表<br />
+  标记该数据行真实数据中，值为 NULL 的字段。每一个可为 NULL
+的字段都在该列表中有一个对应 bit 位。如果bit位为
+1，表示该行的对应字段的值为 NULL。表中设定为 NOT NULL
+的字段不需要存储在NULL列表中，当表的字段都定义成 NOT
+NULL，行结构中不会有该列表。</p></li>
+<li><p>可变字段长度列表<br />
+  记录该数据行真实数据中，varchar、text
+等可变字段的实际字节数。假设：'abcd'4个字符占用8字节，在该列表对应位置的值就是
+8。如果 text数据 实际长度超出了数据页的，就会将数据保存到 溢出页
+的额外空间中，并记录该数据位置。当表中的字段都不是可变字段时，行结构中不会有该列表。</p></li>
+<li><p>数据行头信息<br />
+  min_rec_mask、heap_no等字段会在后面提到。这里只列三个头信息：</p>
+<ul>
+<li><p>delete_mask<br />
+  删除标识位，删除数据行时，不会直接删除，先将该标识位置为
+1，在事务提交后，才会被回收。</p></li>
+<li><p>record_type<br />
+  表示该行类型，值为 0，表示该行的存的是用户数据。值为
+1，表示该行是索引目录存的页地址。</p></li>
+<li><p>next_record<br />
+  指向下一数据行的偏移量，该偏移量是指向下一数据行的真实数据。从该值向左偏移就是额外数据，向右偏移就是用户数据。该字段构成数据行单向链表。</p></li>
 </ul></li>
-<li><h2 id="根据锁的作用域划分">根据锁的作用域划分：</h2>
+</ul></li>
+<li><p>真实数据<br />
+  真实数据保存的就是用户数据，也就是增删改查的部分。用户数据中有三个隐藏字段：</p>
 <ul>
-<li><h3 id="全局锁">全局锁</h3>
+<li><p>row_id<br />
+  上面提到过，InnoDB存储引擎中 用户数据 和 主键索引
+存储一体，所以一定要有一个字段充当主键，如果表没有指定主键 也
+没有唯一索引，那么该字段就会充当主键。</p></li>
+<li><p>trx_id<br />
+  生成该数据行的事务的id。用于 MVCC机制的 ReadView
+数据可见性判断。</p></li>
+<li><p>roll_pointer<br />
+  指向该数据行上一个版本的指针。构成数据行版本链。</p></li>
+</ul></li>
+</ul></li>
+<li><h3 id="页目录-和-数据行分组">页目录 和 数据行分组</h3>
+<img src="/assets/posts_jpg/数据库/Mysql_索引_数据行和页目录_1.jpg"
+alt="Mysql_索引_数据行和页目录_1" /><br />
+  上图可以当作一个 空表 插入数据后的
+数据行单向链表的情况。<strong>单向链表根据 索引字段 排序</strong>
+。如果是主键索引，那么每一行就根据主键从小到大排序。同理，非主键索引
+根据对应字段排序。<br />
+  查询数据行单向链表，从最小行开始遍历效率太低。通过 页目录
+建立索引来提高查询效率。页目录索引规则大致为：
+<ul>
+<li><p>将包括最大最小行在内的数据行分组。最小行单独为一组。其他组
+<strong>最多</strong> 8条数据行。</p></li>
+<li><p>每组中最后一行，通过 <em>n_owned</em> 记录该组中的行数。</p></li>
+<li><p>将每组中最后一行的 地址偏移量 额外记录，这些地址偏移量称为
+<strong>槽</strong>
+，一个槽对应一个地址偏移量。页目录就是保存槽的地方。</p></li>
+<li><p>当插入新行时，如果当前组的最后一行的 n_owned 为 8，那么组会分裂成
+n_owned 为 4 和 5
+的两组。同时页目录中也会新增一个槽，记录新组中最后一行的地址偏移量。</p></li>
+</ul>
+  每一个槽指向的是组内最后一行，这样做更方便在链表尾插入新的数据。由此也能得到，更推荐将主键设置为
+<strong>自增</strong> ，新插入的数据一定在 主键索引B+树
+的数据行链表的最后。单向链表根据索引字段有序，可得到页目录中的
+<strong>槽根据索引字段排序</strong>
+。所以页目录可以通过二分查找，锁定查询目标所在的组。<br />
+<img src="/assets/posts_jpg/数据库/Mysql_索引_数据行和页目录_2.jpg"
+alt="Mysql_索引_数据行和页目录_2" /><br />
+<img src="/assets/posts_jpg/数据库/Mysql_索引_数据行和页目录_3.jpg"
+alt="Mysql_索引_数据行和页目录_3" /><br />
+  如上图所示，每一个槽对应的是每组中最后一行的地址偏移量。在插入第 8
+条数据(heap_no =
+9)之后，超过了组行数的上限，将该组分裂成两个组，因此新增一个槽指向新组的最后一数据行。<br />
+  假设查询的索引字段的值为 11，在该页的查询操作流程大致为：
+<ol type="1">
+<li>二分查找到 槽1，槽1 指向的数据行索引字段的值为 4。由 11 &gt; 4
+得到：目标在 槽1 的后面。</li>
+<li>继续二分查找，此时只剩下 槽2，可以得到：如果 目标
+存在于该数据页，那么只能在 槽2 所对应的组中。</li>
+<li>通过 槽1 所指的数据行的 next_record，获得 槽2 组中的第一行。</li>
+<li>顺序遍历单向链表。</li>
+</ol>
+  一个组最多只有8行数据，二分查找锁定到组后，做多也只需要遍历8行。数据行是单向链表，所以只能从组内第一行往后遍历。通过
+<strong>上组最后一行的 next_record 可以获得当前组内第一行</strong>
+。所以最小行单独为一组，起到头节点的作用。</li>
+</ul></li>
+<li><h2 id="数据页-和-b树">数据页 和 B+树</h2>
+<p>  已知：<strong>一个索引，对应一个B+树；一个树节点，对应一个数据页</strong>
+。将上面的<a
+href="#jump_mysql_page"><font color="#007FFF">页结构</font></a>简化为：<br />
+<img src="/assets/posts_jpg/数据库/Mysql_索引_页结构_2_typeA.jpg"
+alt="Mysql_索引_页结构_2_typeA" /><br />
+  如上图所示，B+树中一个叶子节点，对应一个数据页。一个数据页只有16KB，当一页空间不够存储新数据时，就需要保存在其他数据页中，数据页在物理地址上不一定是连续的，通过页结构中的文件头实现逻辑上相连。效果为：<br />
+<img src="/assets/posts_jpg/数据库/Mysql_索引_B+树和页结构_1.jpg"
+alt="Mysql_索引_B+树和页结构_1" /><br />
+  数据页构成的双向链表，就是B+树中的叶子节点。和页目录思路相似：为了知道查询目标在哪个页中，需要对数据页添加索引，也就是B+树中非叶节点的功能。为了和数据页区分，后续称其为
+<strong>索引页</strong> 。将每个数据页中 <strong>最小</strong>
+的数据行的索引值，和该页地址，存储在上层 索引页
+的数据行中。大致效果为：<br />
+<img src="/assets/posts_jpg/数据库/Mysql_索引_B+树和页结构_2.jpg"
+alt="Mysql_索引_B+树和页结构_2" /><br />
+  假设查询目标为 24，从 根节点 到 叶节点 查询流程大致为：</p>
+<ol type="1">
+<li>在 pageR 页目录中通过 二分查找 定位到 槽1 所指向的组，因为 24 &lt;
+25，得到后续页地址 pageD。</li>
+<li>在 pageD 页目录中通过 二分查找 定位到 槽1 所指向的组，因为 24 &gt;
+13，得到后续页地址 pageB。</li>
+<li>在 pageB 页目录中通过 二分查找 定位到 槽3 所指向的组，从 21
+开始顺序遍历，得到 24 所在的数据行。</li>
+</ol>
+<p>  上述流程涉及到3个页，对应3次磁盘IO。<br />
+  数据行头信息标记位 <em>min_rec_mask</em> ，表示 索引页
+中值最小的数据行。上图中，红色数字的数据行，就是 <em>min_rec_mask</em>
+标记位置为 1 的数据行。因为 索引页 只需要存储 索引字段 和
+对应的页地址，不需要存储用户数据，所以省下的空间能够存储更多的数据行。这样就相当于优化了B+树的高度。</p></li>
+<li><h2 id="聚簇索引-和-非聚簇索引">聚簇索引 和 非聚簇索引</h2>
+<ul>
+<li><p>聚簇索引<br />
+  索引和用户数据存储在一起，就是 聚簇索引。如 InnoDB
+的主键索引，用户数据存储在B+树的叶节点中。</p></li>
+<li><p>非聚簇索引<br />
+  索引和用户数据分开存储，就是 非聚簇索引，也称为 二级索引。如 InnoDB
+的非主键索引，叶节点保存的是主键值。</p></li>
+</ul>
+<p>  在InnoDB中，非聚簇索引B+树叶节点的数据行保存的是 <strong>索引字段
+和 该行主键值</strong> 。叶节点只需要保存主键值，所以
+非聚簇索引B+树的数据页，能比主键索引的数据页存储更多数据行。在用户数据量相同的情况下，非主键索引的数据页数量会
+<strong>小于</strong> 主键索引的数据页，更少的数据页 等于
+更少的磁盘IO。<br />
+  但是，非聚簇索引没有完整的用户数据，所以当 查询范围
+超出了已有的索引字段和主键字段时，需要通过主键字段和主键索引获得额外数据，这个再查询一次主键B+树的过程，称为
+<strong>回表</strong> 。相同思路，如果 查询范围 包含在已有的索引字段和
+主键字段 时，只通过当前B+树就能获得所需要的查询目标，避免了回表，这称为
+<strong>覆盖索引</strong> 。<br />
+  当在非主键索引B+树中查询目标时，算上可能存在的回表操作，会有：非主键索引需要的磁盘IO
++
+回表需要的磁盘IO。而全表扫描，也就是：直接遍历主键B+树的所有叶节点。如果全表扫描的磁盘IO次数
+小于
+非主键+回表，那么就会出现有索引但还是使用全表扫描情况。像上述这些场景，在索引设计和使用没有差错，那会由
+<strong>优化器</strong> 来判断执行。</p>
+<ul>
+<li><h3 id="二级索引-和-索引扩展-index-extensions">二级索引 和 索引扩展
+(Index Extensions)</h3>
+  InnoDB会自动扩展二级索引，将二级索引视为：二级索引字段 +
+主键索引字段。使得在二级索引中，数据行先根据该索引排序，再根据该行对应的主键值排序。<br />
+  假设有 主键索引 (A，B)，二级索引
+C。二级索引中每个数据行存储的是该行的主键值，也就是 (A，B)。InnoDB
+会自动扩展该二级索引，将其视为 (C，A，B)，该二级索引的数据行按照 C、A、B
+的顺序排序。二级索引 C 相当于 联合索引 (C，A，B)。<br />
+  因此可以避免创建多余的索引。如：已有主键索引 (A，B) 和 二级索引 C
+的情况下，不需要创建 (C，A，B) 索引。</li>
+</ul></li>
+<li><h2 id="联合索引">联合索引</h2>
+<p>  联合索引B+树结构大致为：<br />
+<img src="/assets/posts_jpg/数据库/Mysql_索引_联合索引_1.jpg"
+alt="Mysql_索引_联合索引_1" /><br />
+  如上图所示，联合索引依旧有序，顺序规则遵循最左前缀。</p>
+<ul>
+<li><h3 id="最左前缀原则">最左前缀原则</h3>
+<p>  创建的联合索引，该索引从最左边字段开始排序。<br />
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT name,age,code,address FROM table_1 WHERE age &#x3D; 33 AND name &#x3D; &#39;AAA&#39; AND code &gt; 13 AND address LIKE &#39;%B%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>   假设table_1中有联合索引 (name，age，code，address)
+。该索引的数据行先以 name 排序，在 name 相等的数据行中，再以 age
+排序，以此类推。也就是说在联合索引中，当此列的前一列为定值时，此列有序。<br />
+  上面的SQL，数据行以 name 有序，所以查询条件 name = 'AAA'
+可以通过该联合索引查询。在 name = 'AAA' 下，数据行以 age 有序，同理 age
+= 33 可以通过该联合索引查询。同理当 name，age 为定值时，数据行以 code
+有序，code &gt; 13 的范围查询能走该索引。但是 code &gt; 13
+不是定值，为范围查询，此时 address
+无序，不能通过索引查询。最终可以得到：上述SQL，只有 name，age，code
+这些列通过该索引查询。<br />
+  以上能得到：(name，age，code，address) 的联合索引 = (name) +
+(name，age) + (name，age，code) +
+(name，age，code，address)，建立一个联合索引，相当于建立多个索引。<br />
+  因为优化器的存在，所以SQL中查询条件的顺序不影响结果。就像上面的SQL中，age
+在 name 之前，不会对查询产生影响。</p></li>
+<li><h3 id="索引下推">索引下推</h3>
+<p>  下推是指：服务层将查询条件交给存储引擎处理。当查询目标超过非聚簇索引范围，就需要通过主键值回表查询。查询条件中如果包含该索引中的列，存储引擎会先筛选出符合条件的数据行，再回表查询。<br />
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT * FROM table_1 WHERE name LIKE &#39;A%&#39; AND age &#x3D; 22 AND phone LIKE &#39;111%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>   假设table_1表中，有联合索引
+(name，age)，数据行保存三个数据：name，age，主键值。根据最左前缀原则，上面的SQL，会先匹配
+name 为 A开头 的数据行，再从这些数据行中匹配 age 为 22
+的数据行，在该索引包含的两个列条件匹配后，再回表查询匹配最后 111开头的
+phone。<br />
+  不需要在匹配了 name 后就回表查询判断 age 和 phone，而是 age
+也匹配后再回表，实现 <strong>优化回表次数</strong> 。</p></li>
+</ul></li>
+</ul></li>
+<li><h1 id="mysql锁机制">MySQL锁机制 <span
+id="jump_mysql_lock_title"></span></h1>
+<ul>
+<li><h2 id="pcc悲观并发控制-悲观锁">PCC悲观并发控制 (悲观锁) <span
+id="jump_mysql_lock"></span></h2>
+<ul>
+<li><h3 id="锁信息">锁信息</h3></li>
+<li><h3 id="锁的类型分为">锁的类型分为：</h3>
+<ul>
+<li><h4 id="共享锁">共享锁</h4></li>
+<li><h4 id="排他锁">排他锁</h4></li>
+</ul></li>
+<li><h3 id="锁的作用域分为">锁的作用域分为：</h3>
+<ul>
+<li><h4 id="全局锁">全局锁</h4>
 <p>  对整个库加 读锁 (Flush Tables With Read
 Lock)，所有线程在该库中只能执行读操作。更新数据DML、更新表结构DDL
 等操作会被阻塞。一般对整个库做备份时使用。<br />
-  对于 innoDB引擎
+  对于 InnoDB引擎
 来说，事务的可重复读隔离级别，能做到开启事务时，得到一个视图。该视图能够保证操作数据的一致，因此没必要使用全局锁。</p></li>
-<li><h3 id="表锁">表锁</h3>
+<li><h4 id="表锁">表锁</h4>
 <ul>
-<li>表数据锁<br />
-  对数据加锁</li>
-<li>元数据锁，Meta Data Lock<br />
-  对表结构加锁</li>
+<li><p>表数据锁<br />
+  对数据加锁</p></li>
+<li><p>元数据锁，Meta Data Lock<br />
+  对表结构加锁，在访问表时，会自动添加该锁，防止其他线程修改表结构。</p></li>
 </ul></li>
-<li><h3 id="行锁">行锁</h3>
-<p>行锁由引擎层实现</p></li>
+<li><h4 id="行锁">行锁</h4>
+<p>行锁由引擎层实现，部分引擎不支持行锁。</p></li>
 </ul></li>
-<li><h2 id="mvcc">MVCC</h2>
+<li><h3 id="死锁检测">死锁检测</h3></li>
+<li><h3 id="gap-lock">Gap-Lock</h3></li>
+<li><h3 id="next-key-lock">Next-Key-Lock</h3>
+行锁 + Gap Lock</li>
+</ul></li>
+<li><h2 id="occ乐观并发控制-乐观锁">OCC乐观并发控制 (乐观锁)</h2>
 <ul>
-<li><h3 id="乐观并发控制">乐观并发控制</h3></li>
-<li><h3 id="悲观并发控制">悲观并发控制</h3></li>
+<li><h3 id="compare-and-swap-机制">Compare And Swap 机制</h3></li>
 </ul></li>
-<li><h2 id="gap-lock">GAP LOCK</h2></li>
-<li><h2 id="next-key-lock">NEXT KEY LOCK</h2></li>
-</ul></li>
-<li><h1 id="mysql的日志">MySQL的日志</h1>
+<li><h2 id="mvcc多版本并发控制">MVCC多版本并发控制 <span
+id="jump_mysql_mvcc"></span></h2>
+<p>  不同时间开启的事务，对同一行数据的读写操作，之间互不影响。MVCC 基于
+ReadView 访问 <a
+href="#jump_mysql_undolog"><font color="#007FFF">不同版本的数据行</font></a>。</p>
 <ul>
-<li><h2 id="wal-write-ahead-logging">WAL Write-Ahead Logging</h2>
+<li><h3 id="readview-读视图">ReadView 读视图</h3>
+<p>  执行SQL语句，提取数据的方式有两种：</p>
+<ul>
+<li><p>快照读 <span id="jump_mysql_rv_1"></span><br />
+  不加锁的 select 读操作。只有 RC 和 RR 隔离级别会有
+快照读SQL。读取的是快照数据。所谓的 快照数据 就是：undo log
+数据回滚链中的某一版本数据，由 ReadView 判断数据版本的可见性。</p></li>
+<li><p>当前读 <span id="jump_mysql_rv_2"></span><br />
+  加锁的 select 和
+insert、update、delete等写操作，这些写操作会自动加写锁。串行化隔离级别下，执行的都是当前读SQL。当前读读取的是数据行最新提交的版本。</p></li>
+</ul>
+<p>  MVCC是基于 ReadView 执行 <strong>快照读SQL</strong> 的。如果执行
+当前读SQL，不管是 RR 还是 RC
+隔离级别，都会读取最新提交结果，无视版本链。<br />
+  ReadView 相当于数据行版本链可见性的规则。ReadView
+本质上是一个数据结构：</p>
+<ul>
+<li><p>creator_trx_id<br />
+  创建该 ReadView 的事务的id。</p></li>
+<li><p>m_ids<br />
+  该 ReadView 创建时，还未提交的事务id集合。</p></li>
+<li><p>min_trx_id<br />
+  该 ReadView 创建时，还未提交 且 最早 的事务的id，也就是 m_ids 中最小的
+trx_id。</p></li>
+<li><p>max_trx_id<br />
+  该 ReadView 创建时，不管是否提交 且 最晚 的事务的id +
+1，表示此时未开启，接下来开启的事务的id。</p></li>
+</ul>
+<p>  每一个 ReadView 都相当于：<br />
+<img src="/assets/posts_jpg/数据库/Mysql_ReadView.jpg"
+alt="Mysql_ReadView" /></p></li>
+<li><h3 id="多版本数据行可见性规则">多版本数据行可见性规则 <span
+id="jump_mysql_mvcc_ruler"></span></h3>
+<p>  MVCC的实现在于：通过 ReadView
+来判断，当前事务应该读取的数据行的哪一个版本。可见性规则有：</p>
+<ul>
+<li><p>row trx_id &lt; min_trx_id<br />
+  如果数据行的 trx_id &lt; ReadView 的
+min_trx_id，表示该数据行版本对应的事务，在当前 ReadView
+创建时已提交。因此该版本可见。</p></li>
+<li><p>row trx_id &gt;= max_trx_id<br />
+  如果数据行的 trx_id &gt;= ReadView 的
+max_trx_id，表示该数据行版本对应的事务，是在当前 ReadView
+创建后才开启的事务。因此该版本不可见。</p></li>
+<li><p>row trx_id 和 m_ids集合<br />
+  当数据行的 trx_id 不符合上面两个条件，也就是 min_trx_id &lt;= row
+trx_id &lt; max_trx_id。如果 row trx_id 在 m_ids 中，那么表示当前
+ReadView 创建时，事务未提交，因此数据不可见。如果 row trx_id 不在 m_ids
+中，表示事务已提交，因此数据可见。</p></li>
+</ul>
+<p><img src="/assets/posts_jpg/数据库/Mysql_ReadView可见性规则.jpg"
+alt="Mysql_ReadView可见性规则" /><br />
+  如上图所示，假设创建该 ReadView 的事务 trx_id = 10，则有：</p>
+<ul>
+<li>creator_trx_id = 10</li>
+<li>m_ids = [3,5,7,8,10]</li>
+<li>min_trx_id = 3</li>
+<li>max_trx_id = 11</li>
+</ul>
+<p>  当访问的数据行版本 row trx_id &lt; 3
+时，表示对应的事务已提交，可以访问。<br />
+  当访问的数据行版本 row trx_id &gt;= 11
+时，表示对应的事务是后来才开启的，不可访问。<br />
+  row trx_id = 10 的数据行版本，为当前事务生成，因此可见。   剩下的 row
+trx_id，根据是否在 m_ids 中来判断是否可见。</p></li>
+</ul></li>
+</ul></li>
+<li><h1 id="mysql并发">MySQL并发</h1>
+<ul>
+<li><h2 id="并发时可能出现的问题">并发时可能出现的问题</h2>
+<ul>
+<li><p>脏读<br />
+  当前线程的读操作，读取到其他线程 <strong>未提交</strong>
+操作的数据，而这些数据可能会因为事务的回滚而失效，使得当前线程读取到了
+<strong>脏数据</strong> 。脏数据 ≠ 旧数据。</p></li>
+<li><p>不可重复读<br />
+  其他线程 <strong>修改或删除</strong>
+某一数据行并提交，使得当前线程对该数据行的查询结果，前后不一致。和幻读相比，不可重复读的场景为已有数据发生改变，简单来说就是数据行的更新或者删除。</p></li>
+<li><p>幻读<br />
+  其他线程 <strong>插入</strong>
+满足条件的新数据并提交，使得当前线程查询该条件的数据集结果，前后不一致。和不可重复读相比，幻读的场景为插入新的数据，简单来说就是数据行的新增。</p></li>
+</ul></li>
+<li><h2 id="事务的特性">事务的特性</h2>
+<ul>
+<li><p>原子性<br />
+<a href="#jump_mysql_undolog"><font color="#007FFF">undo
+log</font></a></p></li>
+<li><p>隔离性<br />
+  避免事务之间操作的相互干扰。通过<a
+href="#jump_mysql_lock_title"><font color="#007FFF">MySQL锁机制</font></a>来实现。四种隔离级别：</p>
+<ul>
+<li><p>读未提交<br />
+  1</p></li>
+<li><p>读提交<br />
+  基于 <a href="#jump_mysql_mvcc"><font color="#007FFF">MVCC</font></a>
+实现并发控制。每次读取都会生成一个
+ReadView，所以快照读SQL，会出现不可重复读、幻读问题。</p></li>
+<li><p>可重复读<br />
+  基于 <a href="#jump_mysql_mvcc"><font color="#007FFF">MVCC</font></a>
+实现并发控制。在事务执行第一次读取时生成 ReadView
+直到事务结束。</p></li>
+<li><p>串行化<br />
+  在该隔离等级下，事务中的读写操作，会自动添加 读或写 的行锁，等价于
+SQL语句后面加上 LOCK IN SHARE MODE 或 FOR
+UPDATE。在事务提交后释放锁。所有的读取和写入操作都是串行执行的，每个事务都在独占使用资源。基于
+<a href="#jump_mysql_lock"><font color="#007FFF">悲观锁</font></a>
+实现并发控制。</p></li>
+</ul></li>
+<li><p>持久性<br />
+<a href="#jump_mysql_redolog"><font color="#007FFF">redo
+log</font></a></p></li>
+<li><p>一致性<br />
+  事务的最终目的，保证数据的正确，由 原子性 + 隔离性 + 持久性
+实现。</p></li>
+</ul></li>
+<li><h2 id="并发控制">并发控制</h2>
+<ul>
+<li><h3 id="mvcc">MVCC</h3>
+<ul>
+<li><p>MVCC 处理 脏读、不可重复读<br />
+  根据 ReadView 可见规则可得，未提交的数据无法读取。<br />
+  可重复读隔离级别，只会生成一个 ReadView，其他事务的修改操作和该
+ReadView 没关系。在该隔离级别下，不会出现不可重复读。</p></li>
+<li><p>MVCC 处理 幻读</p>
+<ul>
+<li><p>快照读   可重复读隔离级别，只会生成一个
+ReadView，其他事务的修改操作和该 ReadView 没关系。在该隔离级别下，只执行
+快照读SQL 不会出现幻读。</p></li>
+<li><p>当前读<br />
+  间隙锁</p></li>
+</ul></li>
+<li><p>可重复读 为什么还会出现 幻读<br />
+  如果其他事务插入 符合某个条件的数据 并提交，且当前事务中执行了 update
+该条件的数据集。update
+是当前读SQL，会导致该数据集中版本更新，且该版本数据行的事务id指向当前事务，从而符合
+ReadView 规则。后续再执行 快照读SQL 就会发生幻读。</p></li>
+</ul></li>
+<li><h3 id="锁">锁</h3></li>
+</ul></li>
+</ul></li>
+<li><h1 id="mysql日志">MySQL日志</h1>
+<ul>
+<li><h2 id="write-ahead-logging">Write Ahead Logging</h2>
 <p>先写日志、再写入磁盘</p></li>
-<li><h2 id="redo-log-重做日志">Redo Log 重做日志</h2>
-<p>crash safe innoDB引擎层的日志 记录的是执行 SQL语句 的结果</p>
+<li><h2 id="回滚日志undo-log">回滚日志：undo log <span
+id="jump_mysql_undolog"></span></h2>
+<p>  每个事务执行写操作都会记录一条对应的log。在MySQL执行器执行SQL时，会生成一个undo
+log，然后才执行SQL数据在内存中的写</p>
+<ul>
+<li><h3 id="日志结构">日志结构</h3>
+<p>基本信息 + 操作信息</p></li>
+<li><h3 id="数据行版本链">数据行版本链</h3>
+<p><a
+href="#jump_mysql_row"><font color="#007FFF">数据行</font></a></p></li>
+</ul></li>
+<li><h2 id="重做日志redo-log">重做日志：redo log <span
+id="jump_mysql_redolog"></span></h2>
+<p>InnoDB引擎的日志，循环写 write pos + check pos<br />
+crash safe</p>
+<p>redolog是物理日志，记录的是执行 SQL语句 的结果</p>
 <ul>
 <li><h3 id="两阶段提交">两阶段提交</h3></li>
 </ul></li>
-<li><h2 id="binlog-归档日志">BinLog 归档日志</h2>
-<p>Server层的日志，无关引擎 记录的 SQL语句</p></li>
+<li><h2 id="归档日志binlog">归档日志：binlog <span
+id="jump_mysql_binlog"></span></h2>
+<p>Server层的日志，无关引擎，追加写
+binlog是逻辑日志，记录执行的SQL语句</p></li>
+</ul></li>
+<li><h1 id="存储引擎">存储引擎</h1>
+<ul>
+<li><h2 id="innodb">InnoDB</h2>
+<p>文件 ibd -&gt; data + 索引</p>
+<ul>
+<li><h3 id="idb文件">IDB文件</h3></li>
+<li><h3 id="buffer-pool">Buffer Pool</h3>
+<ul>
+<li><h4 id="free链表">free链表</h4>
+<p>管理 buffer pool 空闲区域</p></li>
+<li><h4 id="flush链表">flush链表</h4>
+<p>管理 buffer pool 中被修改过的 数据页，将修改过的数据页
+持久化到磁盘中。</p></li>
+<li><h4 id="lru链表">lru链表</h4>
+<p>最少使用链表，当 buffer pool空间不够时，淘汰内存中的数据页。</p></li>
+</ul></li>
+<li><h3 id="log-pool">Log Pool</h3></li>
+</ul></li>
 </ul></li>
 </ul>
 <!--

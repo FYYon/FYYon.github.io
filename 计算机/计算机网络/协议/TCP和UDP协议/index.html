@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -345,21 +345,19 @@ alt="TCP窗口数据包丢失" /><br />
 ，使得建立连接的序列号更随机，增加安全性。初始化序列号也就是，增加通信安全的方法之一。</p></li>
 <li><h3 id="半连接全连接队列">半连接，全连接队列</h3>
 <ul>
-<li>半连接队列
-：也就是SYN队列。当接收端收到SYN后，会将该连接相关信息保存在半连接队列。<br />
-</li>
-<li>全接连队列
-：也就是accept队列。当接收端收到ACK后，会将该连接从半连接队列中移除，并创建新的全连接保存在全连接队列。通过Socket的accept()，将连接从全连接队列中取出。<br />
-</li>
-<li>半连接队列溢出
-：当半连接队列已满时，发送端的SYN报文就会被丢弃。如果攻击者一直发送SYN包且不发送ACK包，那么接收端就会有大量处于SYN_RCVD的TCP连接，从而导致半连接队列溢出。接收端可以开启
-<strong>tcp_syncookies</strong> 防御SYN攻击。<br />
-</li>
-<li>全连接队列溢出 ：当全连接队列已满时。接收端 <strong>默认</strong>
+<li><p>半连接队列<br />
+  也就是SYN队列。当接收端收到SYN后，会将该连接相关信息保存在半连接队列。</p></li>
+<li><p>全接连队列<br />
+  也就是accept队列。当接收端收到ACK后，会将该连接从半连接队列中移除，并创建新的全连接保存在全连接队列。通过Socket的accept()，将连接从全连接队列中取出。</p></li>
+<li><p>半连接队列溢出<br />
+  当半连接队列已满时，发送端的SYN报文就会被丢弃。如果攻击者一直发送SYN包且不发送ACK包，那么接收端就会有大量处于SYN_RCVD的TCP连接，从而导致半连接队列溢出。接收端可以开启
+<strong>tcp_syncookies</strong> 防御SYN攻击。</p></li>
+<li><p>全连接队列溢出<br />
+  当全连接队列已满时。接收端 <strong>默认</strong>
 会丢弃发送端的ACK包。此时，发送端处于 ESTABLISHED 状态，接收端依然处于
 SYN_RCVD 状态，发送端此时发送数据也不会得到接收端回应。而接收端会重发
 SYN+ACK 包，重发次数超过 <strong>tcp_synack_retries</strong> 后，会发送
-<strong>RST</strong> 给发送端重置连接。</li>
+<strong>RST</strong> 给发送端重置连接。</p></li>
 </ul>
 <p>  除了上面说的默认行为：丢弃ACK包，然后接收端重发 SYN+ACK
 包之外，另一种是，当接收端收到ACK包后，直接发送 <strong>RST</strong>

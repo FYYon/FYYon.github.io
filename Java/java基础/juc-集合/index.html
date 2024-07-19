@@ -140,7 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#concurrenthashmap"><span class="nav-number">1.</span> <span class="nav-text">ConcurrentHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#addcount%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">addCount方法实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E5%8F%8A%E8%8A%82%E7%82%B9%E4%BD%8D%E7%BD%AE%E8%BD%AC%E7%A7%BBtransfer%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">扩容及节点位置转移，transfer方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E6%89%A9%E5%AE%B9helptransfer%E6%96%B9%E6%B3%95%E5%92%8Ctransfer%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">辅助扩容，helpTransfer方法和transfer方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#copyonwritearraylist"><span class="nav-number">2.</span> <span class="nav-text">CopyOnWriteArrayList</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#concurrenthashmap"><span class="nav-number">1.</span> <span class="nav-text">ConcurrentHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#addcount%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">addCount方法实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E5%8F%8A%E8%8A%82%E7%82%B9%E4%BD%8D%E7%BD%AE%E8%BD%AC%E7%A7%BBtransfer%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">扩容及节点位置转移，transfer方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E6%89%A9%E5%AE%B9helptransfer%E6%96%B9%E6%B3%95%E5%92%8Ctransfer%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">辅助扩容，helpTransfer方法和transfer方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#copyonwrite"><span class="nav-number">2.</span> <span class="nav-text">CopyOnWrite</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#copyonwritearraylist"><span class="nav-number">2.1.</span> <span class="nav-text">CopyOnWriteArrayList</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -166,7 +166,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -463,7 +463,10 @@ id="辅助扩容helptransfer方法和transfer方法">辅助扩容，helpTransfer
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>  helptransfer方法调用transfer方法来迁移节点。transfer方法只有发起扩容的线程会在nextTab传null，表示要新建数组。其他线程可直接通过fwd节点获得新数组，不要再创新数组。</p></li>
 </ul></li>
-<li><h1 id="copyonwritearraylist">CopyOnWriteArrayList</h1></li>
+<li><h1 id="copyonwrite">CopyOnWrite</h1>
+<ul>
+<li><h2 id="copyonwritearraylist">CopyOnWriteArrayList</h2></li>
+</ul></li>
 </ul>
 
     </div>

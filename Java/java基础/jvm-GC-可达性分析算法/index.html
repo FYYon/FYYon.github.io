@@ -164,7 +164,7 @@ Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -175,7 +175,7 @@ Map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -366,12 +366,13 @@ world的影响。只是在离开安全区域时，要判断能否离开。</p></
 alt="可达性分析三色标记法" /><br />
   由图中所示，三色标记法状态分为三种：</p>
 <ul>
-<li><p>黑色 ：该节点已访问，且对象中field字段的节点
-<strong>全部</strong> 都访问完成，标记为黑色节点。</p></li>
-<li><p>灰色
-：该节点已访问，但对象中字段的节点还没访问，或者没全部访问完，标记为灰色节点。</p></li>
-<li><p>白色
-：没被访问到的节点。不可达的垃圾对象一定是白色节点，白色节点不一定是垃圾对象。</p></li>
+<li><p>黑色<br />
+  该节点已访问，且对象中field字段的节点 <strong>全部</strong>
+都访问完成，标记为黑色节点。</p></li>
+<li><p>灰色<br />
+  该节点已访问，但对象中字段的节点还没访问，或者没全部访问完，标记为灰色节点。</p></li>
+<li><p>白色<br />
+  没被访问到的节点。不可达的垃圾对象一定是白色节点，白色节点不一定是垃圾对象。</p></li>
 <li><h2 id="三色标记法大概流程">三色标记法大概流程</h2>
 <p>  一开始所有对象都在白色集合中，GC
 Roots可直接关联对象标记为灰色，并从白色集合中移除，加入到灰色集合中。从灰色集合中依次取出对象，并遍历该灰色对象中的字段的对象，将遍历到的对象移出白色集合并加入到灰色集合中。当该对象的全部字段对象加入到灰色后，加入到黑色集合中。</p></li>

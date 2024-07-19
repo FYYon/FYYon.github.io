@@ -2788,3 +2788,15 @@ mark.search-keyword {
   color: #87daff;
   font-weight: bold;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #87daff;
+}
+.post-title,
+.site-title {
+  color: inherit;
+}

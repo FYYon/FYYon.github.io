@@ -166,7 +166,7 @@ singletonFactories</span></a></li><li class="nav-item nav-level-3"><a class="nav
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +177,7 @@ singletonFactories</span></a></li><li class="nav-item nav-level-3"><a class="nav
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -373,21 +373,21 @@ InvocationHandler接口实现类中重写的invoke()方法。JDK动态代理是�
 <ul>
 <li><h3 id="spring事务的传播性">Spring事务的传播性</h3>
 <ul>
-<li>Propagation.REQUIRED：支持当前事务，如果当前有事务，就运行在当前事务中。如果没有则新建事务。<br />
-</li>
-<li>Propagation.SUPPORTS：支持当前事务，如果当前有事务，就运行到当前事务中。如果没有，就以非事务方式执行。<br />
-</li>
-<li>Propagation.MANDATORY：支持当前事务，如果当前有事务，就运行在当前事务中。如果没有，抛出异常。<br />
-</li>
-<li>Propagation.REQUIRES_NEW
-：不支持当前事务，新建事务，如果当前有事务，则挂起当前事务。该方法不受调用者影响，也即
-父级(调用该方法的方法) 抛出异常，不影响该方法。<br />
-</li>
-<li>Propagation.NOT_SUPPROTED：不支持当前事务，以非事务方式执行，如果当前有事务，则挂起当前事务。<br />
-</li>
-<li>Propagation.NEVER：不支持当前事务，如果当前存在事务，则抛出异常。<br />
-</li>
-<li>Propagation.NESTED：如果当前没有事务，就新建事务，如果当前有事务，成为父事务的子事务，只有父事务结束，才提交。子事务异常不影响父事务。父事务异常影响子事务而回滚。</li>
+<li><p>Propagation.REQUIRED<br />
+  支持当前事务，如果当前有事务，就运行在当前事务中。如果没有则新建事务。</p></li>
+<li><p>Propagation.SUPPORTS<br />
+  支持当前事务，如果当前有事务，就运行到当前事务中。如果没有，就以非事务方式执行。</p></li>
+<li><p>Propagation.MANDATORY<br />
+  支持当前事务，如果当前有事务，就运行在当前事务中。如果没有，抛出异常。</p></li>
+<li><p>Propagation.REQUIRES_NEW<br />
+  不支持当前事务，新建事务，如果当前有事务，则挂起当前事务。该方法不受调用者影响，也即
+父级(调用该方法的方法) 抛出异常，不影响该方法。</p></li>
+<li><p>Propagation.NOT_SUPPROTED<br />
+  不支持当前事务，以非事务方式执行，如果当前有事务，则挂起当前事务。</p></li>
+<li><p>Propagation.NEVER<br />
+  不支持当前事务，如果当前存在事务，则抛出异常。</p></li>
+<li><p>Propagation.NESTED<br />
+  如果当前没有事务，就新建事务，如果当前有事务，成为父事务的子事务，只有父事务结束，才提交。子事务异常不影响父事务。父事务异常影响子事务而回滚。</p></li>
 </ul></li>
 </ul></li>
 <li><h3 id="transactional-的实现"><span class="citation"

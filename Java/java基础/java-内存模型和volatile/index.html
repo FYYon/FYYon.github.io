@@ -148,7 +148,7 @@
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
             <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-%E5%92%8C-%E6%8C%87%E4%BB%A4%E9%87%8D%E6%8E%92"><span class="nav-number">1.</span> <span class="nav-text">Java内存模型 和 指令重排</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu%E7%BC%93%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">cpu缓存模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">java内存模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%BC%93%E5%AD%98%E4%B8%BB%E5%86%85%E5%AD%98%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="nav-number">1.3.</span> <span class="nav-text">线程、缓存、主内存间的交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E9%87%8D%E6%8E%92"><span class="nav-number">1.4.</span> <span class="nav-text">指令重排</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#as-if-serial%E8%AF%AD%E4%B9%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">as-if-serial语义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#happens-before%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.2.</span> <span class="nav-text">happens-before原则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E5%92%8C%E6%8C%87%E4%BB%A4%E9%87%8D%E6%8E%92-%E5%AF%B9%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">2.</span> <span class="nav-text">缓存和指令重排
-对多线程的影响</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volatile%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">volatile的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">可见性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">有序性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="nav-number">3.3.</span> <span class="nav-text">不保证原子性：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volatile%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">volatile的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E8%8A%82%E7%A0%81%E5%B1%82"><span class="nav-number">4.1.</span> <span class="nav-text">字节码层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%B1%82"><span class="nav-number">4.2.</span> <span class="nav-text">虚拟机规范层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#loadload%E5%B1%8F%E9%9A%9C"><span class="nav-number">4.2.1.</span> <span class="nav-text">LoadLoad屏障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loadstore%E5%B1%8F%E9%9A%9C"><span class="nav-number">4.2.2.</span> <span class="nav-text">LoadStore屏障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#storestore%E5%B1%8F%E9%9A%9C"><span class="nav-number">4.2.3.</span> <span class="nav-text">StoreStore屏障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#storeload%E5%B1%8F%E9%9A%9C"><span class="nav-number">4.2.4.</span> <span class="nav-text">StoreLoad屏障</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%B1%82"><span class="nav-number">4.3.</span> <span class="nav-text">虚拟机汇编语言层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu%E5%B1%82"><span class="nav-number">4.4.</span> <span class="nav-text">cpu层</span></a></li></ol></li></ol></div>
+对多线程的影响</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volatile%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">volatile的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">可见性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">有序性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="nav-number">3.3.</span> <span class="nav-text">不保证原子性：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#volatile%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">volatile的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E8%8A%82%E7%A0%81%E5%B1%82"><span class="nav-number">4.1.</span> <span class="nav-text">字节码层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%E5%B1%82"><span class="nav-number">4.2.</span> <span class="nav-text">虚拟机规范层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%B1%82"><span class="nav-number">4.3.</span> <span class="nav-text">虚拟机汇编语言层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu%E5%B1%82"><span class="nav-number">4.4.</span> <span class="nav-text">cpu层</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,7 +163,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +174,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -283,31 +283,31 @@ alt="java内存模型" /></p></li>
 alt="内存间交互" /><br />
   内存线程间的交互有8个命令：</p>
 <ul>
-<li>lock 锁定 ：作用于 <strong>主内存数据</strong>
+<li><p>lock 锁定<br />
+  作用于 <strong>主内存数据</strong>
 ，将该数据表示为一个线程独占。当某个线程lock了一个变量，会
-<strong>清除缓存中的该变量</strong> 。<br />
-</li>
-<li>unlock 解锁 ：作用于 <strong>主内存数据</strong>
+<strong>清除缓存中的该变量</strong> 。</p></li>
+<li><p>unlock 解锁<br />
+  作用于 <strong>主内存数据</strong>
 ，将该数据解锁，解锁后才能有其他线程上锁。unlock
-之前，要把缓存中的值同步到主内存中，即要执行store，write指令。<br />
-</li>
-<li>read 读取 ：作用于 <strong>主内存数据</strong>
-，将数据读取到缓存中。一个数据被 read 之后，必被 load 到缓存中。<br />
-</li>
-<li>load 载入 ：作用于 <strong>缓存数据</strong> ，将从 read
-中读到的数据，保存到缓存中。<br />
-</li>
-<li>use 使用 ：作用于 <strong>缓存数据</strong>
-，将该数据传递给执行引擎。<br />
-</li>
-<li>assign 赋值 ：作用于 <strong>缓存数据</strong>
-，将执行引擎的数据赋值到缓存中。<br />
-</li>
-<li>store 存储 ：作用于 <strong>缓存数据</strong>
-，将缓存的值传到主内存中。数据被 store 后，必被 write 到主内存中。<br />
-</li>
-<li>write 写入 ：作用于 <strong>主内存数据</strong> ，将从 store
-得到的值保存到主内存中。</li>
+之前，要把缓存中的值同步到主内存中，即要执行store，write指令。</p></li>
+<li><p>read 读取<br />
+  作用于 <strong>主内存数据</strong> ，将数据读取到缓存中。一个数据被
+read 之后，必被 load 到缓存中。</p></li>
+<li><p>load 载入<br />
+  作用于 <strong>缓存数据</strong> ，将从 read
+中读到的数据，保存到缓存中。</p></li>
+<li><p>use 使用<br />
+  作用于 <strong>缓存数据</strong> ，将该数据传递给执行引擎。</p></li>
+<li><p>assign 赋值<br />
+  作用于 <strong>缓存数据</strong>
+，将执行引擎的数据赋值到缓存中。</p></li>
+<li><p>store 存储<br />
+  作用于 <strong>缓存数据</strong> ，将缓存的值传到主内存中。数据被
+store 后，必被 write 到主内存中。</p></li>
+<li><p>write 写入<br />
+  作用于 <strong>主内存数据</strong> ，将从 store
+得到的值保存到主内存中。</p></li>
 </ul>
 <p>  当从内存中读取某个数据时，流程为
 read，load，use。当把值写入到内存时，流程为
@@ -367,22 +367,22 @@ use 之后，assign 之前，缓存失效，那么就会造成数据丢失等问
 不能和 在屏障后边的操作 重排序。<br />
   JVM将内存屏障分为四类 <strong>规范</strong> (不是实现) ：</p>
 <ul>
-<li><h3 id="loadload屏障">LoadLoad屏障</h3>
-<p>  在读读操作间加LoadLoad屏障，禁止两个读操作重排序。在volatile变量
+<li><p>LoadLoad屏障<br />
+  在读读操作间加LoadLoad屏障，禁止两个读操作重排序。在volatile变量
 <strong>读操作之后</strong> ，添加LoadLoad屏障。在volatile读
 后添加该屏障，禁止 <em>该volatile读</em> 和 后续的 <em>读操作</em>
 的重排序。</p></li>
-<li><h3 id="loadstore屏障">LoadStore屏障</h3>
-<p>  在读写操作间加LoadStore屏障，禁止两个操作重排序。在volatile变量
+<li><p>LoadStore屏障<br />
+  在读写操作间加LoadStore屏障，禁止两个操作重排序。在volatile变量
 <strong>读操作之后</strong> ，添加LoadStore屏障。在volatile读
 后添加该屏障，禁止 <em>该volatile读</em> 和 后续的 <em>写操作</em>
 的重排序。</p></li>
-<li><h3 id="storestore屏障">StoreStore屏障</h3>
-<p>  在volatile变量 <strong>写操作之前</strong>
+<li><p>StoreStore屏障<br />
+  在volatile变量 <strong>写操作之前</strong>
 ，添加StoreStore屏障。在volatile写 前添加该屏障，保障在
 <em>该volatile写</em> 之前，前面的写操作结果对其可见。</p></li>
-<li><h3 id="storeload屏障">StoreLoad屏障</h3>
-<p>  在volatile变量 <strong>写操作之后</strong>
+<li><p>StoreLoad屏障<br />
+  在volatile变量 <strong>写操作之后</strong>
 ，添加StoreLoad屏障。在volatile写 后添加该屏障，确保
 <em>该volatile写</em> 的结果，对后面的读写操作可见。</p></li>
 </ul>
@@ -406,18 +406,27 @@ use 之后，assign 之前，缓存失效，那么就会造成数据丢失等问
 Line。cpu核可以观察到自己或者其他核对Cache Line的操作。Cache
 Line有四种状态：M 已修改、E 独占、S 共享、I 已失效。</p>
 <ul>
-<li><strong>M</strong> 已修改 ：cpu核操作中修改了数据，其他cpu核的Cache
-Line为I状态。缓存和内存中数据不一致。<br />
-</li>
-<li><strong>E</strong> 独占
-：从内存中获得数据添加到缓存中，其他cpu核没有该缓存，即为独占状态。缓存核内存中数据一致。<br />
-</li>
-<li><strong>S</strong> 共享
-：其他cpu核中也有该缓存，缓存内存中数据一致。<br />
-</li>
-<li><strong>I</strong> 已失效 ：该Cache Line
-已失效，缓存内存中数据不一致。</li>
-</ul></li>
+<li><p><strong>M</strong> 已修改<br />
+  cpu核操作中修改了数据，其他cpu核的Cache
+Line为I状态。缓存和内存中数据不一致。</p></li>
+<li><p><strong>E</strong> 独占<br />
+  从内存中获得数据添加到缓存中，其他cpu核没有该缓存，即为独占状态。缓存核内存中数据一致。</p></li>
+<li><p><strong>S</strong> 共享<br />
+  其他cpu核中也有该缓存，缓存内存中数据一致。</p></li>
+<li><p><strong>I</strong> 已失效<br />
+  该Cache Line 已失效，缓存内存中数据不一致。</p></li>
+</ul>
+<p><a
+target="_blank" rel="noopener" href="https://www.scss.tcd.ie/Jeremy.Jones/vivio/caches/MESI.htm"><font color="007FFF">MESI协议插件跳转</font></a></p>
+<script src="/js/third-party/MESI/funcs.js"></script>
+<script src="/js/third-party/MESI/vivio.js"></script>
+<script src="/js/third-party/MESI/MESI.js"></script>
+<canvas id="canvas" tabindex="1" style="width:100%; position:relative; display:block;">
+</canvas>
+<script>
+vplayer = new VPlayer("canvas", MESI);
+ajaxCounter("vivio", "caches");
+</script></li>
 </ul></li>
 </ul>
 
@@ -439,8 +448,8 @@ Line为I状态。缓存和内存中数据不一致。<br />
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Java/java%E5%9F%BA%E7%A1%80/juc-AQS/" rel="prev" title="AQS 和 juc中并发工具类">
-                  <i class="fa fa-angle-left"></i> AQS 和 juc中并发工具类
+                <a href="/Java/java%E5%9F%BA%E7%A1%80/juc-AQS/" rel="prev" title="java中的AQS">
+                  <i class="fa fa-angle-left"></i> java中的AQS
                 </a>
             </div>
             <div class="post-nav-item">
